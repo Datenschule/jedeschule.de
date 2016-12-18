@@ -1,0 +1,17 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "geocoder": "^0.2.2",
+    "jsonfile": "^2.4.0",
+    "nominatim": "^0.1.0",
+    "promise-ratelimit": "0.0.3"
+  }
+}
