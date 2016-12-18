@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  a {
+    text-decoration: none;
+  }
+}
+
+hr {
+  border-color:$base-border-color;
+}
+
+strong, b {
+  font-weight: $weight-bold;
+}
+
+em {
+  font-style: italic;
+}
+
+a img {
+  border: 0;
+  outline: 0;
+}
+
+[aria-hidden="true"] {
+  display: none;
+}
+
+
+

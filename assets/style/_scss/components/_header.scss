@@ -1,0 +1,121 @@
+header {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: solid 3px $base-border-color;
+  min-height: 84px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 0;
+  padding-right: 0;
+  background-color: white;
+}
+
+.header-logo {
+  float:left;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: $base-font-color;
+  }
+
+  .header-logo-img {
+    margin-top: 10px;
+    margin-left: 0;
+    height: 40px;
+    width: auto;
+    display: block;
+  }
+
+}
+
+.header-nav {
+  @include span-columns(12);
+
+  .nav {
+    margin-top: 0;
+    padding-left: 0;
+    float: left;
+    li {
+      display: inline-block;
+      margin-left: 10px;
+      padding-top: 8px;
+
+      a {
+        text-decoration: none;
+        color: $gray;
+        font-weight: bold;
+        font-size: 0.9em;
+        line-height: 0.9em;
+        position: relative;
+        padding-bottom: 3px;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: $base-border-color;
+          visibility: hidden;
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+          -webkit-transition: all 0.3s ease-in-out 0s;
+          transition: all 0.3s ease-in-out 0s;
+        }
+      }
+      &.active, &:hover {
+        a {
+          &:before {
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+          }
+        }
+      }
+      &.active {
+        a {
+          color: black;
+        }
+      }
+    }
+    li:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+}
+
+@include respond-to(medium-up) {
+
+  .header-logo {
+    margin-top: 8px;
+  }
+
+  .header-nav {
+    @include span-columns(9);
+    .nav {
+      margin-top: 16px;
+      float: right;
+    }
+  }
+}
+
+
+@include respond-to(large-up) {
+  .header-logo {
+    .header-logo-img {
+      margin-top: 2px;
+      height: 60px;
+    }
+  }
+  .header-nav {
+    .nav {
+      li {
+        margin-left: 20px;
+      }
+      margin-top: 18px;
+    }
+  }
+
+}

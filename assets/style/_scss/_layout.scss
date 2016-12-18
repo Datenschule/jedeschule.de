@@ -1,0 +1,304 @@
+// Container
+//
+// .container-outer - should be placed on an outer div for appropriate padding
+// .container-left - 7/12 width container that floats left
+// .container-right - 5/12 width container that floats left
+// .container-left-8 - 8/12 width container that floats left
+// .container-right-4 - 4/12 width container that floats left
+// .container-half - 6/12 width container that floats left
+// .container-padded - full width container with padding
+
+.container {
+  @include outer-container($max-width);
+}
+
+.container-title {
+  margin-bottom: 13px;
+  font-size: 0.8em;
+  border-bottom: 2px solid #ebebeb;
+}
+
+.container-outer {
+  @extend .container;
+  padding-left: $base-padding;
+  padding-right: $base-padding;
+
+  @include respond-to(huge-plus) {
+    margin-left: $base-padding;
+    margin-right: $base-padding;
+  }
+
+  @include respond-to(huge-up) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+%container-side {
+
+  @include span-columns(12);
+
+  padding-bottom: $base-padding;
+
+  @include respond-to(huge-up) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-left,
+.container-left-7 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(7);
+
+  }
+}
+
+.container-left-8 {
+  @extend %container-side;
+
+  @include span-columns(12);
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(8);
+
+  }
+}
+
+.container-left-9 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(9);
+
+  }
+}
+
+.container-left-10 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(10);
+
+  }
+}
+
+.container-left-6 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(6);
+
+  }
+}
+
+.container-left-5 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(5);
+
+  }
+}
+
+.container-left-4 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(4);
+
+  }
+}
+
+.container-left-3 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(3);
+
+  }
+}
+
+.container-left-2 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(2);
+
+  }
+}
+
+.container-left-1 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(1);
+
+  }
+}
+
+.container-right-1 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(1);
+
+  }
+}
+
+.container-right,
+.container-right-5 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(5);
+
+  }
+}
+
+.container-right-4 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(4);
+
+  }
+}
+
+.container-right-6 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(6);
+    @include omega();
+  }
+}
+
+.container-right-3 {
+  @extend %container-side;
+
+  @include span-columns(12);
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(3);
+  }
+}
+
+.container-right-7 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(8);
+
+  }
+}
+
+.container-right-8 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(8);
+
+  }
+}
+
+.container-right-9 {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(9);
+
+  }
+}
+
+.container-half {
+  @extend %container-side;
+
+  @include respond-to(medium-up) {
+
+    @include span-columns(6);
+
+    @include omega(odd);
+
+  }
+}
+
+.container-padded {
+  padding-left: $base-padding;
+  padding-right: $base-padding;
+  padding-bottom: $base-padding;
+  padding-top: $base-padding / 2;
+
+  @include respond-to(medium-up) {
+    padding-bottom: $base-padding-extra;
+    padding-top: $base-padding-extra;
+  }
+}
+
+
+.container-padded-top {
+  padding-top: $base-padding-extra;
+}
+
+.container-padded-bottom {
+  padding-bottom: $base-padding-extra;
+}
+
+.container-margin {
+  margin-bottom: $base-padding-extra;
+  margin-top: $base-padding-extra;
+}
+
+.container-wrap-row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: space-around;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  padding-bottom: 20px;
+}
+
+.container-wrap-item {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.container-wrap-item-2 {
+  width: 100%;
+  @include respond-to(medium-up) {
+    width: 49%;
+  }
+}
+
+.container-wrap-item-3 {
+  width: 100%;
+  @include respond-to(medium-up) {
+    width: 30%;
+  }
+}

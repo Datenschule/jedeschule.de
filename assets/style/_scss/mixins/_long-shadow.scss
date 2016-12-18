@@ -1,0 +1,131 @@
+/// Function to generate long shadows (because flat is so has-been).
+/// Property-agnostic: works for both `box-shadow` and `text-shadow`.
+/// `cos` and `sin` might need to be polyfilled if Compass or any
+/// equivalent such as SassyMath is not in use.
+///
+/// @author Hugo Giraudel
+///
+/// @link https://unindented.org/articles/trigonometry-in-sass/ Pure Sass `cos` and `sin`
+///
+/// @param {Direction} $direction
+///     Shadow's direction (angle or keyword)
+/// @param {Length} $length
+///     Shadow's length
+/// @param {Color} $color
+///     Shadow's color
+/// @param {Bool | Color} $fade [false]
+///     Whether or not shadow should fade:
+///     - `false` means no fading, shadow is `$color`
+///     - `true`  means fading from `$color` to transparent
+///     - a color means fading from `$color` to `$fade`
+/// @param {Number} $shadow-count [100]
+///     Number of computed shadows
+///
+/// @return {List} - List of shadows
+///
+/// @require {function} Compass/helpers/math/cos
+///     http://compass-style.org/reference/compass/helpers/math/#cos
+/// @require {function} Compass/helpers/math/sin
+///     http://compass-style.org/reference/compass/helpers/math/#sin
+///
+/// @example scss - Usage
+/// .foo {
+///   text-shadow: long-shadow(42deg, 1em, #16a085);
+/// }
+/// .bar {
+///   box-shadow: long-shadow(to top left, 150px, hotpink, tomato);
+/// }
+
+@function pi() {
+  @return 3.14159265359;
+}
+
+@function pow($number, $exp) {
+  $value: 1;
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  }
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
+
+@function rad($angle) {
+  $unit: unit($angle);
+  $unitless: $angle / ($angle * 0 + 1);
+  // If the angle has 'deg' as unit, convert to radians.
+  @if $unit == deg {
+    $unitless: $unitless / 180 * pi();
+  }
+  @return $unitless;
+}
+
+@function fact($number) {
+  $value: 1;
+  @if $number > 0 {
+    @for $i from 1 through $number {
+      $value: $value * $i;
+    }
+  }
+  @return $value;
+}
+
+@function sin($angle) {
+  $sin: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+  }
+  @return $sin;
+}
+
+@function cos($angle) {
+  $cos: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+  }
+  @return $cos;
+}
+
+@function tan($angle) {
+  @return sin($angle) / cos($angle);
+}
+
+@function long-shadow($direction, $length, $color, $fade: false, $shadow-count: 100) {
+  $shadows: ();
+  $conversion-map: (
+          to top: 180deg,
+          to top right: 135deg,
+          to right top: 135deg,
+          to right: 90deg,
+          to bottom right: 45deg,
+          to right bottom: 45deg,
+          to bottom: 0deg,
+          to bottom left: 315deg,
+          to left bottom: 315deg,
+          to left: 270deg,
+          to left top: 225deg,
+          to top left: 225deg
+  );
+
+  @if map-has-key($conversion-map, $direction) {
+    $direction: map-get($conversion-map, $direction);
+  }
+
+  @for $i from 1 through $shadow-count {
+    $current-step: ($i * $length / $shadow-count);
+    $current-color: if(not $fade, $color, if(type-of($fade) == 'color',  mix($fade, $color, ($i / $shadow-count * 100)), rgba($color, 1 - $i / $shadow-count)));
+
+    $shadows: append($shadows, (sin(0deg + $direction) * $current-step) (cos(0deg + $direction) * $current-step) 0 $current-color, 'comma');
+  }
+
+  @return $shadows;
+}

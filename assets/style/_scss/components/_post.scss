@@ -1,0 +1,140 @@
+.post {
+
+  .post-author-image {
+    height: 60px;
+    float: left;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .post-meta {
+    font-size: 0.9em;
+    line-height: 1.3em;
+  }
+
+  .post-tags {
+    list-style: none;
+    float: right;
+    margin: 0;
+    paddding: 0;
+
+    li {
+      display: inline-block;
+      line-height: 1em;
+      margin-left: 4px;
+      a {
+        color: black;
+        text-decoration: none;
+        font-size: 0.7em;
+      }
+    }
+  }
+
+  .post-image {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+  }
+
+  figcaption {
+    text-align: center;
+    margin-bottom: 30px;
+    p {
+      margin: 0;
+      padding-top: 0;
+      font-size: 0.8em;
+    }
+    a {
+      color: black;
+      font-size: 0.8em;
+    }
+  }
+
+  .post-image-full {
+    width: 100%;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  @include respond-to(small-up) {
+    .post-image-full {
+      height: 200px;
+    }
+  }
+
+  @include respond-to(medium-up) {
+    .post-image-full {
+      height: 400px;
+    }
+  }
+
+  .post-content {
+    overflow-x: auto;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  
+  table thead tr th {
+    font-weight: bold;
+    padding-bottom: 18px;
+  }
+   
+  table tr td {
+    vertical-align: top;
+    padding-left: 6px; 
+    padding-right: 6px;
+    padding-bottom: 10px;
+  }
+  
+  img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  iframe {
+    display: block;
+    margin: 30px auto !important;
+    max-width: 600px;
+    width: 600px;
+  }
+
+  @include respond-to(medium-down) {
+    iframe {
+      max-width: 100%;
+    }
+  }
+
+  .share-post {
+    text-align: right;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    a {
+      vertical-align: center;
+      border: 2px solid $base-border-color;
+      border-radius: 100%;
+      display: inline-block;
+      margin-left: 3px;
+      font-size: 18px;
+      line-height: 29px;
+      text-align: center;
+      height: 32px;
+      width: 32px;
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      color: black;
+      transition: all 0.3s ease-in-out 0s;
+      &:hover, &:focus, &:active, &.active {
+        background: lighten($base-border-color, 25%) none repeat scroll 0 0;
+        border: 2px solid $base-border-color;
+      }
+    }
+  }
+}

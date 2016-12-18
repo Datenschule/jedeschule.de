@@ -1,0 +1,59 @@
+
+// Padding
+$base-padding: 1.25em;
+$base-padding-lite: $base-padding / 3;
+$base-padding-large: 1.875em;
+$base-padding-extra: 3.525em;
+$base-padding-jumbo: 3.8em;
+
+// Font Colors
+$base-font-color: #404040;
+$base-accent-color: #96bc7f;
+
+// Typography
+$base-font-family: 'Work Sans', 'Helvetica Neue', Helvetica, arial, sans-serif;
+$base-font-weight: 400;
+$base-font-size: 1rem;
+$base-font-multiplier: 1;
+$base-line-height: 1.375rem;
+
+$weight-light: 200;
+$weight-book: 400;
+$weight-bold: 700;
+
+$light-text-color: #363636;
+$link-color: #fc704e;
+$bus-color: #fc9b2d;
+$link-color-subtle: darken($base-font-color,10%);
+
+$white: #fff;
+$gray: #666666;
+$dark-gray: #1a1a1a;
+$blue: #00aeef;
+
+/*
+Hexcodes Logo:
+Blau #00aeef
+Grau1 #797979
+Grau2 #363636
+
+Hexcodes Key visual:
+Blau dunkel #00aeef
+Blau mittel: #6dcff4
+Blau hell: #cdeffb
+Grau dunkel: #1a1a1a
+Grau mittel: #666666
+Grau heller: #333333
+*/
+
+$base-button-background-color: #fc704e;
+$base-button-color: white;
+
+$base-border-color: $blue;
+$base-border-radius: 5px;
+$small-border-radius: 3px;
+
+$form-border-color: $base-border-color;
+$form-border-color-hover: darken($base-border-color, 10);
+$form-border-radius: $base-border-radius;
+$form-box-shadow-focus: 0 0 0 2px $form-border-color-hover;

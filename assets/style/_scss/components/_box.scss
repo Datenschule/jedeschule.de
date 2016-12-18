@@ -1,0 +1,87 @@
+.box {
+  background-color: white;
+  border: solid 3px $base-border-color;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  margin-top: 20px;
+  h2 {
+    margin-bottom: 0;
+  }
+  h2.box-head {
+    font-weight: $weight-book;
+  }
+}
+
+.box.box-with-head p:first-of-type {
+  margin-top: 4px;
+}
+
+.box-with-button {
+  padding-bottom: 10px;
+}
+
+.box.box p:last-of-type {
+  margin-bottom: 18px;
+}
+
+.box-margin-top-medium, .box-margin-top-large, .box-margin-top-huge, .box-margin-top-very-huge {
+  margin-top: 40px;
+}
+
+.box-invert {
+}
+
+.box-head {
+  border: solid 3px $base-border-color;
+  background-color: white;
+  display: inline-block;
+  width: auto;
+  margin-top: -24px;
+  margin-bottom: 0;
+  font-size: 1.5em;
+  padding: 8px;
+}
+
+
+@include respond-to(small-up) {
+  .box-head {
+    font-size: 2em;
+  }
+
+
+  .box-margin-top-medium {
+    margin-top: 60px;
+  }
+
+  .box-margin-top-large {
+    margin-top: 120px;
+  }
+
+  .box-margin-top-huge {
+    margin-top: 140px;
+  }
+
+  .box-margin-top-very-huge {
+    margin-top: 200px;
+  }
+}
+
+
+.box-button {
+  height: 40px;
+  background-color: $base-button-background-color;
+  color: $base-button-color;
+  float: right;
+  font-size: 1.2em;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: -10px;
+  margin-right: 60px;
+  border: none;
+  box-shadow: long-shadow(to bottom left, 12px, #696a6e, #696a6e);
+
+  &:hover {
+    background-color: darken($base-button-background-color, 5%);
+  }
+}

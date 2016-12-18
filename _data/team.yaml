@@ -1,0 +1,20 @@
+- name: Helene Hahn
+  img: helenehahn
+  mail: helene.hahn@okfn.de
+  position: Projektleitung
+
+- name: Knut Perseke
+  img: knutperseke
+  mail: knut.perseke@okfn.de
+  position: Entwicklung
+
+- name: Moritz Neujeffski
+  img: moritzneujeffski
+  mail: moritz.neujeffski@okfn.de
+  position: Workshopkonzeption
+
+- name: Jasmin Helm
+  img: jasminhelm
+  mail: jasmin.helm@okfn.de
+  position: Kommunikation
+  

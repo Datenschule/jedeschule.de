@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="619.301px" height="312.699px" viewBox="0 0 619.301 312.699" enable-background="new 0 0 619.301 312.699" xml:space="preserve">
+	<polyline fill="none" stroke="#878787" stroke-width="5.2" points="610.772,7.896 484.885,304.389 441.527,180.562 338.283,196.768 170.086,54.158"/>
+	<line fill="none" stroke="#878787" stroke-width="5.2" x1="173.899" y1="51.371" x2="11.043" y2="165.77"/>
+	<circle fill="#FFFFFF" stroke="#3C3C3B" stroke-width="5.2" cx="9.549" cy="167.899" r="6.948"/>
+	<circle fill="#FFFFFF" stroke="#3C3C3B" stroke-width="5.2" cx="609.751" cy="9.548" r="6.948"/>
+	<circle fill="#FFFFFF" stroke="#3C3C3B" stroke-width="5.2" cx="485.65" cy="303.151" r="6.948"/>
+	<circle fill="#FFFFFF" stroke="#3C3C3B" stroke-width="5.2" cx="441.535" cy="181.159" r="6.948"/>
+	<circle fill="#FFFFFF" stroke="#3C3C3B" stroke-width="5.2" cx="338.792" cy="195.795" r="6.948"/>
+	<circle fill="#FFFFFF" stroke="#3C3C3B" stroke-width="5.2" cx="169.565" cy="54.241" r="6.948"/>
+</svg>

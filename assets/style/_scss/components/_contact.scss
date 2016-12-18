@@ -1,0 +1,31 @@
+.contact-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  dl {
+    dt {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+  }
+
+  @include respond-to(small-up) {
+
+    dl {
+      dt {
+        margin-top: 0;
+        float: left;
+        width: 280px;
+        overflow: hidden;
+        clear: left;
+        text-align: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      dd {
+        margin-left: 300px
+      }
+    }
+  }
+
+}

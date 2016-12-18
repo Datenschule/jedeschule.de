@@ -1,0 +1,69 @@
+---
+id: "en-EN"
+description: "Do good with data"
+menu:
+    cards: "Cards"
+    about: "About"
+    action: "In Action"
+    contact: "Contact"
+voteforus: "Datenschule at the Google Impact Challenge"
+share_card: "Share this card:"
+card: "Card"
+what:
+    about: "What is “Datenschule”?"
+    info1: "“Datenschule” (School of Data) is a training program on the subject of data developed by the Open Knowledge Foundation Germany. We believe that an effective use of relevant datasets could help nonprofit organizations better achieve their social objectives. Therefore, we want to assist NGOs in finding, analyzing and visualizing data, and designing data-driven campaigns."
+    info2: "The program is a combination of workshops, strategy consulting, and technology trainings – individually tailored to the needs and objectives of NGOs."
+news:
+    about: "News about “Datenschule”"
+    info1: "Are you working for an NGO, a data trainer or generally interested in “Datenschule”?"
+    go: "Subscribe to our newsletter"
+action:
+    about: "In Action"
+    line1: "The nonprofit organization <a target=\"_blank\" href=\"http://www.mediamonitoringafrica.org/\">Media Monitoring Africa</a> (MMA) is committed to a more responsible media coverage in Africa. MMA acts as a watchdog for ethical and fair journalism that supports human rights."
+    line2: "During the elections in 2014, a small team of MMA manually evaluated several stories and articles published by newspapers, television and radio stations. The biggest challenge was to keep track of the contributions: they needed to be sorted, annotated, analyzed and compared to each other. A developer team from the CodeforAfrica program offered technical support with this task."
+    line3: "During this cooperation a digital tool was developed, tailored specifically to the needs of all MMA employees working on the elections campaign. Within this tool data could be entered by all employees and processed automatically. Not only did this save much time, it also led to better <a target=\"_blank\" href=\"http://elections2014.mediamonitoringafrica.org/\">results</a>."
+vote:
+    headline: "Voting is closed, thank you for your vote!!"
+    about: "Your voice for civic engagement!"
+contact:
+    about: "Contact"
+    ontheweb: "OKF Germany online"
+    terms: "Terms of use"
+    showterms: "View terms of use"
+    on_: "on"
+footer: "The Open Knowledge Foundation Deutschland (OKF DE) is an independent non-profit organisation registered in Berlin, Germany in 2011 under VR&nbsp;30468&nbsp;B.<br/>The contents of this website are, if not stated otherwise, licensed with <a target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/de/\">Creative Commons 3.0 Attribution</a>."
+blog:
+  FeedAbo: subscribe with your feedreeder
+  Mehr: Read full post...
+  Von: by
+  AmDatum: "on"
+  PostsMit: Posts with
+  TeileAuf: "Share on"
+  VerwandteBeitraege: Related post
+  VorherigerBeitrag: Previous post
+  NaechsterBeitrag: Next post
+pagination:
+  Seiten: Pages
+  Aktuelle: Current
+  Seite: Page
+  Vorherige: Previous
+  Naechste: Next
+  Uebersprungen: Übersprungen
+footer:
+  license: >
+    The Open Knowledge Foundation Deutschland (OKF DE) is an independent non-profit organisation registered in Berlin, Germany in 2011 under VR 30468 B. The contents of this website are, if not stated otherwise, licensed with <a href="https://creativecommons.org/licenses/by/3.0/de/">Creative Commons 3.0 Attribution</a>.
+impressum:
+  Kontakt: Contact
+  WeitereKanaele: Other Channels
+  Webseitendesign: Website design
+  VereinsregisterNr: Register of Association Number
+  Steuernummer: Tax ID
+  VAT: VAT
+  EMail: Email
+  Telefon: Phone
+  Fax: Fax
+titles:
+  Projekte: Projects
+  Impressum: Contact
+  Lernen: Learn
+  Team: Team

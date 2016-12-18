@@ -1,0 +1,48 @@
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% if page.menu_home %}{% else %}{{page.title}} - {% endif %}Datenschule</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="{{page.description}}">
+	<meta name="author" content="Open Knowledge Foundation Deutschland">
+
+	<meta property="og:url" content="{{site.domain}}{{page.url}}"/>
+	<meta property="og:title" content="OKF Datenschule{% if page.menu_home %}{% else %} - {{page.title}}{% endif %}"/>
+	<meta property="og:description" content="{{page.description}}"/>
+	{% if page.picture & page.picture.src %}
+	<meta property="og:image" content="{{site.domain}}{{page.picture.src}}"/>
+	{% else %}
+	<meta property="og:image" content="{{site.domain}}/assets/img/logo_datenschule_card_white.png"/>
+	{% endif %}
+	<meta property="og:site_name" content="Datenschule{% if page.menu_home %}{% else %}: {{page.title}}{% endif %}"/>
+	<meta property="og:type" content="website"/>
+
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:site" content="@okfde"/>
+	<meta name="twitter:creator" content="@okfde"/>
+	{% if page.excerpt %}<meta name="twitter:description" content="{{ page.excerpt | markdownify | strip_html | truncatewords: 50 | truncate: 199 }}">
+	{% else if page.description %}<meta name="twitter:description" content="{{ page.description }}">
+	{% else if site.description %}<meta name="twitter:description" content="{{ site.description }}">{% endif %}
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="/assets/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/assets/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="/assets/favicons/manifest.json">
+	<link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+	<meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="manifest" href="/assets/img/favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="stylesheet" href="/assets/style/main.css">
+	<!--[if lt IE 9]>
+	<script src="/assets/js/html5shiv.min.js"></script>
+	<script src="/assets/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="/assets/js/bundle.js"></script>
+	{% if page.menu_home %}<script src="/assets/js/bundle-viz.js"></script>{% endif %}
+</head>

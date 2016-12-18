@@ -1,0 +1,39 @@
+.projects-box {
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+
+  h4 {
+    margin-top: 14px;
+    margin-bottom: 6px;
+    padding: 0;
+  }
+
+  img {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    max-width: 100%;
+    display: block;
+  }
+
+  .project-topics {
+    text-align: right;
+    font-size: 0.8em;
+    margin: 0;
+    > span {
+      padding: 3px;
+      margin-left: 3px;
+      border: solid 1px $base-font-color;
+    }
+  }
+
+}

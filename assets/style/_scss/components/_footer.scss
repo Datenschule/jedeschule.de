@@ -1,0 +1,111 @@
+footer {
+  background-color: white;
+  padding-top: 36px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-top: solid 3px $base-border-color;
+
+  a {
+    color: $link-color-subtle;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1em;
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
+
+  .footer-container-left {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .footer-text-container {
+    margin-bottom: 0;
+  }
+
+  .footer-logo-container {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    float: left;
+    text-align: center;
+  }
+
+  .footer-logo {
+    padding-top: 6px;
+    margin-top: 6px;
+    img {
+      border: 2px solid white;
+      width: 140px;
+      height: auto;
+      transition: all 0.3s ease-in-out 0s;
+    }
+    a img:hover {
+      border-color: $base-border-color;
+    }
+  }
+  .footer-socials {
+    margin-top:8px;
+  }
+
+  .footer-social {
+    border: 2px solid $base-border-color;
+    border-radius: 100%;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 40px;
+    text-align: center;
+    height: 44px;
+    width: 44px;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    color: black;
+    transition: all 0.3s ease-in-out 0s;
+    &:hover, &:focus, &:active, &.active {
+      background: lighten($base-border-color,25%) none repeat scroll 0 0;
+      border: 2px solid $base-border-color;
+    }
+  }
+
+  .footer-credits {
+    text-align: center;
+    font-size: 0.8em;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include respond-to(small-up) {
+    .footer-logo-container {
+      margin-bottom: 4px;
+      text-align: left;
+    }
+    .footer-logo {
+      margin-top: 0;
+    }
+
+    .footer-container-left > div:last-of-type .footer-logo-container {
+      margin-top: 16px;
+    }
+
+    .footer-credits {
+      padding: 0;
+    }
+  }
+
+  @include respond-to(medium-up) {
+    .footer-socials {
+      display:inline-block;
+    }
+  }
+
+}

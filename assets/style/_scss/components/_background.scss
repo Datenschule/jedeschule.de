@@ -1,0 +1,35 @@
+.background {
+  z-index: -1;
+  position: fixed;
+  top: 90px;
+  height: 100%;
+  left: 0;
+  right: 0;
+
+  .parallax {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+  }
+
+  .svg-icon {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    background-size: 878px 718px !important
+  }
+
+  .svg-size-1 {
+    zoom: 100%;
+  }
+  .svg-size-2 {
+    zoom: 100%;
+  }
+  .svg-size-3 {
+    zoom: 110%;
+  }
+  .svg-size-4 {
+    zoom: 125%;
+  }
+
+}

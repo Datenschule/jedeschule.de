@@ -1,0 +1,122 @@
+
+.post-item {
+  background-color: #fff;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  border: solid 3px $base-border-color;
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  > div {
+    padding: 25px;
+    vertical-align: top;
+  }
+
+  > div:first-of-type {
+    padding-bottom: 0;
+  }
+
+  .post-meta {
+    color: $light-text-color;
+    display: flex;
+    flex-direction: row;
+
+    p {
+      font-size: 0.9em;
+      line-height: 1rem;
+    }
+
+    .post-img-wrap {
+      flex: 1 0 auto;
+
+      .post-img {
+        max-height: 240px;
+        max-width: 100px;
+        height: auto;
+      }
+    }
+
+    .post-author {
+      margin-top: 10px;
+      margin-bottom: 17px;
+      margin-left: 10px;
+      line-height: 1em;
+      text-align: center;
+    }
+
+  }
+
+  .post-teaser {
+    padding-bottom: 14px;
+    padding-top: 0px;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .post-title {
+      word-wrap: break-word;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      a {
+        color: $base-font-color;
+      }
+    }
+
+    .post-excerpt {
+      flex: 1 0 auto;
+    }
+
+    .post-more {
+      font-size: 0.8em;
+      color: $light-text-color;
+    }
+
+    .post-tags {
+      padding: 0;
+      line-height: 1rem;
+      font-size: 0.8em;
+      margin: 0;
+      > li {
+        display: inline-block;
+        margin-right: 4px;
+        a {
+          color: $base-font-color;
+          text-decoration: none;
+        }
+      }
+    }
+
+  }
+
+  @include respond-to(small-up) {
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .post-meta {
+      flex-direction: column;
+      width: 25%;
+      text-align: center;
+      .post-author {
+        margin-left: 0;
+      }
+      .post-img-wrap {
+        .post-img {
+          max-height: 240px;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+    }
+    .post-teaser {
+      width: 75%;
+      padding-top: 25px;
+    }
+    .post-tags {
+      font-size: 13px;
+    }
+  }
+}

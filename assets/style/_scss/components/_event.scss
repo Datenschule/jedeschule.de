@@ -1,0 +1,88 @@
+
+.event-box {
+  border: solid 3px $base-border-color;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #1dafed;
+  color: black;
+
+  h4 {
+    color: white;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+
+}
+
+.event-box-big {
+  padding-bottom: 10px;
+
+  .event-subtitle {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .event-text {
+    padding: 0;
+  }
+
+  .event-text p {
+    margin: 0;
+  }
+
+  .event-follow {
+    font-size: 18px;
+  }
+}
+
+.event-item {
+  border-top: solid 3px lighten($base-border-color, 20%);
+  padding-bottom: 0.60em;
+  padding-top: 0.60em;
+  color: white;
+
+  > div {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  h5 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .event-date {
+    font-weight: bold;
+  }
+
+  .event-date, .event-place {
+    color: black;
+  }
+
+  .event-text, .event-text p {
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+
+  .event-place {
+    font-size: 14px;
+  }
+
+  .event-text p {
+    line-height: 1.3em;
+    font-size: 13px;
+  }
+
+  .event-text {
+    padding-top: 4px;
+  }
+
+  a {
+    color: white !important;
+    font-weight: bold;
+  }
+
+}

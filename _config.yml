@@ -1,0 +1,27 @@
+markdown: rdiscount
+highlighter: pygments
+domain: 'https://lab.okfn.de/jedeschule'
+staticurl: /assets/
+exclude:
+  - "CNAME"
+  - "LICENSE"
+  - "browserlist"
+  - "Gemfile*"
+  - "Readme.md"
+  - "*.sh"
+  - ".idea/"
+  - ".git/"
+  - "local/"
+  - "scripts/"
+  - "_site/"
+  - "vendor/"
+gems:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-paginate
+  - octopress-autoprefixer
+sass:
+  sass_dir: assets/style/_scss
+  style: compressed
+settings:
+  debug: false

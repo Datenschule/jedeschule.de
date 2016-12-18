@@ -1,0 +1,67 @@
+- name: Socialbar Berlin
+  place: taz café, Rudi-Dutschke-Straße 23, 10969 Berlin
+  date: 2016-06-07
+  featured: false
+  text: >
+    Unser Vortrag bei der [Socialbar](http://socialbar.de/tribe-events/socialbar-berlin-62-seo-fuer-npos-data-for-social-good-community-building/) : Data for Social Good: Warum sollten NGOs die Sprache der Daten lernen?
+- name: Friedrich-Ebert-Stiftung
+  place: Werftstr. 3, 10557 Berlin
+  date: 2016-08-06
+  featured: false
+  text: >
+    Mit den Stipendiat/innen der Stiftung haben wir im Podium über die "Datengesellschaft" diskutiert.
+- name: Tag der offenen Tür am Bundesministerium für wirtschaftliche Zusammenarbeit und Entwicklung
+  place: Stresemannstraße 94, 10963 Berlin
+  date: 2016-08-28
+  featured: false
+  text: >
+    Workshop für gemeinnützige Organisationen zur Aufbereitung und Visualisierung der nachhaltigen Entwicklungsziele (SDGs).
+- name: IODC-Konferenz
+  place: IFEMA NORTE Av. Partenón, 5 28042 Madrid Spain
+  date: 2016-10-06
+  featured: false
+  text: >
+    Have a coffee with us us at the [International Open Data Conference](http://opendatacon.org/)!
+- name: Code Week
+  place: Zentral- und Landesbibliothek Berlin, Breite Straße 30, 10178 Berlin
+  date: 2016-10-20
+  featured: false
+  blogpost: "/blog/2016/11/DS-Codeweek-Workshop/"
+  text: >
+    [Workshop für Datenneulinge](https://datenschule.de/blog/2016/10/DS-Codeweek-Workshop/): Wir analysieren und visualisieren Daten zu Schadstoffemissionen in Deutschland.
+- name: Social Community Day
+  place: KOMED, Im MediaPark 7, 50670 Köln
+  date: 2016-10-26
+  featured: false
+  text: >
+    [Workshop für Datenneulinge](http://www.social-community-day.de/wp/workshops/): Wir analysieren und visualisieren Twitterdaten.
+- name: "re:campaign"
+  place: Schumannstr. 8, 10117 Berlin
+  date: 2016-10-31
+  featured: false
+  text: >
+    [re:campaign](https://recampaign.de/) - Konferenz für Analysen und Diskussionen zu erfolgreichen Kampagnen im Netz.
+- name: "Open-Data BarCamp"
+  place: freiland Café, Friedrich-Engels-Straße 22, 14473 Potsdam
+  date: 2016-11-12
+  featured: false
+  text: >
+    Diskutiert mit uns beim [BarCamp in Potsdam](potsdam.io) über offene Daten und wie sie der Gesellschaft nützen.
+- name: "Lehreinheit an der HAW Hamburg"
+  place: Berliner Tor 5, 20099 Hamburg
+  date: 2016-12-01
+  featured: false
+  text: >
+    Zum Thema Daten und Gesellschaft führen wir bei der [HAW Hamburg](https://www.haw-hamburg.de/startseite.html) eine Lehrveranstaltung durch.
+- name: "Open Government Partnership Summit 2016"
+  place: Paris, Frankreich
+  date: 2016-12-07
+  featured: true
+  text: >
+    Wir vertreten die Zivilgesellschaft auf der OGP und berichten von unserer Arbeit.
+- name: "33C3 - Chaos Communication Congress"
+  place: CCH, Am Dammtor / Marseiller Straße, 20355 Hamburg
+  date: 2016-12-27
+  featured: true
+  text: >
+    Wie jedes Jahr sind wir auf dem [Community-Event des CCC](https://events.ccc.de/). Kommt zur OKF-Assembly und lernt uns kennen! :)

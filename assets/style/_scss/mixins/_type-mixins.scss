@@ -1,0 +1,81 @@
+// heading() mixin
+//
+// Use the heading() mixin to add bundles of
+// typographical styles to a selector
+//
+// Styleguide mixins.heading
+
+@mixin heading($level) {
+  margin: 1rem 0 1rem 0;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+
+  @if $level == h1 {
+    font-size: 1.875rem;
+    font-weight: $weight-bold;
+    line-height: 2.5rem;
+  }
+
+  @if $level == h2 {
+    font-size: 1.5rem;
+    font-weight: $weight-bold;
+    line-height: 2rem;
+  }
+
+  @if $level == h3 {
+    font-size: 1.1rem;
+    font-weight: $weight-bold;
+    line-height: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @if $level == h4 {
+    font-size: 1.375rem;
+    font-weight: $weight-light;
+    line-height: 2rem;
+  }
+
+  @if $level == h5 {
+    font-size: 1.125rem;
+    font-weight: $weight-bold;
+    line-height: 1.6875rem;
+  }
+
+  @if $level == 'para-xl' {
+    font-size: 1.375rem;
+    font-weight: $weight-book;
+    line-height: 2.125rem;
+  }
+
+  @if $level == 'para-lg' {
+    font-size: 1.125rem;
+    font-weight: $weight-book;
+    line-height: 1.6875rem;
+  }
+
+  @if $level == 'para-md' {
+    font-size: $base-font-size;
+    font-weight: $weight-book;
+    line-height: $base-line-height;
+  }
+
+  @if $level == 'para-sm' {
+    font-size: 0.8125rem;
+    font-weight: $weight-light;
+    line-height: 1.1875rem;
+  }
+}
+
+
+// font-size() mixin
+//
+// Use the font-size() to set a specific size to an element or class
+// typographical styles to a selector
+//
+// Styleguide mixins.font-size
+
+@mixin font-size($scale: 1) {
+  font-size: ($scale * $base-font-multiplier * 10) + px;
+  font-size: ($scale * $base-font-multiplier) + rem;
+}

@@ -1,0 +1,232 @@
+@mixin svg-sprite {
+	background: url("svg/sprites.svg") no-repeat;
+}
+
+.svg-1 {
+	@include svg-sprite;
+	background-position: 14.46749762304797% 0;
+	width: 110.21px;
+	height: 120px;
+}
+.svg-10 {
+	@include svg-sprite;
+	background-position: 28.846965699208443% 58.44914924016106%;
+	width: 120px;
+	height: 102.08px;
+}
+.svg-11 {
+	@include svg-sprite;
+	background-position: 29.027349642552633% 0;
+	width: 115.65px;
+	height: 120px;
+}
+.svg-12 {
+	@include svg-sprite;
+	background-position: 0 20.066889632107024%;
+	width: 51.65px;
+	height: 120px;
+}
+.svg-13 {
+	@include svg-sprite;
+	background-position: 6.2322775263951735% 20.066889632107024%;
+	width: 49.25px;
+	height: 120px;
+}
+.svg-14 {
+	@include svg-sprite;
+	background-position: 13.311345646437994% 17.609250726381593%;
+	width: 120px;
+	height: 36.54px;
+}
+.svg-15 {
+	@include svg-sprite;
+	background-position: 44.45118733509235% 0;
+	width: 120px;
+	height: 107.38px;
+}
+.svg-16 {
+	@include svg-sprite;
+	background-position: 41.284583527336% 17.956521739130434%;
+	width: 61.86px;
+	height: 120px;
+}
+.svg-17 {
+	@include svg-sprite;
+	background-position: 0 40.13377926421405%;
+	width: 72.48px;
+	height: 120px;
+}
+.svg-18 {
+	@include svg-sprite;
+	background-position: 9.217621324651542% 40.13377926421405%;
+	width: 91.68px;
+	height: 120px;
+}
+.svg-19 {
+	@include svg-sprite;
+	background-position: 97.65744859150391% 72.51580955985554%;
+	width: 102.35px;
+	height: 83.89px;
+}
+.svg-2 {
+	@include svg-sprite;
+	background-position: 33.00708322479005% 40.13377926421405%;
+	width: 71.87px;
+	height: 120px;
+}
+.svg-20 {
+	@include svg-sprite;
+	background-position: 42.93554903380723% 40.13377926421405%;
+	width: 90.89px;
+	height: 120px;
+}
+.svg-21 {
+	@include svg-sprite;
+	background-position: 57.626049890281735% 0;
+	width: 85.06px;
+	height: 120px;
+}
+.svg-22 {
+	@include svg-sprite;
+	background-position: 0 60.20066889632107%;
+	width: 98.66px;
+	height: 120px;
+}
+.svg-23 {
+	@include svg-sprite;
+	background-position: 13.015831134564644% 58.78318800822965%;
+	width: 120px;
+	height: 105.58px;
+}
+.svg-24 {
+	@include svg-sprite;
+	background-position: 57.53679942581564% 20.066889632107024%;
+	width: 83.83px;
+	height: 120px;
+}
+.svg-25 {
+	@include svg-sprite;
+	background-position: 70.0430338196715% 0;
+	width: 104.19px;
+	height: 120px;
+}
+.svg-26 {
+	@include svg-sprite;
+	background-position: 0 80.22596981497887%;
+	width: 120px;
+	height: 119.69px;
+}
+.svg-27 {
+	@include svg-sprite;
+	background-position: 0 0;
+	width: 111.08px;
+	height: 120px;
+}
+.svg-28 {
+	@include svg-sprite;
+	background-position: 67.83649152669653% 20.066889632107024%;
+	width: 79.02px;
+	height: 120px;
+}
+.svg-29 {
+	@include svg-sprite;
+	background-position: 67.50277110084316% 40.13377926421405%;
+	width: 75.07px;
+	height: 120px;
+}
+.svg-3 {
+	@include svg-sprite;
+	background-position: 13.311345646437994% 24.17568840635666%;
+	width: 120px;
+	height: 70.49px;
+}
+.svg-30 {
+	@include svg-sprite;
+	background-position: 84.28088847152118% 0;
+	width: 111.29px;
+	height: 120px;
+}
+.svg-31 {
+	@include svg-sprite;
+	background-position: 15.831134564643799% 78.15043959622272%;
+	width: 120px;
+	height: 103.8px;
+}
+.svg-32 {
+	@include svg-sprite;
+	background-position: 44.678100263852244% 56.64028697745402%;
+	width: 120px;
+	height: 82.41px;
+}
+.svg-33 {
+	@include svg-sprite;
+	background-position: 80.46596767364831% 20.066889632107024%;
+	width: 74.94px;
+	height: 120px;
+}
+.svg-34 {
+	@include svg-sprite;
+	background-position: 83.96657917305544% 40.13377926421405%;
+	width: 108.42px;
+	height: 120px;
+}
+.svg-35 {
+	@include svg-sprite;
+	background-position: 0 99.84516000133196%;
+	width: 120px;
+	height: 117.38px;
+}
+.svg-36 {
+	@include svg-sprite;
+	background-position: 83.86849755996263% 60.20066889632107%;
+	width: 107.52px;
+	height: 120px;
+}
+.svg-37 {
+	@include svg-sprite;
+	background-position: 31.662269129287598% 77.73908818527815%;
+	width: 120px;
+	height: 100.55px;
+}
+.svg-38 {
+	@include svg-sprite;
+	background-position: 15.831134564643799% 99.70737384653754%;
+	width: 120px;
+	height: 116.55px;
+}
+.svg-4 {
+	@include svg-sprite;
+	background-position: 68.104997298418% 60.20066889632107%;
+	width: 82.17px;
+	height: 120px;
+}
+.svg-5 {
+	@include svg-sprite;
+	background-position: 99.93139841688654% 0;
+	width: 120px;
+	height: 119.26px;
+}
+.svg-6 {
+	@include svg-sprite;
+	background-position: 99.93139841688654% 19.315549940883987%;
+	width: 120px;
+	height: 100.57px;
+}
+.svg-7 {
+	@include svg-sprite;
+	background-position: 93.53452533833844% 36.76086956521739%;
+	width: 68.16px;
+	height: 120px;
+}
+.svg-8 {
+	@include svg-sprite;
+	background-position: 21.15245850943202% 40.13377926421405%;
+	width: 101.92px;
+	height: 120px;
+}
+.svg-9 {
+	@include svg-sprite;
+	background-position: 97.60082463600051% 56.82775919732441%;
+	width: 101.9px;
+	height: 120px;
+}

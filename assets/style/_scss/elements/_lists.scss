@@ -1,0 +1,90 @@
+ul,
+ol {
+  list-style-type: square;
+  padding-left: $base-padding;
+}
+
+.list-inline {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    display: inline-block;
+  }
+}
+
+.list-unstyled {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+%list-indented {
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: $base-padding;
+}
+
+.list-square {
+  @extend %list-indented;
+
+  list-style-type: square;
+
+  li {
+    padding-bottom: $base-padding-lite;
+  }
+}
+
+.list-bullet {
+  @extend %list-indented;
+
+  list-style-type: disc;
+
+  li {
+    padding-bottom: $base-padding-lite;
+  }
+}
+
+.list-decimal {
+  @extend %list-indented;
+
+  list-style-type: decimal;
+
+  li {
+    padding-bottom: $base-padding-lite;
+  }
+}
+
+.list-nested {
+  @extend .list-bullet;
+
+  ul {
+    @extend .list-square;
+  }
+}
+
+.list-bulletin {
+  list-style: none;
+  li {
+    line-height: 1.6em;
+  }
+  li:before {
+    /* For a round bullet */
+    //content: '\2022';
+    /* For a square bullet */
+    content: '\25A0';
+    display: block;
+    position: relative;
+    max-width: 0;
+    max-height: 0;
+    left: -18px;
+    top: -2px;
+    color: $base-border-color;
+    font-size: 18px;
+  }
+}
+
+.list-sections {
+  li {
+    padding-bottom: $base-padding;
+  }
+}

@@ -1,0 +1,16 @@
+%link {
+  border: none;
+  cursor: pointer;
+  transition: color 0.1s linear;
+}
+
+a {
+  @extend %link;
+  color: $link-color;
+  text-decoration: underline;
+
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+}

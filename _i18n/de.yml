@@ -1,0 +1,70 @@
+---
+id: "de-DE"
+description: "Tue Gutes mit Daten"
+menu:
+    cards: "Karten"
+    about: "Über"
+    action: "In der Praxis"
+    contact: "Kontakt"
+voteforus: "Datenschule bei der Google Impact Challenge"
+share_card: "Diese Karte teilen:"
+card: "Karte"
+what:
+    about: "Was ist die Datenschule?"
+    info1: "Die Datenschule ist ein Bildungsangebot rund um das Thema Daten: Vom Daten finden, analysieren und visualisieren bis hin zur Arbeit an datenbasierten Kampagnen vermitteln wir gemeinnützigen Organisationen praxisnahes Wissen und unterstützen sie bei ihren gesellschaftlichen Zielen."
+    info2: "Das Projekt setzt dabei auf eine Kombination aus Workshops, Strategieberatung und Techniktraining - individuell zugeschnitten auf die Bedürfnisse und Arbeitsweisen von NGOs."
+news:
+    about: "News zur Datenschule"
+    info1: "Du bist Mitarbeiter/in einer NGO, Daten-Trainer/in oder allgemein am Projekt interessiert? Abonniere unseren Newsletter!"
+    go: "Zum Newsletter"
+action:
+    about: "In der Praxis"
+    line1: "Die gemeinnützige NGO <a target=\"_blank\" href=\"http://www.mediamonitoringafrica.org/\">Media Monitoring Africa</a> setzt sich für eine verantwortungsvollere mediale Berichterstattung in Afrika ein - und sorgt dafür, dass hochwertige Informationen an die Öffentlichkeit gelangen."
+    line2: "Bei den Landeswahlen 2014 hat die Organisation in einem kleinen Team Artikel von diversen Zeitungen, Fernseh- und Runkfunkbeiträgen händisch augewertet. Die größte Herausforderung bestand darin, den Überblick über die Beiträge zu behalten, sie zu sortieren, mit Kommentaren zu versehen, auszuwerten und zu vergleichen. Bei dieser Aufgabe unterstütze ein engagiertes Entwickler-Team aus dem CodeforAfrica-Programm, das sich für mehr Transparenz einsetzt."
+    line3: "Aus der Zusammenarbeit entstand eine digitale Anwendung, die auf die Arbeit der NGO zugeschnitten war. Daten konnten von allen Mitarbeiter/innen eingepflegt und automatisch verarbeitet werden. Das sparte dem Team nicht nur Zeit, sondern führte auch zu deutlich präziseren <a target=\"_blank\" href=\"http://elections2014.mediamonitoringafrica.org/\">Ergebnissen</a>."
+vote:
+    headline: "Die Abstimmung ist beendet, danke für Deine Stimme!"
+    about: "Deine Stimme für gesellschaftliches Engagement!"
+contact:
+    about: "Kontakt"
+    ontheweb: "OKF DE im Netz"
+    terms: "Impressum"
+    showterms: "Impressum ansehen"
+    on_: "auf"
+footer: "Open Knowledge Foundation Deutschland e.V. ist ein eingetragener Verein, Vereinsregister-Nr. VR&nbsp;30468&nbsp;B.<br/>Die Inhalte dieser Webseite sind, sofern nicht anders angegeben, nach <a target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/de/\">Creative Commons 3.0 Attribution</a> lizensiert."
+blog:
+  FeedAbo: mit dem Feedreader abonnieren
+  Mehr: weiterlesen...
+  Von: von
+  AmDatum: am
+  PostsMit: Blogposts mit
+  TeileAuf: Blogpost teilen auf
+  VerwandteBeitraege: Verwandte Beiträge
+  VorherigerBeitrag: Vorheriger Beitrag
+  NaechsterBeitrag: Nächster Beitrag
+pagination:
+  Seiten: Seiten
+  Aktuelle: Aktuelle
+  Seite: Seite
+  Vorherige: Vorherige
+  Naechste: Nächste
+  Uebersprungen: Übersprungen
+footer:
+  license: >
+    Open Knowledge Foundation Deutschland e.V. ist ein eingetragener Verein, Vereinsregister-Nr. VR 30468 B. Die Inhalte dieser Webseite sind, sofern nicht anders angegeben,
+    nach <a href="https://creativecommons.org/licenses/by/3.0/de/">Creative Commons 3.0 Attribution</a> lizensiert.
+impressum:
+  Kontakt: Kontakt
+  WeitereKanaele: Weitere Kanäle
+  Webseitendesign: Webseitendesign
+  VereinsregisterNr: Vereinsregister Nr
+  Steuernummer: Steuernummer
+  VAT: VAT
+  EMail: E-Mail
+  Telefon: Telefon
+  Fax: Fax
+titles:
+  Projekte: Projekte
+  Impressum: Impressum
+  Lernen: Lernen
+  Team: Team
