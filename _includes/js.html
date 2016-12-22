@@ -1,0 +1,10 @@
+<script src="/assets/js/lib/leaflet.js"></script>
+<script src="/assets/js/lib/leaflet.markercluster.js"></script>
+<!--<script src="/assets/js/lib/jquery-3.1.1.min.js"></script>-->
+<script src="/assets/js/lib/angular.min.js"></script>
+<script src="/assets/js/lib/angular-animate.min.js"></script>
+<script src="/assets/js/lib/angular-sanitize.js"></script>
+<script src="/assets/js/lib/select.min.js"></script>
+{% for js in page.js %}
+    <script src="/assets/js/{{js}}.js"></script>
+{% endfor %}
