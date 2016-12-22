@@ -3,8 +3,9 @@ layout: default
 menu_schulen: yes
 title: OKF Datenschule
 description: Tue Gutes mit Daten
-js: map.js
+js: map
 ---
+{% raw %}
 <div class="container">
     <div class="container-left-12">
         <div class="box box-with-head box-margin-top-medium">
@@ -18,7 +19,35 @@ js: map.js
         </div>
     </div>
 </div>
-<div class="map-wrapper">
-    <div id="map" >Hier kommt die Karte hin</div>
+<div class="map-wrapper" ng-app="App" ng-controller="AppController">
+    <div class="filter-wrapper container">
+        <div class="filter container-left-3">
+            <h3>Schultyp:</h3>
+            <ui-select multiple ng-model="selected.school_type" theme="select2">
+                <ui-select-match placeholder="Schultyp filtern...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="o in filter.school_type | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="filter container-left-3">
+            <h3>rechtlicher Status:</h3>
+            <ui-select multiple ng-model="selected.legal_status" theme="select2">
+                <ui-select-match placeholder="Rechtlichen Status filtern...">{{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="o in filter.legal_status | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+    <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
+        <h1>{{school.name}}</h1>
+        <p>{{school.address}}</p>
+        <ul>
+            <li>Träger: {{school.provider}}</li>
+            <li>Rechtstatus: {{school.legal_status}}</li>
+            <li>Schultyp: {{school.school_type}}</li>
+            <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
+        </ul>
+    </div>
+    <div id="map" />
+
 </div>
+{% endraw %}
 

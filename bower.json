@@ -1,0 +1,20 @@
+{
+  "name": "jedeschule.de_private",
+  "homepage": "https://github.com/knutator2/jedeschule.de",
+  "authors": [
+    "Knut Perseke <knut.perseke@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": "^1.0.2"
+  }
+}
