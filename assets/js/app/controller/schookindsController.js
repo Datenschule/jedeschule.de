@@ -15,5 +15,5 @@ app.controller('SchoolkindsController', function ($scope, $http, schools) {
             "Kollegs"
         ],
         series: [430,2460,4,1291,445,411,3,34,539,50,18,8]
-    };s
+    };
 });
