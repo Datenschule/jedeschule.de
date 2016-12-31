@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<div class="container" ng-app="App">
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">{{page.name}}</h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aspernatur consequatur dicta,
+                ducimus eligendi esse, eveniet ex fugiat, incidunt labore laudantium minima modi omnis provident quas
+                quidem quod rerum saepe voluptatum. Animi aperiam architecto beatae distinctio dolores eaque facere,
+                fugit illum iure molestiae placeat provident quibusdam tempore totam ullam!
+            </p>
+        </div>
+    </div>
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Bundesfinanzbericht</h1>
+            {% include states/finanzbericht.html state=page.name %}
+        </div>
+    </div>
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Schularten</h1>
+            {% include states/schularten.html state=page.name %}
+        </div>
+    </div>
+</div>

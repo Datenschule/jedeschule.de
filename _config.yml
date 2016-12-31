@@ -23,5 +23,9 @@ gems:
 sass:
   sass_dir: assets/style/_scss
   style: compressed
+collections:
+  states:
+    output: true
+    permalink: states/:path/
 settings:
   debug: false
