@@ -19,5 +19,12 @@ app.controller('SchoolkindsController', function ($scope, $http, schools) {
         "Kollegs"];
 
     $scope.colors = ['#0000b4', '#0082ca', '#0094ff', '#0d4bcf', '#0066AE', '#074285', '#00187B', '#285964', '#405F83', '#416545', '#4D7069', '#6E9985', '#7EBC89', '#0283AF', '#79BCBF', '#99C19E'];
+    $scope.linedata = [
+        [50, 9, 7, 8, 5],
+        [2, 1, 3.5, 7, 3],
+        [1, 3, 4, 5, 6]
+    ];
 
+    $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    $scope.textx = 'Schulen'
 });
