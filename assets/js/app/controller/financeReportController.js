@@ -1,7 +1,16 @@
-app.controller('FinanceReportController', function ($scope, $http, schools) {
+app.controller('FinanceReportController', function ($scope, $http, schools, states) {
 
     //var container = d3.select('#treemap');
     var container = document.getElementById('treemap');
+
+    states.get('bayern', function(err, data) {
+        if (err) {
+            console.log(err)
+        }
+        console.log(data);
+        $scope.data = data.finanzbericht;
+        updateTreemap(data.finanzbericht[1997]);
+    });
 
     var width = window.getComputedStyle(container).width.replace('px', '');
     var height = width / 2;//window.getComputedStyle(container).height.replace('px', '');
@@ -9,14 +18,6 @@ app.controller('FinanceReportController', function ($scope, $http, schools) {
     var svg = d3.select('#treemap').append("svg")
         .attr("width", width)
         .attr("height", height);
-        // .attr("width", '100%')
-        // .attr("height", '100%')
-        // .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
-        // .attr('preserveAspectRatio','xMinYMin')
-        // .append("g")
-        // .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")");
-
-
 
     var fader = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
         color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
@@ -28,9 +29,7 @@ app.controller('FinanceReportController', function ($scope, $http, schools) {
         .round(true)
         .paddingInner(1);
 
-    d3.json("/assets/js/app/data/flare.json", function(error, data) {
-        if (error) throw error;
-
+    function updateTreemap(data) {
         var root = d3.hierarchy(data)
             .eachBefore(function(d) { d.data.id = (d.parent ? d.parent.data.id + "." : "") + d.data.name; })
             .sum(sumBySize)
@@ -48,7 +47,7 @@ app.controller('FinanceReportController', function ($scope, $http, schools) {
             .attr("width", function(d) { return d.x1 - d.x0; })
             .attr("height", function(d) { return d.y1 - d.y0; })
             .attr("fill", function(d) {
-                return color(d.parent.data.id); });
+                return color(d.data.id); });
 
         cell.append("clipPath")
             .attr("id", function(d) { return "clip-" + d.data.id; })
@@ -58,7 +57,8 @@ app.controller('FinanceReportController', function ($scope, $http, schools) {
         cell.append("text")
             .attr("clip-path", function(d) { return "url(#clip-" + d.data.id + ")"; })
             .selectAll("tspan")
-            .data(function(d) { return d.data.name.split(/(?=[A-Z][^A-Z])/g); })
+            .data(function(d) {
+                return d.data/*.name.split(/(?=[A-Z][^A-Z])/g)*/; })
             .enter().append("tspan")
             .attr("x", 4)
             .attr("y", function(d, i) { return 13 + i * 10; })
@@ -90,13 +90,13 @@ app.controller('FinanceReportController', function ($scope, $http, schools) {
                 .attr("width", function(d) { return d.x1 - d.x0; })
                 .attr("height", function(d) { return d.y1 - d.y0; });
         }
-    });
 
-    function sumByCount(d) {
-        return d.children ? 0 : 1;
-    }
+        function sumByCount(d) {
+            return d.children ? 0 : 1;
+        }
 
-    function sumBySize(d) {
-        return d.size;
+        function sumBySize(d) {
+            return d.size;
+        }
     }
 });
