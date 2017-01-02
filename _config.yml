@@ -24,8 +24,8 @@ sass:
   sass_dir: assets/style/_scss
   style: compressed
 collections:
-  states:
+  laender:
     output: true
-    permalink: states/:path/
+    permalink: laender/:path/
 settings:
   debug: false
