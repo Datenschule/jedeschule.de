@@ -1,0 +1,851 @@
+{
+  "finanzbericht": {
+    "1995": {
+      "name": "Haushalt 1995",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 1924370
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 5441315
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 488059
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 124283
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 911718
+        }
+      ]
+    },
+    "1996": {
+      "name": "Haushalt 1996",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 1981839
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 5600248
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 476682
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 121849
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 961071
+        }
+      ]
+    },
+    "1997": {
+      "name": "Haushalt 1997",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 1919030
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 5653945
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 408819
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 120850
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1275494
+        }
+      ]
+    },
+    "1998": {
+      "name": "Haushalt 1998",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 1965278
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 5758096
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 394220
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 116519
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1246292
+        }
+      ]
+    },
+    "1999": {
+      "name": "Haushalt 1999",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2114843
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 5887675
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 389565
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 131420
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1342099
+        }
+      ]
+    },
+    "2000": {
+      "name": "Haushalt 2000",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2190117
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 6037072
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 385267
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 140287
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1388329
+        }
+      ]
+    },
+    "2001": {
+      "name": "Haushalt 2001",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2171359
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 6263963
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 422094
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 150930
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1460223
+        }
+      ]
+    },
+    "2002": {
+      "name": "Haushalt 2002",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2489641
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 6636307
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 293720
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 200464
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1371232
+        }
+      ]
+    },
+    "2003": {
+      "name": "Haushalt 2003",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2140332
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 6642806
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 297463
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 207087
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1402810
+        }
+      ]
+    },
+    "2004": {
+      "name": "Haushalt 2004",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2162278
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 6738889
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 291272
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 214129
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1395403
+        }
+      ]
+    },
+    "2005": {
+      "name": "Haushalt 2005",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2205640
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 6872324
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 303383
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 203879
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1417356
+        }
+      ]
+    },
+    "2006": {
+      "name": "Haushalt 2006",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2465997
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 7037322
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 286764
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 196255
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1428697
+        }
+      ]
+    },
+    "2007": {
+      "name": "Haushalt 2007",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2117663
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 7104342
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 288882
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 172891
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1516716
+        }
+      ]
+    },
+    "2008": {
+      "name": "Haushalt 2008",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2334780
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 7313240
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 298095
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 187525
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1616011
+        }
+      ]
+    },
+    "2009": {
+      "name": "Haushalt 2009",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2553732
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 7773909
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 468766
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 131750
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 1776884
+        }
+      ]
+    },
+    "2010": {
+      "name": "Haushalt 2010",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2544478
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 7892976
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 497596
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 129361
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 2074707
+        }
+      ]
+    },
+    "2011": {
+      "name": "Haushalt 2011",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2660638
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8008386
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 452288
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 130081
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 2125386
+        }
+      ]
+    },
+    "2012 vorl. Ist": {
+      "name": "Haushalt 2012 vorl. Ist",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2867166
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8027929
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 419437
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 127150
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 2412240
+        }
+      ]
+    },
+    "2013 vorl. Ist": {
+      "name": "Haushalt 2013 vorl. Ist",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 2797175
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8097215
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 426856
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 129817
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 2923098
+        }
+      ]
+    },
+    "2014 vorl. Ist": {
+      "name": "Haushalt 2014 vorl. Ist",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 3161448
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8277799
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 419503
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 133834
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 3050093
+        }
+      ]
+    },
+    "2015 vorl. Ist": {
+      "name": "Haushalt 2015 vorl. Ist",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 3330444
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8562877
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 332339
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 142775
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 3130601
+        }
+      ]
+    },
+    "2015 Soll": {
+      "name": "Haushalt 2015 Soll",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 3314436
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8419914
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 366829
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 144677
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 3175217
+        }
+      ]
+    },
+    "2016 Soll": {
+      "name": "Haushalt 2016 Soll",
+      "children": [
+        {
+          "name": "Hochschule",
+          "size": 3339729
+        },
+        {
+          "name": "Allgemeinbildende und berufliche Schulen",
+          "size": 8652551
+        },
+        {
+          "name": "Förderung des Bildungswesens ",
+          "size": 381841
+        },
+        {
+          "name": "Sonstiges Bildungswesen",
+          "size": 150460
+        },
+        {
+          "name": "Jugendarbeit, Tageseinrichtungen für Kinder",
+          "size": 3194545
+        }
+      ]
+    }
+  },
+  "schularten": {
+    "1992": {
+      "Schulkindergärten": 430,
+      "Grundschulen": 2460,
+      "Schulartunabhängige Orientierungsstufe": 4,
+      "Hauptschulen": 1291,
+      "Realschulen": 445,
+      "Gymnasien": 411,
+      "Integrierte Gesamtschulen": 3,
+      "Freie Waldorfschulen": 34,
+      "Förderschulen": 539,
+      "Abendrealschulen": 50,
+      "Abendgymnasien": 18,
+      "Kollegs": 8
+    },
+    "2007": {
+      "Schulkindergärten": 480,
+      "Grundschulen": 2554,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 1225,
+      "Realschulen": 477,
+      "Gymnasien": 440,
+      "Integrierte Gesamtschulen": 3,
+      "Freie Waldorfschulen": 53,
+      "Förderschulen": 579,
+      "Abendrealschulen": 44,
+      "Abendgymnasien": 20,
+      "Kollegs": 6
+    },
+    "2008": {
+      "Schulkindergärten": 486,
+      "Grundschulen": 2555,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 1216,
+      "Realschulen": 478,
+      "Gymnasien": 444,
+      "Integrierte Gesamtschulen": 3,
+      "Freie Waldorfschulen": 55,
+      "Förderschulen": 577,
+      "Abendrealschulen": 42,
+      "Abendgymnasien": 20,
+      "Kollegs": 6
+    },
+    "2009": {
+      "Schulkindergärten": 491,
+      "Grundschulen": 2557,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 1194,
+      "Realschulen": 483,
+      "Gymnasien": 445,
+      "Integrierte Gesamtschulen": 3,
+      "Freie Waldorfschulen": 56,
+      "Förderschulen": 581,
+      "Abendrealschulen": 41,
+      "Abendgymnasien": 21,
+      "Kollegs": 6
+    },
+    "2010": {
+      "Schulkindergärten": 493,
+      "Grundschulen": 2545,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 1076,
+      "Realschulen": 489,
+      "Gymnasien": 449,
+      "Integrierte Gesamtschulen": 3,
+      "Freie Waldorfschulen": 56,
+      "Förderschulen": 584,
+      "Abendrealschulen": 42,
+      "Abendgymnasien": 22,
+      "Kollegs": 6
+    },
+    "2011": {
+      "Schulkindergärten": 433,
+      "Grundschulen": 2529,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 938,
+      "Realschulen": 494,
+      "Gymnasien": 451,
+      "Integrierte Gesamtschulen": 3,
+      "Freie Waldorfschulen": 57,
+      "Förderschulen": 582,
+      "Abendrealschulen": 41,
+      "Abendgymnasien": 22,
+      "Kollegs": 7
+    },
+    "2012": {
+      "Schulkindergärten": 434,
+      "Grundschulen": 2490,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 906,
+      "Realschulen": 503,
+      "Gymnasien": 455,
+      "Integrierte Gesamtschulen": 45,
+      "Freie Waldorfschulen": 58,
+      "Förderschulen": 582,
+      "Abendrealschulen": 39,
+      "Abendgymnasien": 22,
+      "Kollegs": 7
+    },
+    "2013": {
+      "Schulkindergärten": 435,
+      "Grundschulen": 2409,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 868,
+      "Realschulen": 503,
+      "Gymnasien": 458,
+      "Integrierte Gesamtschulen": 242,
+      "Freie Waldorfschulen": 58,
+      "Förderschulen": 578,
+      "Abendrealschulen": 39,
+      "Abendgymnasien": 23,
+      "Kollegs": 7
+    },
+    "2014": {
+      "Schulkindergärten": 434,
+      "Grundschulen": 2331,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 827,
+      "Realschulen": 503,
+      "Gymnasien": 459,
+      "Integrierte Gesamtschulen": 391,
+      "Freie Waldorfschulen": 58,
+      "Förderschulen": 577,
+      "Abendrealschulen": 39,
+      "Abendgymnasien": 23,
+      "Kollegs": 6
+    },
+    "2015": {
+      "Schulkindergärten": 434,
+      "Grundschulen": 2274,
+      "Schulartunabhängige Orientierungsstufe": 1,
+      "Hauptschulen": 791,
+      "Realschulen": 507,
+      "Gymnasien": 459,
+      "Integrierte Gesamtschulen": 500,
+      "Freie Waldorfschulen": 59,
+      "Förderschulen": 567,
+      "Abendrealschulen": 37,
+      "Abendgymnasien": 23,
+      "Kollegs": 6
+    }
+  },
+  "schueler": {
+    "Vorklassen": {
+      "Vorschulbereich": 0
+    },
+    "Schulkindergärten": {
+      "Vorschulbereich": 8047
+    },
+    "Grundschulen": {
+      "Klassenstufe 1": 82976,
+      "Klassenstufe 2": 82593,
+      "Klassenstufe 3": 81807,
+      "Klassenstufe 4": 80111
+    },
+    "Integrierte Gesamtschulen": {
+      "Klassenstufe 1": 10866,
+      "Klassenstufe 2": 11474,
+      "Klassenstufe 3": 11125,
+      "Klassenstufe 4": 11357,
+      "Klassenstufe 5": 15056,
+      "Klassenstufe 6": 12238,
+      "Klassenstufe 7": 7655,
+      "Klassenstufe 8": 2989,
+      "Klassenstufe 9": 611,
+      "Klassenstufe 10": 581,
+      "keine Angabe-Sek. I": 0,
+      "Jahrgangsstufe 11": 99,
+      "Jahrgangsstufe 12": 257,
+      "Jahrgangsstufe 13": 227,
+      "keine Angabe-Sek. II": 0
+    },
+    "Freie Waldorfschulen": {
+      "Klassenstufe 1": 1677,
+      "Klassenstufe 2": 1688,
+      "Klassenstufe 3": 1809,
+      "Klassenstufe 4": 1866,
+      "Klassenstufe 5": 1885,
+      "Klassenstufe 6": 1884,
+      "Klassenstufe 7": 1953,
+      "Klassenstufe 8": 1975,
+      "Klassenstufe 9": 1906,
+      "Klassenstufe 10": 1923,
+      "Jahrgangsstufe 11": 1825,
+      "Jahrgangsstufe 12": 1766,
+      "Jahrgangsstufe 13": 1045
+    },
+    "Förderschulen": {
+      "Klassenstufe 1": 4586,
+      "Klassenstufe 2": 3850,
+      "Klassenstufe 3": 3245,
+      "Klassenstufe 4": 3871,
+      "Klassenstufe 5": 3727,
+      "Klassenstufe 6": 3938,
+      "Klassenstufe 7": 4323,
+      "Klassenstufe 8": 4702,
+      "Klassenstufe 9": 5101,
+      "Klassenstufe 10": 3073,
+      "Jahrgangsstufe 11": 66,
+      "Jahrgangsstufe 12": 38,
+      "Jahrgangsstufe 13": 26,
+      "keine Angabe": 0
+    },
+    "null": {
+      "keine Angabe-Primarbereich": 0,
+      "Grundstufe3": 579,
+      "Mittelstufe3": 0,
+      "Oberstufe3": 0,
+      "Werkstufe3": 0,
+      "keine Angabe": 8050,
+      "Keine Zuordung zu einer Schulart möglich7": 0,
+      "Keine Zuordung zu einer Schulart möglich8": 0
+    },
+    "Schulartunabhängige Orientierungsstufe": {
+      "Klassenstufe 5": 158,
+      "Klassenstufe 6": 183
+    },
+    "Hauptschulen": {
+      "Klassenstufe 5": 8285,
+      "Klassenstufe 6": 11694,
+      "Klassenstufe 7": 16172,
+      "Klassenstufe 8": 21971,
+      "Klassenstufe 9": 27323,
+      "Klassenstufe 10": 14326,
+      "keine Angabe-Sek. I": 0
+    },
+    "Schularten mit mehreren Bildungsgängen": {
+      "Klassenstufe 5": 0,
+      "Klassenstufe 6": 0,
+      "Klassenstufe 7": 0,
+      "Klassenstufe 8": 0,
+      "Klassenstufe 9": 0,
+      "Klassenstufe 10": 0,
+      "keine Angabe-Sek. I": 0
+    },
+    "Realschulen": {
+      "Klassenstufe 5": 32773,
+      "Klassenstufe 6": 33702,
+      "Klassenstufe 7": 36387,
+      "Klassenstufe 8": 38596,
+      "Klassenstufe 9": 41813,
+      "Klassenstufe 10": 41449,
+      "keine Angabe-Sek. I": 0
+    },
+    "Gymnasien (G8)": {
+      "Klassenstufe 5": 35014,
+      "Klassenstufe 6": 34866,
+      "Klassenstufe 7": 34955,
+      "Klassenstufe 8": 36090,
+      "Klassenstufe 9": 38081,
+      "keine Angabe-Sek. I": 0,
+      "Einführungsphase E": 38193,
+      "Qualifizierungsphase Q1": 36419,
+      "Qualifizierungsphase Q2": 34738
+    },
+    "Gymnasien (G9)": {
+      "Klassenstufe 5": 5750,
+      "Klassenstufe 6": 5537,
+      "Klassenstufe 7": 5790,
+      "Klassenstufe 8": 2464,
+      "Klassenstufe 9": 0,
+      "Klassenstufe 10": 0
+    },
+    "Gymnasien (G9)2": {
+      "Jahrgangsstufe 11": 0,
+      "Jahrgangsstufe 12": 0,
+      "Jahrgangsstufe 13": 0
+    },
+    "Abendschulen und Kollegs": {
+      "keine Angabe": 4017
+    }
+  }
+}

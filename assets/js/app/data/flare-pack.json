@@ -1,0 +1,159 @@
+{
+  "name": "baden-württemberg",
+  "children": [
+    {
+      "name": "Abendschule",
+      "children": [
+        { "name": "Altgriechisch", "size": 1 },
+        { "name": "Englisch", "size": 8162 },
+        { "name": "Französisch", "size": 1012 },
+        { "name": "Italienisch", "size": 0 },
+        { "name": "Latein", "size": 276 },
+        { "name": "Russisch", "size": 0 },
+        { "name": "Sonstige Sprachen", "size": 4 },
+        { "name": "Spanisch", "size": 43 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    },
+    {
+      "name": "Förderschulen",
+      "children": [
+        { "name": "Altgriechisch", "size": 0 },
+        { "name": "Englisch", "size": 98 },
+        { "name": "Französisch", "size": 3 },
+        { "name": "Italienisch", "size": 0 },
+        { "name": "Latein", "size": 21 },
+        { "name": "Russisch", "size": 0 },
+        { "name": "Sonstige Sprachen", "size": 0 },
+        { "name": "Spanisch", "size": 0 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    },
+    {
+      "name": "Freie Waldorfschule",
+      "children": [
+        { "name": "Altgriechisch", "size": 76 },
+        { "name": "Englisch", "size": 23208 },
+        { "name": "Französisch", "size": 15088 },
+        { "name": "Italienisch", "size": 0 },
+        { "name": "Latein", "size": 120 },
+        { "name": "Russisch", "size": 6367 },
+        { "name": "Sonstige Sprachen", "size": 0 },
+        { "name": "Spanisch", "size": 421 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    },
+    {
+      "name": "G8 - Gymnasium",
+      "children": [
+        { "name": "Altgriechisch", "size": 1388 },
+        { "name": "Englisch", "size": 291783 },
+        { "name": "Französisch", "size": 153918 },
+        { "name": "Italienisch", "size": 8421 },
+        { "name": "Latein", "size": 61295 },
+        { "name": "Russisch", "size": 1558 },
+        { "name": "Sonstige Sprachen", "size": 1511 },
+        { "name": "Spanisch", "size": 33998 },
+        { "name": "Türkisch", "size": 52 }
+      ]
+    },
+    {
+      "name": "G9 - Gymnasium",
+      "children": [
+        { "name": "Altgriechisch", "size": 0 },
+        { "name": "Englisch", "size": 19484 },
+        { "name": "Französisch", "size": 7594 },
+        { "name": "Italienisch", "size": 0 },
+        { "name": "Latein", "size": 3245 },
+        { "name": "Russisch", "size": 0 },
+        { "name": "Sonstige Sprachen", "size": 25 },
+        { "name": "Spanisch", "size": 54 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    },
+    {
+      "name": "Grundschulen",
+      "children": [
+        { "name": "Altgriechisch", "size": 0 },
+        { "name": "Englisch", "size": 255518 },
+        { "name": "Französisch", "size": 63398 },
+        { "name": "Italienisch", "size": 71 },
+        { "name": "Latein", "size": 0 },
+        { "name": "Russisch", "size": 11 },
+        { "name": "Sonstige Sprachen", "size": 80 },
+        { "name": "Spanisch", "size": 80 },
+        { "name": "Türkisch", "size": 25 }
+      ]
+    },
+    {
+      "name": "Hauptschulen",
+      "children": [
+        { "name": "Altgriechisch", "size": 0 },
+        { "name": "Englisch", "size": 90751 },
+        { "name": "Französisch", "size": 1929 },
+        { "name": "Italienisch", "size": 0 },
+        { "name": "Latein", "size": 0 },
+        { "name": "Russisch", "size": 0 },
+        { "name": "Sonstige Sprachen", "size": 0 },
+        { "name": "Spanisch", "size": 0 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    },
+    {
+      "name": "Integrierte Gesamtschulen",
+      "children": [
+        { "name": "Altgriechisch", "size": 4 },
+        { "name": "Englisch", "size": 77463 },
+        { "name": "Französisch", "size": 9717 },
+        { "name": "Italienisch", "size": 20 },
+        { "name": "Latein", "size": 431 },
+        { "name": "Russisch", "size": 0 },
+        { "name": "Sonstige Sprachen", "size": 39 },
+        { "name": "Spanisch", "size": 61 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    },
+    {
+      "name": "G8 - Gymnasium",
+      "children": [
+        { "name": "Altgriechisch", "size": 1388 },
+        { "name": "Englisch", "size": 1388 },
+        { "name": "Französisch", "size": 1388 },
+        { "name": "Italienisch", "size": 1388 },
+        { "name": "Latein", "size": 1388 },
+        { "name": "Russisch", "size": 1388 },
+        { "name": "Sonstige Sprachen", "size": 1388 },
+        { "name": "Spanisch", "size": 1388 },
+        { "name": "Türkisch", "size": 1388 }
+      ]
+    },
+    {
+      "name": "Realschulen",
+      "children": [
+        { "name": "Altgriechisch", "size": 12 },
+        { "name": "Englisch", "size": 224707 },
+        { "name": "Französisch", "size": 37718 },
+        { "name": "Italienisch", "size": 50 },
+        { "name": "Latein", "size": 0 },
+        { "name": "Russisch", "size": 48 },
+        { "name": "Sonstige Sprachen", "size": 0 },
+        { "name": "Spanisch", "size": 163 },
+        { "name": "Türkisch", "size": 2 }
+      ]
+    },
+    {
+      "name": "Schulartunabhängige Orientierungsstufe",
+      "children": [
+        { "name": "Altgriechisch", "size": 0 },
+        { "name": "Englisch", "size": 341 },
+        { "name": "Französisch", "size": 54 },
+        { "name": "Italienisch", "size": 0 },
+        { "name": "Latein", "size": 21 },
+        { "name": "Russisch", "size": 0 },
+        { "name": "Sonstige Sprachen", "size": 0 },
+        { "name": "Spanisch", "size": 0 },
+        { "name": "Türkisch", "size": 0 }
+      ]
+    }
+  ]
+}
