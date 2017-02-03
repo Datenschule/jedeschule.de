@@ -103,14 +103,17 @@ app.controller('MapController', function ($scope, $http, schools) {
             $scope.$apply();
         });
 
-        for (var i = 0; i < $scope.all_schools.length; i++) {
-            var curr = $scope.all_schools[i];
-            if (curr.lat && curr.lon && curr.displayed == true) {
-                var marker = L.marker([curr.lat,curr.lon]);
-                marker.school = curr;
-                markers.addLayer(marker);
-            }
-        }
+
+        var filteredMarkers = $scope.all_schools
+            .filter(function(school){
+                return school.lat && school.lon && school.displayed;
+            })
+            .map(function(school) {
+                var marker = L.marker([school.lat, school.lon]);
+                marker.school = school;
+                return marker;
+            });
+        markers.addLayers(filteredMarkers);
         layer = markers;
         map.addLayer(layer);
     };
