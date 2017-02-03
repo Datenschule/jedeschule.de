@@ -57,6 +57,7 @@ app.controller('MapController', function ($scope, $http, schools) {
     }
 
     function onMarkerClick(marker) {
+        $scope.singleSchool = true;
         $scope.school = marker.layer.school;
         $scope.infoboxHidden = false;
         $scope.$apply();
@@ -97,8 +98,9 @@ app.controller('MapController', function ($scope, $http, schools) {
             singleMarkerMode: true});
         markers.on('click', onMarkerClick);
         markers.on('clusterclick', function (a) {
+            $scope.singleSchool = false;
             // a.layer is actually a cluster
-            console.log('cluster ' + a.layer.getAllChildMarkers().length);
+            $scope.schools = _.countBy(a.layer.getAllChildMarkers(), "school.school_type");
             $scope.infoboxHidden = false;
             $scope.$apply();
         });
