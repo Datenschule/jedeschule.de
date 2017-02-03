@@ -5,6 +5,7 @@ app.controller('MapController', function ($scope, $http, schools) {
     $scope.filter = {};
     $scope.selected = {};
     $scope.active_filters = [];
+    $scope.schoolProfileFilter = false;
 
     var filter_keys = ['school_type', 'legal_status'];
     var layer = undefined;
@@ -83,6 +84,13 @@ app.controller('MapController', function ($scope, $http, schools) {
                 }
             });
         }
+        if ($scope.schoolProfileFilter){
+            filtered.forEach(function(school){
+                if (school.displayed && !school.profile){
+                    school.displayed = false;
+                }
+            })
+        }
         $scope.all_schools = filtered;
         if (layer) {
             map.removeLayer(layer);
@@ -114,6 +122,8 @@ app.controller('MapController', function ($scope, $http, schools) {
         layer = markers;
         map.addLayer(layer);
     };
+
+    $scope.$watch('schoolProfileFilter',display);
 
     filter_keys.forEach(function(key) {
         $scope.selected[key] = [];

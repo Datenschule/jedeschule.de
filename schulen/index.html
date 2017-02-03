@@ -34,6 +34,10 @@ description: Tue Gutes mit Daten
                 <ui-select-choices repeat="o in filter.legal_status | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
             </ui-select>
         </div>
+        <div class="filter container-left-3">
+            <h3>mit Schulprofil:</h3>
+            <input ng-model="schoolProfileFilter" type="checkbox"/>
+        </div>
     </div>
     <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
         <h1>{{school.name}}</h1>
