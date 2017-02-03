@@ -71,22 +71,19 @@ app.controller('MapController', function ($scope, $http, schools) {
         if (!$scope.all_schools) {
             return;
         }
-        $scope.all_schools = $scope.all_schools.map(function(school) { school.displayed = true; return school;});
+        var filtered = $scope.all_schools.map(function(school) { school.displayed = true; return school;});
         //apply filters
         for (var filter in $scope.selected) {
-            var entries = $scope.selected[filter];
-            $scope.all_schools.map(function (school) {
-                if (entries.length > 0) {
-                    var displayed = false;
-                    for (var i = 0; i < entries.length && displayed === false; i++) {
-                        if (school[filter] === entries[i].name) {
-                            displayed = true;
-                        }
+            var entries = $scope.selected[filter].map(function (x){ return x.name });
+            filtered.forEach(function (school) {
+                if (school.displayed) {
+                    if (entries.length && entries.indexOf(school[filter]) < 0){
+                        school.displayed = false;
                     }
-                    school.displayed = displayed;
                 }
             });
         }
+        $scope.all_schools = filtered;
         if (layer) {
             map.removeLayer(layer);
         }
