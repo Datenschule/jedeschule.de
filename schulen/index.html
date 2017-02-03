@@ -43,6 +43,7 @@ description: Tue Gutes mit Daten
             <li>Rechtstatus: {{school.legal_status}}</li>
             <li>Schultyp: {{school.school_type}}</li>
             <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
+            <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
         </ul>
     </div>
     <div id="map" />

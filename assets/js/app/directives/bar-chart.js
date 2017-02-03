@@ -67,6 +67,13 @@ app.directive('barchart', function() {
                 console.log(scope.caption);
                 console.log(scope.data);
                 console.log(scope);
+
+                if (scope.data.length == 0) {
+                    return;
+                }
+
+                scope.caption = scope.caption || [];
+
                 var xscale = d3.scaleLinear()
                     .domain([0, 2800])
                     .range([0, 622]);

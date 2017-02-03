@@ -33,6 +33,7 @@ app.filter('propsFilter', function () {
 
 app.factory('schools', function($http) {
     var loaded_overview = null;
+    var schools = {};
     return {
         overview: function(cb) {
             if (!loaded_overview) {
@@ -40,12 +41,47 @@ app.factory('schools', function($http) {
                     url: 'https://lab.okfn.de/jedeschule/data/all_schools_geocoded.json',
                     method: "GET"
                 })
-                    .then(function(response) {
-                        loaded_overview = response.data;
-                        cb(null, response.data)
-                    })
+                .then(function(response) {
+                    loaded_overview = response.data;
+                    cb(null, response.data)
+                })
             } else {
                 return loaded_overview;
+            }
+        },
+        getSchool: function(school_id, cb) {
+            if (!schools[school_id]) {
+                $http({
+                    url: 'http://lab.okfn.de/jedeschule/data/schools/' + school_id + '.json',
+                    method: 'GET'
+                })
+                    .then(function(response) {
+                        schools[school_id] = response.data;
+                        cb(null, response.data);
+                    });
+            }
+            else {
+                return schools[school_id];
+            }
+        }
+    }
+});
+
+app.factory('states', function($http) {
+    var states = {};
+    return {
+        get: function(state, cb) {
+            if (!states[state]) {
+                $http({
+                    url:'/assets/js/app/data/' + state + '.json',
+                    method: "GET"
+                })
+                .then(function(response) {
+                    states[state] = response.data;
+                    cb(null, response.data);
+                })
+            } else {
+                return states[state]
             }
         }
     }

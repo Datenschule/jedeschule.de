@@ -1,3 +1,11 @@
+{% raw %}
 <div class="app-wrapper-finance" ng-controller="FinanceReportController">
+    <div class="button-group">
+        <label ng-repeat="(year, value) in reports">
+            <input type="radio" name="button-group" value="item">
+            <span class="button-group-item" ng-click="refreshTreemap(year)">{{year}}</span>
+        </label>
+    </div>
     <div id="treemap" style="width: 100%" ></div>
 </div>
+{% endraw %}

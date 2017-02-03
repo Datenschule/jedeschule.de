@@ -15,7 +15,8 @@ app.controller('MapController', function ($scope, $http, schools) {
         initMap(schools);
         initFilters(schools);
         $scope.all_schools = schools.map(function(school) { school.filtered = false; return school;});
-        console.log('finished adding markers')
+        console.log('finished adding markers');
+        display();
     });
 
     function initFilters(schools) {
@@ -44,8 +45,8 @@ app.controller('MapController', function ($scope, $http, schools) {
 
         for (var i = 0; i < schools.length; i++) {
             var curr = schools[i];
-            if (curr.location) {
-                var marker = L.marker([parseFloat(curr.location.lat),parseFloat(curr.location.lon)]);
+            if (curr.lon && curr.lat) {
+                var marker = L.marker([curr.lat,curr.lon]);
                 marker.school = curr;
                 markers.addLayer(marker);
             }
@@ -67,13 +68,14 @@ app.controller('MapController', function ($scope, $http, schools) {
     }
 
     var display = function() {
-        if ($scope.all_schools)
-            $scope.all_schools = $scope.all_schools.map(function(school) { school.displayed = true; return school;});
-        console.log('display called');
+        if (!$scope.all_schools) {
+            return;
+        }
+        $scope.all_schools = $scope.all_schools.map(function(school) { school.displayed = true; return school;});
         //apply filters
         for (var filter in $scope.selected) {
             var entries = $scope.selected[filter];
-            $scope.all_schools.map(function(school) {
+            $scope.all_schools.map(function (school) {
                 if (entries.length > 0) {
                     var displayed = false;
                     for (var i = 0; i < entries.length && displayed === false; i++) {
@@ -85,9 +87,6 @@ app.controller('MapController', function ($scope, $http, schools) {
                 }
             });
         }
-
-        console.log('filtered schools');
-        console.log($scope.all_schools.filter(function(school) {return school.displayed == true;}));
         if (layer) {
             map.removeLayer(layer);
         }
@@ -97,11 +96,17 @@ app.controller('MapController', function ($scope, $http, schools) {
             zoomToBoundsOnClick: false,
             singleMarkerMode: true});
         markers.on('click', onMarkerClick);
+        markers.on('clusterclick', function (a) {
+            // a.layer is actually a cluster
+            console.log('cluster ' + a.layer.getAllChildMarkers().length);
+            $scope.infoboxHidden = false;
+            $scope.$apply();
+        });
 
         for (var i = 0; i < $scope.all_schools.length; i++) {
             var curr = $scope.all_schools[i];
-            if (curr.location && curr.displayed == true) {
-                var marker = L.marker([parseFloat(curr.location.lat),parseFloat(curr.location.lon)]);
+            if (curr.lat && curr.lon && curr.displayed == true) {
+                var marker = L.marker([curr.lat,curr.lon]);
                 marker.school = curr;
                 markers.addLayer(marker);
             }

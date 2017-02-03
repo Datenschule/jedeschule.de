@@ -19,6 +19,21 @@ app.directive('linechart', function() {
                 height = 500 - margin.top - margin.bottom,
                 g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+            var xAxis = g.append("g")
+                .attr("class", "axis axis--x")
+                .attr("transform", "translate(0," + height + ")");
+
+            var yAxis = g.append("g")
+                .attr("class", "axis axis--y");
+
+            yAxis.append("text")
+                .attr("class", "axis--y-caption")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", "0.71em")
+                .attr("fill", "#000")
+                .text(scope.textx);
+
             scope.$watch('data', function(newVal) {
                 scope.data = newVal;
                 updateChart();
@@ -35,12 +50,26 @@ app.directive('linechart', function() {
             });
 
             function updateChart() {
-                var x = d3.scaleOrdinal(scope.data[0].map(function(elem, index, array) { return index * (width / array.length ) })),
+
+                if (scope.data.length == 0) {
+                    return;
+                }
+
+                var x,
                     y = d3.scaleLinear().range([height, 0]),
                     z = d3.scaleOrdinal(d3.schemeCategory10),
                     maxVal = d3.max(scope.data, function(array) {
-                        return d3.max(array);
+                        return d3.max(array)
                     });
+
+                if (scope.data.length > 0) {
+                    x = d3.scaleOrdinal(scope.data[0].map(function (elem, index, array) {
+                        return index * (width / array.length )
+                    }));
+                }
+                else {
+                    x = d3.scaleOrdinal([0, 0]);
+                }
 
                 var line = d3.line()
                 //.curve(d3.curveBasis)
@@ -54,31 +83,29 @@ app.directive('linechart', function() {
 
                 z.domain([0, 2]);
 
-                g.append("g")
-                    .attr("class", "axis axis--x")
-                    .attr("transform", "translate(0," + height + ")")
+                xAxis
                     .call(d3.axisBottom(x));
 
-                g.append("g")
-                    .attr("class", "axis axis--y")
-                    .call(d3.axisLeft(y))
-                    .append("text")
-                    .attr("transform", "rotate(-90)")
-                    .attr("y", 6)
-                    .attr("dy", "0.71em")
-                    .attr("fill", "#000")
-                    .text(scope.textx);
+                yAxis
+                    .call(d3.axisLeft(y));
+
 
                 var paths = g.selectAll(".path")
-                    .data(scope.data)
+                    .data(scope.data);
+
+                paths
                     .enter()
                     .append("g")
                     .attr("class", "path");
+
+                paths
+                    .exit().remove();
 
                 paths.append("path")
                     .attr("class", "line")
                     .attr("d", function(d) { return line(d); })
                     .style("stroke", function(d,i) { return z(i); })
+                    .style("stroke-width", "4")
                     .style("fill", "none");
 
                 // paths.append("text")
