@@ -43,16 +43,16 @@ app.controller('MapController', function ($scope, $http, schools) {
             singleMarkerMode: true});
         markers.on('click', onMarkerClick);
 
-        for (var i = 0; i < schools.length; i++) {
-            var curr = schools[i];
-            if (curr.lon && curr.lat) {
-                var marker = L.marker([curr.lat,curr.lon]);
-                marker.school = curr;
-                markers.addLayer(marker);
-            }
-            layer = markers;
-            map.addLayer(markers);
-        }
+        var theMarkers = schools.filter(function(school){
+            return school.lat && school.lon;
+        }).map(function(school){
+            var marker = L.marker([school.lat, school.lon]);
+            marker.school = school;
+            return marker
+        });
+        markers.addLayers(theMarkers);
+        layer = markers;
+        map.addLayer(markers);
         //display();
     }
 
