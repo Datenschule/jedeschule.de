@@ -36,15 +36,25 @@ description: Tue Gutes mit Daten
         </div>
     </div>
     <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
-        <h1>{{school.name}}</h1>
-        <p>{{school.address}}</p>
-        <ul>
-            <li>Träger: {{school.provider}}</li>
-            <li>Rechtstatus: {{school.legal_status}}</li>
-            <li>Schultyp: {{school.school_type}}</li>
-            <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
-            <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
-        </ul>
+        <div ng-if="singleSchool">
+            <h1>{{school.name}}</h1>
+            <p>{{school.address}}</p>
+            <ul>
+                <li>Träger: {{school.provider}}</li>
+                <li>Rechtstatus: {{school.legal_status}}</li>
+                <li>Schultyp: {{school.school_type}}</li>
+                <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
+                <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
+            </ul>
+        </div>
+
+        <div ng-if="!singleSchool">
+            <h1>{{schoolCount}} Schulen ausgewählt</h1>
+            <ul>
+                <li ng-repeat="(school_type, count) in schools">{{school_type}}: {{count}}</li>
+            </ul>
+        </div>
+
     </div>
     <div id="map" />
 
