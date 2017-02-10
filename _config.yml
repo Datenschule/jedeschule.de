@@ -15,6 +15,7 @@ exclude:
   - "scripts/"
   - "_site/"
   - "vendor/"
+  - "assets/vendor/leaflet/docs/"
 gems:
   - jekyll-redirect-from
   - jekyll-sitemap
