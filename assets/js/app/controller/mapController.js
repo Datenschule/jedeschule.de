@@ -5,6 +5,7 @@ app.controller('MapController', function ($scope, $http, schools) {
     $scope.filter = {};
     $scope.selected = {};
     $scope.active_filters = [];
+    $scope.schoolProfileFilter = false;
 
     var filter_keys = ['school_type', 'legal_status'];
     var layer = undefined;
@@ -72,22 +73,26 @@ app.controller('MapController', function ($scope, $http, schools) {
         if (!$scope.all_schools) {
             return;
         }
-        $scope.all_schools = $scope.all_schools.map(function(school) { school.displayed = true; return school;});
+        var filtered = $scope.all_schools.map(function(school) { school.displayed = true; return school;});
         //apply filters
         for (var filter in $scope.selected) {
-            var entries = $scope.selected[filter];
-            $scope.all_schools.map(function (school) {
-                if (entries.length > 0) {
-                    var displayed = false;
-                    for (var i = 0; i < entries.length && displayed === false; i++) {
-                        if (school[filter] === entries[i].name) {
-                            displayed = true;
-                        }
+            var entries = $scope.selected[filter].map(function (x){ return x.name });
+            filtered.forEach(function (school) {
+                if (school.displayed) {
+                    if (entries.length && entries.indexOf(school[filter]) < 0){
+                        school.displayed = false;
                     }
-                    school.displayed = displayed;
                 }
             });
         }
+        if ($scope.schoolProfileFilter){
+            filtered.forEach(function(school){
+                if (school.displayed && !school.profile){
+                    school.displayed = false;
+                }
+            })
+        }
+        $scope.all_schools = filtered;
         if (layer) {
             map.removeLayer(layer);
         }
@@ -119,6 +124,8 @@ app.controller('MapController', function ($scope, $http, schools) {
         layer = markers;
         map.addLayer(layer);
     };
+
+    $scope.$watch('schoolProfileFilter',display);
 
     filter_keys.forEach(function(key) {
         $scope.selected[key] = [];
