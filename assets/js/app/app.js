@@ -38,7 +38,7 @@ app.factory('schools', function($http) {
         overview: function(cb) {
             if (!loaded_overview) {
                 $http({
-                    url: 'https://lab.okfn.de/jedeschule/data/all_schools_geocoded.json',
+                    url: 'https://lab.okfn.de/jedeschule/schools/all_schools_geocoded.json',
                     method: "GET"
                 })
                 .then(function(response) {
