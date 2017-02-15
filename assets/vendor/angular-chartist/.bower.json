@@ -1,0 +1,30 @@
+{
+  "name": "angular-chartist",
+  "authors": [
+    "Itamar Weiss <weiss.itamar@gmail.com>"
+  ],
+  "description": "A Chartist directive for Angular.js",
+  "main": "angular-chartist.js",
+  "keywords": [
+    "chartist",
+    "angular.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/itamarwe/angular-chartist",
+  "_release": "51b681e282",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "51b681e28201af3bc19df7c9bfde42158957ca32"
+  },
+  "_source": "https://github.com/itamarwe/angular-chartist.git",
+  "_target": "*",
+  "_originalSource": "angular-chartist"
+}
