@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'angular-chartist']);
+var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'angular-chartist', 'nvd3']);
 
 app.filter('propsFilter', function () {
     return function (items, props) {
@@ -86,3 +86,14 @@ app.factory('states', function($http) {
         }
     }
 });
+
+// app.factory('ag_sum', function($http) {
+//    var ag_sum = {};
+//     return {
+//         get: function(cb) {
+//             if (!ag_sum) {
+//
+//             }
+//         }
+//     }
+// });
