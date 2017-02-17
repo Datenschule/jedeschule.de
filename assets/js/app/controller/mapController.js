@@ -67,8 +67,8 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         zoom = zoom || 6;
         map = L.map('map').setView([lat, lng], zoom);
         map.on('click', onMapClick);
-        map.on('dragend', persistState)
-        map.on('zoomend', persistState)
+        map.on('dragend', persistState);
+        map.on('zoomend', persistState);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/okfde/ciwxo7szj00052pnx7xgwdl1d/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib2tmZGUiLCJhIjoiY2lpOHhvMnNhMDAyNnZla280ZWhmMm96NyJ9.IvGz74dvvukg19B4Npsm1g', {
             attribution: '&copy; <a href="https://www.mapbox.com">Map Box</a> contributors'
