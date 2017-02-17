@@ -79,14 +79,12 @@ app.controller('MapController', function ($scope, $http, schools) {
     function filterSchools(schools){
         var filtered = schools.map(function(school) { school.displayed = true; return school;});
 
-        _.forEach($scope.selected, function(filter){
+        _.forEach($scope.selected, function(filter, key){
             var entries = filter.map(function (x){ return x.name });
             if (entries.length) {
                 filtered.forEach(function (school) {
-                    if (school.displayed) {
-                        if (entries.indexOf(school[filter]) < 0) {
-                            school.displayed = false;
-                        }
+                    if (school.displayed && entries.indexOf(school[key]) < 0) {
+                        school.displayed = false;
                     }
                 })
             }
