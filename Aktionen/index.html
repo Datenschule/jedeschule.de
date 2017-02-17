@@ -4,4 +4,12 @@ menu_aktionen: yes
 title: OKF Datenschule
 description: Tue Gutes mit Daten
 ---
-<h1>Aktionen page</h1>
+<div class="container" ng-app="App">
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Wettbewerbe & Programme</h1>
+            {% include aktionen/programs.html state=page.name %}
+        </div>
+    </div>
+
+</div>

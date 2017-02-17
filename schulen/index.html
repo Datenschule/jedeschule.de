@@ -35,6 +35,13 @@ description: Tue Gutes mit Daten
             </ui-select>
         </div>
         <div class="filter container-left-3">
+            <h3>Angebote:</h3>
+            <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
+                <ui-select-match placeholder="Angebote filtern...">AG: {{$item.name}}</ui-select-match>
+                <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
+            </ui-select>
+        </div>
+        <div class="filter container-left-3">
             <h3>mit Schulprofil:</h3>
             <input ng-model="schoolProfileFilter" type="checkbox"/>
         </div>
