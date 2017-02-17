@@ -1,4 +1,4 @@
-app.controller('MapController', function ($scope, $http, schools) {
+app.controller('MapController', function ($scope, $http, $location, schools) {
 
     $scope.infoboxHidden = true;
     $scope.school = {};
@@ -11,24 +11,65 @@ app.controller('MapController', function ($scope, $http, schools) {
     var filter_keys = ['school_type', 'legal_status'];
     var layer;
     var allSchools;
+    var map;
 
     schools.overview(function(err, schools) {
-        console.log('loaded schools');
-
         console.time("mapSchools");
         allSchools = schools;
         console.timeEnd("mapSchools");
-
-        console.time("display");
-        display();
-        console.timeEnd("display");
 
         console.time("initFilters");
         initFilters(schools);
         console.timeEnd("initFilters");
 
-        console.log('finished adding markers');
+        init();
     });
+
+    function init(){
+        var searchParams = $location.search();
+        if (searchParams.full_time_schools && searchParams.full_time_schools !== "false"){
+            $scope.fullTimeSchoolFilter = true;
+        }
+        if (searchParams.school_profiles && searchParams.school_profiles !== "false"){
+            $scope.schoolProfileFilter = true;
+        }
+
+        filter_keys.forEach(function(key){
+            var selected = searchParams[key];
+            $scope.selected[key] = _.map(selected, function(value){return {name: value}});
+        });
+
+        initMap(searchParams.lat, searchParams.lng, searchParams.zoom)
+    }
+
+    function initMap(lat, lng, zoom){
+        lat = lat || 51.0;
+        lng = lng || 9.00;
+        zoom = zoom || 6;
+        map = L.map('map').setView([lat, lng], zoom);
+        map.on('click', onMapClick);
+        map.on('dragend', persistState)
+        map.on('zoomend', persistState)
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/okfde/ciwxo7szj00052pnx7xgwdl1d/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib2tmZGUiLCJhIjoiY2lpOHhvMnNhMDAyNnZla280ZWhmMm96NyJ9.IvGz74dvvukg19B4Npsm1g', {
+            attribution: '&copy; <a href="https://www.mapbox.com">Map Box</a> contributors'
+        }).addTo(map);
+
+
+
+        console.time("display");
+        display();
+        console.timeEnd("display");
+    }
+
+    function persistState(){
+        var center = map.getCenter();
+        var zoom = map.getZoom();
+        $location.search('lat', center.lat);
+        $location.search('lng', center.lng);
+        $location.search('zoom', zoom);
+        $scope.$apply();
+    }
 
     function initFilters(schools) {
         filter_keys.forEach(function(key) {
@@ -43,14 +84,6 @@ app.controller('MapController', function ($scope, $http, schools) {
             $scope.filter[key] = filterEntries;
         })
     }
-
-
-    var map = L.map('map').setView([51.00, 9.00], 6);
-    map.on('click', onMapClick);
-
-    L.tileLayer('https://api.mapbox.com/styles/v1/okfde/ciwxo7szj00052pnx7xgwdl1d/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib2tmZGUiLCJhIjoiY2lpOHhvMnNhMDAyNnZla280ZWhmMm96NyJ9.IvGz74dvvukg19B4Npsm1g', {
-        attribution: '&copy; <a href="https://www.mapbox.com">Map Box</a> contributors'
-    }).addTo(map);
 
     function onMarkerClick(marker) {
         $scope.singleSchool = true;
@@ -72,11 +105,29 @@ app.controller('MapController', function ($scope, $http, schools) {
         $scope.$apply();
     }
 
+    function persistFilters(){
+        _.forEach($scope.selected, function(values, key){
+            $location.search(key, values.map(function(value){return value.name}));
+        });
+        if ($scope.fullTimeSchoolFilter){
+            $location.search('full_time_schools', true);
+        } else {
+            $location.search('full_time_schools', false);
+        }
+
+        if ($scope.schoolProfileFilter){
+            $location.search('school_profiles', true);
+        } else {
+            $location.search('school_profiles', null);
+        }
+    }
+
     $scope.closeSlider = function(){
         $scope.infoboxHidden = true;
     };
 
     function filterSchools(schools){
+        persistFilters();
         var filtered = schools.map(function(school) { school.displayed = true; return school;});
 
         _.forEach($scope.selected, function(filter, key){
@@ -89,6 +140,7 @@ app.controller('MapController', function ($scope, $http, schools) {
                 })
             }
         });
+
         if ($scope.schoolProfileFilter){
             filtered.forEach(function(school){
                 if (school.displayed && !school.profile){
