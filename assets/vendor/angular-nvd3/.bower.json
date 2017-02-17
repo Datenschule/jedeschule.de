@@ -47,6 +47,5 @@
   },
   "_source": "https://github.com/krispo/angular-nvd3.git",
   "_target": "^1.0.9",
-  "_originalSource": "angular-nvd3",
-  "_direct": true
+  "_originalSource": "angular-nvd3"
 }
