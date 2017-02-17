@@ -1,20 +1,33 @@
 {% raw %}
-<div class="app-wrapper" ng-controller="SchoolkindsController">
-    <div class="button-group">
-        <label ng-repeat="(year, value) in schooltypes">
-            <input type="radio" name="button-group" value="item">
-            <span class="button-group-item" ng-click="refreshBarchart(year)">{{year}}</span>
-        </label>
+<div class="container app-wrapper" ng-controller="SchoolkindsController">
+    <!--<div class="button-group">-->
+        <!--<label ng-repeat="(year, value) in schooltypes">-->
+            <!--<input type="radio" name="button-group" value="item">-->
+            <!--<span class="button-group-item" ng-click="refreshBarchart(year)">{{year}}</span>-->
+        <!--</label>-->
+    <!--</div>-->
+    <!--<div id="wrapper" style="padding-top:4em;"></div>-->
+    <!--<barchart data="data" caption="categories" colors="colors"></barchart>-->
+    <!--<div class="button-group">-->
+        <!--<label ng-repeat="(type, value) in schooltypesAfterYear track by $index">-->
+            <!--<input type="checkbox" name="button-group" ng-model="active_lines[$index]" ng-change="refreshLineChart()">-->
+            <!--<span class="button-group-item" ng-click="">{{type}}</span>-->
+        <!--</label>-->
+    <!--</div>-->
+    <!--<linechart data="linedata" labels="labels" textx="textx"></linechart>-->
+    <div class="container-left-6">
+        <nvd3 options="nvd3options"
+              data="nvd3data"
+              config="nvd3config"></nvd3>
     </div>
-    <div id="wrapper" style="padding-top:4em;"></div>
-    <barchart data="data" caption="categories" colors="colors"></barchart>
-    <div class="button-group">
-        <label ng-repeat="(type, value) in schooltypesAfterYear track by $index">
-            <input type="checkbox" name="button-group" ng-model="active_lines[$index]" ng-change="refreshLineChart()">
-            <span class="button-group-item" ng-click="">{{type}}</span>
-        </label>
+    <div class="container-right-text">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+        dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+        consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+        sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+        takimata sanctus est Lorem ipsum dolor sit amet.
     </div>
-    <linechart data="linedata" labels="labels" textx="textx"></linechart>
-    <stackedbarchart></stackedbarchart>
+    <!--<stackedbarchart></stackedbarchart>-->
 </div>
 {% endraw %}

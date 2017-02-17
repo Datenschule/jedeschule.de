@@ -8,6 +8,104 @@ app.controller('SchoolkindsController', function ($scope, $http, $location, scho
     $scope.categories = [];
     $scope.linedata = [];
 
+    $scope.nvd3options = {
+        chart: {
+            type: 'parallelCoordinates',
+            height: 450,
+            // width: 600,
+            margin: {
+                top: 30,
+                right: 10,
+                bottom: 10,
+                left: 10
+            },
+            dimensionData: [{
+                "key": "2005"
+            },{
+                "key": "2016"
+            }]
+        }
+    };
+
+    $scope.nvd3data = [
+        {
+            "2005": 0,
+            "2016": 0,
+            "key": "Vorklassen"
+        },
+        {
+            "2005": 428,
+            "2016": 428,
+            "key": "Grundschulen"
+        },
+        {
+            "2005": 417,
+            "2016": 422,
+            "key": "Schulartunabhängige Orientierungsstufe"
+        },
+        {
+            "2005": 56,
+            "2016": 0,
+            "key": "Hauptschulen"
+        },
+        {
+            "2005": 74,
+            "2016": 0,
+            "key": "Realschulen"
+        },
+        {
+            "2005": 111,
+            "2016": 113,
+            "key": "Gymnasien"
+        },
+        {
+            "2005": 52,
+            "2016": 171,
+            "key": "Integrierte Gesamtschulen"
+        },
+        {
+            "2005": 7,
+            "2016": 10,
+            "key": "Freie Waldorfschulen"
+        },
+        {
+            "2005": 93,
+            "2016": 71,
+            "key": "Förderschulen"
+        },
+        {
+            "2005": 8,
+            "2016": 10,
+            "key": "Abendhauptschulen"
+        },
+        {
+            "2005": 9,
+            "2016": 8,
+            "key": "Abendrealschulen"
+        },
+        {
+            "2005": 2,
+            "2016": 2,
+            "key": "Abendgymnasien"
+        },
+        {
+            "2005": 5,
+            "2016": 5,
+            "key": "Kollegs"
+        }
+    ];
+
+    $scope.nvd3config = {
+        visible: true, // default: true
+        extended: false, // default: false
+        disabled: false, // default: false
+        refreshDataOnly: true, // default: true
+        deepWatchOptions: true, // default: true
+        deepWatchData: true, // default: true
+        deepWatchDataDepth: 2, // default: 2
+        debounce: 10 // default: 10
+    };
+
     states.get($scope.state, function(err, data) {
         if (err) {
             console.log(err)
