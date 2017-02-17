@@ -6,6 +6,7 @@ app.controller('MapController', function ($scope, $http, schools) {
     $scope.selected = {};
     $scope.active_filters = [];
     $scope.schoolProfileFilter = false;
+    $scope.fullTimeSchoolFilter = false;
 
     var filter_keys = ['school_type', 'legal_status'];
     var layer;
@@ -93,6 +94,14 @@ app.controller('MapController', function ($scope, $http, schools) {
         if ($scope.schoolProfileFilter){
             filtered.forEach(function(school){
                 if (school.displayed && !school.profile){
+                    school.displayed = false;
+                }
+            })
+        }
+
+        if ($scope.fullTimeSchoolFilter){
+            filtered.forEach(function(school){
+                if (school.displayed && !school.full_time_school){
                     school.displayed = false;
                 }
             })
