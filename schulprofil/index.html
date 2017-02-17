@@ -98,6 +98,18 @@ description: Tue Gutes mit Daten
             <h1 class="box-head">Partner</h1>
             <ul>
                 <li ng-repeat="partner in school.profile.partner track by $index">{{partner}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Arbeitsgemeinschaften</h1>
+            <div ng-repeat="(wg_cat, wgs) in school.profile.working_groups track by $index">
+                <h3>{{wg_cat}}</h3>
+                <ul>
+                    <li ng-repeat="wg in wgs track by $index">{{wg}}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
