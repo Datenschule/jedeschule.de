@@ -1,7 +1,8 @@
 ---
 name: Bremen
 layout: laender
-link: /laender/saarland/bremen/
+link: /laender/bremen/
+url_name: bremen
 ---
 Introtext zum Schulsystem in Bremen
 

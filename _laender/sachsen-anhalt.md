@@ -2,6 +2,7 @@
 name: Sachsen-Anhalt
 layout: laender
 link: /laender/sachsen-anhalt/
+url_name: sachsen-anhalt
 ---
 Introtext zum Schulsystem in Sachsen-Anhalt
 

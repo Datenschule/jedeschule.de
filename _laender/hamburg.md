@@ -2,6 +2,7 @@
 name: Hamburg
 layout: laender
 link: /laender/hamburg/
+url_name: hamburg
 ---
 Introtext zum Schulsystem in Hamburg
 

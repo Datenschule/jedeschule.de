@@ -2,6 +2,7 @@
 name: Baden-Württemberg
 layout: laender
 link: /laender/baden-wuerttemberg/
+url_name: baden-wuerttemberg
 ---
 Introtext zum Schulsystem in Baden-Württemberg
 

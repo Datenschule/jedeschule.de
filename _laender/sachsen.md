@@ -2,6 +2,7 @@
 name: Sachsen
 layout: laender
 link: /laender/sachsen/
+url_name: sachsen
 ---
 Introtext zum Schulsystem in Sachsen
 
