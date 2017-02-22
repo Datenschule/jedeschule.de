@@ -2,6 +2,7 @@
 name: Bayern
 layout: laender
 link: /laender/bayern/
+url_name: bayern
 ---
 Introtext zum Schulsystem in Bayern
 

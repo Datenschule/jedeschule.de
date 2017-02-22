@@ -1,4 +1,72 @@
 app.controller('foreignLanguagesController', function ($scope, $http, $location, schools, states) {
+    $scope.init = function(state) {
+        $scope.state = state;
+        console.log(state);
+        states.get($scope.state, function(err, statedata) {
+            console.log(statedata);
+            var students_by_schooltype = get_students_by_schooltype(statedata.schueler);
+            //var schooltype_dict = statedata.fremdsprachen['Realschulen'].map(function(elem) { return elem.schooltype});
+            var language_dict = statedata.fremdsprachen['Realschulen'].map(function(elem) { return elem.language});
+            //var language_dict = ['Altgriechisch'];
+            console.log(statedata);
+            //clean fremdsprachen
+
+            $scope.data = [];
+            for (var schooltype in statedata.fremdsprachen) {
+                var current = statedata.fremdsprachen[schooltype];
+                var languages = language_dict.map(function(language) {
+                    // console.log(current);
+                    var amountIndex = _.findIndex(current, {language: language});
+                    // console.log('Schooltype:' + schooltype);
+                    // console.log('Students: ' + students_by_schooltype[schooltype]);
+                    var amount = amountIndex >= 0 && students_by_schooltype[schooltype] > 0 ?
+                        Math.round(current[amountIndex].amount * 100 / students_by_schooltype[schooltype]) : 0;
+                    // console.log('Language: ' + language);
+                    // console.log('Amount: ' + amount);
+                    return [language, amount]
+                });
+                // console.log(languages);
+                $scope.data.push({
+                    key: schooltype,
+                    values: languages
+                })
+            }
+        });
+    };
+
+    $scope.options = {
+        chart: {
+            type: 'multiBarChart',
+            height: 450,
+            x: function(d){return d[0];},
+            y: function(d){return d[1];},
+            stacked: true
+        }
+    };
+
+    $scope.data = [
+        {
+            "key": "Englisch",
+            "values": [['Gymnasium', 250000], ['Realschule',100000], ['Hauptschule', 250000], ['Gesamtschule',100000]]
+        }, {
+            "key": "Französisch",
+            "values": [['Gymnasium', 250000], ['Realschule',200000], ['Hauptschule', 250000], ['Gesamtschule',100000]]
+        }, {
+            "key": "Latein",
+            "values": [['Gymnasium',300000], ['Realschule', 1000000], ['Hauptschule', 250000], ['Gesamtschule',100000]]
+        }];
+
+    function get_students_by_schooltype(students_data) {
+        var  result = {};
+        for (var schooltype in students_data) {
+            var curr_schooltype = students_data[schooltype];
+            result[schooltype] = Object.keys(curr_schooltype).reduce(function(prev, key) {
+                return prev + curr_schooltype[key];
+            }, 0)
+        }
+        console.log(result);
+        return result;
+    }
     // $scope.test = "TestABC";
     // var svg = d3.select(".zoomablepack"),
     //     margin = 20,
@@ -73,32 +141,4 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
     //         circle.attr("r", function(d) { return d.r * k; });
     //     }
     // });
-    $scope.options = {
-        chart: {
-            type: 'multiBarChart',
-            height: 450,
-            x: function(d){return d[0];},
-            y: function(d){return d[1];},
-            stacked: true,
-            // barColor: function(d, i){
-            //     var colors = d3.scale.category20().range();
-            //     //var rnd = Math.floor(Math.random() * colors.length)
-            //     console.log(i);
-            //     console.log(d);
-            //     return colors[i];
-            // }
-        }
-    };
-
-    $scope.data = [
-        {
-            "key": "Englisch",
-            "values": [['Gymnasium', 250000], ['Realschule',100000], ['Hauptschule', 250000], ['Gesamtschule',100000]]
-        }, {
-            "key": "Französisch",
-            "values": [['Gymnasium', 250000], ['Realschule',200000], ['Hauptschule', 250000], ['Gesamtschule',100000]]
-        }, {
-            "key": "Latein",
-            "values": [['Gymnasium',300000], ['Realschule', 1000000], ['Hauptschule', 250000], ['Gesamtschule',100000]]
-        }];
 });

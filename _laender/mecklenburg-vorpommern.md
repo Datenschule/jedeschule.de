@@ -2,6 +2,7 @@
 name: Mecklenburg-Vorpommern
 layout: laender
 link: /laender/mecklenburg-vorpommern/
+url_name: mecklenburg-vorpommern
 ---
 Introtext zum Schulsystem in Mecklenburg-Vorpommern
 

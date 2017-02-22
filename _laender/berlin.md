@@ -2,6 +2,7 @@
 name: Berlin
 layout: laender
 link: /laender/berlin
+url_name: berlin
 ---
 Introtext zum Schulsystem in Bayern
 

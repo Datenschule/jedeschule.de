@@ -2,6 +2,7 @@
 name: Rheinland-Pfalz
 layout: laender
 link: /laender/rheinland-pfalz
+url_name: rheinland-pfalz
 ---
 Introtext zum Schulsystem in Rheinland-Pfalz
 

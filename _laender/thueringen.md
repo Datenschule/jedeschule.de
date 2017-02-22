@@ -2,6 +2,7 @@
 name: Thüringen
 layout: laender
 link: /laender/thueringen/
+url_name: thueringen
 ---
 Introtext zum Schulsystem in Thüringen
 
