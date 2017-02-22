@@ -1,0 +1,158 @@
+{
+  "berlin" : {
+    "ag" : {
+      "entries": [
+        {
+          "name": "Umwelt",
+          "amount": 87
+        },
+        {
+          "name": "Sport",
+          "amount": 368
+        },
+        {
+          "name": "Musik / Tanz",
+          "amount": 344
+        },
+        {
+          "name": "Gesellschaft / Partizipation",
+          "amount": 232
+        },
+        {
+          "name": "Literatur / Medien",
+          "amount": 89
+        },
+        {
+          "name": "Handwerk",
+          "amount": 175
+        },
+        {
+          "name": "Kultur / Kunst",
+          "amount": 130
+        },
+        {
+          "name": "Naturwissenschaft / Technik",
+          "amount": 219
+        },
+        {
+          "name": "Berufsorientierung",
+          "amount": 34
+        },
+        {
+          "name": "Sprachen",
+          "amount": 133
+        },
+      ],
+      "amount": 422
+    },
+    "partner" : {
+      "entries": [
+        {
+          "name": "Gemeinnütziger Akteur",
+          "amount": 1070
+        },
+        {
+          "name": "Öffentliche Infrastruktur",
+          "amount": 819
+        },
+        {
+          "name": "Wirtschaftsakteur",
+          "amount": 538
+        },
+        {
+          "name": "Partnerschule",
+          "amount": 258
+        },
+        {
+          "name": "Unklar",
+          "amount": 143
+        },
+        {
+          "name": "Modell/Förderprogramm/Projekt",
+          "amount": 117
+        },
+        {
+          "name": "kirchliche Einrichtung",
+          "amount": 43
+        },
+        {
+          "name": "Verband / Kammer / Innung / Gewerkschaft",
+          "amount": 24
+        }
+      ],
+      "amount": 411
+    },
+  },
+  "sachsen" : {
+    "ag" : {
+      "entries": [
+        {
+          "name": "Umwelt",
+          "amount": 353
+        },
+        {
+          "name": "Sport",
+          "amount": 1179
+        },
+        {
+          "name": "Musik / Tanz",
+          "amount": 1014
+        },
+        {
+          "name": "Gesellschaft / Partizipation",
+          "amount": 897
+        },
+        {
+          "name": "Literatur / Medien",
+          "amount": 200
+        },
+        {
+          "name": "Handwerk",
+          "amount": 707
+        },
+        {
+          "name": "Kultur / Kunst",
+          "amount": 705
+        },
+        {
+          "name": "Naturwissenschaft / Technik",
+          "amount": 782
+        },
+        {
+          "name": "Berufsorientierung",
+          "amount": 803
+        },
+        {
+          "name": "Sprachen",
+          "amount": 524
+        },
+      ],
+      "amount": 1330
+    },
+    "partner" : {
+      "entries": [
+        {
+          "name": "leer",
+          "amount": 6631
+        },
+        {
+          "name": "öffentlicher Sektor",
+          "amount": 511
+        },
+        {
+          "name": "Wirtschaftsakteur",
+          "amount": 33
+        },
+        {
+          "name": "Partnerschule",
+          "amount": 2
+        },
+        {
+          "name": "Zivilgesellschaftlicher Akteur",
+          "amount": 109
+        }
+      ],
+      "amount": 962
+    }
+  }
+}
