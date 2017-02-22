@@ -1,5 +1,58 @@
 app.controller('FinanceReportController', function ($scope, $http, $location, schools, states) {
 
+    $scope.init = function(state) {
+        $scope.state = state;
+        console.log(state);
+        states.get($scope.state, function(err, statedata) {
+            console.log(statedata);
+            var year_dict = ['2000', '2005', '2010', '2015\n vorl. Ist'];
+            var entries = _.filter(statedata.finanzbericht, function(o) { return year_dict.indexOf(o.jahr) >= 0 });
+            entries = _.groupBy(entries, 'Kategorie');
+            $scope.data = [];
+            for (var category in entries) {
+                var current = entries[category];
+                $scope.data.push({ key: category, values: current.map(function(o) { return [o.jahr, o.wert] }) })
+            }
+        });
+    };
+
+    $scope.options = {
+        chart: {
+            type: 'multiBarChart',
+            height: 450,
+            x: function(d){return d[0];},
+            y: function(d){return d[1];},
+            stacked: true
+            // barColor: function(d, i){
+            //     var colors = d3.scale.category20().range();
+            //     //var rnd = Math.floor(Math.random() * colors.length)
+            //     console.log(i);
+            //     console.log(d);
+            //     return colors[i];
+            // }
+        }
+    }
+
+    $scope.data = [
+        {
+            "key": "Allgemeinbildende und berufliche Schulen",
+            "values": [['1995', 250000], ['2005',100000], ['2010', 250000], ['Vorlage 2015',100000]]
+        }, {
+            "key": "Hochschule",
+            "values": [['1995', 250000], ['2005',200000], ['2010', 250000], ['Vorlage 2015',100000]]
+        }, {
+            "key": "Jugendarbeit, Tageseinrichtungen für Kinder",
+            "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
+        },
+        {
+            "key": "Förderung des Bildungswesens",
+            "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
+        },
+        {
+            "key": "Sonstiges Bildungswesen",
+            "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
+        }
+    ];
     //var container = d3.select('#treemap');
     // var container = document.getElementById('treemap');
     // var locationParts = $location.absUrl().split('/');
@@ -93,41 +146,4 @@ app.controller('FinanceReportController', function ($scope, $http, $location, sc
     //         return d.size;
     //     }
     // }
-    $scope.options = {
-        chart: {
-            type: 'multiBarChart',
-            height: 450,
-            x: function(d){console.log(d[0]); return d[0];},
-            y: function(d){return d[1];},
-            stacked: true
-            // barColor: function(d, i){
-            //     var colors = d3.scale.category20().range();
-            //     //var rnd = Math.floor(Math.random() * colors.length)
-            //     console.log(i);
-            //     console.log(d);
-            //     return colors[i];
-            // }
-        }
-    }
-
-    $scope.data = [
-        {
-            "key": "Allgemeinbildende und berufliche Schulen",
-            "values": [['1995', 250000], ['2005',100000], ['2010', 250000], ['Vorlage 2015',100000]]
-        }, {
-            "key": "Hochschule",
-            "values": [['1995', 250000], ['2005',200000], ['2010', 250000], ['Vorlage 2015',100000]]
-        }, {
-            "key": "Jugendarbeit, Tageseinrichtungen für Kinder",
-            "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
-        },
-        {
-            "key": "Förderung des Bildungswesens",
-            "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
-        },
-        {
-            "key": "Sonstiges Bildungswesen",
-            "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
-        }
-        ];
 });
