@@ -87,6 +87,48 @@ app.factory('states', function($http) {
     }
 });
 
+app.factory('ag', function($http) {
+    var ags = undefined;
+    return {
+        get: function(cb) {
+            if (!ags) {
+                $http({
+                    url:'/assets/js/app/data/activities.json',
+                    method: "GET"
+                })
+                .then(function(response) {
+                    ags = response.data;
+                    cb(null, response.data);
+                })
+            } else {
+                return ags
+            }
+        }
+    }
+});
+
+app.factory('programs', function($http) {
+    var programs = undefined;
+    return {
+        get: function(cb) {
+            console.log('programs');
+            if (!programs) {
+                $http({
+                    url:'/assets/js/app/data/programs.json',
+                    method: "GET"
+                })
+                .then(function(response) {
+                    console.log('programs called');
+                    programs = response.data;
+                    cb(null, response.data);
+                })
+            } else {
+                return programs;
+            }
+        }
+    }
+});
+
 // app.factory('ag_sum', function($http) {
 //    var ag_sum = {};
 //     return {
