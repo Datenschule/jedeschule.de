@@ -15,9 +15,10 @@
         <div class="container-left-6" >
             <div class="row">
                 <div class="pie-container" ng-repeat="cat in data track by $index">
-                    <div class="pie" style="animation-delay: -{{cat.value}}s"></div>
+                    <div class="pie" style="animation-delay: -{{cat.amount_pc}}s"></div>
                     <p class="pie-caption">{{cat.name}}</p>
-                    <p class="pie-caption">10 Schulen</p>
+                    <p class="pie-caption">{{cat.amount}} von {{amount_schools}} Schulen</p>
+                    <p class="pie-caption">{{cat.amount_pc}} %</p>
                 </div>
             </div>
         </div>
