@@ -1,4 +1,16 @@
-app.controller('ProgramsController', function ($scope, $http, $location, schools, states) {
+app.controller('ProgramsController', function ($scope, $http, $location, programs) {
+
+    console.log('test');
+
+    programs.get(function(err, data) {
+        console.log(data);
+        $scope.data = [
+            {
+                key: "Cumulative Return",
+                values: data.map(function(elem) { return { label: elem.name, value:elem.amount } })
+            }
+        ]
+    })
 
     $scope.options = {
         chart: {
