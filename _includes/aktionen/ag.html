@@ -1,8 +1,8 @@
-{% raw %}
+
 <div class="app-wrapper-languages">
     <!--<p>{{test}}</p>-->
     <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
-    <div class="container" ng-controller="agBerlinController">
+    <div class="container" ng-controller="agController" ng-init="init('{{include.name}}')">
         <div class="container-left-6">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -11,6 +11,7 @@
             sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
             takimata sanctus est Lorem ipsum dolor sit amet.
         </div>
+        {% raw %}
         <div class="container-left-6" >
             <div class="row">
                 <div class="pie-container" ng-repeat="cat in data track by $index">
@@ -19,8 +20,7 @@
                     <p class="pie-caption">10 Schulen</p>
                 </div>
             </div>
-
         </div>
+        {% endraw %}
     </div>
 </div>
-{% endraw %}
