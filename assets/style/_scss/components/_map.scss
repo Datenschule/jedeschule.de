@@ -1,5 +1,7 @@
+$height: 38rem;
+
 #map {
-  height: 38rem;
+  height: $height;
   z-index: 10;
 }
 
@@ -11,6 +13,8 @@
   //#transform: translateX(-100%);
   //#-webkit-transform: translateX(-100%);
   z-index: 20;
+  max-height: $height;
+  overflow-y: auto;
 }
 
 .animate-hide {
