@@ -63,11 +63,16 @@ description: Tue Gutes mit Daten
                 </ul>
             </div>
 
-            <div ng-if="!singleSchool">
+            <div ng-if="!singleSchool && !noData">
                 <h1>{{schoolCount}} Schulen ausgewählt</h1>
                 <ul>
                     <li ng-repeat="(school_type, count) in schools">{{school_type}}: {{count}}</li>
                 </ul>
+            </div>
+            <div ng-if="noData">
+                <h1>Für dieses Bundelsand gibt es keine Daten, die wir benutzen dürfen</h1>
+                <iframe src="//giphy.com/embed/ArbFm3G5dl81q" width="200" height="100" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                <p><a href="https://giphy.com/gifs/baby-crying-kid-ArbFm3G5dl81q">via GIPHY</a></p>
             </div>
         </div>
         <div id="map" />
