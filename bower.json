@@ -26,6 +26,7 @@
     "angular-sanitize": "^1.6.2",
     "angular-ui-select": "^0.19.6",
     "angular-nvd3": "^1.0.9",
-    "nvd3": "^1.8.5"
+    "nvd3": "^1.8.5",
+    "chroma-js": "^1.1.1"
   }
 }
