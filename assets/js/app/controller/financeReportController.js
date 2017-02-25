@@ -13,6 +13,14 @@ app.controller('FinanceReportController', function ($scope, $http, $location, sc
                 var current = entries[category];
                 $scope.data.push({ key: category, values: current.map(function(o) { return [o.jahr, o.wert] }) })
             }
+            var colors = ['#61B861', '#FFCC9A', '#C2D5EE', '#FF9F4A', '#5799C7', '#AF8DCE'];
+
+            $scope.d3data = $scope.data.map(function(cat, index) {
+                cat.values = cat.values.map(function(value) { return value[1]});
+                cat.color = colors[index % colors.length];
+                return cat;
+            })
+
         });
     };
 
@@ -53,6 +61,9 @@ app.controller('FinanceReportController', function ($scope, $http, $location, sc
             "values": [['1995',300000], ['2005', 1000000], ['2010', 250000], ['Vorlage 2015',100000]]
         }
     ];
+
+
+
     //var container = d3.select('#treemap');
     // var container = document.getElementById('treemap');
     // var locationParts = $location.absUrl().split('/');
