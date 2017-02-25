@@ -153,7 +153,9 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
     function onClusterClick(cluster){
         $scope.singleSchool = false;
         // cluster.layer is actually a cluster
-        $scope.schools = _.countBy(cluster.layer.getAllChildMarkers(), "school.school_type");
+        var selectedSchools = cluster.layer.getAllChildMarkers();
+        $scope.schools = _.countBy(selectedSchools, "school.school_type");
+        $scope.schoolCount = selectedSchools.length;
         $scope.infoboxHidden = false;
         $scope.$apply();
     }

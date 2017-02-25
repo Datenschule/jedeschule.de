@@ -49,6 +49,7 @@ description: Tue Gutes mit Daten
             </div>
         </div>
         <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
+            <a ng-click="closeSlider()" style="float: right">x</a>
             <div ng-if="singleSchool">
                 <h1>{{school.name}}</h1>
                 <p>{{school.address}}</p>
@@ -67,7 +68,6 @@ description: Tue Gutes mit Daten
                     <li ng-repeat="(school_type, count) in schools">{{school_type}}: {{count}}</li>
                 </ul>
             </div>
-
         </div>
         <div id="map" />
     </div>
