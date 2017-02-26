@@ -1,0 +1,41 @@
+.slope-wrapper{
+  p {
+    padding-top: 0;
+    margin-top: 0;
+    font-size: 13px;
+    max-width: 400px;
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  #slopegraph {
+    min-height: 400px;
+    padding: 20px 0;
+  }
+  footer {
+    position: relative;
+  }
+  .l-labels, .r-labels {
+    font-size: 11px;
+  }
+  #nav-alt ul {
+    list-style: none;
+    margin-left: 15px;
+  }
+  #nav-alt ul li {
+    display: inline-block;
+    padding: 4px 8px;
+    background: #FDBB30;
+    cursor: pointer;
+    font-size: 11px;
+    margin-right: 1px;
+  }
+  #nav-alt ul li:hover {
+    background: #7AC143;
+  }
+  text.s-title {
+    fill: #130C0E;
+    letter-spacing: 2px;
+  }
+}

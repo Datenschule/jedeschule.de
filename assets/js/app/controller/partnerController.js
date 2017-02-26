@@ -1,4 +1,27 @@
-app.controller('PartnerBerlinController', function ($scope, $http, $location, schools, states) {
+app.controller('PartnerController', function ($scope, ag) {
+
+    $scope.init = function(name) {
+        $scope.name = name;
+        ag.get(function(err, data) {
+            console.log(data);
+            $scope.amount_schools = data[name].partner.amount;
+
+            var values = data[name].partner.entries.map(function(item) {
+                return {
+                    label: item.name,
+                    value: item.amount
+                }
+            });
+            $scope.data = [
+                {
+                    key: "Cumulative Return",
+                    values: values
+                }
+            ]
+
+        });
+        console.log(name)
+    };
 
     $scope.options = {
         chart: {

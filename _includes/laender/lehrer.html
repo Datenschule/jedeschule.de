@@ -1,11 +1,11 @@
-{% raw %}
 <div class="app-wrapper-languages">
     <!--<p>{{test}}</p>-->
     <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
-    <div class="container">
-        <div class="container-left-12" ng-controller="TeacherRatioController">
-            <nvd3 options="options" data="data"></nvd3>
-        </div>
+    <div class="container" ng-controller="TeacherRatioController" ng-init="init('{{include.url_name}}')">
+        <!--<div class="container-left-12" >-->
+            <!--<nvd3 options="options" data="data"></nvd3>-->
+        <!--</div>-->
+        <div class="container-left-12" id="graph"></div>
         <div class="container-left-12">
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
             dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -14,6 +14,6 @@
             sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
             takimata sanctus est Lorem ipsum dolor sit amet.
         </div>
+
     </div>
 </div>
-{% endraw %}

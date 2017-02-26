@@ -1,4 +1,12 @@
 app.controller('foreignLanguagesController', function ($scope, $http, $location, schools, states) {
+    $scope.colorScale = function(amount) {
+        var scale = chroma.scale(['white', 'red']);
+        return scale(amount);
+    };
+
+    $scope.languages = ['Englisch', 'Französisch', 'Latein', 'Altgriechisch', 'Spanisch', 'Italienisch', 'Russisch',
+        'Türkisch', 'Sonstige Sprachen'];
+
     $scope.init = function(state) {
         $scope.state = state;
         console.log(state);
@@ -19,11 +27,12 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
                     var amountIndex = _.findIndex(current, {language: language});
                     // console.log('Schooltype:' + schooltype);
                     // console.log('Students: ' + students_by_schooltype[schooltype]);
+                    var amountnom = amountIndex >= 0 && students_by_schooltype[schooltype] > 0 ? current[amountIndex].amount : 0;
                     var amount = amountIndex >= 0 && students_by_schooltype[schooltype] > 0 ?
                         Math.round(current[amountIndex].amount * 100 / students_by_schooltype[schooltype]) : 0;
                     // console.log('Language: ' + language);
                     // console.log('Amount: ' + amount);
-                    return [language, amount]
+                    return [language, amount, amountnom]
                 });
                 // console.log(languages);
                 $scope.data.push({
@@ -31,6 +40,7 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
                     values: languages
                 })
             }
+            //renderHeatmap();
         });
     };
 
@@ -67,6 +77,116 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
         console.log(result);
         return result;
     }
+function renderHeatmap() {
+    var data = [
+        // {score: 0.5, row: 0, col: 0},
+        // {score: 0.7, row: 0, col: 1},
+        // {score: 0.7, row: 0, col: 2},
+        // {score: 0.2, row: 1, col: 0},
+        // {score: 0.4, row: 1, col: 1},
+        // {score: 0.7, row: 1, col: 2},
+        // {score: 0.2, row: 2, col: 0},
+        // {score: 0.4, row: 2, col: 1},
+        // {score: 0.7, row: 2, col: 2}
+    ];
+
+    var languages = ['Englisch', 'Französisch', 'Latein', 'Altgriechisch', 'Spanisch', 'Italienisch', 'Russisch',
+        'Türkisch', 'Sonstige Sprachen'];
+
+    var schooltypes = ['Grundschulen', 'Schulartunabhängige Orientierungsstufe', 'Hauptschulen',
+        'Schularten mit mehreren Bildungsgängen', 'Realschulen', 'Gymnasien (G8)', 'Gymnasien (G9)',
+        'Integrierte Gesamtschulen', 'Freie Waldorfschulen', 'Förderschulen', 'Abendschulen und Kollegs'];
+
+    for (var i = 0; i < schooltypes.length; i++) {
+        var schooltype = _.find($scope.data, {'key': schooltypes[i]});
+        for (var ii = 0; ii < languages.length; ii++) {
+            var language = languages[ii];
+            var curr = _.find(schooltype.values, function (o) {
+                return o[0] === language
+            });
+            data.push({score: curr[1] / 100, row: ii, col: i})
+        }
+    }
+
+    console.log(data);
+
+//height of each row in the heatmap
+//width of each column in the heatmap
+
+    var h = 25;
+    var w = 80;
+
+    var colorLow = 'orange', colorHigh = 'red';
+
+    var margin = {top: 20, right: 80, bottom: 30, left: 50},
+        width = 900 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom;
+
+    // var colorScale = d3.scale.linear()
+    //     .domain([0, 1])
+    //     .range([colorLow, colorHigh]);
+
+    var colorScale = chroma.scale(['white', 'red']);
+
+    var svg = d3.select("#heatmap").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var heatMap = svg.selectAll(".heatmap")
+        .data(data, function (d) {
+            return d.col + ':' + d.row;
+        })
+        .enter().append("svg:rect")
+        .attr("x", function (d) {
+            return (d.row + 1) * w;
+        })
+        .attr("y", function (d) {
+            return (d.col + 1) * h;
+        })
+        .attr("width", function (d) {
+            return w;
+        })
+        .attr("height", function (d) {
+            return h;
+        })
+        .style("fill", function (d) {
+            return colorScale(d.score);
+        })
+        .style("stroke", "black")
+        .style("stroke-width", 0.2)
+        .text(function (d) {
+            return d
+        });
+
+    svg.selectAll('.heatmap')
+        .data(languages)
+        .enter().append("svg:text")
+        .attr("x", function (d, i) {
+            return (i + 1) * w
+        })
+        .attr('y', 0)
+        .attr("width", w)
+        .attr("height", h)
+        .style("font-size", "10pt");
+
+    svg.selectAll('.heatmap')
+        .data(schooltypes)
+        .enter().append("svg:text")
+        .attr("x", 0)
+        .attr('y', function (d, i) {
+            return (i + 1) * h + 20
+        })
+        .attr("width", w)
+        .attr("height", h)
+        .style("font-size", "10pt")
+        .text(function (d) {
+            return d
+        });
+}
+
+
     // $scope.test = "TestABC";
     // var svg = d3.select(".zoomablepack"),
     //     margin = 20,
