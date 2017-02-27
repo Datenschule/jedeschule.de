@@ -1,0 +1,43 @@
+---
+layout: default
+menu_aktionen: yes
+title: Daten
+---
+<div class="container">
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Schulen</h1>
+            <ul>
+                <li>Alle Schulen <a href="#">JSON</a></li>
+                {% for state in  site.laender %}
+                <li>
+                    {{state.name}} <a href="#">CSV</a> <a href="#">JSON</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Berichte statistisches Bundesamt</h1>
+            <ul>
+                <li>Schülerzahlen <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>Bildungsfinanzbericht <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>Schularten <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>Fremdsprachen <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>Lehrer <a href="#">CSV</a> <a href="#">JSON</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container-left-12">
+        <div class="box box-with-head box-margin-top-medium">
+            <h1 class="box-head">Aktionen</h1>
+            <ul>
+                <li>AGs in Schulen (Berlin) <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>AGs in Schulen (Sachsen) <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>Partner in Schulen (Berlin) <a href="#">CSV</a> <a href="#">JSON</a></li>
+                <li>Partner in Schulen (Sachsen) <a href="#">CSV</a> <a href="#">JSON</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
