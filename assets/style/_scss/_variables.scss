@@ -29,7 +29,7 @@ $link-color-subtle: darken($base-font-color,10%);
 $white: #fff;
 $gray: #666666;
 $dark-gray: #1a1a1a;
-$blue: #AD1D19;
+$primary-color: #AD1D19;
 
 /*
 Hexcodes Logo:
@@ -49,7 +49,7 @@ Grau heller: #333333
 $base-button-background-color: #fc704e;
 $base-button-color: white;
 
-$base-border-color: $blue;
+$base-border-color: $primary-color;
 $base-border-radius: 5px;
 $small-border-radius: 3px;
 
