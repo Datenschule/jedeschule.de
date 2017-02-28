@@ -16,7 +16,11 @@ app.controller('Schoolkinds2Controller', function ($scope, $http, $location, sta
                 }
                 return result;
             });
-            $scope.nvd3data = nvd3data;
+            $scope.nvd3data = _.filter(nvd3data, function(elem) {
+                var delta = Math.abs(elem[relevantYears[0]] - elem[relevantYears[1]]);
+                return (delta / elem[relevantYears[0]] > 0.08 && delta > 10) &&
+                    elem.key !== "Keine Zuordung zu einer Schulart möglich";
+            });
             // render chart
             d3.select('#slopegraph')
                 .datum($scope.nvd3data)
@@ -182,11 +186,11 @@ app.controller('Schoolkinds2Controller', function ($scope, $http, $location, sta
                         y: function(d) { return yScale(d[keyValueEnd]) + 4; },
                     })
                     .text(function (d) {
-                        return d[keyName] + ' ' + format(d[keyValueEnd]);
+                        return /*d[keyName] + ' '*/ + format(d[keyValueEnd]);
                     })
                     .style('text-anchor','start')
                     .on('mouseover', dispatch._hover)
-                    .call(wrap, 70);
+                    .call(wrap, 100);
 
                 var leftLabels = svg.selectAll('.left-labels')
                     .data(data);
@@ -202,7 +206,7 @@ app.controller('Schoolkinds2Controller', function ($scope, $http, $location, sta
                     })
                     .style('text-anchor','end')
                     .on('mouseover', dispatch._hover)
-                    .call(wrap, 70);
+                    .call(wrap, 100);
 
                 var leftTitle = svg.append('text')
                     .attr({
