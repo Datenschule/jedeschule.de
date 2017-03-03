@@ -137,20 +137,20 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         },
         filterForSchoolProfiles: function filterForSchoolProfiles(schools){
             if ($scope.schoolProfileFilter){
-                return schools.filter(s => s.profile);
+                return schools.filter(function(school){ return school.profile });
             }
             return schools;
         },
         filterForFullTime: function filterForFullTime(schools){
             if ($scope.fullTimeSchoolFilter){
-                return schools.filter(s => s.full_time_school);
+                return schools.filter(function(school) { return school.full_time_school });
             }
             return schools
         },
         filterForLegalStatus: function filterForLegalStatus(schools){
             if ($scope.legalStatusFilter.selected.length) {
                 var selectedValues = _.map($scope.legalStatusFilter.selected, 'value');
-                return schools.filter(s => _.includes(selectedValues, s.legal_status));
+                return schools.filter(function(school) { return _.includes(selectedValues, school.legal_status)});
             }
             return schools
         },
@@ -168,7 +168,7 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         filterForType: function filterForType(schools){
             if ($scope.selected['school_type'] && $scope.selected['school_type'].length){
                 var entries = _.map($scope.selected['school_type'], 'name');
-                return schools.filter(x => _.includes(entries, x['school_type']))
+                return schools.filter(function(school) {return _.includes(entries, school['school_type'])})
             }
             return schools;
         },
