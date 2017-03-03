@@ -1,37 +1,68 @@
 ---
 layout: default
 ---
-<div class="container" ng-app="App">
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">{{page.name}}</h1>
-            <p>
-                {{page.content}}
-            </p>
+<main  ng-app="App">
+
+    <section class="container-outer container-bgi-green">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-8">
+                    <h1>{{page.name}}</h1>
+                    <p>Hier können Sie sich über die Entwicklung der Schularten, die Einnahmen laut dem
+                        Bildungsfinanzbericht, die Lehrerbeschäftigung und das Fremdsprachenangebot in {{page.name}}
+                        informieren.
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Schularten</h1>
-            {% include laender/schularten.html state=page.name url_name=page.url_name %}
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Schularten</h2>
+                </div>
+                <div class="container-left-12">
+                    {% include laender/schularten.html state=page.name url_name=page.url_name %}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Fremdsprachen</h1>
-            {% include laender/fremdsprachen.html state=page.name url_name=page.url_name %}
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Bildungsfinanzbericht</h2>
+                </div>
+                <div class="container-left-12">
+                    {% include laender/finanzbericht.html state=page.name url_name=page.url_name %}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Lehrer</h1>
-            {% include laender/lehrer.html state=page.name url_name=page.url_name %}
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Lehrer</h2>
+                </div>
+                <div class="container-left-12">
+                    {% include laender/lehrer.html state=page.name url_name=page.url_name %}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Bildungsfinanzbericht</h1>
-            {% include laender/finanzbericht.html state=page.name url_name=page.url_name %}
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Fremdsprachen</h2>
+                </div>
+                <div class="container-left-12">
+                    {% include laender/fremdsprachen.html state=page.name url_name=page.url_name %}
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
+
+</main>
