@@ -139,7 +139,6 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
     }
 
     function onMarkerClick(marker) {
-        $scope.singleSchool = true;
         $scope.school = marker.layer.school;
         $scope.infoboxHidden = false;
         $scope.$apply();
@@ -147,16 +146,6 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
 
     function onMapClick() {
         $scope.infoboxHidden = true;
-        $scope.$apply();
-    }
-
-    function onClusterClick(cluster){
-        $scope.singleSchool = false;
-        // cluster.layer is actually a cluster
-        var selectedSchools = cluster.layer.getAllChildMarkers();
-        $scope.schools = _.countBy(selectedSchools, "school.school_type");
-        $scope.schoolCount = selectedSchools.length;
-        $scope.infoboxHidden = false;
         $scope.$apply();
     }
 
@@ -260,10 +249,9 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         var markers = L.markerClusterGroup({
             chunkedLoading: true,
             showCoverageOnHover: false,
-            zoomToBoundsOnClick: false,
+            zoomToBoundsOnClick: true,
             singleMarkerMode: true});
         markers.on('click', onMarkerClick);
-        markers.on('clusterclick', onClusterClick);
 
         console.time("making markers")
         var filteredMarkers = filtered
