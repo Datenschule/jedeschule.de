@@ -1,0 +1,40 @@
+---
+layout: default
+menu_projekte: yes
+title: OKF Datenschule
+description: Tue Gutes mit Daten
+---
+<section class="container-outer container-bgi-green">
+    <div class="container-padded">
+        <div class="container">
+            <div class="container-left-8">
+                <h1>Weitere Schulprojekte</h1>
+                <p>Neben JedeSchule.de gibt es zahlreiche Projekte, die von einer engagierten Open Data-Community mit
+                    offenen Schul- und Bildungsdaten arbeiten und sich für mehr zugängliche Informationen und
+                    Transparenz im Schulbereich einsetzen.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% for project in site.projects %}
+{% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+<section class="container-outer project-container {% if thecycle == 'even' %} container-bg-grey {% endif %}>">
+    <div class="container-padded">
+        <div class="container">
+            <div class="container-left-3">
+                <img class="project-image" src="{{project.image}}" alt="">
+                <p class="text-center">von {{project.author}}</p>
+            </div>
+            <div class="container-left-9">
+                <div class="container-left-12">
+                    {{project.content}}
+                </div>
+                <div class="container-left-12">
+                    <a href="project.link">zum Projekt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
