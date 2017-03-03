@@ -2,8 +2,8 @@
   position: relative;
   line-height: 100px;
   border-radius: 50%;
-  background: yellowgreen;
-  background-image: linear-gradient(to right, transparent 50%, #655 0);
+  background: #f1f3f6;
+  background-image: linear-gradient(to right, transparent 50%, #3dd7ff 0);
   color: transparent;
   text-align: center;
   width: 5em;
@@ -15,7 +15,7 @@
   to { transform: rotate(.5turn); }
 }
 @keyframes bg {
-  50% { background: #655; }
+  50% { background: #3dd7ff; }
 }
 
 .pie::before {
