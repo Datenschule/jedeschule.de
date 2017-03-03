@@ -1,5 +1,36 @@
 #map-profile {
   width:100%;
-  height: 30em;
+  height: 100%;
+  min-height:30em;
   margin-right: 20px;
+}
+
+.profile {
+  padding-bottom: 10em;
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+.profile-map {
+  margin-top: -16em;
+  .box {
+    padding: 0;
+    border-color: #131167
+  }
+}
+
+.profile-map-info {
+  margin-top: 6em;
+  .box {
+    padding: 0;
+    border-color: #131167
+  }
+  ul {
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: 1.5em;
+  }
 }
