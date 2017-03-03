@@ -1,18 +1,11 @@
 @import 'header';
 @import 'footer';
-@import 'background';
 @import 'box';
 @import 'card';
 @import 'pagination';
-@import 'post';
-@import 'post-preview';
-@import 'post-item';
 @import 'contact';
 @import 'event';
-@import 'team';
 @import 'keyviz';
-@import 'projects';
-@import 'project';
 @import 'press';
 @import 'map';
 @import 'buttongroup';
@@ -24,3 +17,6 @@
 @import 'heatmap';
 @import 'slopegraph';
 @import 'stackedbarchart';
+@import 'button';
+@import 'filter';
+@import "projects";

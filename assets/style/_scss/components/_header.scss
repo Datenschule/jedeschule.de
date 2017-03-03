@@ -1,7 +1,6 @@
 header {
   margin-left: 20px;
   margin-right: 20px;
-  border-bottom: solid 3px $base-border-color;
   min-height: 84px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -12,11 +11,11 @@ header {
 
 .header-logo {
   float:left;
-
   a {
     display: block;
     text-decoration: none;
     color: $base-font-color;
+    font-size: 16px;
   }
 
   .header-logo-img {
@@ -24,18 +23,19 @@ header {
     margin-left: 0;
     height: 40px;
     width: auto;
-    display: block;
+    vertical-align: middle;
+    //display: block;
   }
 
 }
 
 .header-nav {
-  @include span-columns(12);
-
+  //@include span-columns(12);
+  margin-right: 50px;
   .nav {
     margin-top: 0;
     padding-left: 0;
-    float: left;
+    float: right;
     li {
       display: inline-block;
       margin-left: 10px;
@@ -43,9 +43,9 @@ header {
 
       a {
         text-decoration: none;
-        color: $gray;
-        font-weight: bold;
-        font-size: 0.9em;
+        color: $base-font-color;
+        font-weight: normal;
+        font-size: 17px;
         line-height: 0.9em;
         position: relative;
         padding-bottom: 3px;
@@ -56,7 +56,7 @@ header {
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: $base-border-color;
+          background-color: $base-font-color;
           visibility: hidden;
           -webkit-transform: scaleX(0);
           transform: scaleX(0);
@@ -93,7 +93,7 @@ header {
   }
 
   .header-nav {
-    @include span-columns(9);
+    //@include span-columns(9);
     .nav {
       margin-top: 16px;
       float: right;

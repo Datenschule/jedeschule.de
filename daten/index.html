@@ -3,41 +3,123 @@ layout: default
 menu_aktionen: yes
 title: Daten
 ---
-<div class="container">
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Schulen</h1>
-            <ul>
-                <li>Alle Schulen <a href="#">JSON</a></li>
-                {% for state in  site.laender %}
-                <li>
-                    {{state.name}} <a href="#">CSV</a> <a href="#">JSON</a>
-                </li>
-                {% endfor %}
-            </ul>
+<section class="container-outer">
+    <div class="container-padded">
+        <div class="container">
+            <div class="container-left-12">
+                <h2 class="text-center">Daten</h2>
+                <p>JedeSchule.de verwendet ausschließlich Schulinformationen und die dazugehörigen Daten der
+                    Statistischen Landesämter und des Statistischen Bundesamts, ist jedoch von der Regierung
+                    unabhängig. Wir nutzen:
+                </p>
+                <ul>
+                    <li>
+                        Daten aus den Schulverzeichnissen der Statistischen Landesämter (u.a. Name, Adresse, Kontakt,
+                        Schulleiter , Arbeitsgemeinschaften, Förderangebote, Partner einer Schule)
+                    </li>
+                    <li>
+                        Daten des Statistischen Bundesamts (u.a. Bildungsfinanzbericht, Lehrer- und Schülerzahlen,
+                        Schularten, Fremdsprachen
+                    </li>
+                    <li>
+                        Daten der Betreuer*innen der jeweiligen Kooperationsprojekte im Bildungsbereich (u.a. Schule
+                        gegen Rassismus)
+                    </li>
+                    <li>Daten zu teilnehmenden Schulen an den Umweltprojekten von BildungsCent e.V.</li>
+                </ul>
+                <p>
+                    Die Schulen der jeweiligen Länder sind angehalten regelmäßig, mindestens einmal jährlich, Angaben
+                    zur Schule und ihren Aktivitäten an die zuständigen Stellen zu melden. Die von uns genutzten
+                    Informationen orientieren sich an diesen Angaben, d.h. Änderungen werden automatisiert auf
+                    JedeSchule.de aufgenommen, sobald sie auf den Webseiten der zuständigen Ämter veröffentlicht werden.
+                    Schulinformationen des Bundeslands Hessen durften wir leider nicht verwenden und darstellen.
+                </p>
+                <p>
+                    Durch unsere Darstellung werden die komplexen Schuldaten der Länder grafisch erschlossen und zudem
+                    in offenen und wiederverwendbaren Datenformaten zugänglich gemacht. So können die Informationen
+                    ausgewertet, visualisiert und ins Verhältnis zu anderen Daten gesetzt werden. Von uns werden die
+                    Daten dabei weder interpretiert noch verändert, sondern lediglich in einer anderen Form dargestellt.
+                    Um unsere Arbeitsschritte nachvollziehbar zu machen, verweisen wir auf die bearbeiteten Daten und
+                    Rohdaten der ursprünglichen Quellen.
+                </p>
+                <p>
+                    Damit möchten wir mehr Transparenz in der Schulbildung schaffen, darstellen wie viele und welche
+                    Schulen es in Deutschland gibt und durch welche Aktivitäten, Projekte und Partner sie junge Menschen
+                    fördern. Wir sind uns sicher, damit den Zugang zu Schulinformationen für Dritte leichter zugänglich
+                    und nutzbar zu machen.
+                </p>
+                <p>
+                    Den Quellcode der Webseite JedeSchule.de, die Dokumentation und alle Schuldaten-Scraper sind als
+                    Open Source auf <a href="https://www.github.com/datenschule">www.github.com/datenschule</a>verfügbar.
+                </p>
+                <p>
+                    Sollten Sie Fehler in den Darstellungen oder den Daten entdecken, schreiben Sie bitte eine Mail an:
+                    <a href="mailto:info@datenschule.de">info@datenschule.de</a>. Wir werden Korrekturen schnellstmöglich
+                    vornehmen.
+                </p>
+            </div>
         </div>
     </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Berichte statistisches Bundesamt</h1>
-            <ul>
-                <li>Schülerzahlen <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>Bildungsfinanzbericht <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>Schularten <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>Fremdsprachen <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>Lehrer <a href="#">CSV</a> <a href="#">JSON</a></li>
-            </ul>
+</section>
+<section class="container-outer container-bg-grey">
+    <div class="container-padded">
+        <div class="container">
+            <div class="container-left-12">
+                <h2>Einzelnachweise der Rohdaten</h2>
+                <ul>
+                    <li>more to come...</li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Aktionen</h1>
-            <ul>
-                <li>AGs in Schulen (Berlin) <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>AGs in Schulen (Sachsen) <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>Partner in Schulen (Berlin) <a href="#">CSV</a> <a href="#">JSON</a></li>
-                <li>Partner in Schulen (Sachsen) <a href="#">CSV</a> <a href="#">JSON</a></li>
-            </ul>
+</section>
+<section class="container-outer">
+    <div class="container-padded">
+        <div class="container">
+            <div class="container-left-12">
+                <h2>Download der Daten</h2>
+                <ul>
+                    <li>more to come...</li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<!--<div class="container">-->
+    <!--<div class="container-left-12">-->
+        <!--<div class="box box-with-head box-margin-top-medium">-->
+            <!--<h1 class="box-head">Schulen</h1>-->
+            <!--<ul>-->
+                <!--<li>Alle Schulen <a href="#">JSON</a></li>-->
+                <!--{% for state in  site.laender %}-->
+                <!--<li>-->
+                    <!--{{state.name}} <a href="#">CSV</a> <a href="#">JSON</a>-->
+                <!--</li>-->
+                <!--{% endfor %}-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="container-left-12">-->
+        <!--<div class="box box-with-head box-margin-top-medium">-->
+            <!--<h1 class="box-head">Berichte statistisches Bundesamt</h1>-->
+            <!--<ul>-->
+                <!--<li>Schülerzahlen <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>Bildungsfinanzbericht <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>Schularten <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>Fremdsprachen <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>Lehrer <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="container-left-12">-->
+        <!--<div class="box box-with-head box-margin-top-medium">-->
+            <!--<h1 class="box-head">Aktionen</h1>-->
+            <!--<ul>-->
+                <!--<li>AGs in Schulen (Berlin) <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>AGs in Schulen (Sachsen) <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>Partner in Schulen (Berlin) <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+                <!--<li>Partner in Schulen (Sachsen) <a href="#">CSV</a> <a href="#">JSON</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
