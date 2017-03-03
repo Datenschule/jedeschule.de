@@ -5,112 +5,157 @@ title: OKF Datenschule
 description: Tue Gutes mit Daten
 ---
 {% raw %}
-<div class="container" ng-app="App" ng-controller="schoolProfileController">
-    <div class="container-left-12">
-        <div class="box box-margin-top-medium">
-            <h2>{{school.name}}</h2> <p></p>
-        </div>
-        <div class="box box-margin-top-medium">
+<main ng-app="App" ng-app="App" ng-controller="schoolProfileController">
+    <section class="container-outer container-bgi-yellow2 profile">
+        <div class="container-padded">
             <div class="container">
-                <div class="container-left-6">
-                    <div id="map-profile"></div>
-                    <p></p>
+                <div class="container-left-12">
+                    <h2>{{school.name}}</h2>
+                    <p>
+                        {{school.address}}
+                    </p>
+
                 </div>
-                <div class="container-left-6">
-                    <p>{{school.address}}</p>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer profile-map">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-8">
+                    <div class="box box-margin-top-medium">
+                        <div id="map-profile"></div>
+                    </div>
+                </div>
+                <div class="container-left-4 profile-map-info">
+                    <div class="box box-margin-top-medium">
+                        <ul class="list-unstyled">
+                            <li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
+                            <li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status}}</li>
+                            <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
+                            <li ng-if="school.website"><strong>Webseite:</strong><a href="{{school.website}}" target="_blank"> Link</a></li>
+                            <li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
+                            <li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
+                            <li ng-if="school.email"><strong>Email:</strong> {{school.email}}</li>
+                            <li ng-if="school.director"><strong>Direktor:</strong> {{school.director}}</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <p>
+                        Oftmals werden diese Aktivitäten in der öffentlichen Debatte nicht thematisiert. Für alle
+                        allgemeinbildenden Schulen in Berlin und Sachsen haben wir deshalb diese Informationen aufbereitet.
+                        Detaillierte Aktivitäten und Partner der jeweiligen Schulen finden Sie auf den
+                        <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a>
+                        der zwei Bundesländer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer container-bg-grey">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Schüler</h2>
+                    <p>
+                        Hier sthen ein paar allgemein Infos zu Schülern
+                    </p>
+                    <div class="button-group">
+                        <label ng-repeat="(year, value) in school.profile.students">
+                            <input type="radio" value="{{year}}" ng-model="students.year">
+                            <span class="button-group-item">{{year}}</span>
+                        </label>
+                    </div>
+                    <div class="table-responsive-vertical shadow-z-1">
+                        <table id="table" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Klassenstufe</th>
+                                <th>Schüler</th>
+                                <th>Schülerinnen</th>
+                                <th>Gesamt</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="student in students.data">
+                                <td data-title="Klassenstufe">{{student.class_level}}</td>
+                                <td data-title="Schüler">{{student.male}}</td>
+                                <td data-title="Schülerinnen">{{student.female}}</td>
+                                <td data-title="Gesamt">{{student.female + student.male}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Lehrer</h2>
+                    <p>Hier ein paar infos zu Lehrern</p>
+                    <div class="table-responsive-vertical shadow-z-1">
+                        <table id="table" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Schuljahr</th>
+                                <th>männlich</th>
+                                <th>weiblich</th>
+                                <th>gesamt</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="teacher in school.profile.teacher">
+                                <td data-title="Klassenstufe">{{teacher.year}}</td>
+                                <td data-title="Schüler">{{teacher.male}}</td>
+                                <td data-title="Schülerinnen">{{teacher.female}}</td>
+                                <td data-title="Gesamt">{{teacher.female + teacher.male}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer container-bg-grey">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Partner</h2>
                     <ul>
-                        <li>Träger: {{school.provider}}</li>
-                        <li>Rechtstatus: {{school.legal_status}}</li>
-                        <li>Schultyp: {{school.school_type}}</li>
-                        <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
-                        <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
-                        <li>Fax: {{school.fax}}</li>
-                        <li>Telefon: {{school.phone}}</li>
-                        <li>Email: {{school.email}}</li>
-                        <li>Direktor: {{school.director}}</li>
+                        <li ng-repeat="partner in school.profile.partner track by $index">{{partner}}</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Schüler</h1>
-            <p>
-                Hier sthen ein paar allgemein Infos zu Schülern
-            </p>
-            <div class="button-group">
-                <label ng-repeat="(year, value) in school.profile.students">
-                    <input type="radio" value="{{year}}" ng-model="students.year">
-                    <span class="button-group-item">{{year}}</span>
-                </label>
-            </div>
-            <div class="table-responsive-vertical shadow-z-1">
-                <table id="table" class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>Klassenstufe</th>
-                        <th>Schüler</th>
-                        <th>Schülerinnen</th>
-                        <th>Gesamt</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="student in students.data">
-                        <td data-title="Klassenstufe">{{student.class_level}}</td>
-                        <td data-title="Schüler">{{student.male}}</td>
-                        <td data-title="Schülerinnen">{{student.female}}</td>
-                        <td data-title="Gesamt">{{student.female + student.male}}</td>
-                    </tr>
-                    </tbody>
-                </table>
+    </section>
+    <section class="container-outer">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Arbeitsgemeinschaften</h2>
+                    <div ng-repeat="(wg_cat, wgs) in school.profile.working_groups track by $index">
+                        <div class="container-left-4">
+                            <div class="box box-with-head box-margin-top-medium">
+                                <p>{{wg_cat}}</p>
+                                <li ng-repeat="wg in wgs track by $index">{{wg}}</li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Lehrer</h1>
-            <p>Hier ein paar infos zu Lehrern</p>
-            <div class="table-responsive-vertical shadow-z-1">
-                <table id="table" class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th>Schuljahr</th>
-                        <th>männlich</th>
-                        <th>weiblich</th>
-                        <th>gesamt</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="teacher in school.profile.teacher">
-                        <td data-title="Klassenstufe">{{teacher.year}}</td>
-                        <td data-title="Schüler">{{teacher.male}}</td>
-                        <td data-title="Schülerinnen">{{teacher.female}}</td>
-                        <td data-title="Gesamt">{{teacher.female + teacher.male}}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Partner</h1>
-            <ul>
-                <li ng-repeat="partner in school.profile.partner track by $index">{{partner}}</li>
-            </ul>
-        </div>
-    </div>
-    <div class="container-left-12">
-        <div class="box box-with-head box-margin-top-medium">
-            <h1 class="box-head">Arbeitsgemeinschaften</h1>
-            <div ng-repeat="(wg_cat, wgs) in school.profile.working_groups track by $index">
-                <h3>{{wg_cat}}</h3>
-                <ul>
-                    <li ng-repeat="wg in wgs track by $index">{{wg}}</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+    </section>
+</main>
 {% endraw %}
