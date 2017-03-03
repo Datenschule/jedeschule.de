@@ -6,10 +6,11 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
     $scope.selected = {};
     $scope.schoolProfileFilter = false;
     $scope.fullTimeSchoolFilter = false;
+    $scope.legalStatusFilter = {selected: []};
+    $scope.legalStauses = [{'name': 'Privat', value:0}, {'name': 'Öffentlich', value:1}];
     $scope.workingGroupsFilter = {selected: []};
 
-    var allActivites = ["Ökologie","Tierpflege","Botanik","Schulgarten","Naturlehrpfad","Biotop","Aquaristik","Ornithologie","Rudern","Judo","Badminton","Fußball","Basketball","Rugby","Sport-Club","Fitness","Turnen","Ballsport","Ballspiele","Sport","Fahrrad","Volleyball","Klettern","Sport-AG","Karate","Handball","Tischtennis","sportlich","Schwimmen","Reiten","qwan ki do","Selbstverteidigung","Kung Fu","Bewegung","Schach","Bogenschießen","Federball","Ski","Segeln","Tennis","Mofa","Solarboote","Skaten","Radtouren","Ernährung","Tai Chi","Schlaufit (Fitness)","Musik","Chor","Band","Schulband","Ochester","Instrumentalunterricht","Blechbläser","Bläserensemble","Blasinstrumente","Saiteninstrumente","Schlaginstrumente","Bigband","Gesangunterricht","Instrumentenfindung","Gitarre","Streicher","Musical","Flöten","Gitarrenunterricht","Elektronische Musik","Rockband","Blockflötenensemble","Querflötenensemble","Keyboard","Instrumental-AG","Popband & Jazz-Combo","Improvisationen","Bläsergruppe","Rap","musisch","Musikabend","Singen","Trommeln","Jazz","Chanson","Sambaensemble","Steelband","Gitarren-AG","Streicher-AG","Bläser-AG","Sa1ophon-AG","Klarinetten-AG","Horn-AG","Querflöten-AG","Percussion","Popchor","Cello","Hiphop","Singespatzen","Blockflöte","Lieder","Klavier","Violinenunterricht","Eltern-Lehrer-Chor","Rhythmus","Musizieren","Gospel","Karaoke","Akkordeon","Stimmbildung","Oboe","Tanzen","Farbtanz","Capoeira","Dance for Kids","Orientalischer Tanz","Bauchtanz","Balett","Modern Dance","Break Dance","Streetdance","Darstellendes Spiel","Line Dance","Tanzerziehung","Tanztherapie","Tanztheater","Cheerleading","Musik für Courage und Gerechtigkeit","Jazz Dance","Chor/Singegruppe/ musikalische Erziehung","Dabattierclub","Mediation","Politik","Konfliktlotsen","kulturelle Ausflüge","UNESCO","Ersthelfer","Religion","Philosophie","Streitschlichter","Schulsanitäter","Stolpersteine","Erinnerungskultur","Historiker","Geschichte","Mediatoren","Sozial-AG","Gesellschaftsspiele","Planspiele","Geschichtswerkstatt","Kultur in Berlin","Lebenskunde","Model United Nations","Kinder in anderen Ländern","Psychologie","Schülerparlament","Schule ohne Rassismus","Kinder-Mutmach-Gruppe","Geschichte Plus","Friedens-AG","Ethik","Erkunden anderer Länder","Politische Bildung","Courrage","Schülerfirma","Puppentheater","Theater","Theatergruppe","Schülerclub","Schulhof-AG","Schulhofgestaltung","Buddy-Projekt","Business at School (Wirtschaft)","Sommerfest","Willkommensfest","Schulwegpaten","Ausstellungen","Europa-Schule","Friedenstaube","Voluntees (Flüchtlingsprojekt)","Poetry Slam","Medienecken","Fotografie","Foto","Filmabende","Buchbinden","Schulradio","Animation","Filmclub","Filmschnitt","Design","Schuldruckerei","Medien","Multimedia","Drucktechnik","Bildbearbeitung","Mediengestaltung","Papier","Buchwerkstatt","Comp@ss","Podcast","Modedesign","Kommunikation","Hörspiele","Internetradio","Radio","Medienerziehung","Online-Werkstatt","Video","Grafik","Buchillustrationen","Videoschnitt","Tonstudio","Blog","Tontechnik","Edutainment","Töpfern","Werken","Te1til","Holzwerkstatt","backen","Mode","basteln","kochen","Modellbau","Handwerken","Werkstatt","Nähen","Nadel und Faden","Keramik","Metall","Holzarbeiten","Holzbearbeitung","Knobelkiste","Sticken","Teppichknüpfen","Perlenarbeiten","Perlen","Fliesengestaltung","Filzen","Ton","Kochkurse","handwerklich","Bildhauerei","Schmuck","Wolle","Modellieren","Siebdruck","Plastisches Gestalten","Kochen nach Sarah Wiener","Bildende Kunst","Grafitti","Heilpädagogisches Malen","Atelier","Kunstbau-Wertstatt","Malen und Zeichnen","Kunstwerkstatt","Manga","Comic","Kreativkurse","Kreativ-AG","Malkurse","künstlerisches Gestalten","Aquarellmalerei","künstlerisch","kreatives Gestalten","Seidenmalerei","Wandmalerei","Zirkus","Zaubern","Astronomie","Astrophysik","wissenschaftliches Arbeiten","Chemie","Mathematik","Physik","Nawi-E1perimente","Nawi","Forscher","Naturforscher","Haus der kleinen ForscherMathe","Archäologie","Biologie","E1perimente","Mathe Plus","Geometrie","Jugend forscht","Computer","Elektronik","Informatik","Robotics","Bühnentechnik","Veranstaltungstechnik","Homepage","Internet","hmtl","Algorithmen","Programmierung","Server","Werbsite","Technik","Roboter","Robocup","Netzwerke","Computerspiele","Computerkurse","Theatertechnik","Hardware","IT","PC","Informationstechnik","Roberta","Tastaturlehrgang","Energie","Computerführerschein","Schülerzeitung","Literatur","Leseprofis","Lyrikkreis","Leseratten","Lesen","kreatives Schreiben","Schreibwerkstatt","Zeitung","Schülerbücherei","Bibliothek","Literaturwerkstatt","Lecturas","Leseclub","Büchercafe","Bücher","Jugendliteratur","Kinderliteratur","Writing","Lesepaten","Praktikumsvorbereitung","Beratung in Ausbildungsfragen","Beratung","MSA","Bewerbungstraining","Lernförderung","Hochbegabtenförderung","Begabtenförderung","Berufsorientierung","Nachhilfe","Hausaufgabenbetreuung","Hausaufgaben","Lernwerkstatt","Eisenbahn AG","Chinesisch","Russisch","Griechisch","Italienisch","Japanisch","Frendsprachen","Cambridge Proficiency","Englisch","Französisch","Spanisch","Frankreich","Latein","Vorbereitung DELF-Sprachdiplom","Vorbereitung Cambridge-Sprachdiplom","Sprachkundigenprüfung","E1ploring Advanced English","Neugriechisch","Türkisch","Polnisch","Arabisch","Deutsch","Hebräisch","Sprachen","Norwegisch","Deutschförderung","Altgriechisch","Sprachförderung","Ungarisch","Schwedisch","Chinesische & Japanische Schriftzeichen","Sprachzertifikat","vielfältige externe Partner","Sportclub Berlin e.V.","Tanzwerkstatt no limit e.V.","Samuel's Dance Hall","Pfefferwerk","CBB (Computerausbildung)","Musikschule Charlottenburg-Wilmersdorf","National Honor Society","Naturkundemuseum","Atelier Villa Comenius","Technische Jugendfreizeit- u. Bildungsgesellschaft gGmbH","Technische Universität Berlin","Telekom","Musikschule Steglitz-Zehlendorf","Musikschule Tempelhof Schöneberg","Musikschule Fröhlich","Kooperation Musikschule Tastenteufel","Katholische Kirche","Musikschulen","Kooperation mit Vereinen","Sportvereine","Fußballclub SV Tiergarten","Fußball SV Pfefferwerk","Kampfsportschule Klostergarten","Deutsch Brittischer Yachtclub e.V.","Köpenicker Kanusportclub e.V.","SC Berlin-Grünau e.V.","Cöpenicker Segler-Verein e.V.","Surfcenter Wandlitz","Vocatium - Fachmesse für Ausbildung und Beruf","Kooperationen","BerMUN","kleine Forscher","Model European Parliament","Jugend debattiert","Kleine Forscher","Mathewettbewerb Ideefix","Naturwissenschaftliche Wettbewerbe","Physikolympiade","Mathe Plus Mathematiknachhilfe","Debating Society (Debattierclub)","Unesco-Projektschule","Model United Nations (MUN)","Jump in MINT","UNESCO-Projektschule","Roberta Kleine Forscher","Forschen mit Fred","Schule ohne Rassismus - Schule mit Courage","Katholische Studierende Jugend","Schule ohne Rassimus – Schule mit Courage","Studenten machen Schule (Workshops von Studierenden)"]
-    var filter_keys = ['school_type', 'legal_status'];
+    var filter_keys = ['school_type'];
     var layer;
     var allSchools;
     var map;
@@ -19,9 +20,9 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         allSchools = schools;
         console.timeEnd("mapSchools");
 
-        console.time("initFilters");
-        initFilters(schools);
-        console.timeEnd("initFilters");
+        console.time("updateFilters");
+        updateFilters(schools);
+        console.timeEnd("updateFilters");
 
         init();
     });
@@ -88,22 +89,6 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         $scope.$apply();
     }
 
-    function initFilters(schools) {
-        filter_keys.forEach(function(key) {
-            var filterEntries = _.chain(schools)
-                                 .map(key)
-                                 .uniq()
-                                 .filter(function (x){ return x })
-                                 .map(function(x){
-                                     return {name: x};
-                                 })
-                                 .value();
-            $scope.filter[key] = filterEntries;
-        });
-
-        $scope.workingGroups = allActivites.map(function(x) { return {name: x}});
-    }
-
     function onMarkerClick(marker) {
         $scope.school = marker.layer.school;
         $scope.infoboxHidden = false;
@@ -135,78 +120,150 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         }
     }
 
-    $scope.closeSlider = function(){
-        $scope.infoboxHidden = true;
-    };
+    var filters = {
+        filterForWorkingGroups: function filterForWorkingGroups(schools){
+            if ($scope.workingGroupsFilter.selected.length){
+                schools.forEach(function (school) {
+                    if (school.displayed) {
+                        var workingGroups = _.get(school, 'programs.working_groups');
+                        var selected = _.map($scope.workingGroupsFilter.selected, 'name');
+                        if (workingGroups){
+                            var thisSchoolOffers = _.flatMap(workingGroups, "entity");
+                            if (!_.intersection(selected, thisSchoolOffers).length){
+                                school.displayed = false;
+                            }
+                        }
+                        else {
+                            school.displayed = false;
+                        }
+                    }
+                })
+            }
+        },
+        filterForSchoolProfiles: function filterForSchoolProfiles(schools){
+            if ($scope.schoolProfileFilter){
+                schools.forEach(function(school){
+                    if (school.displayed && !school.profile){
+                        school.displayed = false;
+                    }
+                })
+            }
+        },
+        filterForFullTime: function filterForFullTime(schools){
+            if ($scope.fullTimeSchoolFilter){
+                schools.forEach(function(school){
+                    if (school.displayed && !school.full_time_school){
+                        school.displayed = false;
+                    }
+                })
+            }
+        },
+        filterForLegalStatus: function filterForLegalStatus(schools){
+            if ($scope.legalStatusFilter.selected.length) {
+                var selectedValues = _.map($scope.legalStatusFilter.selected, 'value');
+                schools.forEach(function(school){
+                    if (school.displayed && !_.includes(selectedValues, school.legal_status)){
+                        school.displayed = false;
+                    }
+                })
+            }
+        },
+        filterForName: function filterForName(schools){
+            if ($scope.searchText){
+                schools.forEach(function(school){
+                    var searchText = $scope.searchText.toLowerCase();
+                    var nameMatches = _.includes(school.name.toLowerCase(), searchText);
+                    var idMatches = _.includes(school.id.toLowerCase(), searchText);
+                    if (!nameMatches && !idMatches){
+                        school.displayed = false;
+                    }
+                })
+            }
+        },
+        filterForType: function filterForType(schools){
+            _.forEach($scope.selected, function(filter, key){
+                var entries = filter.map(function (x){ return x.name });
+                if (entries.length) {
+                    schools.forEach(function (school) {
+                        if (school.displayed && entries.indexOf(school[key]) < 0) {
+                            school.displayed = false;
+                        }
+                    })
+                }
+            });
+        },
+    }
+
+
 
     function filterSchools(schools){
         persistFilters();
         var filtered = schools.map(function(school) { school.displayed = true; return school;});
 
-        _.forEach($scope.selected, function(filter, key){
-            var entries = filter.map(function (x){ return x.name });
-            if (entries.length) {
-                filtered.forEach(function (school) {
-                    if (school.displayed && entries.indexOf(school[key]) < 0) {
-                        school.displayed = false;
-                    }
-                })
-            }
-        });
-
-        if ($scope.workingGroupsFilter.selected.length){
-            filtered.forEach(function (school) {
-                if (school.displayed) {
-                    var workingGroups = _.get(school, 'profile.working_groups');
-                    var selected = _.map($scope.workingGroupsFilter.selected, 'name');
-                    if (workingGroups){
-                        var thisSchoolOffers = _.flatMap(_.values(workingGroups), _.identity);
-                        if (!_.intersection(selected, thisSchoolOffers).length){
-                            school.displayed = false;
-                        }
-                    }
-                    else {
-                        school.displayed = false;
-                    }
-                }
-            })
-        }
-
-        if ($scope.schoolProfileFilter){
-            filtered.forEach(function(school){
-                if (school.displayed && !school.profile){
-                    school.displayed = false;
-                }
-            })
-        }
-
-        if ($scope.fullTimeSchoolFilter){
-            filtered.forEach(function(school){
-                if (school.displayed && !school.full_time_school){
-                    school.displayed = false;
-                }
-            })
-        }
-
-        if ($scope.searchText){
-            filtered.forEach(function(school){
-                var searchText = $scope.searchText.toLowerCase();
-                var nameMatches = _.includes(school.name.toLowerCase(), searchText);
-                var idMatches = _.includes(school.id.toLowerCase(), searchText);
-                if (!nameMatches && !idMatches){
-                    school.displayed = false;
-                }
-            })
-        }
-
+        filters.filterForType(filtered);
+        filters.filterForSchoolProfiles(filtered);
+        filters.filterForFullTime(filtered);
+        filters.filterForLegalStatus(filtered);
+        filters.filterForWorkingGroups(filtered);
+        filters.filterForName(filtered);
         return filtered;
+    }
+
+    function updateFilters(allSchools) {
+        function updateWorkingGroups(schools){
+            schools = angular.copy(schools);
+
+            filters.filterForType(schools);
+            filters.filterForSchoolProfiles(schools);
+            filters.filterForFullTime(schools);
+            filters.filterForLegalStatus(schools);
+            filters.filterForName(schools);
+            var entities = _.filter(schools, "displayed").map(function(school){
+                return _.chain(school).get("programs.working_groups").map("entity").value();
+            });
+            var uniqueEntities = _.chain(entities).flatten().uniq().value();
+            $scope.workingGroups = uniqueEntities.map(function(group) { return {name: group}});
+        }
+
+        function updateSchoolTypes(schools){
+            schools = angular.copy(schools);
+            console.log(_.filter(schools, "displayed").length);
+
+            filters.filterForWorkingGroups(schools);
+            console.log(_.filter(schools, "displayed").length);
+            filters.filterForSchoolProfiles(schools);
+            console.log(_.filter(schools, "displayed").length);
+
+            filters.filterForFullTime(schools);
+            console.log(_.filter(schools, "displayed").length);
+
+            filters.filterForLegalStatus(schools);
+            console.log(_.filter(schools, "displayed").length);
+
+            filters.filterForName(schools);
+            $scope.filter['school_type'] = _.chain(schools)
+                                            .filter("displayed")
+                                            .map("school_type")
+                                            .uniq()
+                                            .filter(function (x){ return x })
+                                            .map(function(x){
+                                                return {name: x};
+                                            })
+                                            .value();
+            console.log($scope.filter['school_type'])
+        }
+        // updateWorkingGroups(allSchools);
+        updateSchoolTypes(allSchools);
     }
 
     var display = function() {
         if (!allSchools) {
             return;
         }
+        updateFilters(allSchools);
+
         var filtered = filterSchools(allSchools);
+        updateFilters(allSchools);
 
         if (layer) {
             map.removeLayer(layer);
@@ -219,7 +276,7 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
             singleMarkerMode: true});
         markers.on('click', onMarkerClick);
 
-        console.time("making markers")
+        console.time("making markers");
         var filteredMarkers = filtered
             .filter(function(school){
                 return school.lat && school.lon && school.displayed;
@@ -243,6 +300,10 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
 
     };
 
-    $scope.$watchGroup(['schoolProfileFilter', 'fullTimeSchoolFilter', 'workingGroupsFilter.selected', 'searchText'], display);
+    $scope.closeSlider = function(){
+        $scope.infoboxHidden = true;
+    };
+
+    $scope.$watchGroup(['schoolProfileFilter', 'fullTimeSchoolFilter', 'workingGroupsFilter.selected', 'searchText', 'legalStatusFilter.selected'], display);
     $scope.$watchCollection('selected', display);
 });

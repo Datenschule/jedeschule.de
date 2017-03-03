@@ -38,9 +38,9 @@ description: Tue Gutes mit Daten
             </div>
             <div class="filter container-left-3">
                 <h3>rechtlicher Status:</h3>
-                <ui-select multiple ng-model="selected.legal_status" theme="select2">
+                <ui-select multiple ng-model="legalStatusFilter.selected" theme="select2">
                     <ui-select-match placeholder="Rechtlichen Status filtern...">{{$item.name}}</ui-select-match>
-                    <ui-select-choices repeat="o in filter.legal_status | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
+                    <ui-select-choices repeat="o in legalStauses | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
                 </ui-select>
             </div>
             <div class="filter container-left-3">
@@ -70,7 +70,7 @@ description: Tue Gutes mit Daten
                 <p>{{school.address}}</p>
                 <ul>
                     <li>Träger: {{school.provider}}</li>
-                    <li>Rechtstatus: {{school.legal_status}}</li>
+                    <li>Rechtstatus: {{school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
                     <li>Schultyp: {{school.school_type}}</li>
                     <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
                     <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
