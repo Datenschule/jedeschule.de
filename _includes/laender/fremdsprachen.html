@@ -11,6 +11,26 @@
             Die Statistik bezieht sich auf den regulären Unterricht. AG-Angeboten werden hier nicht mit eingerechnet.
         </div>
         <div class="container-left-12">
+            <barchart data="languageSums"></barchart>
+        </div>
+        <div class="container-left-12">
+            {% raw %}
+            <table class="heatmap">
+                <tr>
+                    <th></th>
+                    <th ng-repeat="language in languages">{{language}}</th>
+                </tr>
+                <tr ng-repeat="schooltype in data">
+                    <td>{{schooltype.key}}</td>
+                    <td ng-repeat="language in schooltype.values"
+                        style="background-color: {{colorScale(language[1] / 100)}};">
+                        {{language[2] | number}} ({{language[1]}}%)
+                    </td>
+                </tr>
+            </table>
+            {% endraw %}
+        </div>
+        <div class="container-left-12">
             <div id="heatmap"></div>
         </div>
         <div class="container-left-12">

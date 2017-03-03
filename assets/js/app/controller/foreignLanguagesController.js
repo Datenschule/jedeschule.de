@@ -7,21 +7,22 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
     $scope.languages = ['Englisch', 'Französisch', 'Latein', 'Altgriechisch', 'Spanisch', 'Italienisch', 'Russisch',
         'Türkisch', 'Sonstige Sprachen'];
 
+    $scope.languageSums = [];
+
     $scope.init = function(state) {
         $scope.state = state;
         console.log(state);
         states.get($scope.state, function(err, statedata) {
             console.log(statedata);
             var students_by_schooltype = get_students_by_schooltype(statedata.schueler);
-            //var schooltype_dict = statedata.fremdsprachen['Realschulen'].map(function(elem) { return elem.schooltype});
-            var language_dict = statedata.fremdsprachen['Realschulen'].map(function(elem) { return elem.language});
-            //var language_dict = ['Altgriechisch'];
+            var schooltypes = _.groupBy(statedata.fremdsprachen, 'schooltype');
+            var language_dict = schooltypes['Realschulen'].map(function(elem) { return elem.language}); //TODO: collect keys
             console.log(statedata);
-            //clean fremdsprachen
 
             $scope.data = [];
-            for (var schooltype in statedata.fremdsprachen) {
-                var current = statedata.fremdsprachen[schooltype];
+
+            for (var schooltype in schooltypes) {
+                var current = schooltypes[schooltype];
                 var languages = language_dict.map(function(language) {
                     // console.log(current);
                     var amountIndex = _.findIndex(current, {language: language});
@@ -40,6 +41,11 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
                     values: languages
                 })
             }
+            $scope.nvd3data = $scope.data;
+            var languages_obj = _.groupBy(statedata.fremdsprachen, 'language');
+            var languages_obj_
+            var languages = Object.values(languages_obj).map(function(o) { return o.amount });
+            $scope.languageSums = languages
             //renderHeatmap();
         });
     };
