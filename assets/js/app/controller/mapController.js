@@ -123,102 +123,67 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
     var filters = {
         filterForWorkingGroups: function filterForWorkingGroups(schools){
             if ($scope.workingGroupsFilter.selected.length){
-                schools.forEach(function (school) {
-                    if (school.displayed) {
-                        var workingGroups = _.get(school, 'programs.working_groups');
-                        var selected = _.map($scope.workingGroupsFilter.selected, 'name');
-                        if (workingGroups){
-                            var thisSchoolOffers = _.flatMap(workingGroups, "entity");
-                            if (!_.intersection(selected, thisSchoolOffers).length){
-                                school.displayed = false;
-                            }
-                        }
-                        else {
-                            school.displayed = false;
-                        }
+                var selected = _.map($scope.workingGroupsFilter.selected, 'name');
+                return schools.filter(function(school){
+                    var workingGroups = _.get(school, 'programs.working_groups');
+                    if (workingGroups) {
+                        var thisSchoolOffers = _.flatMap(workingGroups, "entity");
+                        return _.intersection(selected, thisSchoolOffers).length
                     }
-                })
+                    return false;
+                });
             }
+            return schools;
         },
         filterForSchoolProfiles: function filterForSchoolProfiles(schools){
             if ($scope.schoolProfileFilter){
-                schools.forEach(function(school){
-                    if (school.displayed && !school.profile){
-                        school.displayed = false;
-                    }
-                })
+                return schools.filter(s => s.profile);
             }
+            return schools;
         },
         filterForFullTime: function filterForFullTime(schools){
             if ($scope.fullTimeSchoolFilter){
-                schools.forEach(function(school){
-                    if (school.displayed && !school.full_time_school){
-                        school.displayed = false;
-                    }
-                })
+                return schools.filter(s => s.full_time_school);
             }
+            return schools
         },
         filterForLegalStatus: function filterForLegalStatus(schools){
             if ($scope.legalStatusFilter.selected.length) {
                 var selectedValues = _.map($scope.legalStatusFilter.selected, 'value');
-                schools.forEach(function(school){
-                    if (school.displayed && !_.includes(selectedValues, school.legal_status)){
-                        school.displayed = false;
-                    }
-                })
+                return schools.filter(s => _.includes(selectedValues, s.legal_status));
             }
+            return schools
         },
         filterForName: function filterForName(schools){
             if ($scope.searchText){
-                schools.forEach(function(school){
+                return schools.filter(function(school){
                     var searchText = $scope.searchText.toLowerCase();
                     var nameMatches = _.includes(school.name.toLowerCase(), searchText);
                     var idMatches = _.includes(school.id.toLowerCase(), searchText);
-                    if (!nameMatches && !idMatches){
-                        school.displayed = false;
-                    }
+                    return nameMatches || idMatches
                 })
             }
+            return schools;
         },
         filterForType: function filterForType(schools){
-            _.forEach($scope.selected, function(filter, key){
-                var entries = filter.map(function (x){ return x.name });
-                if (entries.length) {
-                    schools.forEach(function (school) {
-                        if (school.displayed && entries.indexOf(school[key]) < 0) {
-                            school.displayed = false;
-                        }
-                    })
-                }
-            });
+            if ($scope.selected['school_type'] && $scope.selected['school_type'].length){
+                var entries = _.map($scope.selected['school_type'], 'name');
+                return schools.filter(x => _.includes(entries, x['school_type']))
+            }
+            return schools;
         },
-    }
-
-
-
-    function filterSchools(schools){
-        persistFilters();
-        var filtered = schools.map(function(school) { school.displayed = true; return school;});
-
-        filters.filterForType(filtered);
-        filters.filterForSchoolProfiles(filtered);
-        filters.filterForFullTime(filtered);
-        filters.filterForLegalStatus(filtered);
-        filters.filterForWorkingGroups(filtered);
-        filters.filterForName(filtered);
-        return filtered;
-    }
+    };
 
     function updateFilters(allSchools) {
         function updateWorkingGroups(schools){
-            schools = angular.copy(schools);
-
-            filters.filterForType(schools);
-            filters.filterForSchoolProfiles(schools);
-            filters.filterForFullTime(schools);
-            filters.filterForLegalStatus(schools);
-            filters.filterForName(schools);
-            var entities = _.filter(schools, "displayed").map(function(school){
+            var filtered = _.chain(schools)
+                            .thru(filters.filterForType)
+                            .thru(filters.filterForFullTime)
+                            .thru(filters.filterForLegalStatus)
+                            .thru(filters.filterForName)
+                            .thru(filters.filterForSchoolProfiles)
+                            .value();
+            var entities = filtered.map(function(school){
                 return _.chain(school).get("programs.working_groups").map("entity").value();
             });
             var uniqueEntities = _.chain(entities).flatten().uniq().value();
@@ -226,23 +191,14 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         }
 
         function updateSchoolTypes(schools){
-            schools = angular.copy(schools);
-            console.log(_.filter(schools, "displayed").length);
-
-            filters.filterForWorkingGroups(schools);
-            console.log(_.filter(schools, "displayed").length);
-            filters.filterForSchoolProfiles(schools);
-            console.log(_.filter(schools, "displayed").length);
-
-            filters.filterForFullTime(schools);
-            console.log(_.filter(schools, "displayed").length);
-
-            filters.filterForLegalStatus(schools);
-            console.log(_.filter(schools, "displayed").length);
-
-            filters.filterForName(schools);
-            $scope.filter['school_type'] = _.chain(schools)
-                                            .filter("displayed")
+            var filtered = _.chain(schools)
+                            .thru(filters.filterForWorkingGroups)
+                            .thru(filters.filterForFullTime)
+                            .thru(filters.filterForLegalStatus)
+                            .thru(filters.filterForName)
+                            .thru(filters.filterForSchoolProfiles)
+                            .value();
+            $scope.filter['school_type'] = _.chain(filtered)
                                             .map("school_type")
                                             .uniq()
                                             .filter(function (x){ return x })
@@ -250,9 +206,8 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
                                                 return {name: x};
                                             })
                                             .value();
-            console.log($scope.filter['school_type'])
         }
-        // updateWorkingGroups(allSchools);
+        updateWorkingGroups(allSchools);
         updateSchoolTypes(allSchools);
     }
 
@@ -260,10 +215,17 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         if (!allSchools) {
             return;
         }
-        updateFilters(allSchools);
+        persistFilters();
 
-        var filtered = filterSchools(allSchools);
         updateFilters(allSchools);
+        var filtered = _.chain(allSchools)
+            .thru(filters.filterForType)
+            .thru(filters.filterForFullTime)
+            .thru(filters.filterForLegalStatus)
+            .thru(filters.filterForName)
+            .thru(filters.filterForSchoolProfiles)
+            .thru(filters.filterForWorkingGroups)
+            .value();
 
         if (layer) {
             map.removeLayer(layer);
@@ -279,7 +241,7 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         console.time("making markers");
         var filteredMarkers = filtered
             .filter(function(school){
-                return school.lat && school.lon && school.displayed;
+                return school.lat && school.lon;
             })
             .map(function(school) {
                 var marker = L.marker(L.latLng(school.lat, school.lon));
