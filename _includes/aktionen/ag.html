@@ -2,14 +2,10 @@
 <div class="app-wrapper-languages">
     <!--<p>{{test}}</p>-->
     <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
+    {% assign state = site.laender | where: 'url_name', include.name | first %}
     <div class="container" ng-controller="agController" ng-init="init('{{include.name}}')">
         <div class="container-left-6">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-            dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
-            consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-            sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-            takimata sanctus est Lorem ipsum dolor sit amet.
+            {{state.agtext}}
         </div>
         {% raw %}
         <div class="container-left-6" >

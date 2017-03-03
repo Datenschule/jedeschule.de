@@ -7,11 +7,11 @@ $base-padding-extra: 3.525em;
 $base-padding-jumbo: 3.8em;
 
 // Font Colors
-$base-font-color: #404040;
+$base-font-color: #131167;
 $base-accent-color: #96bc7f;
 
 // Typography
-$base-font-family: 'Work Sans', 'Helvetica Neue', Helvetica, arial, sans-serif;
+$base-font-family: 'Cabin', 'Helvetica Neue', Helvetica, arial, sans-serif;
 $base-font-weight: 400;
 $base-font-size: 1rem;
 $base-font-multiplier: 1;
@@ -29,6 +29,7 @@ $link-color-subtle: darken($base-font-color,10%);
 $white: #fff;
 $gray: #666666;
 $dark-gray: #1a1a1a;
+$dark-blue: #131167;
 $primary-color: #AD1D19;
 
 /*
@@ -53,7 +54,13 @@ $base-border-color: $primary-color;
 $base-border-radius: 5px;
 $small-border-radius: 3px;
 
+$border-grey: #c9c9da;
+
 $form-border-color: $base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
 $form-border-radius: $base-border-radius;
 $form-box-shadow-focus: 0 0 0 2px $form-border-color-hover;
+
+$container-grey: #f1f3f6;
+
+$footer-background-color: #17116a;

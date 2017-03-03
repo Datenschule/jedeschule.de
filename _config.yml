@@ -28,5 +28,7 @@ collections:
   laender:
     output: true
     permalink: laender/:path/
+  projects:
+    output: false
 settings:
   debug: false
