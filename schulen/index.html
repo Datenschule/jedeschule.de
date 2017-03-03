@@ -51,6 +51,10 @@ description: Tue Gutes mit Daten
                 </ui-select>
             </div>
             <div class="filter container-left-3">
+                <h3>Name/ID:</h3>
+                <input ng-model="searchText" ng-model-options="{ debounce: 250 }"/>
+            </div>
+            <div class="filter container-left-3">
                 <h3>mit Schulprofil:</h3>
                 <input ng-model="schoolProfileFilter" type="checkbox"/>
             </div>

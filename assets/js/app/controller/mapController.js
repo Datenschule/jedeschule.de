@@ -74,40 +74,6 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
             attribution: '&copy; <a href="https://www.mapbox.com">Map Box</a> contributors'
         }).addTo(map);
 
-        var SarchControl = L.Control.extend({
-            options: {
-                position: 'topright'
-            },
-
-            onAdd: function (map) {
-                var container = L.DomUtil.create('div', 'mapSearchBox');
-                var input = document.createElement('input');
-                input.placeholder = "Schulnamen oder ID filtern...";
-                input.oninput = _.debounce(function (event){
-                    $scope.searchText = event.srcElement.value;
-                    $scope.$apply();
-                }, 300);
-                container.appendChild(input);
-
-                // We do not want to zoom/pan when the user is interacting with the
-                // search box and this seems to be the only way of preventing this....
-                input.addEventListener('mouseover', function () {
-                    map.dragging.disable();
-                    map.doubleClickZoom.disable();
-                });
-                input.addEventListener('mouseout', function () {
-                    map.dragging.enable();
-                    map.doubleClickZoom.enable();
-                });
-
-                return container;
-            }
-        });
-
-
-
-        map.addControl(new SarchControl());
-
         console.time("display");
         display();
         console.timeEnd("display");
