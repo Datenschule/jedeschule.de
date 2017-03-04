@@ -85,15 +85,20 @@ description: Tue Gutes mit Daten
                     <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
                         <a ng-click="closeSlider()" style="float: right">x</a>
                         <div>
-                            <h1>{{school.name}}</h1>
-                            <p>{{school.address}}</p>
-                            <ul>
-                                <li>Träger: {{school.provider}}</li>
-                                <li>Rechtstatus: {{school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
-                                <li>Schultyp: {{school.school_type}}</li>
-                                <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
-                                <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
+                            <h4>{{school.name}}</h4>
+                            <p class="italic">{{school.address}}</p>
+                            <ul class="list-unstyled">
+                                <li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
+                                <li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
+                                <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
+                                <li ng-if="school.website"><strong>Webseite:</strong> <a href="{{school.website}}" target="_blank">{{school.website}}</a></li>
+                                <li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
+                                <li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
+                                <li ng-if="school.director"><strong>Direktor:</strong> {{school.director}}</li>
                             </ul>
+                            <p ng-if="school.profile">
+                                <a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a>
+                            </p>
                         </div>
                     </div>
                     <div id="map" />
