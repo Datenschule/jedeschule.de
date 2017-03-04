@@ -17,7 +17,8 @@ description: Tue Gutes mit Daten
         </div>
     </div>
 </section>
-{% for project in site.projects %}
+{% assign projects =  site.projects | sort: 'name'  %}
+{% for project in projects %}
 {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
 <section class="container-outer project-container {% if thecycle == 'even' %} container-bg-grey {% endif %}>">
     <div class="container-padded">
@@ -27,6 +28,9 @@ description: Tue Gutes mit Daten
                 <p class="text-center">von {{project.author}}</p>
             </div>
             <div class="container-left-9">
+                <div class="container-left-12">
+                    <h4>{{project.name}}</h4>
+                </div>
                 <div class="container-left-12">
                     {{project.content}}
                 </div>
