@@ -9,12 +9,17 @@
         </div>
         {% raw %}
         <div class="container-left-6" >
-            <div class="row">
+            <div class="pie-wrapper">
                 <div class="pie-container" ng-repeat="cat in data track by $index">
-                    <div class="pie" style="animation-delay: -{{cat.amount_pc}}s"></div>
-                    <p class="pie-caption">{{cat.name}}</p>
-                    <p class="pie-caption">{{cat.amount}} von {{amount_schools}} Schulen</p>
-                    <p class="pie-caption">{{cat.amount_pc}} %</p>
+                    <p class="pie-caption bold">{{cat.name}}</p>
+                    <div class="pie-body">
+                        <div class="pie" style="animation-delay: -{{cat.amount_pc}}s"></div>
+                        <p class="pie-caption">
+                            {{cat.amount}} von {{amount_schools}} Schulen<br />
+                            ({{cat.amount_pc}} %)
+                        </p>
+                        <p class="pie-caption"></p>
+                    </div>
                 </div>
             </div>
         </div>

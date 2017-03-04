@@ -1,3 +1,8 @@
+.pie-wrapper {
+  display:flex;
+  flex-wrap: wrap;
+}
+
 .pie {
   position: relative;
   line-height: 100px;
@@ -40,7 +45,9 @@
 
 .pie-container {
   display: inline-block;
-  margin: 0 20px;
   width: 7em;
   vertical-align:top;
+  margin: 1rem 1rem;
+  flex: 1;
+  align-self:flex-end;
 }

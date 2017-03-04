@@ -6,103 +6,100 @@ description: Tue Gutes mit Daten
 ---
 {% raw %}
 <section class="container-outer container-bgi-yellow">
-    <div class="container-padded">
-        <div class="container">
-            <div class="container-left-8">
-                <h1>Schulen</h1>
-                <p>Über die Karte können Sie sich einen Überblick zu rund 32.000 allgemeinbildenden Schulen in
-                    Deutschland verschaffen (Stand 15.03.2017). Schulaktivitäten und -projekte stellen wir in Berlin und
-                    Sachsen detailliert für jede Schule als “Schulprofile” dar.
-                </p>
-                <p class="source">
-                    Quelle: Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>.
-                </p>
-            </div>
+    <div class="container">
+        <div class="container-left-8">
+            <h1>Schulen</h1>
+            <p>Über die Karte können Sie sich einen Überblick zu rund 32.000 allgemeinbildenden Schulen in
+                Deutschland verschaffen (Stand 15.03.2017). Schulaktivitäten und -projekte stellen wir in Berlin und
+                Sachsen detailliert für jede Schule als “Schulprofile” dar.
+            </p>
         </div>
     </div>
 </section>
 <section class="container-outer" ng-app="App" ng-controller="MapController">
-    <div class="container-padded">
-        <div class="container">
-            <div class="container-left-12">
-                <h4>Suchen und Filtern Sie nach Schulen und Schulprojekten</h4>
-                <div>
-                    <div class="filter-wrapper container">
-                        <div class="filter container-left-4">
-                            <p class="bold">Schultyp:</p>
-                            <ui-select multiple ng-model="selected.school_type" theme="select2">
-                                <ui-select-match placeholder="z.B. Gymnasium">{{$item.name}}</ui-select-match>
-                                <ui-select-choices repeat="o in filter.school_type | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
-                            </ui-select>
-                        </div>
-                        <div class="filter container-left-4">
-                            <p class="bold">rechtlicher Status:</p>
-                            <ui-select multiple ng-model="legalStatusFilter.selected" theme="select2">
-                                <ui-select-match placeholder="z.B. öffentlich">{{$item.name}}</ui-select-match>
-                                <ui-select-choices repeat="o in legalStauses | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
-                            </ui-select>
-                        </div>
+    <div class="container">
+        <div class="container-left-12">
+            <h4>Suchen und Filtern Sie nach Schulen und Schulprojekten</h4>
+            <div>
+                <div class="filter-wrapper container">
+                    <div class="filter container-left-4">
+                        <p class="bold">Schultyp:</p>
+                        <ui-select multiple ng-model="selected.school_type" theme="select2">
+                            <ui-select-match placeholder="z.B. Gymnasium">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="o in filter.school_type | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
+                        </ui-select>
                     </div>
-                    <div class="filter-wrapper container">
-                        <div class="filter container-left-4">
-                            <p class="bold">Themen:</p>
-                            <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
-                                <ui-select-match placeholder="z.B. Umwelt">AG: {{$item.name}}</ui-select-match>
-                                <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
-                            </ui-select>
-                        </div>
-                        <div class="filter container-left-4">
-                            <p class="bold">Aktionen:</p>
-                            <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
-                                <ui-select-match placeholder="z.B. Fußball">AG: {{$item.name}}</ui-select-match>
-                                <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
-                            </ui-select>
-                        </div>
-                        <div class="filter container-left-4">
-                            <p class="bold">Projekte:</p>
-                            <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
-                                <ui-select-match placeholder="z.B. Schule gegen Rass...">AG: {{$item.name}}</ui-select-match>
-                                <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
-                            </ui-select>
-                        </div>
+                    <div class="filter container-left-4">
+                        <p class="bold">rechtlicher Status:</p>
+                        <ui-select multiple ng-model="legalStatusFilter.selected" theme="select2">
+                            <ui-select-match placeholder="z.B. öffentlich">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="o in legalStauses | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
+                        </ui-select>
                     </div>
-                    <div class="filter-wrapper container">
-                        <div class="filter container-left-4">
-                            <p class="bold">Name/ID:</p>
-                            <input ng-model="searchText" ng-model-options="{ debounce: 250 }"/>
-                        </div>
-                        <div class="filter container-left-4">
-                            <input ng-model="schoolProfileFilter" type="checkbox"/> <strong>mit Schulprofil</strong>
-                        </div>
-                        <div class="filter container-left-4">
-                            <input ng-model="fullTimeSchoolFilter" type="checkbox"/> <strong>Ganztagsschulen</strong>
-                        </div>
-                    </div>
-
-                    </div>
-                    <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
-                        <a ng-click="closeSlider()" style="float: right">x</a>
-                        <div>
-                            <h1>{{school.name}}</h1>
-                            <p>{{school.address}}</p>
-                            <ul>
-                                <li>Träger: {{school.provider}}</li>
-                                <li>Rechtstatus: {{school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
-                                <li>Schultyp: {{school.school_type}}</li>
-                                <li><a href="{{school.website}}" target="_blank">Webseite</a></li>
-                                <li ng-if="school.profile"><a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div id="map" />
                 </div>
+                <div class="filter-wrapper container">
+                    <div class="filter container-left-4">
+                        <p class="bold">Themen:</p>
+                        <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
+                            <ui-select-match placeholder="z.B. Umwelt">AG: {{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="filter container-left-4">
+                        <p class="bold">Aktionen:</p>
+                        <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
+                            <ui-select-match placeholder="z.B. Fußball">AG: {{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="filter container-left-4">
+                        <p class="bold">Projekte:</p>
+                        <ui-select multiple ng-model="workingGroupsFilter.selected" theme="select2">
+                            <ui-select-match placeholder="z.B. Schule gegen Rass...">AG: {{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="o in workingGroups | propsFilter: {name: $select.search}">AG: {{o.name}}</ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+                <div class="filter-wrapper container">
+                    <div class="filter container-left-4">
+                        <p class="bold">Name/ID:</p>
+                        <input ng-model="searchText" ng-model-options="{ debounce: 250 }"/>
+                    </div>
+                    <div class="filter container-left-4">
+                        <input ng-model="schoolProfileFilter" type="checkbox"/> <strong>mit Schulprofil</strong>
+                    </div>
+                    <div class="filter container-left-4">
+                        <input ng-model="fullTimeSchoolFilter" type="checkbox"/> <strong>Ganztagsschulen</strong>
+                    </div>
+                </div>
+
+                </div>
+                <div id="slider" class='animate-hide' ng-hide="infoboxHidden">
+                    <a ng-click="closeSlider()" style="float: right">x</a>
+                    <div class="map-info">
+                        <h4>{{school.name}}</h4>
+                        <p class="italic">{{school.address}}</p>
+                        <ul class="list-unstyled">
+                            <li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
+                            <li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
+                            <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
+                            <li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
+                            <li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
+                            <li ng-if="school.director"><strong>Direktor:</strong> {{school.director}}</li>
+                            <li ng-if="school.website"><a href="{{school.website}}" target="_blank">Webseite</a></li>
+                        </ul>
+                        <p ng-if="school.profile">
+                            <a href="/schulprofil/index.html?id={{school.id}}">Schulprofil</a>
+                        </p>
+                    </div>
+                </div>
+                <div id="map" />
             </div>
+            <p class="source">
+                Quelle: Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>.
+            </p>
         </div>
     </div>
 </section>
-
-
-    </div>
-</div>
 {% endraw %}
 
