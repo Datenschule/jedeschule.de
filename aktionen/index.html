@@ -6,24 +6,22 @@ description: Tue Gutes mit Daten
 ---
 <main ng-app="App">
     <section class="container-outer container-bgi-blue">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-8">
-                    <h1>Schulaktivitäten</h1>
-                    <p>Schule ist weit mehr als nur Unterricht. Potenziale, Persönlichkeit und das Engagement für die
-                        Gesellschaft entwickeln sich vorwiegend außerhalb des Regelbetriebs. Viele Schulen bieten ihren
-                        Schüler*innen deshalb ganz unterschiedliche zukunftsfähige Projekte zu Themen wie Digitalisierung,
-                        neue Arbeitswelten, Klimaschutz oder Demokratie an, die sie gemeinsam mit Partnerorganisationen
-                        aus Politik, Zivilgesellschaft und Wirtschaft umsetzen.
-                    </p>
-                    <p>
-                        Oftmals werden diese Aktivitäten in der öffentlichen Debatte nicht thematisiert. Für alle
-                        allgemeinbildenden Schulen in Berlin und Sachsen haben wir deshalb diese Informationen aufbereitet.
-                        Detaillierte Aktivitäten und Partner der jeweiligen Schulen finden Sie auf den
-                        <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a>
-                        der zwei Bundesländer.
-                    </p>
-                </div>
+        <div class="container">
+            <div class="container-left-8">
+                <h1>Schulaktivitäten</h1>
+                <p>Schule ist weit mehr als nur Unterricht. Potenziale, Persönlichkeit und das Engagement für die
+                    Gesellschaft entwickeln sich vorwiegend außerhalb des Regelbetriebs. Viele Schulen bieten ihren
+                    Schüler*innen deshalb ganz unterschiedliche zukunftsfähige Projekte zu Themen wie Digitalisierung,
+                    neue Arbeitswelten, Klimaschutz oder Demokratie an, die sie gemeinsam mit Partnerorganisationen
+                    aus Politik, Zivilgesellschaft und Wirtschaft umsetzen.
+                </p>
+                <p>
+                    Oftmals werden diese Aktivitäten in der öffentlichen Debatte nicht thematisiert. Für alle
+                    allgemeinbildenden Schulen in Berlin und Sachsen haben wir deshalb diese Informationen aufbereitet.
+                    Detaillierte Aktivitäten und Partner der jeweiligen Schulen finden Sie auf den
+                    <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a>
+                    der zwei Bundesländer.
+                </p>
             </div>
         </div>
     </section>
@@ -31,7 +29,7 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Arbeitsgemeinschaften Berlin</h2>
+                    <h3><span>Arbeitsgemeinschaften Berlin</span></h3>
                 </div>
                 <div class="container-left-12">
                     {% include aktionen/ag.html name='berlin' %}
@@ -43,7 +41,7 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Partner Berlin</h2>
+                    <h3><span class="grey">Partner Berlin</span></h3>
                 </div>
                 <div class="container-left-12">
                     {% include aktionen/partner.html name='berlin' %}
@@ -55,7 +53,7 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Arbeitsgemeinschaften Sachsen</h2>
+                    <h3><span>Arbeitsgemeinschaften Sachsen</span></h3>
                 </div>
                 <div class="container-left-12">
                     {% include aktionen/ag.html name='sachsen' %}
@@ -67,7 +65,7 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Partner Sachsen</h2>
+                    <h3 class="text-center"><span class="grey">Partner Sachsen</span></h3>
                 </div>
                 <div class="container-left-12">
                     {% include aktionen/partner.html name='sachsen' %}
@@ -79,7 +77,7 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Engagement</h2>
+                    <h3><span>Engagement</span></h3>
                 </div>
                 <div class="container-left-12">
                     {% include aktionen/programs.html %}
