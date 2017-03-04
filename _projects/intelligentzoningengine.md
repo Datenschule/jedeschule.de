@@ -1,8 +1,8 @@
 ---
 name: Intelligent Zoning Engine
 author: Max Mustermann
-link: http://codefor.de
-image: /assets/img/logo_datenschule_card_white.png
+link: http://idalab.de/intelligent-zoning-engine
+image: /assets/img/projekte/intelligent-zone.jpg
 ---
 Die Zuschneidung von Einzugsgebieten für Grundschulen ist ein komplexes Thema. Im Bezirk Tempelhof-Schöneberg in
 Berlin wird nun Intelligent Zoning Engine pilotiert, die mit offenen Daten diese Gebiete algorithmisch hinsichtlich
