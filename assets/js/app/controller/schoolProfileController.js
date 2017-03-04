@@ -1,4 +1,48 @@
 app.controller('schoolProfileController', function ($scope, $http,$location, schools) {
+    $scope.categoryRessources = {
+        Umwelt: {
+            color: '',
+            image: ''
+        },
+        Sport: {
+            color: '#D55879',
+            image: '/assets/img/wg-icons/sport.png'
+        },
+        'Musik & Tanz': {
+            color: '#EB8E24',
+            image: '/assets/img/wg-icons/musik.png'
+        },
+        'Gesellschaft / Partizipation': {
+            color: '#AD4561',
+            image: '/assets/img/wg-icons/gesellschaft.png'
+        },
+        'Literatur / Medien': {
+            color: '',
+            image: ''
+        },
+        Handwerk: {
+            color: '#199B5D',
+            image: '/assets/img/wg-icons/handwerk.png'
+        },
+        'Kunst / Kultur': {
+            color: '#FD7526',
+            image: '/assets/img/wg-icons/kunst.png'
+        },
+        'MINT': {
+            color: '#3dd7ff',
+            image: '/assets/img/wg-icons/mint.png'
+        },
+        Berufsorientierung: {
+            color: '#CC3D63',
+            image: '/assets/img/wg-icons/berufsorientierung.png'
+        },
+        Sprachen: {
+            color: '#30C5E2',
+            image: '/assets/img/wg-icons/sprachen.png'
+        },
+
+    };
+
     var school_id = $location.absUrl().split('?')[1].split('=')[1];
     schools.getSchool(school_id, function(err, data) {
         $scope.school = data;

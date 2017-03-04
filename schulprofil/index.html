@@ -140,21 +140,26 @@ description: Tue Gutes mit Daten
             </div>
         </div>
     </section>
-    <section class="container-outer">
+    <section class="container-outer container-bg-grey">
         <div class="container-padded">
             <div class="container">
-                <div class="container-left-12">
+                <div class="container-left-12 working_groups">
                     <h2 class="text-center">Arbeitsgemeinschaften</h2>
-                    <div ng-repeat="(wg_cat, wgs) in school.profile.working_groups track by $index">
-                        <div class="container-left-4">
-                            <div class="box box-with-head box-margin-top-medium">
-                                <p>{{wg_cat}}</p>
-                                <li ng-repeat="wg in wgs track by $index">{{wg}}</li>
-                            </div>
-                        </div>
+                </div>
+            </div>
+            <div class="container working_groups">
+                <div ng-repeat="(wg_cat, wgs) in school.profile.working_groups track by $index" class="container-left-4">
+                    <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
+                        <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
+                        <p class="bold text-center">{{wg_cat}}</p>
+                        <ul class="list-unstyled">
+                            <li ng-repeat="wg in wgs track by $index">{{wg}}</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+            </div>
+
         </div>
     </section>
 </main>
