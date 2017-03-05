@@ -7,4 +7,50 @@
     display: inline;
     background-color: #ffffff;
   }
+
+  input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 13px;
+    color: lightgray;
+  }
+
+  input:-ms-input-placeholder { /* IE 10+ */
+    font-size: 13px;
+    color:lightgray;
+  }
+
+  input::-moz-placeholder { /* Firefox 19+ */
+    font-size: 13px;
+    color: lightgray;
+  }
+
+  input:-moz-placeholder { /* Firefox 18- */
+    font-size: 13px;
+    color: lightgray;
+  }
+
+  .shadow {
+    -moz-box-shadow:    inset 0 0 2px #000000;
+    -webkit-box-shadow: inset 0 0 2px #000000;
+    box-shadow:         inset 0 0 2px #000000;
+  }
+
+  .search {
+    line-height: 2;
+  }
+
+  //input::-webkit-input-placeholder {
+  //  color:red;
+  //}
+  //
+  //::-moz-placeholder {
+  //  color:red;
+  //}
+  //
+  //::-ms-placeholder {
+  //  color:red;
+  //}
+  //
+  //::placeholder {
+  //  color:red;
+  //}
 }
