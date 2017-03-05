@@ -9,6 +9,7 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
     $scope.legalStatusFilter = {selected: []};
     $scope.legalStauses = [{'name': 'Privat', value:0}, {'name': 'Öffentlich', value:1}];
     $scope.workingGroupsFilter = {selected: []};
+    $scope.progress = {};
 
     var filter_keys = ['school_type'];
     var layer;
@@ -235,7 +236,15 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
             chunkedLoading: true,
             showCoverageOnHover: false,
             zoomToBoundsOnClick: true,
-            singleMarkerMode: true});
+            singleMarkerMode: true,
+            chunkProgress: function(current, total){
+                $scope.loading = current < total;
+                $scope.progress.total = total;
+                $scope.progress.current = current;
+                if(!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            }});
         markers.on('click', onMarkerClick);
 
         console.time("making markers");

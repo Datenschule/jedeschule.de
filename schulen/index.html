@@ -93,7 +93,12 @@ description: Tue Gutes mit Daten
                         </p>
                     </div>
                 </div>
-                <div id="map" />
+                <div id='map-container'>
+                    <div id='map'> </div>
+                    <div ng-show="progress.total !== progress.current" class=overlay id='loading-overlay'>
+                        <progress max="{{progress.total}}" value="{{progress.current}}"></progress>
+                    </div>
+                </div>
             </div>
             <p class="source">
                 Quelle: Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>.
