@@ -28,23 +28,38 @@ description: Tue Gutes mit Daten
             <div class="container">
                 <div class="container-left-4 profile-map-info">
                     <div class="box box-margin-top-medium">
+                        <h5>Allgemeine Angaben</h5>
                         <ul class="list-unstyled">
+                            <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
                             <li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
                             <li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status}}</li>
-                            <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
                             <li ng-if="school.website"><strong>Webseite:</strong><a href="{{school.website}}" target="_blank"> Link</a></li>
-                            <li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
-                            <li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
                             <li ng-if="school.email"><strong>Email:</strong> {{school.email}}</li>
-                            <li ng-if="school.director"><strong>Direktor:</strong> {{school.director}}</li>
-                        </ul>
 
+                        </ul>
+                        <h5>Kontakt</h5>
+                        <ul>
+                            <li ng-if="school.director"><strong>Direktor*in:</strong> {{school.director}}</li>
+                            <li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
+                            <li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
+                            <li ng-if="school.address"><strong>Adresse:</strong> {{school.address}}</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="container-left-8">
                     <div class="box box-margin-top-medium">
                         <div id="map-profile"></div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer container-bg-grey">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
+                    <h2 class="text-center">Schüler</h2>
+                    <p>{{school.concept}}</p>
                 </div>
             </div>
         </div>
