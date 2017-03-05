@@ -52,7 +52,7 @@ app.factory('schools', function($http) {
         getSchool: function(school_id, cb) {
             if (!schools[school_id]) {
                 $http({
-                    url: 'http://lab.okfn.de/jedeschule/schools/' + school_id + '.json',
+                    url: 'https://lab.okfn.de/jedeschule/schools/' + school_id + '.json',
                     method: 'GET'
                 })
                     .then(function(response) {
