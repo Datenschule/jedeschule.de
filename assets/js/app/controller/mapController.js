@@ -235,8 +235,14 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
             chunkedLoading: true,
             showCoverageOnHover: false,
             zoomToBoundsOnClick: true,
-            singleMarkerMode: true});
+            singleMarkerMode: false,
+            maxClusterRadius: 80});
         markers.on('click', onMarkerClick);
+
+        var mapIcon = L.icon({
+            iconUrl: '/assets/img/map_pin.png',
+            iconSize: [40, 53] // size of the icon
+        });
 
         console.time("making markers");
         var filteredMarkers = filtered
@@ -244,7 +250,7 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
                 return school.lat && school.lon;
             })
             .map(function(school) {
-                var marker = L.marker(L.latLng(school.lat, school.lon));
+                var marker = L.marker(L.latLng(school.lat, school.lon), {icon: mapIcon});
                 marker.school = school;
                 return marker;
             });
