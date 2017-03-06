@@ -16,7 +16,13 @@ app.controller('Schoolkinds2Controller', function ($scope, $http, $location, sta
                 }
                 return result;
             });
-            $scope.nvd3data = nvd3data;
+
+            $scope.nvd3data = _.filter(nvd3data, function(o) {
+                var max = o['2007'] > o['2015'] ? o['2007'] : o['2015'];
+                var min = o['2007'] < o['2015'] ? ++o['2007'] : ++o['2015'];
+                console.log(min * 100 / max);
+                return min * 100 / max < 90;
+            });
             // render chart
             d3.select('#slopegraph')
                 .datum($scope.nvd3data)
