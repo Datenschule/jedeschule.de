@@ -1,9 +1,27 @@
 $height: 38rem;
 
-#map {
+#map, #map-container, .overlay {
   height: $height;
   z-index: 10;
+  position: relative;
 }
+
+#map, .overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay{
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.4);
+  text-align: center;
+  padding-top: 20%;
+  font-size: 4em;
+}
+
 
 #slider {
   //position: absolute;
