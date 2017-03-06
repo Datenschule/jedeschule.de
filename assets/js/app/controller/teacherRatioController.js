@@ -90,10 +90,10 @@ app.controller('TeacherRatioController', function ($scope, $http, $location, sch
             .domain(months)
             .rangeRoundBands([0, height], .1);
 
-        var xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient('bottom')
-            .outerTickSize(0);
+        // var xAxis = d3.svg.axis()
+        //     .scale(xScale)
+        //     .orient('bottom')
+        //     .outerTickSize(0);
 
         var yAxis = d3.svg.axis()
             .scale(yScale)
@@ -130,21 +130,21 @@ app.controller('TeacherRatioController', function ($scope, $http, $location, sch
                 return xScale(d.x);
             });
 
-        svg.append('g')
-            .attr('class', 'axis')
-            .attr('transform', 'translate(0,' + height + ')')
-            .style('stroke-width', 1)
-            .call(xAxis);
+        // svg.append('g')
+        //     .attr('class', 'axis')
+        //     .attr('transform', 'translate(0,' + height + ')')
+        //     .style('stroke-width', 1)
+        //     .call(xAxis);
 
         svg.append('g')
             .attr('class', 'axis yaxis')
             .call(yAxis);
 
-        svg.append('text')
-            .attr('x', width + 10)
-            .attr('y', height + 5)
-            .style('font-size', '9pt')
-            .text('%');
+        // svg.append('text')
+        //     .attr('x', width + 10)
+        //     .attr('y', height + 5)
+        //     .style('font-size', '9pt')
+        //     .text('%');
 
         svg.append('rect')
             .attr('fill', 'yellow')
