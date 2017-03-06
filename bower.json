@@ -27,6 +27,12 @@
     "angular-ui-select": "^0.19.6",
     "angular-nvd3": "^1.0.9",
     "nvd3": "^1.8.5",
-    "chroma-js": "^1.1.1"
+    "chroma-js": "^1.1.1",
+    "chartist": "^0.10.1",
+    "angular-chartist.js": "npm:angular-chartist.js#^4.3.1",
+    "chartistAngularDirective.js": "chartist-directive#^1.0.9",
+    "chartist-plugin-threshold": "^0.0.2",
+    "chartist-plugin-tooltip": "^0.0.17",
+    "chartist-plugin-axistitle": "^0.1.0"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "angular-chartist.js",
+  "description": "Angular directive for Chartist.js",
+  "main": "dist/angular-chartist.js",
+  "keywords": [
+    "angular",
+    "chartist.js",
+    "directive"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/willsoto/angular-chartist.js",
+  "bugs": {
+    "url": "https://github.com/willsoto/angular-chartist.js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willsoto/angular-chartist.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

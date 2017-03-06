@@ -17,7 +17,7 @@
         <div class="container-left-6">
             <div class="container-left-6" ng-repeat="cat in d3data">
                 {% raw %}
-                <h3>{{cat.key}}</h3>
+                <h5>{{cat.key}}</h5>
                 <barchart data="cat.values" color="cat.color"></barchart>
                 {% endraw %}
             </div>

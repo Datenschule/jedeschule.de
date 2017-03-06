@@ -63,7 +63,7 @@ description: Tue Gutes mit Daten
                 <div class="filter-wrapper container">
                     <div class="filter container-left-4">
                         <p class="bold">Schulsuche:</p>
-                        <input class="search ui-select-container ui-select-multiple select2 select2-container select2-container-multi ng-empty ng-valid select2-input ui-select-search ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchText" ng-model-options="{ debounce: 250 }" placeholder="Name oder ID"/>
+                        <input class="search ui-select-container ui-select-multiple select2 select2-container select2-container-multi ng-empty ng-valid select2-input ui-select-search ng-pristine ng-untouched ng-valid ng-empty" ng-model="searchText" ng-model-options="{ debounce: 250 }" placeholder="Name oder ID oder PLZ"/>
                     </div>
                     <div class="filter container-left-4">
                         <input ng-model="schoolProfileFilter" type="checkbox"/> <strong>mit Schulprofil</strong>
@@ -93,7 +93,12 @@ description: Tue Gutes mit Daten
                         </p>
                     </div>
                 </div>
-                <div id="map" />
+                <div id='map-container'>
+                    <div id='map'> </div>
+                    <div ng-show="progress.total !== progress.current" class=overlay id='loading-overlay'>
+                        <progress max="{{progress.total}}" value="{{progress.current}}"></progress>
+                    </div>
+                </div>
             </div>
             <p class="source">
                 Quelle: Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>.

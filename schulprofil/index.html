@@ -58,8 +58,55 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
+                    <h2 class="text-center">Leitbild</h2>
+                    <p ng-if="school.concept">{{school.concept}}</p>
+                    <p ng-if="!school.concept">Zum Leitbild sind leider keine Informationen verfügbar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-outer container-bg">
+        <div class="container-padded">
+            <div class="container">
+                <div class="container-left-12">
                     <h2 class="text-center">Schüler</h2>
-                    <p>{{school.concept}}</p>
+                    <div ng-if="!(school.profile.students | isEmpty)">
+                        <p>
+                            Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule.
+                        </p>
+                        <chartist class="ct-chart" chartist-data="students_data" chartist-chart-type="Line"
+                                  chartist-chart-options="options_students"></chartist>
+                    </div>
+                    <p ng-if="(school.profile.students | isEmpty)">Zu Schülern sind leider keine Informationen verfügbar.</p>
+
+                    <!--<div ng-chartist id='graph_id' class="ct-chart" data="{{data}}" options='{{options}}' type='{{chartType}}'-->
+                         <!--tooltips='true'></div>-->
+                    <!--<div class="button-group">-->
+                        <!--<label ng-repeat="(year, value) in school.profile.students">-->
+                            <!--<input type="radio" value="{{year}}" ng-model="students.year">-->
+                            <!--<span class="button-group-item">{{year}}</span>-->
+                        <!--</label>-->
+                    <!--</div>-->
+                    <!--<div class="table-responsive-vertical shadow-z-1">-->
+                        <!--<table id="table" class="table table-bordered table-striped">-->
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th>Klassenstufe</th>-->
+                                <!--<th>Schüler</th>-->
+                                <!--<th>Schülerinnen</th>-->
+                                <!--<th>Gesamt</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>-->
+                            <!--<tr ng-repeat="student in students.data">-->
+                                <!--<td data-title="Klassenstufe">{{student.class_level}}</td>-->
+                                <!--<td data-title="Schüler">{{student.male}}</td>-->
+                                <!--<td data-title="Schülerinnen">{{student.female}}</td>-->
+                                <!--<td data-title="Gesamt">{{student.female + student.male}}</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -68,36 +115,33 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Schüler</h2>
-                    <p>
-                        Hier sthen ein paar allgemein Infos zu Schülern
-                    </p>
-                    <div class="button-group">
-                        <label ng-repeat="(year, value) in school.profile.students">
-                            <input type="radio" value="{{year}}" ng-model="students.year">
-                            <span class="button-group-item">{{year}}</span>
-                        </label>
+                    <h2 class="text-center">Lehrer</h2>
+                    <div ng-if="school.profile.teacher.length > 0">
+                        <p>Informieren Sie sich über den zeitlichen Anteil der Lehrenden dieser Schule.</p>
+                        <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
+                                  chartist-chart-options="teacher_options"></chartist>
                     </div>
-                    <div class="table-responsive-vertical shadow-z-1">
-                        <table id="table" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>Klassenstufe</th>
-                                <th>Schüler</th>
-                                <th>Schülerinnen</th>
-                                <th>Gesamt</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="student in students.data">
-                                <td data-title="Klassenstufe">{{student.class_level}}</td>
-                                <td data-title="Schüler">{{student.male}}</td>
-                                <td data-title="Schülerinnen">{{student.female}}</td>
-                                <td data-title="Gesamt">{{student.female + student.male}}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <p ng-if="!school.profile.teacher.length > 0">Zu Lehreren sind leider keine Informationen verfügbar.</p>
+                    <!--<div class="table-responsive-vertical shadow-z-1">-->
+                        <!--<table id="table" class="table table-bordered table-striped">-->
+                            <!--<thead>-->
+                            <!--<tr>-->
+                                <!--<th>Schuljahr</th>-->
+                                <!--<th>männlich</th>-->
+                                <!--<th>weiblich</th>-->
+                                <!--<th>gesamt</th>-->
+                            <!--</tr>-->
+                            <!--</thead>-->
+                            <!--<tbody>-->
+                            <!--<tr ng-repeat="teacher in school.profile.teacher">-->
+                                <!--<td data-title="Klassenstufe">{{teacher.year}}</td>-->
+                                <!--<td data-title="Schüler">{{teacher.male}}</td>-->
+                                <!--<td data-title="Schülerinnen">{{teacher.female}}</td>-->
+                                <!--<td data-title="Gesamt">{{teacher.female + teacher.male}}</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
+                        <!--</table>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -106,40 +150,30 @@ description: Tue Gutes mit Daten
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Lehrer</h2>
-                    <p>Hier ein paar infos zu Lehrern</p>
-                    <div class="table-responsive-vertical shadow-z-1">
-                        <table id="table" class="table table-bordered table-striped">
-                            <thead>
-                            <tr>
-                                <th>Schuljahr</th>
-                                <th>männlich</th>
-                                <th>weiblich</th>
-                                <th>gesamt</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="teacher in school.profile.teacher">
-                                <td data-title="Klassenstufe">{{teacher.year}}</td>
-                                <td data-title="Schüler">{{teacher.male}}</td>
-                                <td data-title="Schülerinnen">{{teacher.female}}</td>
-                                <td data-title="Gesamt">{{teacher.female + teacher.male}}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg-grey">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
                     <h2 class="text-center">Partner</h2>
-                    <ul>
-                        <li ng-repeat="partner in school.profile.partner track by $index">{{partner}}</li>
-                    </ul>
+                    <div class="container partner" ng-if="partner_stat.length > 0">
+                        <div class="container-left-12">
+                            <div class="progress">
+                                <div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
+                                    <div class="progress-bar"
+                                         style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
+                                        <p>{{partner.name}} ({{partner.value}}%)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-left-12">
+                            <div ng-repeat="(partner_cat, partners) in partner track by $index" class="container-left-4">
+                                <p class="bold text-center">
+                                    <i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
+                                </p>
+                                <ul class="">
+                                    <li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p ng-if="!partner_stat.length > 0">Zu Partnern sind leider keine Informationen verfügbar</p>
                 </div>
             </div>
         </div>
@@ -151,19 +185,18 @@ description: Tue Gutes mit Daten
                     <h2 class="text-center">Arbeitsgemeinschaften</h2>
                 </div>
             </div>
-            <div class="container working_groups">
-                <div ng-repeat="(wg_cat, wgs) in school.profile.working_groups track by $index" class="container-left-4">
+            <div class="container working_groups" ng-if="!(working_groups | isEmpty)">
+                <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="container-left-4">
                     <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
                         <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
                         <p class="bold text-center">{{wg_cat}}</p>
                         <ul class="list-unstyled">
-                            <li ng-repeat="wg in wgs track by $index">{{wg}}</li>
+                            <li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            </div>
-
+            <p ng-if="(working_groups | isEmpty)">Zu Arbeitsgemeinschaften sind leider keine Informationen verfügbar.</p>
         </div>
     </section>
 </main>

@@ -40,3 +40,7 @@
 .icon-stack-1x { line-height: inherit; }
 .icon-stack-2x { font-size: 2em; }
 .icon-stack-inverse { color: white; }
+
+i::before {
+  margin-right: 5px;
+}

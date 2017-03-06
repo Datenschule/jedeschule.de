@@ -9,6 +9,85 @@ app.controller('foreignLanguagesController', function ($scope, $http, $location,
 
     $scope.languageSums = [];
 
+    $scope.bardata = {
+        labels: ['Englisch', 'Französisch', 'Latein', 'Altgriechisch', 'Spanisch', 'Italienisch', 'Russisch',
+            'Türkisch', 'Sonstige Sprachen'],
+        series: [20, 60, 120, 200, 180, 20, 10,20, 60]
+    };
+
+    $scope.langdata = {
+        labels: ['Grundschulen', 'Schulartunab- hängige Orientie- rungsstufe', 'Hauptschulen',
+            'Schularten mit mehreren Bildungsgängen', 'Realschulen', 'Gymnasien (G8)', 'Gymnasien (G9)',
+            'Integrierte Gesamtschulen', 'Freie Waldorfschulen', 'Förderschulen', 'Abendschulen und Kollegs'],
+        series: [20, 60, 120, 200, 180, 20, 10,20, 60,20, 60]
+    };
+
+    $scope.langoptions = {
+        height: '200px',
+        chartPadding: {
+            top: 20,
+            right: 0,
+            bottom: 55,
+            left: 40
+        },
+        distributeSeries: true,
+        plugins: [
+            Chartist.plugins.ctAxisTitle({
+                axisX: {
+                    axisTitle: '',
+                    axisClass: 'ct-axis-title',
+                    offset: {
+                        x: 0,
+                        y: 0
+                    },
+                    textAnchor: 'middle'
+                },
+                axisY: {
+                    axisTitle: 'Anzahl',
+                    axisClass: 'ct-axis-title',
+                    offset: {
+                        x: -50,
+                        y: -5
+                    },
+                    flipTitle: true
+                }
+            })
+        ]
+    };
+
+    $scope.baroptions = {
+        height: '200px',
+        distributeSeries: true,
+        chartPadding: {
+            top: 20,
+            right: 0,
+            bottom: 55,
+            left: 40
+        },
+        plugins: [
+            Chartist.plugins.ctAxisTitle({
+                axisX: {
+                    axisTitle: '',
+                    axisClass: 'ct-axis-title',
+                    offset: {
+                        x: 0,
+                        y: 0
+                    },
+                    textAnchor: 'middle'
+                },
+                axisY: {
+                    axisTitle: 'Anzahl',
+                    axisClass: 'ct-axis-title',
+                    offset: {
+                        x: -50,
+                        y: -5
+                    },
+                    flipTitle: true
+                }
+            })
+        ]
+    };
+
     $scope.init = function(state) {
         $scope.state = state;
         console.log(state);

@@ -9,11 +9,14 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
     $scope.legalStatusFilter = {selected: []};
     $scope.legalStauses = [{'name': 'Privat', value:0}, {'name': 'Öffentlich', value:1}];
     $scope.workingGroupsFilter = {selected: []};
+    $scope.progress = {};
 
     var filter_keys = ['school_type'];
     var layer;
     var allSchools;
     var map;
+    var foundAddress;
+    var searchedForText = false;
 
     schools.overview(function(err, schools) {
         console.time("mapSchools");
@@ -36,6 +39,11 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         if (searchParams.school_profiles && searchParams.school_profiles !== "false"){
             $scope.schoolProfileFilter = true;
         }
+
+        if (searchParams.search_text){
+            $scope.searchText = searchParams.search_text;
+        }
+
 
         if (searchParams.working_groups) {
             if (_.isString(searchParams.working_groups)){
@@ -86,7 +94,9 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         $location.search('lat', center.lat);
         $location.search('lng', center.lng);
         $location.search('zoom', zoom);
-        $scope.$apply();
+        if (!$scope.$$phase) {
+            $scope.$apply();
+        }
     }
 
     function onMarkerClick(marker) {
@@ -110,13 +120,19 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         if ($scope.fullTimeSchoolFilter){
             $location.search('full_time_schools', true);
         } else {
-            $location.search('full_time_schools', false);
+            $location.search('full_time_schools', null);
         }
 
         if ($scope.schoolProfileFilter){
             $location.search('school_profiles', true);
         } else {
             $location.search('school_profiles', null);
+        }
+
+        if ($scope.searchText){
+            $location.search('search_text', $scope.searchText)
+        } else {
+            $location.search('search_text', null)
         }
     }
 
@@ -155,12 +171,17 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
             return schools
         },
         filterForName: function filterForName(schools){
+            foundAddress = false;
             if ($scope.searchText){
                 return schools.filter(function(school){
                     var searchText = $scope.searchText.toLowerCase();
                     var nameMatches = _.includes(school.name.toLowerCase(), searchText);
                     var idMatches = _.includes(school.id.toLowerCase(), searchText);
-                    return nameMatches || idMatches
+                    var addressMatches = _.includes(school.address.toLowerCase(), searchText);
+                    if (addressMatches) {
+                        foundAddress = true;
+                    }
+                    return nameMatches || idMatches || addressMatches;
                 })
             }
             return schools;
@@ -235,8 +256,21 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
             chunkedLoading: true,
             showCoverageOnHover: false,
             zoomToBoundsOnClick: true,
-            singleMarkerMode: true});
+            singleMarkerMode: false,
+            chunkProgress: function(current, total){
+                $scope.loading = current < total;
+                $scope.progress.total = total;
+                $scope.progress.current = current;
+                if(!$scope.$$phase) {
+                    $scope.$apply();
+                }
+            }});
         markers.on('click', onMarkerClick);
+
+        var mapIcon = L.icon({
+            iconUrl: '/assets/img/map_pin.png',
+            iconSize: [40, 53] // size of the icon
+        });
 
         console.time("making markers");
         var filteredMarkers = filtered
@@ -244,7 +278,7 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
                 return school.lat && school.lon;
             })
             .map(function(school) {
-                var marker = L.marker(L.latLng(school.lat, school.lon));
+                var marker = L.marker(L.latLng(school.lat, school.lon), {icon: mapIcon});
                 marker.school = school;
                 return marker;
             });
@@ -255,16 +289,26 @@ app.controller('MapController', function ($scope, $http, $location, schools) {
         console.timeEnd("addLayers");
 
         layer = markers;
+        if (foundAddress && searchedForText){
+            map.fitBounds(layer.getBounds());
+        }
+        searchedForText = false;
+
         console.time('addLayer');
         map.addLayer(layer);
 
         console.timeEnd('addLayer')
-
     };
 
     $scope.closeSlider = function(){
         $scope.infoboxHidden = true;
     };
+
+    $scope.$watch("searchText", function(newVal){
+        if (newVal !== ""){
+            searchedForText = true;
+        }
+    });
 
     $scope.$watchGroup(['schoolProfileFilter', 'fullTimeSchoolFilter', 'workingGroupsFilter.selected', 'searchText', 'legalStatusFilter.selected'], display);
     $scope.$watchCollection('selected', display);

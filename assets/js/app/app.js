@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'angular-chartist', 'nvd3']);
+var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'nvd3', 'angular-chartist']);
 
 app.filter('propsFilter', function () {
     return function (items, props) {
@@ -30,6 +30,12 @@ app.filter('propsFilter', function () {
         return out;
     };
 });
+
+app.filter('isEmpty', [function() {
+    return function(object) {
+        return angular.equals({}, object);
+    }
+}])
 
 app.factory('schools', function($http) {
     var loaded_overview = null;

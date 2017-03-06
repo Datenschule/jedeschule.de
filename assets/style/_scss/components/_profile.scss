@@ -36,6 +36,9 @@
 }
 
 .working_groups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   .box {
     border-color: #3dd7ff;
   }

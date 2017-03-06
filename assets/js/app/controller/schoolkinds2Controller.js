@@ -16,6 +16,7 @@ app.controller('Schoolkinds2Controller', function ($scope, $http, $location, sta
                 }
                 return result;
             });
+
             $scope.nvd3data = _.filter(nvd3data, function(elem) {
                 var delta = Math.abs(elem[relevantYears[0]] - elem[relevantYears[1]]);
                 return (delta / elem[relevantYears[0]] > 0.08 && delta > 10) &&
