@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'angular-chartist', 'nvd3']);
+var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'nvd3', 'angular-chartist']);
 
 app.filter('propsFilter', function () {
     return function (items, props) {
