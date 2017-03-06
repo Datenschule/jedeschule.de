@@ -31,6 +31,12 @@ app.filter('propsFilter', function () {
     };
 });
 
+app.filter('isEmpty', [function() {
+    return function(object) {
+        return angular.equals({}, object);
+    }
+}])
+
 app.factory('schools', function($http) {
     var loaded_overview = null;
     var schools = {};
