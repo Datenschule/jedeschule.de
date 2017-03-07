@@ -10,7 +10,11 @@ partnertext: >
 agtext: >
     <p>1330* der knapp 1500 allgemeinbildenden Schulen in Sachsen kommunizieren ihre Projekte und Aktivitäten an das Statistische Landesamt Sachsen. Insgesamt bieten sie über 15472 Möglichkeiten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an. Das sind durchschnittlich 13 Aktionen in mehr als 6 Themen die den Schüler*innen geboten werden.</p>
     <h5>“Sport und Musik sind die meist geförderten Aktivitäten”</h5>
+<<<<<<< HEAD
     <p>In Sachen liegen die meisten Angebote im sportlichen Bereich mit 88%, dicht gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden. 897 der 1330 Schulen (67%) fördert Partizipation und gesellschaftliches Engagement, durch z.B. Schülerparlament, Schüler*innenaustausch und Ersthelfer*innen-Schulungen. Naturwissenschaftliche AGs werden von  782 Schulen (58%) der Schulen angeboten. Nur ein geringer Anteil der Schulen (15% bzw. 200 Schulen) bietet ihren Schüler*innen Arbeitsgemeinschaften zu den Themen Literatur und Medien an.</p>
+=======
+    <p>In Sachen liegen die meisten Angebote im sportlichen Bereich mit 88%, dicht gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden.  897 der 1330 Schulen (67%) fördert Partizipation und gesellschaftliches Engagement, durch z.B. Schülerparlament, Schüler*innenaustausch und Ersthelfer*innen-Schulungen. Naturwissenschaftliche AGs werden von  782 Schulen (58%) der Schulen angeboten. Nur ein geringer Anteil der Schulen (15% bzw. 200 Schulen) bietet ihren Schüler*innen Arbeitsgemeinschaften zu den Themen Literatur und Medien an.</p>
+>>>>>>> origin/dev
 ---
 Introtext zum Schulsystem in Sachsen
 
