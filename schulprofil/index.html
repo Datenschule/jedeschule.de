@@ -79,34 +79,7 @@ description: Tue Gutes mit Daten
                     </div>
                     <p ng-if="(school.profile.students | isEmpty)">Zu Schülern sind leider keine Informationen verfügbar.</p>
 
-                    <!--<div ng-chartist id='graph_id' class="ct-chart" data="{{data}}" options='{{options}}' type='{{chartType}}'-->
-                         <!--tooltips='true'></div>-->
-                    <!--<div class="button-group">-->
-                        <!--<label ng-repeat="(year, value) in school.profile.students">-->
-                            <!--<input type="radio" value="{{year}}" ng-model="students.year">-->
-                            <!--<span class="button-group-item">{{year}}</span>-->
-                        <!--</label>-->
-                    <!--</div>-->
-                    <!--<div class="table-responsive-vertical shadow-z-1">-->
-                        <!--<table id="table" class="table table-bordered table-striped">-->
-                            <!--<thead>-->
-                            <!--<tr>-->
-                                <!--<th>Klassenstufe</th>-->
-                                <!--<th>Schüler</th>-->
-                                <!--<th>Schülerinnen</th>-->
-                                <!--<th>Gesamt</th>-->
-                            <!--</tr>-->
-                            <!--</thead>-->
-                            <!--<tbody>-->
-                            <!--<tr ng-repeat="student in students.data">-->
-                                <!--<td data-title="Klassenstufe">{{student.class_level}}</td>-->
-                                <!--<td data-title="Schüler">{{student.male}}</td>-->
-                                <!--<td data-title="Schülerinnen">{{student.female}}</td>-->
-                                <!--<td data-title="Gesamt">{{student.female + student.male}}</td>-->
-                            <!--</tr>-->
-                            <!--</tbody>-->
-                        <!--</table>-->
-                    <!--</div>-->
+
                 </div>
             </div>
         </div>
@@ -122,26 +95,6 @@ description: Tue Gutes mit Daten
                                   chartist-chart-options="teacher_options"></chartist>
                     </div>
                     <p ng-if="!school.profile.teacher.length > 0">Zu Lehreren sind leider keine Informationen verfügbar.</p>
-                    <!--<div class="table-responsive-vertical shadow-z-1">-->
-                        <!--<table id="table" class="table table-bordered table-striped">-->
-                            <!--<thead>-->
-                            <!--<tr>-->
-                                <!--<th>Schuljahr</th>-->
-                                <!--<th>männlich</th>-->
-                                <!--<th>weiblich</th>-->
-                                <!--<th>gesamt</th>-->
-                            <!--</tr>-->
-                            <!--</thead>-->
-                            <!--<tbody>-->
-                            <!--<tr ng-repeat="teacher in school.profile.teacher">-->
-                                <!--<td data-title="Klassenstufe">{{teacher.year}}</td>-->
-                                <!--<td data-title="Schüler">{{teacher.male}}</td>-->
-                                <!--<td data-title="Schülerinnen">{{teacher.female}}</td>-->
-                                <!--<td data-title="Gesamt">{{teacher.female + teacher.male}}</td>-->
-                            <!--</tr>-->
-                            <!--</tbody>-->
-                        <!--</table>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
