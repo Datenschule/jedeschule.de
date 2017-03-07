@@ -1,33 +1,105 @@
 app.controller('TeacherRatioController', function ($scope, $http, $location, schools, states) {
 
+    $scope.data = {
+        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+        series: [
+            [800000, 1200000, 1400000, 1300000],
+            [200000, 400000, 500000, 300000],
+            [100000, 200000, 400000, 600000]
+        ]
+    }
+
+    $scope.options = {
+        stackBars: true,
+        horizontalBars: true,
+        height: '500px',
+        chartPadding: {
+            top: 20,
+            right: 0,
+            bottom: 55,
+            left: 80
+        },
+    };
+
+    $scope.events = {
+        draw: function(data) {
+            if (data.type === 'bar') {
+                data.element.attr({
+                    style: 'stroke-width: 80px'
+                });
+            }
+        }
+    };
+
+    $scope.abs_data = {
+        labels: ['Vorklassen', 'Grundschulen', 'Schulartunabhängige Orientierungsstufe', 'Hauptschulen', 'Realschulen',
+            'Gymnasien', 'Integrierte Gesamtschulen', 'Freie Waldorfschulen', 'Förderschulen', 'Abendhauptschulen',
+            'Abendrealschulen', 'Abendgymnasien', 'Kollegs'],
+        series: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130]
+    };
+
+    $scope.abs_options = {
+        distributeSeries: true,
+        horizontalBars: true,
+        height: '500px',
+        chartPadding: {
+            top: 20,
+            right: 0,
+            bottom: 55,
+            left: 80
+        }
+    };
+
     $scope.init = function(state) {
         $scope.state = state;
         states.get($scope.state, function(err, statedata) {
-            console.log(statedata.teacher);
-            var entries = _.filter(statedata.teacher, { year:'2015' });
-            console.log(entries);
-            var amounts = _.groupBy(entries, 'schooltype');
-            var sums = {};
-            for (var type in amounts) {
-                sums[type] = _.sumBy(amounts[type], 'amount');
-            }
-            entries = _.groupBy(entries, 'volume');
-            console.log(entries);
-            console.log(sums);
-            var data = [];
-            for (entry in entries) {
-                var curr = entries[entry];
-                curr.map(function(item) {
-                    item.value = sums[item.schooltype] > 0 ? item.amount * 100 / sums[item.schooltype] : 0;
-                    return item;
-                })
-                data.push({name: entry, data: curr})
-            }
-            console.log(data);
-            $scope.datad3 = data;
-            renderChart(data)
+
+            $scope.datad3 = getTeacherSeriesBySchooltypeAndEmployment(statedata.teacher);
+
+            $scope.data = $scope.datad3;
+            $scope.abs_data = getOverallTeacherSeries(statedata.teacher);
+            //renderChart(data)
         });
     };
+
+    //TODO: Refactor
+    function getTeacherSeriesBySchooltypeAndEmployment(raw_data) {
+        var entries = _.filter(raw_data, { year:'2015' });
+        var amounts = _.groupBy(entries, 'schooltype');
+        var sums = {};
+        for (var type in amounts) {
+            sums[type] = _.sumBy(amounts[type], 'amount');
+        }
+
+        entries = _.groupBy(entries, 'volume');
+        var data = [];
+        for (var entry in entries) {
+            var curr = entries[entry];
+            curr = curr.map(function(item) {
+                item.value = sums[item.schooltype] > 0 ? item.amount * 100 / sums[item.schooltype] : 0;
+                return item;
+            });
+            data.push({name: entry, data: curr})
+        }
+        var series = data.map(function (o) { return o.data });
+        var series_data= {
+            labels: series[0].map(function(o) { return o.schooltype}),
+            series: series.map(function(series) { return series.map(function(elem) { return elem.value }) })
+
+        };
+        return series_data;
+    }
+
+    function getOverallTeacherSeries(raw_data) {
+        var entries =  _.filter(raw_data, { year:'2015' });
+        var amount_teacher = _.groupBy(entries, 'schooltype');
+        var amount_teacher_series = _.map(Object.values(amount_teacher), function(o) { return _.sumBy(o, 'amount')});
+        var amount_teacher_labels = Object.keys(amount_teacher);
+        return {
+            series: amount_teacher_series,
+            labels: amount_teacher_labels
+        };
+    }
 
     function renderChart(dataset) {
 
@@ -67,8 +139,11 @@ app.controller('TeacherRatioController', function ($scope, $http, $location, sch
 
         var svg = d3.select('#graph')
             .append('svg')
-            .attr('width', width + margins.left + margins.right  + legendPanel.width)
-            .attr('height', height + margins.top + margins.bottom)
+            //.attr('width', '100%')//width + margins.left + margins.right  + legendPanel.width)
+            //.attr('height', height + margins.top + margins.bottom)
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr('viewbox', '0 0 900 400')
+            .attr('class', 'responsive-svg')
             .append('g')
             .attr('transform', 'translate(' + margins.left + ',' + margins.top + ')');
 
