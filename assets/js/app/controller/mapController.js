@@ -36,7 +36,7 @@ app.controller('MapController', function ($scope, $location, schools) {
             selected: false,
             match: function (school, selected) {
                 if (!selected) return true;
-                return (selected && school.profile); // TODO: no one has profile because of compact/expand, add hasProfile
+                return (selected && school.profile);
             }
         },
         types: {
