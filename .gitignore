@@ -1,5 +1,6 @@
 .idea
 .sass-cache
+.bundle/
 _site
 /assets/vendor/
 local/
