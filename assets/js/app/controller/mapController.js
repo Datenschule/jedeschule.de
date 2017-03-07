@@ -13,7 +13,7 @@ app.controller('MapController', function($scope, $location, schools) {
             match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
-                    if (selected.value === school.legal_status) {
+                    if (selected[i].value === school.legal_status) {
                         return true;
                     }
                 }
@@ -44,7 +44,7 @@ app.controller('MapController', function($scope, $location, schools) {
             match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
-                    if (selected.value === school.school_type) {
+                    if (selected[i] === school.school_type) {
                         return true;
                     }
                 }
@@ -300,7 +300,19 @@ app.controller('MapController', function($scope, $location, schools) {
         if (searchParams.search_text) {
             filter.text.selected = searchParams.search_text;
         }
-        _.each(['legal', 'partner', 'entity', 'category'], function(key) {
+        if (searchParams.legal) {
+            var val = searchParams.legal;
+            if (val) {
+                val = _.isString(val) ? [val] : val;
+                filter.legal.selected = [];
+                _.each(val, function(v) {
+                    return _.find(filter.legal.defs, function(def) {
+                        return def.name == v
+                    });
+                })
+            }
+        }
+        _.each(['types', 'partner', 'entity', 'category'], function(key) {
             var val = searchParams[key];
             if (val) {
                 if (_.isString(val)) {
@@ -317,10 +329,13 @@ app.controller('MapController', function($scope, $location, schools) {
         $location.search('search_text', (filter.text.selected.length > 0) ? filter.text.selected : null);
         $location.search('fulltime', (filter.fulltime.selected) ? true : null);
         $location.search('profile', (filter.profile.selected) ? true : null);
-        _.each(['legal', 'partner', 'entity', 'category'], function(key) {
+        _.each(['types', 'partner', 'entity', 'category'], function(key) {
             var list_filter = filter[key];
             $location.search(key, (list_filter.selected.length > 0) ? list_filter.selected : null);
         });
+        $location.search('legal', (filter.legal.selected.length > 0) ? _.map(filter.legal.selected, function(item) {
+                return item.name;
+            }) : null);
         if (!$scope.$$phase) {
             $scope.$apply();
         }
