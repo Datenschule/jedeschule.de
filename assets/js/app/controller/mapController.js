@@ -1,4 +1,4 @@
-app.controller('MapController', function ($scope, $location, schools) {
+app.controller('MapController', function($scope, $location, schools) {
 
     var infoBox = {
         visible: false,
@@ -10,7 +10,7 @@ app.controller('MapController', function ($scope, $location, schools) {
     var filter = {
         legal: {
             selected: [],
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     if (selected.value === school.legal_status) {
@@ -27,21 +27,21 @@ app.controller('MapController', function ($scope, $location, schools) {
         },
         fulltime: {
             selected: false,
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (!selected) return true;
                 return (selected && school.full_time_school)
             }
         },
         profile: {
             selected: false,
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (!selected) return true;
                 return (selected && school.profile);
             }
         },
         types: {
             selected: [],
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     if (selected.value === school.school_type) {
@@ -54,7 +54,7 @@ app.controller('MapController', function ($scope, $location, schools) {
         },
         partner: {
             selected: [],
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     for (var j = 0; j < school.partner.length; j++) {
@@ -69,7 +69,7 @@ app.controller('MapController', function ($scope, $location, schools) {
         },
         category: {
             selected: [],
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     for (var j = 0; j < school.working_groups.length; j++) {
@@ -84,7 +84,7 @@ app.controller('MapController', function ($scope, $location, schools) {
         },
         entity: {
             selected: [],
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     for (var j = 0; j < school.working_groups.length; j++) {
@@ -99,9 +99,8 @@ app.controller('MapController', function ($scope, $location, schools) {
         },
         text: {
             selected: '',
-            match: function (school, selected) {
+            match: function(school, selected) {
                 if (!selected || selected.length == 0) return true;
-                console.log(selected);
                 var searchText = selected.toLowerCase();
                 var addressMatches = _.includes(school.address.toLowerCase(), searchText);
                 if (addressMatches) {
@@ -140,10 +139,10 @@ app.controller('MapController', function ($scope, $location, schools) {
 
     function load() {
         console.time("loading");
-        schools.overview(function (err, _schools) {
+        schools.overview(function(err, _schools) {
             console.timeEnd("loading");
 
-            allSchools = _schools.filter(function (school) {
+            allSchools = _schools.filter(function(school) {
                 return school.lat && school.lon;
             });
 
@@ -166,7 +165,7 @@ app.controller('MapController', function ($scope, $location, schools) {
                 "ST": {"lat": 51.984880, "lng": 11.672973632812502}
             };
 
-            _.forEach(allSchools, function (school) {
+            _.forEach(allSchools, function(school) {
                 school.coord = L.latLng(school.lat, school.lon);
                 school.coord_state = L.latLng(laender[school.state]);
             });
@@ -176,12 +175,12 @@ app.controller('MapController', function ($scope, $location, schools) {
                 iconUrl: '/assets/img/map_pin.png',
                 iconSize: [40, 53] // size of the icon
             });
-            markers = allSchools.map(function (school) {
+            markers = allSchools.map(function(school) {
                 var marker = L.marker(school.coord, {icon: mapIcon});
                 marker.school = school;
                 return marker;
             });
-            markersState = allSchools.map(function (school) {
+            markersState = allSchools.map(function(school) {
                 var marker = L.marker(school.coord_state, {icon: mapIcon});
                 marker.school = school;
                 return marker;
@@ -229,7 +228,7 @@ app.controller('MapController', function ($scope, $location, schools) {
             showCoverageOnHover: false,
             zoomToBoundsOnClick: true,
             singleMarkerMode: false,
-            chunkProgress: function (current, total) {
+            chunkProgress: function(current, total) {
                 $scope.loading = current < total;
                 $scope.progress.total = total;
                 $scope.progress.current = current;
@@ -257,7 +256,7 @@ app.controller('MapController', function ($scope, $location, schools) {
 
     function onMarkerClick(marker) {
         infoBox.markerSchool = marker.layer.school;
-        infoBox.school = schools.getSchool(infoBox.markerSchool.id, function (err, school) {
+        infoBox.school = schools.getSchool(infoBox.markerSchool.id, function(err, school) {
             if (infoBox.markerSchool == marker.layer.school) {
                 infoBox.school = school;
                 infoBox.loading = false;
@@ -301,7 +300,7 @@ app.controller('MapController', function ($scope, $location, schools) {
         if (searchParams.search_text) {
             filter.text.selected = searchParams.search_text;
         }
-        _.each(['legal', 'partner', 'entity', 'category'], function (key) {
+        _.each(['legal', 'partner', 'entity', 'category'], function(key) {
             var val = searchParams[key];
             if (val) {
                 if (_.isString(val)) {
@@ -311,16 +310,20 @@ app.controller('MapController', function ($scope, $location, schools) {
                 }
             }
         });
+
     }
 
     function persistFilters() {
         $location.search('search_text', (filter.text.selected.length > 0) ? filter.text.selected : null);
         $location.search('fulltime', (filter.fulltime.selected) ? true : null);
         $location.search('profile', (filter.profile.selected) ? true : null);
-        _.each(['legal', 'partner', 'entity', 'category'], function (key) {
+        _.each(['legal', 'partner', 'entity', 'category'], function(key) {
             var list_filter = filter[key];
             $location.search(key, (list_filter.selected.length > 0) ? list_filter.selected : null);
         });
+        if (!$scope.$$phase) {
+            $scope.$apply();
+        }
     }
 
     function doFilter() {
@@ -331,7 +334,7 @@ app.controller('MapController', function ($scope, $location, schools) {
             category: [],
             entity: []
         };
-        _.each(allSchools, function (school) {
+        _.each(allSchools, function(school) {
             school.visible =
                 filter.legal.match(school, filter.legal.selected) &&
                 filter.fulltime.match(school, filter.fulltime.selected) &&
@@ -344,11 +347,11 @@ app.controller('MapController', function ($scope, $location, schools) {
             if (school.visible) {
                 if (newFilters.types.indexOf(school.school_type) < 0)
                     newFilters.types.push(school.school_type);
-                _.each(school.partner, function (p) {
+                _.each(school.partner, function(p) {
                     if (p.length > 0 && newFilters.partner.indexOf(p) < 0)
                         newFilters.partner.push(p);
                 });
-                _.each(school.working_groups, function (g) {
+                _.each(school.working_groups, function(g) {
                     if (newFilters.category.indexOf(g.category) < 0)
                         newFilters.category.push(g.category);
                     if (newFilters.entity.indexOf(g.entity) < 0)
@@ -362,7 +365,7 @@ app.controller('MapController', function ($scope, $location, schools) {
         filter.types.defs = newFilters.types.sort();
     }
 
-    var display = function () {
+    var display = function() {
         if (!allSchools) {
             return;
         }
@@ -375,10 +378,10 @@ app.controller('MapController', function ($scope, $location, schools) {
         console.time("fillLayers");
         markersGroup.clearLayers();
         markersGroupState.clearLayers();
-        markersGroup.addLayers(markers.filter(function (marker) {
+        markersGroup.addLayers(markers.filter(function(marker) {
             return marker.school.visible;
         }));
-        markersGroupState.addLayers(markersState.filter(function (marker) {
+        markersGroupState.addLayers(markersState.filter(function(marker) {
             return marker.school.visible;
         }));
         console.timeEnd("fillLayers");
@@ -391,11 +394,11 @@ app.controller('MapController', function ($scope, $location, schools) {
         searchedForText = false;
     };
 
-    $scope.closeSlider = function () {
+    $scope.closeSlider = function() {
         infoBox.visible = false;
     };
 
-    $scope.$watch('filter.text.selected', function (newVal) {
+    $scope.$watch('filter.text.selected', function(newVal) {
         if (newVal !== '') {
             searchedForText = true;
         }
@@ -410,7 +413,7 @@ app.controller('MapController', function ($scope, $location, schools) {
         'filter.category.selected',
         'filter.entity.selected',
         'filter.text.selected'
-    ], function () {
+    ], function() {
         setTimeout(display, 200);
     });
 
