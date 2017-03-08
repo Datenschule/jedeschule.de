@@ -18,7 +18,6 @@ app.controller('FinanceReportController', function($scope, $location, schools, s
                 })
             }
 
-
             year_dict[3] = '2015*';
             $scope.data = data.map(function(cat, index) {
                 cat.class = 'chart-color-' + index;
@@ -34,7 +33,7 @@ app.controller('FinanceReportController', function($scope, $location, schools, s
                         top: 0,
                         right: 0,
                         bottom: 10,
-                        left: 20
+                        left: 10
                     },
                     axisY: {
                         labelInterpolationFnc: function(value) {
