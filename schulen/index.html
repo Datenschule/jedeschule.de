@@ -23,7 +23,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
             <div>
                 <div class="filter-wrapper container">
                     <div class="filter container-left-4">
-                        <p class="bold">Schularten:</p>
+                        <p class="bold">Alle Schularten:</p>
                         <ui-select multiple ng-model="filter.types.selected" theme="select2">
                             <ui-select-match placeholder="z.B. Gymnasium">{{$item}}</ui-select-match>
                             <ui-select-choices repeat="o in filter.types.defs | filter: $select.search">{{o||'Unknown'}}</ui-select-choices>
