@@ -1,3 +1,85 @@
-.chartist-tooltip {
-  position: relative;
+.chartist-finance-report {
+
+  h5 {
+    padding-left: 10px;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .special-data-column {
+    padding-bottom: 0;
+    @include respond-to(large-up) {
+      padding-bottom: 20px;
+    }
+  }
+
+  .footnote {
+    fill: rgba(0, 0, 0, .4);
+    color: rgba(0, 0, 0, .4);
+    font-size: .75rem;
+    line-height: 1.5em;
+    text-align: right;
+  }
+
+  .chart-grid {
+    @include grid-container;
+  }
+  .chart-grid-column {
+    @include grid-column(12);
+
+    h5 {
+      min-height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include respond-to(small-up) {
+
+      @include grid-column(6);
+      h5 {
+        min-height: 60px;
+      }
+    }
+    @include respond-to(large-up) {
+      @include grid-column(3);
+
+      h5 {
+        min-height: 80px;
+      }
+    }
+  }
+
+  .chart-color-0 {
+    .ct-bar {
+      stroke: #61B861;
+    }
+  }
+  .chart-color-1 {
+    .ct-bar {
+      stroke: #FFCC9A;
+    }
+  }
+  .chart-color-2 {
+    .ct-bar {
+      stroke: #C2D5EE;
+    }
+  }
+  .chart-color-3 {
+    .ct-bar {
+      stroke: #FF9F4A;
+    }
+  }
+  .chart-color-4 {
+    .ct-bar {
+      stroke: #5799C7;
+    }
+  }
+  .chart-color-5 {
+    .ct-bar {
+      stroke: #AF8DCE;
+    }
+  }
+
 }

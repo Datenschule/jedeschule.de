@@ -1,55 +1,28 @@
-<div class="app-wrapper-languages" ng-controller="FinanceReportController" ng-init="init('{{include.url_name}}')">
-    <!--<p>{{test}}</p>-->
-    <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
-    <div class="container">
-        <!--<div class="container-left-7">-->
-            <!--<nvd3 options="options" data="data"></nvd3>-->
-        <!--</div>-->
-        <div class="container-left-6">
-            Der Bildungsfinanzbericht wird jährlich durch das Statistische Bundesamt herausgegeben und bündelt die wichtigsten Informationen zu den Ausgaben im Bereich Bildung. Er zeigt die Ausgaben der öffentlichen Hand für alle 16 Bundesländer für fünf verschiedene Bildungsbereiche. Darunter fallen Allgemeinbildende und berufliche Schulen, Hochschulen, Förderung des Bildungswesens, Sonstiges Bildungswesen sowie Jugendarbeit, Tageseinrichtungen und Kinder.  
-        </div>
-        <div class="container-left-6">
-            <div class="container-left-6" ng-repeat="cat in d3data">
-                {% raw %}
-                <h5>{{cat.key}}</h5>
-                <barchart data="cat.values" color="cat.color"></barchart>
-                {% endraw %}
-            </div>
-
-            <!--<div class="container-left-6">-->
-                <!--{% raw %}-->
-                <!--<h3>Allgemeinbildende und berufliche Schulen</h3>-->
-                <!--<barchart data="[10,15,20,5]" color="'#FFCC9A'"></barchart>-->
-                <!--{% endraw %}-->
-            <!--</div>-->
-
-            <!--<div class="container-left-6">-->
-                <!--{% raw %}-->
-                <!--<h3>Förderung des Bildungswesens</h3>-->
-                <!--<barchart data="[15,20,5,10]" color="'#C2D5EE'"></barchart>-->
-                <!--{% endraw %}-->
-            <!--</div>-->
-
-            <!--<div class="container-left-6">-->
-                <!--{% raw %}-->
-                <!--<h3>Sonstiges Bildungswesen</h3>-->
-                <!--<barchart data="[20,5,10,15]" color="'#FF9F4A'"></barchart>-->
-                <!--{% endraw %}-->
-            <!--</div>-->
-
-            <!--<div class="container-left-6">-->
-                <!--{% raw %}-->
-                <!--<h3>Jugendarbeit, Tageseinrichtungen für Kinder</h3>-->
-                <!--<barchart data="[5,10,15,20]" color="'#5799C7'"></barchart>-->
-                <!--{% endraw %}-->
-            <!--</div>-->
-
-            <!--<div class="container-left-6">-->
-                <!--{% raw %}-->
-                <!--<h3>Gesamt</h3>-->
-                <!--<barchart data="[5,10,15,20]" color="'#AF8DCE'"></barchart>-->
-                <!--{% endraw %}-->
-            <!--</div>-->
-        </div>
-    </div>
+<div class="app-wrapper-finance-report chartist-finance-report" ng-controller="FinanceReportController" ng-init="init('{{include.url_name}}')">
+	<div class="container">
+		<div class="container-left-6">
+			Der Bildungsfinanzbericht wird jährlich durch das Statistische Bundesamt herausgegeben und bündelt die wichtigsten Informationen zu den Ausgaben im Bereich Bildung. Er zeigt die Ausgaben der öffentlichen Hand für alle 16
+			Bundesländer für fünf verschiedene Bildungsbereiche. Darunter fallen Allgemeinbildende und berufliche Schulen, Hochschulen, Förderung des Bildungswesens, Sonstiges Bildungswesen sowie Jugendarbeit, Tageseinrichtungen und Kinder.
+		</div>
+		<div class="container-left-6 special-data-column">
+			<div ng-if="data_special">
+				{% raw %}
+				<h5 ng-bind="data_special.key"></h5>
+				<chartist class="ct-chart {{data_special.class}}" chartist-data="data_special.data" chartist-chart-options="data_special.options" chatist-events="data_special.events" chartist-chart-type="Bar" ></chartist>
+				{% endraw %}
+			</div>
+		</div>
+	</div>
+	<div class="chart-grid">
+		<div class="chart-grid-column" ng-repeat="cat in data">
+			{% raw %}
+			<h5 ng-bind="cat.key"></h5>
+			<chartist class="ct-chart {{cat.class}}" chartist-data="cat.data" chartist-chart-type="Bar" chartist-chart-options="cat.options" chatist-events="cat.events" chartist-chart-type="Bar" ></chartist>
+			{% endraw %}
+		</div>
+	</div>
+	<div class="footnote">
+		Angaben in Millionen € pro Jahr<br/>
+		* Werte für 2015 vorl. Ist
+	</div>
 </div>
