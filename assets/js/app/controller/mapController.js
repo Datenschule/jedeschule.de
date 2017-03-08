@@ -286,11 +286,11 @@ app.controller('MapController', function($scope, $location, schools) {
     }
 
     function initMap(lat, lng, zoom) {
-        lat = lat || 51.0;
-        lng = lng || 9.00;
+        lat = lat || 51.3168;
+        lng = lng || 10.5688;
         zoom = zoom || 6;
 
-        var limit = {"_southWest": {"lat": 46.76996843356982, "lng": -0.06591796875000001}, "_northEast": {"lat": 55.15376626853556, "lng": 22.434082031250004}};
+        var limit = {"_southWest": {"lat": 45, "lng": -1}, "_northEast": {"lat": 56, "lng": 23}};
         map = L.map('map', {
             maxBounds: L.latLngBounds(limit._southWest, limit._northEast)
         }).setView([lat, lng], zoom);
@@ -367,8 +367,7 @@ app.controller('MapController', function($scope, $location, schools) {
         $scope.$apply();
     }
 
-    function onMapClick() {
-        $scope.debug = JSON.stringify({bounds: map.getBounds(), zoom: map.getZoom()});
+    function onMapClick(event) {
         infoBox.visible = false;
         $scope.$apply();
     }
