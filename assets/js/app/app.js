@@ -221,6 +221,26 @@ app.factory('ag', function($http) {
     }
 });
 
+app.factory('partnershipsService', function($http) {
+    var partnerships = undefined;
+    return {
+        get: function(cb) {
+            if (!partnerships) {
+                $http({
+                    url: '/assets/js/app/data/partnerschaften-berlin.json',
+                    method: "GET"
+                })
+                .then(function(response) {
+                    partnerships = response.data;
+                    cb(null, response.data);
+                })
+            } else {
+                return partnerships
+            }
+        }
+    }
+});
+
 app.factory('programs', function($http) {
     var programs = undefined;
     return {
