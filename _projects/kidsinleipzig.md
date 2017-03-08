@@ -1,6 +1,6 @@
 ---
 name: Kids in Leipzig
-author: Max Mustermann
+author: OK Lab Leipzig
 link: https://kidsle.leipzig.codefor.de/
 image: /assets/img/projekte/kids-in-leipzig.jpg
 ---

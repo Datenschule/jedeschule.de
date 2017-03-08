@@ -1,6 +1,6 @@
 ---
 name: Wo unsere Kinder lernen
-author: Thomas Tursics
+author: Thomas Tursics, OK Lab Berlin
 link: http://schulsanierung.tursics.de/
 image: /assets/img/projekte/schulsanierung.jpg
 ---

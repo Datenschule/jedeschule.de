@@ -1,6 +1,6 @@
 ---
 name: Unterrichtsausfall - Der Check
-author: Correctiv
+author: Correctiv, Ruhr Nachrichten
 link: https://crowdnewsroom.org/unterrichtsausfall-der-check/
 image: /assets/img/projekte/unterrichtsausfall-check.jpg
 ---

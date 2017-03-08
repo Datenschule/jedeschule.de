@@ -1,6 +1,6 @@
 ---
 name: Schulen in Köln
-author: Max Mustermann
+author: OK Lab Köln
 link: https://schuleninkoeln.github.io/
 image: /assets/img/projekte/schulen-koeln.jpg
 ---
