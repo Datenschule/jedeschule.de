@@ -1,0 +1,15 @@
+{
+  "name": "chartist-plugin-barlabels",
+  "version": "0.0.1",
+  "main": [
+    "./dist/chartist-plugin-barlabels.min.js"
+  ],
+  "dependencies": {
+    "chartist": "~0.7.3"
+  },
+  "ignore": [
+    ".*",
+    "!dist",
+    "!bower.json"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "chartist-plugin-barlabels",
+  "main": [
+    "./dist/chartist-plugin-barlabels.min.js"
+  ],
+  "dependencies": {
+    "chartist": "~0.7.3"
+  },
+  "ignore": [
+    ".*",
+    "!dist",
+    "!bower.json"
+  ],
+  "homepage": "https://github.com/Remco75/chartist-plugin-barlabels",
+  "_release": "ebb3431a7d",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ebb3431a7d364bba5c15445d742b5e24b0dc6786"
+  },
+  "_source": "https://github.com/Remco75/chartist-plugin-barlabels.git",
+  "_target": "*",
+  "_originalSource": "chartist-plugin-barlabels"
+}
