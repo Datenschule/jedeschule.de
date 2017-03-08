@@ -33,6 +33,12 @@
     "chartistAngularDirective.js": "chartist-directive#^1.0.9",
     "chartist-plugin-threshold": "^0.0.2",
     "chartist-plugin-tooltip": "^0.0.17",
-    "chartist-plugin-axistitle": "^0.1.0"
+    "chartist-plugin-axistitle": "^0.1.0",
+    "chartist-plugin-barlabels": "*"
+  },
+  "resolutions": {
+    "chartist": "^0.9.8",
+    "d3": "^3.5.17",
+    "angular": "^1.6.2"
   }
 }
