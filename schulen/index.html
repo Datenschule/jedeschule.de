@@ -16,36 +16,32 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
         </div>
     </div>
 </section>
-<section class="container-outer" ng-app="App" ng-controller="MapController">
+<section class="container-outer" ng-app="App" ng-controller="MapController" ng-cloak>
     <div class="container">
         <div class="container-left-12">
             <h4>Suchen und Filtern Sie nach Schulen und Schulprojekten</h4>
             <div>
                 <div class="filter-wrapper container">
                     <div class="filter container-left-4">
+                        <p class="bold">Bundesland:</p>
+                        <ui-select multiple ng-model="filter.state.selected" theme="select2">
+                            <ui-select-match placeholder="z.B. Berlin">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="o in filter.state.defs | propsFilter: {name: $select.search}">{{o.name}}</ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="filter container-left-4">
                         <p class="bold">Alle Schularten:</p>
                         <ui-select multiple ng-model="filter.types.selected" theme="select2">
                             <ui-select-match placeholder="z.B. Gymnasium">{{$item}}</ui-select-match>
-                            <ui-select-choices repeat="o in filter.types.defs | filter: $select.search">{{o||'Unknown'}}</ui-select-choices>
+                            <ui-select-choices repeat="o in filter.types.defs | filter: $select.search">{{o}}</ui-select-choices>
                         </ui-select>
                     </div>
                     <div class="filter container-left-4">
                         <p class="bold">rechtlicher Status:</p>
                         <ui-select multiple ng-model="filter.legal.selected" theme="select2">
                             <ui-select-match placeholder="z.B. öffentlich">{{$item.name}}</ui-select-match>
-                            <ui-select-choices repeat="o in filter.legal.defs | propsFilter: {name: $select.search}">{{o.name||'Unknown'}}</ui-select-choices>
+                            <ui-select-choices repeat="o in filter.legal.defs | propsFilter: {name: $select.search}">{{o.name}}</ui-select-choices>
                         </ui-select>
-                    </div>
-                    <div class="filter container-left-4">
-                        <p class="bold">Schulsuche:</p>
-                        <div class="ui-select-container ui-select-multiple select2 select2-container select2-container-multi">
-                            <ul class="select2-choices">
-                                <li class="select2-search-field">
-                                    <input ng-model="filter.text.selected" ng-model-options="{ debounce: 400 }" placeholder="Name oder ID oder PLZ" class="select2-input ui-select-search" autocomplete="off" autocorrect="off"
-                                           autocapitalize="off" spellcheck="false"/>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div class="filter-wrapper container">
@@ -72,6 +68,17 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                     </div>
                 </div>
                 <div class="filter-wrapper container">
+                    <div class="filter container-left-4">
+                        <p class="bold">Schulsuche:</p>
+                        <div class="ui-select-container ui-select-multiple select2 select2-container select2-container-multi">
+                            <ul class="select2-choices">
+                                <li class="select2-search-field">
+                                    <input ng-model="filter.text.selected" ng-model-options="{ debounce: 400 }" placeholder="Name oder ID oder PLZ" class="select2-input ui-select-search" autocomplete="off" autocorrect="off"
+                                           autocapitalize="off" spellcheck="false"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="filter container-left-4">
                         <label><input ng-model="filter.profile.selected" type="checkbox"/> <strong>mit Schulprofil</strong></label>
                     </div>
@@ -103,7 +110,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                     </p>
                 </div>
             </div>
-            <div id='map-container' style="border: 1px solid #666">
+            <div id='map-container'>
                 <div id='map'></div>
                 <div ng-show="progress.total !== progress.current" class=overlay id='loading-overlay'>
                     <progress max="{{progress.total}}" value="{{progress.current}}"></progress>

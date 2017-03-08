@@ -1,5 +1,9 @@
 $height: 38rem;
 
+#map-container {
+  border: 1px solid #666;
+}
+
 #map, #map-container, .overlay {
   height: $height;
   z-index: 10;
