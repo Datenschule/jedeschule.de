@@ -4,42 +4,52 @@
       "entries": [
         {
           "name": "Umwelt",
+          "examples": "Walderkundung, Klimaretter, Tierpflege",
           "amount": 87
         },
         {
           "name": "Sport",
+          "examples": "Turnen, Ballsport, Schwimmen",
           "amount": 368
         },
         {
           "name": "Musik / Tanz",
+          "examples": "Chor, Instrumentalunterricht, Improvisationen",
           "amount": 344
         },
         {
           "name": "Gesellschaft / Partizipation",
+          "examples": "Debattierclub, Schülerparlament, Konfliktlotsen",
           "amount": 232
         },
         {
           "name": "Literatur / Medien",
+          "examples": "Schreibwerkstatt, Mediengestaltung, Lyrik-Kreise",
           "amount": 89
         },
         {
           "name": "Handwerk",
+          "examples": "Kochkurse, Töpfern, Holzarbeiten",
           "amount": 175
         },
         {
           "name": "Kultur / Kunst",
+          "examples": "Theater, Comics, künstlerisches Gestalten",
           "amount": 130
         },
         {
           "name": "Naturwissenschaft / Technik",
+          "examples": "wissenschaftliches Arbeiten, Robotik, Programmierung",
           "amount": 219
         },
         {
           "name": "Berufsorientierung",
+          "examples": "Nachhilfe, Bewerbungstraining, Praktikumsvorbereitung",
           "amount": 34
         },
         {
           "name": "Sprachen",
+          "examples": "Chinesisch, Norwegisch, Griechisch",
           "amount": 133
         }
       ],
