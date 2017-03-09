@@ -1,0 +1,22 @@
+<div class="app-wrapper-languages">
+	{% assign state = site.laender | where: 'url_name', include.name | first %}
+	<div class="container" ng-controller="activitiesController" ng-init="init('{{include.name}}')">
+		<div class="container-left-6">{{state.agtext}}</div>
+		<div class="container-left-6">
+			<h5 class="text-center">Verteilung von angebotenen Schulaktivitäten in {{include.caption}}</h5>
+			<div class="chartist-activities">
+				{% raw %}
+				<div class="chart-grid">
+					<div class="chart-grid-column" ng-repeat="cat in data track by $index">
+						<h5 ng-bind="cat.name"></h5>
+						<chartist class="ct-chart" chartist-data="cat.data" chartist-chart-options="cat.options" chartist-chart-type="Pie"></chartist>
+						<div class="chartists-footnote-center">
+							<span ng-bind="cat.amount"></span> von <span ng-bind="amount_schools"></span>
+						</div>
+					</div>
+				</div>
+				{% endraw %}
+			</div>
+		</div>
+	</div>
+</div>

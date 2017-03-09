@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'nvd3', 'angular-chartist']);
+var app = angular.module('App', ['ngAnimate', 'ngSanitize', 'ui.select', 'angular-chartist']);
 
 app.filter('propsFilter', function() {
     return function(items, props) {
@@ -201,7 +201,7 @@ app.factory('states', function($http) {
     }
 });
 
-app.factory('ag', function($http) {
+app.factory('activitiesService', function($http) {
     var ags = undefined;
     return {
         get: function(cb) {
@@ -245,14 +245,12 @@ app.factory('programs', function($http) {
     var programs = undefined;
     return {
         get: function(cb) {
-            console.log('programs');
             if (!programs) {
                 $http({
                     url: '/assets/js/app/data/programs.json',
                     method: "GET"
                 })
                 .then(function(response) {
-                    console.log('programs called');
                     programs = response.data;
                     cb(null, response.data);
                 })
@@ -263,13 +261,3 @@ app.factory('programs', function($http) {
     }
 });
 
-// app.factory('ag_sum', function($http) {
-//    var ag_sum = {};
-//     return {
-//         get: function(cb) {
-//             if (!ag_sum) {
-//
-//             }
-//         }
-//     }
-// });
