@@ -73,8 +73,9 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                         <p class="bold">Schulsuche:</p>
                         <div class="ui-select-container ui-select-multiple select2 select2-container select2-container-multi">
                             <ul class="select2-choices">
-                                <li class="select2-search-field">
-                                    <input ng-model="filter.text.selected" ng-model-options="{ debounce: 400 }" placeholder="Name oder ID oder PLZ" class="select2-input ui-select-search" autocomplete="off" autocorrect="off"
+                                <li class="select2-search-field filter-input-wrapper">
+                                    <span class="input-prepend"><i class="fa fa-search"> </i></span>
+                                    <input ng-model="filter.text.selected" ng-model-options="{ debounce: 300 }" placeholder="Name oder PLZ" class="select2-input ui-select-search input-prepended" autocomplete="off" autocorrect="off"
                                            autocapitalize="off" spellcheck="false"/>
                                 </li>
                             </ul>

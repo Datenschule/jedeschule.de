@@ -1,4 +1,4 @@
-.filter{
+.filter {
   p {
     margin: 0;
   }
@@ -15,7 +15,7 @@
 
   input:-ms-input-placeholder { /* IE 10+ */
     font-size: 13px;
-    color:lightgray;
+    color: lightgray;
   }
 
   input::-moz-placeholder { /* Firefox 19+ */
@@ -29,9 +29,9 @@
   }
 
   .shadow {
-    -moz-box-shadow:    inset 0 0 2px #000000;
+    -moz-box-shadow: inset 0 0 2px #000000;
     -webkit-box-shadow: inset 0 0 2px #000000;
-    box-shadow:         inset 0 0 2px #000000;
+    box-shadow: inset 0 0 2px #000000;
   }
 
   .search {
@@ -53,4 +53,22 @@
   //::placeholder {
   //  color:red;
   //}
+}
+
+.filter-input-wrapper {
+  width: 100%;
+  .input-prepend {
+    top: 2px;
+    padding-left: 4px;
+    font-size: 0.8em;
+    color: #666;
+    position: absolute;
+  }
+  .input-prepended:before {
+    display: none;
+  }
+  .input-prepended {
+    width: 100%;
+    padding-left: 22px !important;
+  }
 }
