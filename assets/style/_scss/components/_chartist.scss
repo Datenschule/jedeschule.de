@@ -150,6 +150,14 @@
   text-align: center;
 }
 
+.chartist-tooltip {
+  display: none;
+}
+
+.chartist-tooltip.tooltip-show {
+  display: inline-block;
+}
+
 .chartist-activities {
 
   text-align: center;
