@@ -17,16 +17,21 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
                 return result;
             });
 
-            $scope.nvd3data = _.filter(nvd3data, function(o) {
-                var max = o['2007'] > o['2015'] ? o['2007'] : o['2015'];
-                var min = o['2007'] < o['2015'] ? ++o['2007'] : ++o['2015'];
-                console.log(min * 100 / max);
-                return min * 100 / max < 90;
+            $scope.nvd3data = _.filter(nvd3data, function(elem) {
+                var delta = Math.abs(elem[relevantYears[0]] - elem[relevantYears[1]]);
+                return (delta / elem[relevantYears[0]] > 0.08 && delta > 10) &&
+                    elem.key !== "Keine Zuordung zu einer Schulart möglich";
             });
             // render chart
-            d3.select('#slopegraph')
+            var chart = d3.select('#slopegraph')
                 .datum($scope.nvd3data)
                 .call(slopegraph);
+
+            chart.selectAll('.l-labels')
+                .call(relax);
+
+            chart.selectAll('.r-labels')
+                .call(relax);
 
             // alternative navigation
             navAlt($scope.nvd3data);
@@ -40,7 +45,7 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
         .keyValueStart('2007')
         .keyValueEnd('2015')
         .h(400)
-        .w(400)
+        .w(450)
         // .format(d3.format('04d'))
         // .on('mouseleave', function() {
         //     d3.selectAll('.elm').transition().style('opacity', 1);
@@ -82,6 +87,49 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
 
     // just for blocks viewer size
     d3.select(self.frameElement).style('height', '800px');
+
+    function relax(textLabels) {
+        var alpha = 5;
+        var spacing = 20;
+        var again = false;
+        textLabels.each(function (d, i) {
+            var a = this;
+            var da = d3.select(a);
+            var y1 = da.attr("y");
+
+            textLabels.each(function (d, j) {
+
+                var b = this;
+                var db = d3.select(b);
+                var y2 = db.attr('y');
+                var deltaY = y1 - y2;
+
+                if (a == b || da.attr("text-anchor") != db.attr("text-anchor") || (Math.abs(deltaY) > spacing)) {
+                    console.log('not again delta:' + deltaY);
+                }
+
+                if (a == b) return;
+
+                if (da.attr("text-anchor") != db.attr("text-anchor")) return;
+
+
+                if (Math.abs(deltaY) > spacing) return;
+
+                again = true;
+                var sign = deltaY > 0 ? 1 : -1;
+                var adjust = sign * alpha;
+                da.attr("y", +y1 + adjust);
+                db.attr("y", +y2 - adjust);
+                console.log(y1 + ' ' + y2);
+            })
+        });
+        if(again) {
+            // setTimeout(function() { relax(textLabels)},20)
+            relax(textLabels)
+        } else {
+            console.log('not again 2')
+        }
+    }
 });
 
 (function() {
@@ -92,7 +140,7 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
         // input vars for getter setters
         var w = 600,
             h = 800,
-            margin = {top: 40, bottom: 40, left: 120, right: 120},
+            margin = {top: 40, bottom: 40, left: 210, right: 210},
             strokeColour = 'black',
             colors = d3.scale.category10(),
             // key data values start for left(axis) and end for right(axis)
@@ -178,6 +226,8 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
                     })
                     .on('mouseover', dispatch._hover);
 
+
+
                 var rightLabels = svg.selectAll('.labels')
                     .data(data);
 
@@ -191,13 +241,13 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
                         return d[keyName] + ' ' + format(d[keyValueEnd]);
                     })
                     .style('text-anchor','start')
-                    .on('mouseover', dispatch._hover)
-                    .call(wrap, 70);
+                    .on('mouseover', dispatch._hover);
+                    //.call(wrap, 70);
 
                 var leftLabels = svg.selectAll('.left-labels')
                     .data(data);
 
-                leftLabels.enter().append('text')
+                var leftLabelsEnter = leftLabels.enter().append('text')
                     .attr({
                         class: function (d, i) { return 'l-labels elm ' + 'sel-' + i; },
                         x: margin.left - 3,
@@ -208,7 +258,12 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
                     })
                     .style('text-anchor','end')
                     .on('mouseover', dispatch._hover)
-                    .call(wrap, 70);
+                    //.call(wrap, 70)
+                    //.call(relax);
+
+
+
+                //relax(leftLabelsEnter);
 
                 var leftTitle = svg.append('text')
                     .attr({
