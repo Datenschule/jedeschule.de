@@ -11,7 +11,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
             <h1>Schulen</h1>
             <p>Über die Karte können Sie sich einen Überblick zu rund 32.000 allgemeinbildenden Schulen in Deutschland verschaffen. Schulaktivitäten und -projekte werden für jede Schule als „Schulprofile” detailliert dargestellt. Aktuell (Stand: 15.03.2017) liegen uns Daten für Berlin und Sachsen vor.</br>
 
-            Quelle: Zugängliche Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>. Da sich die Qualität der vorliegenden Informationen in den Ländern unterscheidet, sind nicht alle Schulinformationen vollständig erfasst.
+            Die Daten stammen aus den zugängliche Schulverzeichnissen der Statistischen Landesämter, zu den <a href="/daten">Einzelnachweisen</a>. Da sich die Qualität der vorliegenden Informationen in den Ländern unterscheidet, sind nicht alle Schulinformationen vollständig erfasst.
             </p>
         </div>
     </div>
@@ -37,7 +37,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                         </ui-select>
                     </div>
                     <div class="filter container-left-4">
-                        <p class="bold">rechtlicher Status:</p>
+                        <p class="bold">Rechtlicher Status:</p>
                         <ui-select multiple ng-model="filter.legal.selected" theme="select2">
                             <ui-select-match placeholder="z.B. öffentlich">{{$item.name}}</ui-select-match>
                             <ui-select-choices repeat="o in filter.legal.defs | propsFilter: {name: $select.search}">{{o.name}}</ui-select-choices>
@@ -117,6 +117,9 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                 </div>
             </div>
         </div>
+        <p class="source">
+            Quelle: Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>.
+        </p>
     </div>
     </div>
 </section>
