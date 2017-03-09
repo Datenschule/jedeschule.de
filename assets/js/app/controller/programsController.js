@@ -7,7 +7,7 @@ app.controller('ProgramsController', function($scope, $http, $location, programs
         options: {
             distributeSeries: true,
             horizontalBars: true,
-            height: '450px',
+            height: '400px',
             axisY: {
                 offset: 140
             },
