@@ -1,4 +1,4 @@
-<div class="app-wrapper-languages">
+<div class="app-wrapper-activities">
 	{% assign state = site.laender | where: 'url_name', include.name | first %}
 	<div class="container" ng-controller="activitiesController" ng-init="init('{{include.name}}')">
 		<div class="container-left-6">{{state.agtext}}</div>
@@ -11,7 +11,7 @@
 						<h5 ng-bind="cat.name"></h5>
 						<chartist class="ct-chart" chartist-data="cat.data" chartist-chart-options="cat.options" chartist-chart-type="Pie"></chartist>
 						<div class="chartists-footnote-center">
-							<span ng-bind="cat.amount"></span> von <span ng-bind="amount_schools"></span>
+							<span ng-bind="cat.amount"></span> von <span ng-bind="amount_schools"></span><br>Schulen
 						</div>
 					</div>
 				</div>
