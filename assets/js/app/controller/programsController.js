@@ -12,7 +12,7 @@ app.controller('ProgramsController', function($scope, $http, $location, programs
                 offset: 140
             },
             chartPadding: {
-                top: 20,
+                top: 0,
                 right: 0,
                 bottom: 4,
                 left: 0
