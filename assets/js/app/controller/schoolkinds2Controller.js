@@ -104,10 +104,6 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
                 var y2 = db.attr('y');
                 var deltaY = y1 - y2;
 
-                if (a == b || da.attr("text-anchor") != db.attr("text-anchor") || (Math.abs(deltaY) > spacing)) {
-                    console.log('not again delta:' + deltaY);
-                }
-
                 if (a == b) return;
 
                 if (da.attr("text-anchor") != db.attr("text-anchor")) return;
@@ -120,14 +116,11 @@ app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
                 var adjust = sign * alpha;
                 da.attr("y", +y1 + adjust);
                 db.attr("y", +y2 - adjust);
-                console.log(y1 + ' ' + y2);
             })
         });
         if(again) {
             // setTimeout(function() { relax(textLabels)},20)
             relax(textLabels)
-        } else {
-            console.log('not again 2')
         }
     }
 });
