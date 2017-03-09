@@ -14,14 +14,6 @@
     }
   }
 
-  .footnote {
-    fill: rgba(0, 0, 0, .4);
-    color: rgba(0, 0, 0, .4);
-    font-size: .75rem;
-    line-height: 1.5em;
-    text-align: right;
-  }
-
   .chart-grid {
     @include grid-container;
   }
@@ -60,9 +52,6 @@
 
     }
 
-
-
-
   }
 
   .chart-color-0 {
@@ -96,4 +85,62 @@
     }
   }
 
+}
+
+.chartist-programs {
+  margin-bottom: 20px;
+
+  .ct-series-a {
+    .ct-bar {
+      stroke: #61B861;
+    }
+  }
+  .ct-series-b {
+    .ct-bar {
+      stroke: #FFCC9A;
+    }
+  }
+  .ct-series-c {
+    .ct-bar {
+      stroke: #C2D5EE;
+    }
+  }
+  .ct-series-d {
+    .ct-bar {
+      stroke: #FF9F4A;
+    }
+  }
+  .ct-series-e {
+    .ct-bar {
+      stroke: #5799C7;
+    }
+  }
+  .ct-series-f {
+    .ct-bar {
+      stroke: #AF8DCE;
+    }
+  }
+  .ct-series-g {
+    .ct-bar {
+      stroke: #d17905;
+    }
+  }
+  .ct-series-h {
+    .ct-bar {
+      stroke: #b2c326;
+    }
+  }
+  .ct-series-i {
+    .ct-bar {
+      stroke: #93868a;
+    }
+  }
+}
+
+.chartists-footnote {
+  fill: rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, .4);
+  font-size: .75rem;
+  line-height: 1.5em;
+  text-align: right;
 }
