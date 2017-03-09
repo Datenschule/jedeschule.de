@@ -170,32 +170,6 @@
       justify-content: center;
       align-items: center;
     }
-
-    //@include respond-to(small-up) {
-    //
-    //  @include grid-column(6);
-    //  h5 {
-    //    min-height: 60px;
-    //  }
-    //  &:nth-of-type(1) {
-    //    margin-left: 0;
-    //  }
-    //  &:nth-of-type(3) {
-    //    margin-left: 0;
-    //  }
-    //}
-    //@include respond-to(large-up) {
-    //  @include grid-column(3);
-    //
-    //  h5 {
-    //    min-height: 80px;
-    //  }
-    //  &:nth-of-type(3) {
-    //    margin-left: 20px;
-    //  }
-    //
-    //}
-
   }
 
   .ct-chart {
@@ -205,7 +179,7 @@
     margin: auto;
   }
   .ct-series-a .ct-slice-pie {
-    fill: #b2c326;
+    fill: #a7ccd8;
   }
 
   .ct-series-b .ct-slice-pie {
