@@ -13,10 +13,10 @@ partnertext: >
     sehen Sie, mit welchen Partnern die jeweilige Schule kooperiert.</p>
 agtext: >
     <h5>Die meisten Schulen bieten durchschnittlich sieben Aktivitäten und Projekte zu mindestens vier verschiedenen Themen an.</h5>
-    <p>421* der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Projekte und Aktivitäten an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt bieten sie knapp 2.900 Möglichkeiten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
-    <h5>“Sport und Musik sind die meist geförderten Aktivitäten”</h5>
-    <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 87%, dicht gefolgt von den musikalischen, die an rund 81% der Schulen angeboten werden. Mehr als die Hälfte (54 %) der Schulen fördert Partizipation und gesellschaftliches Engagement, durch z.B. ein Schülerparlament, Schüler*innenaustausch und Ersthelfer*innen-Schulungen. Naturwissenschaftliche AGs werden von 51% der Schulen angeboten. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (8%) ihren Schüler*innen berufsorientierte Angebote an.</p>
-    <<p>Auf den einzelnen <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a> sehen Sie, welche Aktivitäten und Projekte die Schulen für ihre Schüler*innen bereithalten.</p>
+    <p>421* der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Projekte und Aktivitäten an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt bieten sie knapp 2.900 Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
+    <h5>Sport und Musik sind die meist geförderten Aktivitäten</h5>
+    <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 87%, dicht gefolgt von den musikalischen, die an rund 81% der Schulen angeboten werden. Mehr als die Hälfte (54 %) der Schulen fördert Partizipation und gesellschaftliches Engagement, durch z.B. ein Schülerparlament, Schüler*innenaustausch und Ersthelfer*innen-Schulungen. Naturwissenschaftliche Aktivitäten werden von 51% der Schulen angeboten. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (8%) ihren Schüler*innen berufsorientierte Angebote an.</p>
+    <p>Auf den einzelnen <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a> sehen Sie, welche Aktivitäten und Projekte die Schulen für ihre Schüler*innen bereithalten.</p>
 ---
 Introtext zum Schulsystem in Bayern
 
