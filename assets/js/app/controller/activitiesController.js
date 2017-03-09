@@ -19,9 +19,10 @@ app.controller('activitiesController', function($scope, activitiesService) {
                             appendToBody: true,
                             anchorToPoint: false,
                             transformTooltipTextFnc: function(value, d) {
-                                return value + ' der Schulen bieten ' + item.name + ' '
-                                    + (value == item.amount ? ' ' : 'nicht ')
-                                    + 'an';
+                                return 'u.a. ' + item.examples;
+                                // return value + ' der Schulen bieten ' + item.name + ' '
+                                //     + (value == item.amount ? ' ' : 'nicht ')
+                                //     + 'an';
                             }
                         })
                 ]
