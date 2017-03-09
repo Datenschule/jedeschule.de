@@ -84,8 +84,6 @@ app.controller('foreignLanguagesController', function ($scope, states) {
 
     $scope.barevents = {
         draw: function(data) {
-            console.log('draw called');
-            console.log(data);
             angular.element(data.element).addClass('test');
         }
     }
