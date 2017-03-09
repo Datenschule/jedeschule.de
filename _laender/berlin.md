@@ -2,9 +2,10 @@
 name: Berlin
 layout: laender
 link: /laender/berlin
+js_laender: yes
 url_name: berlin
 partnertext: >
-    <p>411* der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Partnerschaften an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt gehen diese Schulen knapp 3000 Partnerschaften mit Organisationen aus dem gemeinnützigen, dem privatwirtschaftlichen oder dem öffentlichen Sektor ein. Durchschnittlich geht jede Schule sieben Partnerschaften ein. Mit welchen Partnern die Schulen kooperieren, unterscheidet sich teils stark zwischen den Berliner Schularten.</p>
+    <p>411 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Partnerschaften an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt gehen diese Schulen knapp 3000 Partnerschaften mit Organisationen aus dem gemeinnützigen, dem privatwirtschaftlichen oder dem öffentlichen Sektor ein. Durchschnittlich geht jede Schule sieben Partnerschaften ein. Mit welchen Partnern die Schulen kooperieren, unterscheidet sich teils stark zwischen den Berliner Schularten.</p>
     <h5>Gemeinnützige Akteur*innen gestalten Schule</h5>
     <p>Die meisten Projektpartner aller allgemeinbildenden Schulen in Berlin kommen aus dem gemeinnützigen Bereich (37%), gefolgt von Partnerorganisationen aus dem öffentlichen (29%) und dem wirtschaftlichen Bereich (18%). Weitere 8% entfallen auf Partnerschaften mit anderen Schulen. 1,4% der Partnerschaften finden mit religiösen Einrichtungen statt. Verbände, Kammern und Gewerkschaften haben einen Anteil von rund 1%. Insgesamt 4% der Partnerschaften konnten nicht eindeutig zugewiesen werden. Diese sind in der Kategorie Unbestimmt zusammengefasst.</p>
     <p>Dabei sind es insbesondere die Grundschulen und Integrierten Sekundarschulen, die mit gemeinnützigen Akteuren kooperieren. So kommen auf Grundschulen durchschnittlich drei Partnerschaften, auf Integrierte Sekundarschulen 3,6. Im Vergleich dazu gehen Gymnasien durchschnittlich 1,6 Partnerschaften mit gemeinnützigen Akteuren ein.</p>

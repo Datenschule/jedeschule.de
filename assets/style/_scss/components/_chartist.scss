@@ -138,10 +138,59 @@
   }
 }
 
-.chartists-footnote {
+.chartists-footnote, .chartists-footnote-center {
   fill: rgba(0, 0, 0, .4);
   color: rgba(0, 0, 0, .4);
   font-size: .75rem;
   line-height: 1.5em;
   text-align: right;
+}
+
+.chartists-footnote-center {
+  text-align: center;
+}
+
+.chartist-tooltip {
+  display: none;
+}
+
+.chartist-tooltip.tooltip-show {
+  display: inline-block;
+}
+
+.chartist-activities {
+
+  text-align: center;
+
+  .chart-grid {
+  }
+  .chart-grid-column {
+    display: inline-block;
+    height: 100px;
+    width: 124px;
+
+    h5 {
+      min-height: 40px;
+      margin-bottom: 0;
+      display: flex;
+      font-size: 0.9em;
+      line-height: 1.1em;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .ct-chart {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+  }
+  .ct-series-a .ct-slice-pie {
+    fill: #a7ccd8;
+  }
+
+  .ct-series-b .ct-slice-pie {
+    fill: #ececec;
+  }
 }

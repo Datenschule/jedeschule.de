@@ -39,13 +39,18 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<!--external styles-->
+	{% if page.js_schulen or page.js_schoolprofile %}
 	<link rel="stylesheet" href="/assets/vendor/leaflet/dist/leaflet.css">
 	<link rel="stylesheet" href="/assets/vendor/leaflet.markercluster/dist/MarkerCluster.css">
+	{% endif %}
+	{% if page.js_schulen %}
 	<link rel="stylesheet" href="/assets/vendor/leaflet.markercluster/dist/MarkerCluster.Default.css">
 	<link rel="stylesheet" href="/assets/vendor/angular-ui-select/dist/select.css">
-	<link rel="stylesheet" href="/assets/vendor/nvd3/build/nv.d3.min.css">
+	{% endif %}
+	{% if page.js_aktivitaten or page.js_schoolprofile or page.js_laender %}
 	<link rel="stylesheet" href="/assets/vendor/chartist/dist/chartist.min.css">
 	<link rel="stylesheet" href="/assets/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css">
+	{% endif %}
 
 	<link rel="stylesheet" href="/assets/style/main.css">
 	<!--[if lt IE 9]>

@@ -249,9 +249,7 @@ app.controller('MapController', function($scope, $location, schools) {
     }
 
     function load() {
-        console.time("loading");
         schools.overview(function(err, _schools) {
-            console.timeEnd("loading");
 
             allSchools = _schools.filter(function(school) {
                 return school.lat && school.lon;
@@ -262,14 +260,24 @@ app.controller('MapController', function($scope, $location, schools) {
                 school.coord_state = L.latLng(laender[school.state]);
             });
 
-            console.time("making markers");
             var mapIcon = L.icon({
                 iconUrl: '/assets/img/map_pin.png',
                 iconSize: [40, 53] // size of the icon
             });
+            // var popup = L.popup();
             markers = allSchools.map(function(school) {
                 var marker = L.marker(school.coord, {icon: mapIcon});
                 marker.school = school;
+                var popup = L.popup({
+                    closeButton: false
+                }).setContent(school.name);
+                marker.bindPopup(popup);
+                marker.on('mouseover', function(e) {
+                    this.openPopup();
+                });
+                marker.on('mouseout', function(e) {
+                    this.closePopup();
+                });
                 return marker;
             });
             markersState = allSchools.map(function(school) {
@@ -277,11 +285,8 @@ app.controller('MapController', function($scope, $location, schools) {
                 marker.school = school;
                 return marker;
             });
-            console.timeEnd("making markers");
 
-            console.time("display");
             display();
-            console.timeEnd("display");
         });
     }
 
@@ -497,11 +502,8 @@ app.controller('MapController', function($scope, $location, schools) {
         }
         persistFilters();
 
-        console.time("filter");
         doFilter();
-        console.timeEnd("filter");
 
-        console.time("fillLayers");
         markersGroup.clearLayers();
         markersGroupState.clearLayers();
         markersGroup.addLayers(markers.filter(function(marker) {
@@ -510,7 +512,6 @@ app.controller('MapController', function($scope, $location, schools) {
         markersGroupState.addLayers(markersState.filter(function(marker) {
             return marker.school.visible;
         }));
-        console.timeEnd("fillLayers");
 
         if (foundAddress && searchedForText) {
             isLimitedToState = map.getZoom() <= 7;

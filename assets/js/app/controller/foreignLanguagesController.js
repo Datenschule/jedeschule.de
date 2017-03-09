@@ -1,4 +1,4 @@
-app.controller('foreignLanguagesController', function ($scope, $http, $location, schools, states) {
+app.controller('foreignLanguagesController', function ($scope, states) {
 
     $scope.bardata = {};
 

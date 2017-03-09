@@ -1,4 +1,4 @@
-app.controller('ProgramsController', function($scope, $http, $location, programs) {
+app.controller('ProgramsController', function($scope, programs) {
     $scope.chart = {
         data: {
             series: [],

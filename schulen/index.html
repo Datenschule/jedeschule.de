@@ -1,6 +1,7 @@
 ---
 layout: default
 menu_schulen: yes
+js_schulen: yes
 title: Schulen - jedeschule.de
 description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 ---
@@ -105,7 +106,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                         <li ng-if="infoBox.school.director"><strong>Direktor:</strong> {{infoBox.school.director}}</li>
                         <li ng-if="infoBox.school.website"><a href="{{infoBox.school.website}}" target="_blank">Webseite</a></li>
                     </ul>
-                    <p ng-if="school.profile">
+                    <p ng-if="infoBox.school.profile">
                         <a href="/schulprofil/index.html?id={{infoBox.school.id}}">Schulprofil</a>
                     </p>
                 </div>

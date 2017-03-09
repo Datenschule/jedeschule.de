@@ -2,6 +2,7 @@
 name: Brandenburg
 layout: laender
 link: /laender/brandenburg/
+js_laender: yes
 url_name: brandenburg
 ---
 Introtext zum Schulsystem in Brandenburg

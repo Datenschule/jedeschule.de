@@ -2,6 +2,7 @@
 name: Saarland
 layout: laender
 link: /laender/saarland
+js_laender: yes
 url_name: saarland
 ---
 Introtext zum Schulsystem im Saarland

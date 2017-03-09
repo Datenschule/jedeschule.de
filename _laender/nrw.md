@@ -2,6 +2,7 @@
 name: Nordrhein-Westphalen
 layout: laender
 link: /laender/nrw/
+js_laender: yes
 url_name: nordrhein-westfalen
 ---
 Introtext zum Schulsystem in Nordrhein-Westphalen

@@ -2,6 +2,7 @@
 name: Hessen
 layout: laender
 link: /laender/hessen/
+js_laender: yes
 url_name: hessen
 ---
 Introtext zum Schulsystem in Hessen

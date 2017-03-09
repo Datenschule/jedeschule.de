@@ -2,6 +2,7 @@
 name: Bremen
 layout: laender
 link: /laender/bremen/
+js_laender: yes
 url_name: bremen
 ---
 Introtext zum Schulsystem in Bremen
