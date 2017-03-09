@@ -2,6 +2,7 @@
 name: Berlin
 layout: laender
 link: /laender/berlin
+js_laender: yes
 url_name: berlin
 partnertext: >
     <p>411 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Partnerschaften an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt gehen diese Schulen knapp 3000 Partnerschaften mit Organisationen aus dem gemeinnützigen, dem privatwirtschaftlichen oder dem öffentlichen Sektor ein. Durchschnittlich geht jede Schule sieben Partnerschaften ein. Mit welchen Partnern die Schulen kooperieren, unterscheidet sich teils stark zwischen den Berliner Schularten.</p>

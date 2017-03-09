@@ -2,6 +2,7 @@
 name: Schleswig-Holstein
 layout: laender
 link: /laender/schleswig-holstein/
+js_laender: yes
 url_name: schleswig-holstein
 ---
 Introtext zum Schulsystem in Schleswig-Holstein

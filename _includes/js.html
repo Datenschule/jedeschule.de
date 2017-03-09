@@ -1,42 +1,77 @@
+{% if page.js_schulen %}
+<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="/assets/vendor/lodash/dist/lodash.min.js"></script>
 <script src="/assets/vendor/leaflet/dist/leaflet.js"></script>
 <script src="/assets/vendor/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-<script src="/assets/vendor/chartist/dist/chartist.min.js"></script>
-<script src="/assets/vendor/chartist-plugin-threshold/dist/chartist-plugin-threshold.min.js"></script>
-<script src="/assets/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
-<script src="/assets/vendor/chartist-plugin-axistitle/dist/chartist-plugin-axistitle.min.js"></script>
-<!--<script src="/assets/vendor/chartist-plugin-barlabels/dist/chartist-plugin-barlabels.min.js"></script>-->
-<script src="/assets/js/lib/chartist-bar-labels.js"></script>
-<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="/assets/vendor/d3/d3.min.js"></script>
-<script src="/assets/js/lib/d3-sankey.js"></script>
-
 <script src="/assets/vendor/angular/angular.min.js"></script>
 <script src="/assets/vendor/angular-animate/angular-animate.min.js"></script>
 <script src="/assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="/assets/vendor/angular-ui-select/dist/select.min.js"></script>
-<script src="/assets/vendor/angular-chartist.js/dist/angular-chartist.min.js"></script>
-<script src="/assets/vendor/lodash/dist/lodash.min.js"></script>
-<script src="/assets/vendor/chroma-js/chroma.min.js"></script>
 
-<!-- Angular App -->
-<script src="/assets/js/app/app.js"></script>
-
-<!-- Directives -->
-<script src="/assets/js/app/directives/sankey-chart.js"></script>
-<script src="/assets/js/app/directives/bar-chart.js"></script>
-<script src="/assets/js/app/directives/multi-line-chart.js"></script>
-<script src="/assets/js/app/directives/stacked-bar-chart.js"></script>
-<script src="/assets/js/app/directives/treemap.js"></script>
-
-<!-- Controllers -->
+<script src="/assets/js/app/app-map.js"></script>
+<script src="/assets/js/app/filter/propsFilter.js"></script>
+<script src="/assets/js/app/services/schoolsService.js"></script>
 <script src="/assets/js/app/controller/mapController.js"></script>
-<script src="/assets/js/app/controller/financeReportController.js"></script>
-<script src="/assets/js/app/controller/schookindsController.js"></script>
-<script src="/assets/js/app/controller/foreignLanguagesController.js"></script>
-<script src="/assets/js/app/controller/schoolProfileController.js"></script>
-<script src="/assets/js/app/controller/teacherRatioController.js"></script>
-<script src="/assets/js/app/controller/programsController.js"></script>
+{% endif %}
+
+{% if page.js_aktivitaten %}
+<script src="/assets/vendor/chartist/dist/chartist.min.js"></script>
+<script src="/assets/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+<script src="/assets/vendor/angular/angular.min.js"></script>
+<script src="/assets/vendor/angular-animate/angular-animate.min.js"></script>
+<script src="/assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/assets/vendor/angular-chartist.js/dist/angular-chartist.min.js"></script>
+<script src="/assets/vendor/d3/d3.min.js"></script>
+<script src="/assets/js/lib/d3-sankey.js"></script>
+
+<script src="/assets/js/app/app.js"></script>
+<script src="/assets/js/app/directives/sankey-chart.js"></script>
+<script src="/assets/js/app/services/activitiesService.js"></script>
+<script src="/assets/js/app/services/partnershipsService.js"></script>
+<script src="/assets/js/app/services/programsService.js"></script>
 <script src="/assets/js/app/controller/activitiesController.js"></script>
 <script src="/assets/js/app/controller/partnerController.js"></script>
-<script src="/assets/js/app/controller/schoolkinds2Controller.js"></script>
+<script src="/assets/js/app/controller/programsController.js"></script>
+{% endif %}
 
+{{page.name}}
+
+{% if page.js_laender %}
+<!-- TODO: JQuery is only use once in financeReportController (move onclick to chartist.events.click)-->
+<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
+
+<script src="/assets/vendor/lodash/dist/lodash.min.js"></script>
+<script src="/assets/vendor/d3/d3.min.js"></script>
+<script src="/assets/vendor/chartist/dist/chartist.min.js"></script>
+<script src="/assets/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+<script src="/assets/vendor/chartist-plugin-axistitle/dist/chartist-plugin-axistitle.min.js"></script>
+<script src="/assets/js/lib/chartist-bar-labels.js"></script>
+<script src="/assets/vendor/angular/angular.min.js"></script>
+<script src="/assets/vendor/angular-animate/angular-animate.min.js"></script>
+<script src="/assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/assets/vendor/angular-chartist.js/dist/angular-chartist.min.js"></script>
+
+<script src="/assets/js/app/app.js"></script>
+<script src="/assets/js/app/services/statesService.js"></script>
+<script src="/assets/js/app/controller/schoolkinds2Controller.js"></script>
+<script src="/assets/js/app/controller/foreignLanguagesController.js"></script>
+<script src="/assets/js/app/controller/financeReportController.js"></script>
+<script src="/assets/js/app/controller/teacherRatioController.js"></script>
+{% endif %}
+
+{% if page.js_schoolprofile %}
+<script src="/assets/vendor/lodash/dist/lodash.min.js"></script>
+<script src="/assets/vendor/leaflet/dist/leaflet.js"></script>
+<script src="/assets/vendor/chartist/dist/chartist.min.js"></script>
+<script src="/assets/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+<script src="/assets/vendor/chartist-plugin-axistitle/dist/chartist-plugin-axistitle.min.js"></script>
+<script src="/assets/vendor/angular/angular.min.js"></script>
+<script src="/assets/vendor/angular-animate/angular-animate.min.js"></script>
+<script src="/assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/assets/vendor/angular-chartist.js/dist/angular-chartist.min.js"></script>
+
+<script src="/assets/js/app/app.js"></script>
+<script src="/assets/js/app/filter/isEmptyFilter.js"></script>
+<script src="/assets/js/app/services/schoolsService.js"></script>
+<script src="/assets/js/app/controller/schoolProfileController.js"></script>
+{% endif %}

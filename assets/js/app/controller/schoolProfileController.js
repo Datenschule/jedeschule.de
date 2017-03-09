@@ -1,4 +1,4 @@
-app.controller('schoolProfileController', function ($scope, $http,$location, schools) {
+app.controller('schoolProfileController', function ($scope, $location, schools) {
     $scope.chartType = 'Line';
 
     $scope.students_data = {};

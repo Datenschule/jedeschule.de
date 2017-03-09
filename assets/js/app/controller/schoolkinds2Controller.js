@@ -1,6 +1,6 @@
 d3.eesur = {};
 
-app.controller('Schoolkinds2Controller', function ($scope, $http, $location, states) {
+app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
 
     var relevantYears = ['2007', '2015'];
     var colors = d3.scale.category10();

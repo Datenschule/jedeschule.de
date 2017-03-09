@@ -1,4 +1,4 @@
-app.controller('TeacherRatioController', function ($scope, $http, $location, schools, states) {
+app.controller('TeacherRatioController', function ($scope, states) {
 
     $scope.data = {
         labels: ['Q1', 'Q2', 'Q3', 'Q4'],

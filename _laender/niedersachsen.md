@@ -2,6 +2,7 @@
 name: Niedersachsen
 layout: laender
 link: /laender/niedersachsen/
+js_laender: yes
 url_name: niedersachsen
 ---
 Introtext zum Schulsystem in Niedersachsen

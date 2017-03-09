@@ -2,6 +2,7 @@
 name: Sachsen
 layout: laender
 link: /laender/sachsen/
+js_laender: yes
 url_name: sachsen
 partnertext: >
     <p>950 der knapp 1500 allgemeinbildenden Schulen in Sachsen kommunizieren ihre Projekte und Aktivitäten an das Statistische Landesamt Sachsen. Insgesamt gehen diese Schulen 6.025 Partnerschaften mit externen Organisationen ein, darunter mit gemeinnützigen sowie privatwirtschaftlichen Akteur*innen und Akteur*innen aus dem öffentlichen Sektor, Partnerschulen, Verbänden und religiösen Einrichtungen. Durchschnittlich kommen sechs Partnerschaften aus drei dieser Bereiche auf eine Schule.</p>
