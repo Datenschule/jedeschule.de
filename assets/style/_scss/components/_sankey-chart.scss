@@ -2,6 +2,15 @@
   height: 500px;
   font-size: 12px;
 
+  @for $i from 1 through length($chart-colors) {
+    .sankey-node-#{$i - 1} {
+      rect {
+        fill: nth($chart-colors, $i);
+        stroke: darken(nth($chart-colors, $i), 2);
+      }
+    }
+  }
+
   .sankey-link rect {
     fill-opacity: .9;
   }
