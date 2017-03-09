@@ -222,20 +222,20 @@ app.factory('ag', function($http) {
 });
 
 app.factory('partnershipsService', function($http) {
-    var partnerships = undefined;
+    var partnerships = {};
     return {
-        get: function(cb) {
-            if (!partnerships) {
+        get: function(name, cb) {
+            if (!partnerships[name]) {
                 $http({
-                    url: '/assets/js/app/data/partnerschaften-berlin.json',
+                    url: '/assets/js/app/data/partnerships-' + name + '.json',
                     method: "GET"
                 })
                 .then(function(response) {
-                    partnerships = response.data;
+                    partnerships[name] = response.data;
                     cb(null, response.data);
                 })
             } else {
-                return partnerships
+                return partnerships[name]
             }
         }
     }
