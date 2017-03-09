@@ -1,0 +1,27 @@
+.sankeychart {
+  height: 500px;
+  font-size: 12px;
+
+  .sankey-link rect {
+    fill-opacity: .9;
+  }
+
+  .sankey-link text {
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff;
+  }
+
+  .sankey-link text:hover {
+  }
+
+  .sankey-link {
+    fill: none;
+    stroke: #868779;
+    stroke-opacity: .2;
+  }
+
+  .sankey-link:hover {
+    stroke-opacity: .5;
+  }
+
+}

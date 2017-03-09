@@ -1,6 +1,6 @@
 ---
 name: Berliner Schulen
-author: Max Mustermann
+author: Studierende der TU Berlin, Projektverbund Initiative 2.0
 link: http://berlinerschulen.ini20.de/#/
 image: /assets/img/projekte/berliner-schulen.jpg
 ---

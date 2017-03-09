@@ -1,6 +1,4 @@
 <div class="app-wrapper-languages">
-    <!--<p>{{test}}</p>-->
-    <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
     {% assign state = site.laender | where: 'url_name', include.name | first %}
     <div class="container">
         <div class="row">
@@ -8,8 +6,8 @@
                 {{state.partnertext}}
             </div>
             <div class="container-left-6" ng-controller="PartnerController" ng-init="init('{{include.name}}')">
-                <h5 class="text-center">Anzahl an Partnerschaften nach Interessensgruppen in {{include.caption}}</h5>
-                <nvd3 options="options" data="data"></nvd3>
+                <h5 class="text-center">Partnerschaften nach Interessensgruppen in {{include.caption}}</h5>
+                <sankey data="data" label="label"></sankey>
             </div>
         </div>
     </div>

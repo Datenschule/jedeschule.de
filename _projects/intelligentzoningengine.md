@@ -1,6 +1,6 @@
 ---
 name: Intelligent Zoning Engine
-author: Max Mustermann
+author: idalab, Technologiestiftung Berlin
 link: http://idalab.de/intelligent-zoning-engine
 image: /assets/img/projekte/intelligent-zone.jpg
 ---

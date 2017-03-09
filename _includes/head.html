@@ -1,20 +1,20 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{% if page.menu_home %}{% else %}{{page.title}} - {% endif %}Datenschule</title>
+	<title>{% if page.menu_home %}{% else %}{{page.title}} - {% endif %}jedeschule.de</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{page.description}}">
 	<meta name="author" content="Open Knowledge Foundation Deutschland">
 
 	<meta property="og:url" content="{{site.domain}}{{page.url}}"/>
-	<meta property="og:title" content="OKF Datenschule{% if page.menu_home %}{% else %} - {{page.title}}{% endif %}"/>
+	<meta property="og:title" content="jedeschule.de{% if page.menu_home %}{% else %} - {{page.title}}{% endif %}"/>
 	<meta property="og:description" content="{{page.description}}"/>
 	{% if page.picture & page.picture.src %}
 	<meta property="og:image" content="{{site.domain}}{{page.picture.src}}"/>
 	{% else %}
 	<meta property="og:image" content="{{site.domain}}/assets/img/logo_datenschule_card_white.png"/>
 	{% endif %}
-	<meta property="og:site_name" content="Datenschule{% if page.menu_home %}{% else %}: {{page.title}}{% endif %}"/>
+	<meta property="og:site_name" content="jedeschule.de{% if page.menu_home %}{% else %}: {{page.title}}{% endif %}"/>
 	<meta property="og:type" content="website"/>
 
 	<meta name="twitter:card" content="summary_large_image"/>
