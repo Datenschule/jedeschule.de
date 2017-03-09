@@ -37,7 +37,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                         </ui-select>
                     </div>
                     <div class="filter container-left-4">
-                        <p class="bold">rechtlicher Status:</p>
+                        <p class="bold">Rechtlicher Status:</p>
                         <ui-select multiple ng-model="filter.legal.selected" theme="select2">
                             <ui-select-match placeholder="z.B. öffentlich">{{$item.name}}</ui-select-match>
                             <ui-select-choices repeat="o in filter.legal.defs | propsFilter: {name: $select.search}">{{o.name}}</ui-select-choices>
