@@ -65,6 +65,12 @@
 
 }
 
+.chart-foreign-languages-complete {
+  .ct-series {
+    cursor: pointer;
+  }
+}
+
 .chartist-programs, .chartist-teacher, .chartist-foreign-languages {
   margin-top: 54px;
   margin-bottom: 20px;
@@ -171,4 +177,10 @@
   .ct-series-b .ct-slice-pie {
     fill: $chart-color0;
   }
+}
+
+.ct-bar-label {
+  fill: rgba(0, 0, 0, .6);
+  color: rgba(0, 0, 0, .6);
+  font-size: 12px;
 }
