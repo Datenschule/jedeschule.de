@@ -1,0 +1,12 @@
+{
+  "name": "chartist-plugin-legend",
+  "description": "Legend plugin for Chartist.js.",
+  "main": "chartist-plugin-legend.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeYellowBV/chartist-plugin-legend"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
