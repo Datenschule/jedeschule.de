@@ -116,8 +116,8 @@ description:
                                 </div>
                             </div>
                         </div>
-                        <div class="container-left-12">
-                            <div ng-repeat="(partner_cat, partners) in partner track by $index" class="container-left-4">
+                        <div class="container-left-12 profile-partners">
+                            <div ng-repeat="(partner_cat, partners) in partner track by $index" class="profile-partners-box">
                                 <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{partnerRessources[partner_cat].color}}">
                                 <p class="bold text-center">
                                     <i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
@@ -140,8 +140,8 @@ description:
                     <h2 class="text-center">Arbeitsgemeinschaften</h2>
                 </div>
             </div>
-            <div class="container working_groups" ng-if="!(working_groups | isEmpty)">
-                <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="container-left-4">
+            <div class="container working_groups profile-partners" ng-if="!(working_groups | isEmpty)">
+                <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="profile-partners-box">
                     <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
                         <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
                         <p class="bold text-center">{{wg_cat}}</p>
