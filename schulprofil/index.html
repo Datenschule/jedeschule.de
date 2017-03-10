@@ -111,7 +111,7 @@ description:
                                 <div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
                                     <div class="progress-bar"
                                          style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
-                                        <p>{{partner.value}}%</p>
+                                        <p>{{ partner.value | number : 0 }}%</p>
                                     </div>
                                 </div>
                             </div>
