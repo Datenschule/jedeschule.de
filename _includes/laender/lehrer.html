@@ -2,7 +2,7 @@
     <!--<p>{{test}}</p>-->
     <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
         <div class="container-left-12">
-            Um den Schulunterricht zu gewährleisten und Stundenausfälle zu vermeiden, muss sichergestellt sein, dass es genügend Lehr*innenpersonal an den Schulen gibt. Unsere Darstellung zeigt für jedes Bundesland auf welche Art die Lehrenden an den jeweiligen Schulen beschäftigt werden. Das heißt, ob sie in Vollzeit, Teilzeit oder auf Stundenbasis beschäftigt sind. Schularten, zu denen wir keine Informationen gefunden haben, werden ausgeblendet. Die Datengrundlage stammt aus dem Bericht des Statistischen Bundesamtes zu <a href="https://www.destatis.de/DE/Publikationen/Thematisch/BildungForschungKultur/Schulen/AllgemeinbildendeSchulen.html">Allgemeinbildenden Schulen 2015/2016</a>.<br><br>
+            Um den Schulunterricht zu gewährleisten und Stundenausfälle zu vermeiden, muss sichergestellt sein, dass es genügend Lehr*innenpersonal an den Schulen gibt. Unsere Darstellung zeigt für jedes Bundesland auf welche Art die Lehrenden an den jeweiligen Schulen beschäftigt werden. Das heißt, ob sie in Vollzeit, Teilzeit oder auf Stundenbasis beschäftigt sind. Schularten, zu denen wir keine Informationen gefunden haben, werden ausgeblendet.<br><br>
         </div>
     <div class="container" ng-controller="TeacherRatioController" ng-init="init('{{include.url_name}}')">
         <!--<div class="container-left-12" >-->
@@ -26,5 +26,8 @@
                           chartist-chart-options="abs_options"></chartist>
             </div>
         </div>
+        <p class="map-source">
+            Quelle: <a href="/daten">Daten</a> des Statistischen Bundesamtes zu Allgemeinbildenden Schulen 2015/2016.
+        </p>
     </div>
 </div>

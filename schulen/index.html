@@ -100,7 +100,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                     <p class="italic">{{infoBox.school.address}}</p>
                     <ul class="list-unstyled">
                         <li ng-if="infoBox.school.provider"><strong>Träger:</strong> {{infoBox.school.provider}}</li>
-                        <li ng-if="infoBox.school.legal_status"><strong>Rechtstatus:</strong> {{infoBox.school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
+                        <li><strong>Rechtstatus:</strong> {{getLegalStatus(infoBox.school.legal_status)}}</li>
                         <li ng-if="infoBox.school.school_type"><strong>Schultyp:</strong> {{infoBox.school.school_type}}</li>
                         <li ng-if="infoBox.school.fax"><strong>Fax:</strong> {{infoBox.school.fax}}</li>
                         <li ng-if="infoBox.school.phone"><strong>Telefon:</strong> {{infoBox.school.phone}}</li>
