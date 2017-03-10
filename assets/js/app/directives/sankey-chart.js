@@ -18,12 +18,12 @@ app.directive('sankey', function($window, $timeout) {
             var format = function(d) {
                 return formatNumber(d) + " " + scope.label;
             };
-            var color;
-            if (d3.scale) { //old d3
-                color = d3.scale.category10();
-            } else {
-                color = d3.scaleOrdinal(d3.schemeCategory10);
-            }
+            // var color;
+            // if (d3.scale) { //old d3
+            //     color = d3.scale.category10();
+            // } else {
+            //     color = d3.scaleOrdinal(d3.schemeCategory10);
+            // }
             function init() {
                 root = d3.select(element[0]).append("svg")
                 .attr("width", width + margin.left + margin.right)
@@ -111,22 +111,24 @@ app.directive('sankey', function($window, $timeout) {
                 // apply operations to both.
                 var nodeEnter = nodes.enter().append("g");
                 nodeEnter
-                .attr("class", "sankey-node")
-                .attr("transform", function(d) {
+                .attr("class", function(d, i) {
+                    return "sankey-node sankey-node-" + i;
+                }).attr("transform", function(d) {
                     return "translate(" + d.x + "," + d.y + ")";
                 });
+
                 nodeEnter
                 .append("rect")
                 .attr("height", function(d) {
                     return d.dy;
                 })
-                .attr("width", sankey.nodeWidth())
-                .style("fill", function(d) {
-                    return d.color = color(d.name.replace(/ .*/, ""));
-                })
-                .style("stroke", function(d) {
-                    return d3.rgb(d.color).darker(2);
-                });
+                .attr("width", sankey.nodeWidth());
+                // .style("fill", function(d) {
+                //     return d.color = color(d.name.replace(/ .*/, ""));
+                // })
+                // .style("stroke", function(d) {
+                //     return d3.rgb(d.color).darker(2);
+                // });
                 // .call(d3.behavior.drag()
                 // .origin(function(d) {
                 //     return d;
