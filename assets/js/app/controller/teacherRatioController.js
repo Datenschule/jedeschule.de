@@ -95,7 +95,6 @@ app.controller('teacherRatioController', function($scope, states) {
             }),
             series: result.map(function(serie) {
                 return serie.map(function(elem) {
-                    console.log(elem);
                     return {value: elem.value, meta: elem.volume + ': ' + elem.value.toFixed(2) + '%'};
                 })
             })
