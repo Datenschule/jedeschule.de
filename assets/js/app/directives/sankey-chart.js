@@ -116,7 +116,10 @@ app.directive('sankey', function($window, $timeout) {
                 }).attr("transform", function(d) {
                     return "translate(" + d.x + "," + d.y + ")";
                 });
-
+                nodeEnter.append("title")
+                .text(function(d) {
+                    return d.count + ' ' + scope.label;
+                });
                 nodeEnter
                 .append("rect")
                 .attr("height", function(d) {

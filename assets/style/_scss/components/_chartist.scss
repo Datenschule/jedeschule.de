@@ -65,7 +65,13 @@
 
 }
 
-.chartist-programs, .chartist-teacher, .chartist-foreign-languages {
+.chartist-foreign-languages-complete {
+  .ct-series {
+    cursor: pointer;
+  }
+}
+
+.chartist-programs, .chartist-teacher, .chartist-foreign-languages, .chartist-school-type-change {
   margin-top: 54px;
   margin-bottom: 20px;
 
@@ -170,5 +176,55 @@
 
   .ct-series-b .ct-slice-pie {
     fill: $chart-color0;
+  }
+}
+
+.ct-bar-label {
+  fill: rgba(0, 0, 0, .6);
+  color: rgba(0, 0, 0, .6);
+  font-size: 12px;
+}
+
+.ct-legend {
+  position: relative;
+  z-index: 10;
+  list-style: none;
+  text-align: center;
+  font-size: 12px;
+
+  li {
+    position: relative;
+    padding-left: 23px;
+    margin-bottom: 3px;
+    display: inline-block;
+    line-height: 1em;
+    margin-left: 15px;
+  }
+
+  li:before {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    content: '';
+    border: 3px solid transparent;
+    border-radius: 2px;
+  }
+
+  li.inactive:before {
+    background: transparent;
+  }
+
+  &.ct-legend-inside {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @for $i from 0 to length($chart-colors) {
+    .ct-series-#{$i}:before {
+      background-color: nth($chart-colors, $i + 1);
+      border-color: nth($chart-colors, $i + 1);
+    }
   }
 }

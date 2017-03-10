@@ -1,4 +1,4 @@
-app.controller('MapController', function($scope, $location, schools) {
+app.controller('MapController', function($scope, $location, schools, $http) {
 
     var infoBox = {
         visible: false,
@@ -336,6 +336,29 @@ app.controller('MapController', function($scope, $location, schools) {
             }
         });
         markersGroup.on('click', onMarkerClick);
+
+        $http.get("/assets/data/bundeslaender.geojson").then(function (result) {
+            function onEachFeature(feature, layer) {
+                layer.bindPopup("Für Hessen gibt es leider keine Daten, die wir benutzen dürfen.")
+                layer.on('mouseover', function(e) {
+                    this.openPopup();
+                });
+                layer.on('mouseout', function(e) {
+                    this.closePopup();
+                });
+            }
+
+            var myStyle = {
+                "color": "#4a4a4a",
+                "weight": 2,
+                "opacity": 0.3
+            };
+            L.geoJSON(result.data.features, {
+                style: myStyle,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+        });
+
         isLimitedToState = zoom <= 7;
         var layer = isLimitedToState ? markersGroupState : markersGroup;
         map.addLayer(layer);
@@ -447,6 +470,9 @@ app.controller('MapController', function($scope, $location, schools) {
     }
 
     function doFilter() {
+        function ignoreCase(a,b){
+            return a.localeCompare(b, 'de', {'sensitivity': 'base'})
+        }
         foundAddress = false;
         var newFilters = {
             types: [],
@@ -490,10 +516,10 @@ app.controller('MapController', function($scope, $location, schools) {
             if (a.name > b.name) return 1;
             return 0;
         });
-        filter.entity.defs = newFilters.entity.sort();
-        filter.category.defs = newFilters.category.sort();
-        filter.partner.defs = newFilters.partner.sort();
-        filter.types.defs = newFilters.types.sort();
+        filter.entity.defs = newFilters.entity.sort(ignoreCase);
+        filter.category.defs = newFilters.category.sort(ignoreCase);
+        filter.partner.defs = newFilters.partner.sort(ignoreCase);
+        filter.types.defs = newFilters.types.sort(ignoreCase);
     }
 
     var display = function() {

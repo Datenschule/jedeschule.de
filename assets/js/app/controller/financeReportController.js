@@ -1,4 +1,4 @@
-app.controller('FinanceReportController', function($scope, states) {
+app.controller('financeReportController', function($scope, states) {
 
     $scope.init = function(state) {
         states.get(state, function(err, statedata) {

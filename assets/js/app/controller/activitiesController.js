@@ -18,7 +18,7 @@ app.controller('activitiesController', function($scope, activitiesService) {
                         {
                             appendToBody: true,
                             anchorToPoint: false,
-                            transformTooltipTextFnc: function(value, d) {
+                            transformTooltipTextFnc: function(value) {
                                 return 'u.a. ' + item.examples;
                                 // return value + ' der Schulen bieten ' + item.name + ' '
                                 //     + (value == item.amount ? ' ' : 'nicht ')

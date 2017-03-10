@@ -26,6 +26,7 @@
     "angular-ui-select": "^0.19.6",
     "chartist": "^0.10.1",
     "angular-chartist.js": "npm:angular-chartist.js#^4.3.1",
+    "chartist-plugin-legend": "npm:chartist-plugin-legend#^0.6.1",
     "chartist-plugin-tooltip": "^0.0.17",
     "chartist-plugin-axistitle": "^0.1.0",
     "chartist-plugin-barlabels": "*"

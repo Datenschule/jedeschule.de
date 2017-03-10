@@ -13,11 +13,7 @@ description:
                 <div class="container-left-12">
                     <h2>{{school.name}}</h2>
                     <p>
-                        Oftmals werden diese Aktivitäten in der öffentlichen Debatte nicht thematisiert. Für alle
-                        allgemeinbildenden Schulen in Berlin und Sachsen haben wir deshalb diese Informationen aufbereitet.
-                        Detaillierte Aktivitäten und Partner der jeweiligen Schulen finden Sie auf den
-                        <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a>
-                        der zwei Bundesländer.
+                        Auf den Schulprofilen informieren wir über das Leitbild der Schule, Schüler*innen- und Lehrer*innenentwicklung sowie über Partnerorganisationen und Schulaktivitäten außerhalb des Unterrichts.
                     </p>
 
                 </div>
@@ -61,7 +57,7 @@ description:
                 <div class="container-left-12">
                     <h2 class="text-center">Leitbild</h2>
                     <p ng-if="school.concept">{{school.concept}}</p>
-                    <p ng-if="!school.concept">Zum Leitbild sind leider keine Informationen verfügbar.</p>
+                    <p ng-if="!school.concept">Zum Leitbild dieser Schule sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -70,7 +66,7 @@ description:
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Schüler</h2>
+                    <h2 class="text-center">Schüler*innen</h2>
                     <div ng-if="!(school.profile.students | isEmpty)">
                         <p>
                             Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule.
@@ -78,7 +74,7 @@ description:
                         <chartist class="ct-chart" chartist-data="students_data" chartist-chart-type="Line"
                                   chartist-chart-options="options_students"></chartist>
                     </div>
-                    <p ng-if="(school.profile.students | isEmpty)">Zu Schülern sind leider keine Informationen verfügbar.</p>
+                    <p ng-if="(school.profile.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
 
 
                 </div>
@@ -89,13 +85,13 @@ description:
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Lehrer</h2>
+                    <h2 class="text-center">Lehrer*innen</h2>
                     <div ng-if="school.profile.teacher.length > 0">
                         <p>Informieren Sie sich über den zeitlichen Anteil der Lehrenden dieser Schule.</p>
                         <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
                                   chartist-chart-options="teacher_options"></chartist>
                     </div>
-                    <p ng-if="!school.profile.teacher.length > 0">Zu Lehreren sind leider keine Informationen verfügbar.</p>
+                    <p ng-if="!school.profile.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -104,31 +100,31 @@ description:
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
-                    <h2 class="text-center">Partner</h2>
+                    <h2 class="text-center">Partnerschaften</h2>
                     <div class="container partner" ng-if="partner_stat.length > 0">
                         <div class="container-left-12">
                             <div class="progress">
                                 <div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
                                     <div class="progress-bar"
                                          style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
-                                        <p>{{partner.value}}%</p>
+                                        <p>{{ partner.value | number : 0 }}%</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="container-left-12">
-                            <div ng-repeat="(partner_cat, partners) in partner track by $index" class="container-left-4">
+                        <div class="container-left-12 profile-partners">
+                            <div ng-repeat="(partner_cat, partners) in partner track by $index" class="profile-partners-box">
                                 <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{partnerRessources[partner_cat].color}}">
                                 <p class="bold text-center">
                                     <i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
                                 </p>
-                                <ul class="list-unstyled">
+                                <ul>
                                     <li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <p ng-if="!partner_stat.length > 0">Zu Partnern sind leider keine Informationen verfügbar</p>
+                    <p ng-if="!partner_stat.length > 0">Zu Partnerschaften sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -137,15 +133,15 @@ description:
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12 working_groups">
-                    <h2 class="text-center">Arbeitsgemeinschaften</h2>
+                    <h2 class="text-center">Schulaktivitäten außerhalb des Unterrichts</h2>
                 </div>
             </div>
-            <div class="container working_groups" ng-if="!(working_groups | isEmpty)">
-                <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="container-left-4">
+            <div class="container working_groups profile-partners" ng-if="!(working_groups | isEmpty)">
+                <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="profile-partners-box">
                     <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
                         <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
                         <p class="bold text-center">{{wg_cat}}</p>
-                        <ul class="list-unstyled">
+                        <ul>
                             <li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
                         </ul>
                     </div>

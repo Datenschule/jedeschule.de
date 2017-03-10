@@ -1,142 +1,133 @@
-app.controller('foreignLanguagesController', function ($scope, states) {
+app.controller('foreignLanguagesController', function($scope, states) {
 
-    $scope.bardata = {};
-
-    $scope.langdata = {};
-    $scope.show_lang = false;
-    $scope.showed_lang = '';
-
-    $scope.langoptions = {
-        height: '200px',
-        chartPadding: {top: 20, right: 0, bottom: 55, left: 40},
-        distributeSeries: true,
-        axisX: {
-            showLabel: true,
-            showGrid: false
-        },
-        axisY: {
-            showLabel: true,
-            showGrid: true
-        },
-        plugins: [
-            Chartist.plugins.ctAxisTitle({
-                axisX: {
-                    axisTitle: '',
-                    axisClass: 'ct-axis-title',
-                    offset: {x: 0, y: 0},
-                    textAnchor: 'middle'
-                },
-                axisY: {
-                    axisTitle: 'Anzahl',
-                    axisClass: 'ct-axis-title',
-                    offset: {x: -50, y: -5},
-                    flipTitle: true
-                }
-            }),
-            Chartist.plugins.ctBarLabels({
-                position: {
-                    y: function (data) {
-                        console.log(data);
-                        return data.y2 - 10
+    var chart_langs = {
+        data: {},
+        options: {
+            height: '200px',
+            distributeSeries: true,
+            chartPadding: {
+                top: 20,
+                right: 0,
+                bottom: 20,
+                left: 40
+            },
+            axisX: {
+                showLabel: true,
+                showGrid: false
+            },
+            axisY: {
+                showLabel: true,
+                showGrid: true
+            },
+            plugins: [
+                Chartist.plugins.ctBarLabels({
+                    position: {
+                        y: function(data) {
+                            return data.y2 - 10
+                        }
                     }
-                }
-            })
-        ]
-    };
-
-    $scope.baroptions = {
-        height: '200px',
-        distributeSeries: true,
-        chartPadding: { top: 20, right: 0, bottom: 55, left: 40},
-        axisX: {
-            showLabel: true,
-            showGrid: false
+                })
+            ]
         },
-        axisY: {
-            showLabel: true,
-            showGrid: true
-        },
-        plugins: [
-            Chartist.plugins.ctAxisTitle({
-                axisX: {
-                    axisTitle: '',
-                    axisClass: 'ct-axis-title',
-                    offset: {x: 0, y: 0},
-                    textAnchor: 'middle'
-                },
-                axisY: {
-                    axisTitle: 'Anzahl',
-                    axisClass: 'ct-axis-title',
-                    offset: {x: -50, y: -5},
-                    flipTitle: true
-                }
-            }),
-            Chartist.plugins.ctBarLabels({
-                position: {
-                    y: function (data) {
-                        console.log(data);
-                        return data.y2 - 10
+        events: {
+            created: function(event) {
+                var gs = angular.element(event.svg._node).find('g');
+                angular.forEach(gs, function(element, index) {
+                    var el = angular.element(element);
+                    if (el.hasClass('ct-series')) {
+                        el.on('mouseover', function() {
+                            showLanguage(el.attr('ct:meta'));
+                        });
                     }
-                }
-            })
-        ]
-    };
-
-    $scope.barevents = {
-        draw: function(data) {
-            angular.element(data.element).addClass('test');
+                });
+            }
         }
-    }
+    };
+
+    var chart_schools = {
+        current: null,
+        data: {},
+        options: {
+            height: '200px',
+            chartPadding: {top: 20, right: 0, bottom: 20, left: 40},
+            distributeSeries: true,
+            axisX: {
+                showLabel: true,
+                showGrid: false
+            },
+            axisY: {
+                showLabel: true,
+                showGrid: true
+            },
+            plugins: [
+                Chartist.plugins.ctBarLabels({
+                    position: {
+                        y: function(data) {
+                            return data.y2 - 10
+                        }
+                    }
+                })
+            ]
+        }
+    };
+
+    $scope.chart_schools = chart_schools;
+    $scope.chart_langs = chart_langs;
 
     $scope.init = function(state) {
         $scope.state = state;
-        console.log(state);
         states.get($scope.state, function(err, statedata) {
-            var lang_sum = _.groupBy(statedata.fremdsprachen, 'language')
-            console.log(lang_sum);
-
-            var sum_series = _.map(Object.values(lang_sum), function(lang) { return _.sumBy(lang, 'amount') });
-            console.log(sum_series);
-
-            $scope.bardata = {
-                labels: Object.keys(lang_sum),
-                series: sum_series
+            var lang_sum = _.groupBy(statedata.fremdsprachen, 'language');
+            var items = Object.keys(lang_sum).map(function(key) {
+                var lang = lang_sum[key];
+                return {
+                    meta: key,
+                    value: _.sumBy(lang, 'amount')
+                };
+            }).filter(function(item) {
+                return item.value > 0;
+            }).sort(function(a, b) {
+                return b.value - a.value;
+            });
+            chart_langs.data = {
+                labels: items.map(function(item) {
+                    return item.meta;
+                }),
+                series: items
             };
-
-            $scope.lang_schooltype = _.groupBy(statedata.fremdsprachen, 'language');
-            var lang_english = $scope.lang_schooltype['Russisch'];
-
-            $scope.langdata = {
-                labels: _.map(lang_english, 'schooltype'),
-                series: _.map(lang_english, 'amount')
-            };
-
-            console.log(lang_english);
+            chart_langs.all_data = _.groupBy(statedata.fremdsprachen, 'language');
+            setTimeout(function() {
+                showLanguage('Englisch');
+            }, 0);
         });
     };
 
-    $('.ct-chart').on('click', '.ct-chart-bar .ct-series', function(evt) {
-        var index = $(this).index();
-        var label = $(this).find('span.ct-label').text();
-        graphClicked(index, label, null);
-    });
-
-    function graphClicked(index, label, value) {
-        console.log('---');
-        console.log('language:', $scope.bardata.labels[index]);
-        showDataForLanguge($scope.bardata.labels[index])
-    }
-
-    function showDataForLanguge(lang) {
-        $scope.show_lang = true;
-        $scope.$apply();
-        console.log('show for lang called');
-        var lang_type = $scope.lang_schooltype[lang];
-        console.log(lang_type);
-        $scope.showed_lang = lang;
-        $scope.langdata.labels = _.map(lang_type, 'schooltype');
-        $scope.langdata.series = _.map(lang_type, 'amount');
-        $scope.$apply();
+    function showLanguage(lang) {
+        if (lang !== chart_schools.current) {
+            if (!chart_schools.current) {
+                chart_schools.current = lang;
+                $scope.$apply();
+            }
+            chart_schools.current = lang;
+            var lang_type = chart_langs.all_data[lang];
+            var items = lang_type.map(function(o) {
+                return {
+                    meta: o.schooltype,
+                    value: o.amount
+                };
+            }).filter(function(o) {
+                return o.value > 0;
+            }).sort(function(a, b) {
+                return b.value - a.value;
+            });
+            chart_schools.data = {
+                labels: items.map(function(item) {
+                    return item.meta;
+                }),
+                series: items
+            };
+            $scope.$apply();
+        }
     }
 
 });
