@@ -44,11 +44,16 @@ footer {
     text-align: center;
   }
 
+  .footer-flex {
+    display: flex;
+    align-items: center;
+  }
+
   .footer-logo {
     padding-top: 6px;
     margin-top: 6px;
     img {
-      width: 140px;
+      width: 220px;
       height: auto;
       transition: all 0.3s ease-in-out 0s;
     }

@@ -9,12 +9,12 @@
     <div class="container">
         <div class="container-left-12">
             <h5 class="text-center">Anzahl der angeboten Kurse pro Fremdsprache</h5>
-            <chartist class="ct-chart foreign-languages-complete" chartist-data="bardata" chartist-chart-type="Bar"
+            <chartist class="ct-chart foreign-languages-complete chartist-foreign-languages" chartist-data="bardata" chartist-chart-type="Bar"
                       chartist-chart-options="baroptions"></chartist>
         </div>
         <div class="container-left-12" ng-show="show_lang">
             <h5 class="text-center">Anzahl der angeboten Kurse "<span ng-bind="showed_lang"></span>" nach Schulart</h5>
-            <chartist class="ct-chart foreign-languages-complete" chartist-data="langdata" chartist-chart-type="Bar"
+            <chartist class="ct-chart foreign-languages-complete chartist-foreign-languages-select" chartist-data="langdata" chartist-chart-type="Bar"
                       chartist-chart-options="langoptions" chartist-events="barevents"></chartist>
         </div>
         <!--<div class="container-left-12">-->
@@ -62,5 +62,8 @@
             <!---->
         <!--</div>-->
     </div>
+        <p class="map-source">
+            Quelle: <a href="/daten">Daten</a> des Statistischen Bundesamtes zu Allgemeinbildenden Schulen 2015/2016.
+        </p>
 </div>
 {% endraw %}

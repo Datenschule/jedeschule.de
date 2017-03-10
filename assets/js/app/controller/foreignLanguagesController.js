@@ -84,8 +84,6 @@ app.controller('foreignLanguagesController', function ($scope, states) {
 
     $scope.barevents = {
         draw: function(data) {
-            console.log('draw called');
-            console.log(data);
             angular.element(data.element).addClass('test');
         }
     }
@@ -130,13 +128,14 @@ app.controller('foreignLanguagesController', function ($scope, states) {
     }
 
     function showDataForLanguge(lang) {
+        $scope.show_lang = true;
+        $scope.$apply();
         console.log('show for lang called');
         var lang_type = $scope.lang_schooltype[lang];
         console.log(lang_type);
         $scope.showed_lang = lang;
         $scope.langdata.labels = _.map(lang_type, 'schooltype');
         $scope.langdata.series = _.map(lang_type, 'amount');
-        $scope.show_lang = true;
         $scope.$apply();
     }
 

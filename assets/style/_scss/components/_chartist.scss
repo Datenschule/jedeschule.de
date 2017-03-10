@@ -1,3 +1,4 @@
+
 .chartist-finance-report {
 
   h5 {
@@ -54,86 +55,63 @@
 
   }
 
-  .chart-color-0 {
-    .ct-bar {
-      stroke: #61B861;
-    }
-  }
-  .chart-color-1 {
-    .ct-bar {
-      stroke: #FFCC9A;
-    }
-  }
-  .chart-color-2 {
-    .ct-bar {
-      stroke: #C2D5EE;
-    }
-  }
-  .chart-color-3 {
-    .ct-bar {
-      stroke: #FF9F4A;
-    }
-  }
-  .chart-color-4 {
-    .ct-bar {
-      stroke: #5799C7;
-    }
-  }
-  .chart-color-5 {
-    .ct-bar {
-      stroke: #AF8DCE;
+  @for $i from 1 through length($chart-colors) {
+    .chart-color-#{$i - 1} {
+      .ct-bar {
+        stroke: nth($chart-colors, $i);
+      }
     }
   }
 
 }
 
-.chartist-programs {
+.chartist-programs, .chartist-teacher, .chartist-foreign-languages {
   margin-top: 54px;
   margin-bottom: 20px;
 
   .ct-series-a {
     .ct-bar {
-      stroke: #61B861;
+      stroke: nth($chart-colors, 1);
     }
   }
   .ct-series-b {
     .ct-bar {
-      stroke: #FFCC9A;
+      stroke: nth($chart-colors, 2);
     }
   }
   .ct-series-c {
     .ct-bar {
-      stroke: #C2D5EE;
+      stroke: nth($chart-colors, 3);
     }
   }
   .ct-series-d {
     .ct-bar {
-      stroke: #FF9F4A;
+      stroke: nth($chart-colors, 4);
     }
   }
   .ct-series-e {
     .ct-bar {
-      stroke: #5799C7;
+      stroke: nth($chart-colors, 5);
     }
   }
   .ct-series-f {
     .ct-bar {
-      stroke: #AF8DCE;
+      stroke: nth($chart-colors, 6);
     }
   }
   .ct-series-g {
     .ct-bar {
-      stroke: #d17905;
+      stroke: nth($chart-colors, 7);
     }
   }
   .ct-series-h {
     .ct-bar {
-      stroke: #b2c326;
+      stroke: nth($chart-colors, 8);
     }
   }
   .ct-series-i {
     .ct-bar {
-      stroke: #93868a;
+      stroke: nth($chart-colors, 9);
     }
   }
 }
@@ -187,10 +165,10 @@
     margin: auto;
   }
   .ct-series-a .ct-slice-pie {
-    fill: #a7ccd8;
+    fill: $chart-color-pie;
   }
 
   .ct-series-b .ct-slice-pie {
-    fill: #ececec;
+    fill: $chart-color0;
   }
 }

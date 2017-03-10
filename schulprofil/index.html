@@ -7,7 +7,7 @@ description:
 ---
 {% raw %}
 <main ng-app="App" ng-app="App" ng-controller="schoolProfileController">
-    <section class="container-outer container-bgi-yellow2 profile">
+    <section class="container-outer container-bgi-yellow profile">
         <div class="container-padded">
             <div class="container">
                 <div class="container-left-12">
@@ -27,8 +27,8 @@ description:
     <section class="container-outer profile-map">
         <div class="container-padded">
             <div class="container">
-                <div class="container-left-4 profile-map-info">
-                    <div class="box box-margin-top-medium">
+                <div class="container-left-4">
+                    <div class="box box-margin-top-medium box-margin-left-medium">
                         <h5>Allgemeine Angaben</h5>
                         <ul class="list-unstyled">
                             <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
@@ -47,7 +47,7 @@ description:
                         </ul>
                     </div>
                 </div>
-                <div class="container-left-8">
+                <div class="container-left-8 profile-map-info">
                     <div class="box box-margin-top-medium">
                         <div id="map-profile"></div>
                     </div>
@@ -111,17 +111,18 @@ description:
                                 <div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
                                     <div class="progress-bar"
                                          style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
-                                        <p>{{partner.name}} ({{partner.value}}%)</p>
+                                        <p>{{partner.value}}%</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="container-left-12">
                             <div ng-repeat="(partner_cat, partners) in partner track by $index" class="container-left-4">
+                                <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{partnerRessources[partner_cat].color}}">
                                 <p class="bold text-center">
                                     <i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
                                 </p>
-                                <ul class="">
+                                <ul class="list-unstyled">
                                     <li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
                                 </ul>
                             </div>

@@ -5,9 +5,9 @@ link: /laender/sachsen/
 js_laender: yes
 url_name: sachsen
 partnertext: >
-    <p>950 der knapp 1500 allgemeinbildenden Schulen in Sachsen kommunizieren ihre Projekte und Aktivitäten an das Statistische Landesamt Sachsen. Insgesamt gehen diese Schulen 6.025 Partnerschaften mit externen Organisationen ein, darunter mit gemeinnützigen sowie privatwirtschaftlichen Akteur*innen und Akteur*innen aus dem öffentlichen Sektor, Partnerschulen, Verbänden und religiösen Einrichtungen. Durchschnittlich kommen sechs Partnerschaften aus drei dieser Bereiche auf eine Schule.</p>
-    <h5>Gemeinnützige Akteur*innen gestalten Schule</h5>
-    <p>In Sachsen kommen die meisten Projektpartner aller allgemeinbildenden Schulen  aus dem gemeinnützigen Bereich (38,6%), gefolgt von Partnerorganisationen aus dem öffentlichen (34,4%) und dem wirtschaftlichen Bereich (12,5%). Weitere 305 (5%) Partnerschaften finden mit anderen Schulen statt, 123 (2%) mit religiösen Einrichtungen und 150 (2,5%) mit Verbänden, Kammern und Genossenschaften. 300 Partnerschaften (5%) konnten nicht eindeutig zugeordnet werden und fallen unter die Kategorie Unbestimmt.</p>
+    <p>1.100 der knapp 1.500 allgemeinbildenden Schulen in Sachsen kommunizieren ihre Projekte und Aktivitäten an das Statistische Landesamt Sachsen. Insgesamt gehen diese Schulen 6.025 Partnerschaften mit externen Organisationen ein, darunter mit gemeinnützigen sowie privatwirtschaftlichen Akteur*innen und Akteur*innen aus dem öffentlichen Sektor, Partnerschulen, Verbänden und religiösen Einrichtungen. Durchschnittlich kommen sechs Partnerschaften aus zwei dieser Bereiche auf eine Schule.</p>
+    <h5>Meiste Partnerschaften liegen im öffentlichen Bereich</h5>
+    <p>Die meisten Projektpartner aller allgemeinbildenden Schulen kommen aus dem öffentlichen Bereich (37,3%), gefolgt von Partnerorganisationen aus dem gemeinnützigen (32,7%) und dem wirtschaftlichen Bereich (12,3%). Weitere 305 (6,2%) Partnerschaften finden mit anderen Schulen statt, 123 (2%) mit religiösen Einrichtungen und 150 (2,5%) mit Verbänden, Kammern und Genossenschaften. 345 Partnerschaften (5%) konnten nicht eindeutig zugeordnet werden und fallen unter die Kategorie Unbestimmt.</p>
     <p>Auf den <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a>
     sehen Sie, mit welchen Partnern die jeweilige Schule kooperiert.</p>
 agtext: >

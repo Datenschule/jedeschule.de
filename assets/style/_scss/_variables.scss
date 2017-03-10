@@ -1,4 +1,3 @@
-
 // Padding
 $base-padding: 1.25em;
 $base-padding-lite: $base-padding / 3;
@@ -24,7 +23,7 @@ $weight-bold: 700;
 $light-text-color: #363636;
 $link-color: #18BE84;
 $bus-color: #fc9b2d;
-$link-color-subtle: darken($base-font-color,10%);
+$link-color-subtle: darken($base-font-color, 10%);
 
 $white: #fff;
 $gray: #666666;
@@ -64,3 +63,23 @@ $form-box-shadow-focus: 0 0 0 2px $form-border-color-hover;
 $container-grey: #f1f3f6;
 
 $footer-background-color: #17116a;
+
+$chart-color1: #61B861;
+$chart-color2: #FFCC9A;
+$chart-color3: #C2D5EE;
+$chart-color4: #FF9F4A;
+$chart-color5: #5799C7;
+$chart-color6: #AF8DCE;
+$chart-color7: #5799C7;
+$chart-color8: #a7ccd8;
+$chart-color9: #d17905;
+$chart-color10: #b2c326;
+$chart-color11: #93868a;
+$chart-color12: #f0e2a1;
+$chart-color13: #a16a76;
+
+$chart-color0: #ececec; //use for "disabled"
+$chart-color-pie: #a7ccd8;
+
+$chart-colors: $chart-color1, $chart-color2, $chart-color3, $chart-color4, $chart-color5, $chart-color6,
+$chart-color7, $chart-color8, $chart-color9, $chart-color10, $chart-color11, $chart-color12,$chart-color13;

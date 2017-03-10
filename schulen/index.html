@@ -10,7 +10,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
     <div class="container">
         <div class="container-left-8">
             <h1>Schulen</h1>
-            <p>Über die Karte können Sie sich einen Überblick zu rund 32.000 allgemeinbildenden Schulen in Deutschland verschaffen. Schulaktivitäten und -projekte werden für jede Schule als „Schulprofile” detailliert dargestellt. Aktuell (Stand: 15.03.2017) liegen uns Daten für Berlin und Sachsen vor.</br>
+            <p>Über die Karte können Sie sich einen Überblick zu rund 32.000 allgemeinbildenden Schulen in Deutschland verschaffen. Schulaktivitäten und -projekte werden für jede Schule als „Schulprofile” detailliert dargestellt. Aktuell (Stand: 15.03.2017) liegen uns Daten für Berlin und Sachsen vor.<br>
 
             Die Daten stammen aus den zugängliche Schulverzeichnissen der Statistischen Landesämter, zu den <a href="/daten">Einzelnachweisen</a>. Da sich die Qualität der vorliegenden Informationen in den Ländern unterscheidet, sind nicht alle Schulinformationen vollständig erfasst.
             </p>
@@ -73,8 +73,9 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                         <p class="bold">Schulsuche:</p>
                         <div class="ui-select-container ui-select-multiple select2 select2-container select2-container-multi">
                             <ul class="select2-choices">
-                                <li class="select2-search-field">
-                                    <input ng-model="filter.text.selected" ng-model-options="{ debounce: 400 }" placeholder="Name oder ID oder PLZ" class="select2-input ui-select-search" autocomplete="off" autocorrect="off"
+                                <li class="select2-search-field filter-input-wrapper">
+                                    <span class="input-prepend"><i class="fa fa-search"> </i></span>
+                                    <input ng-model="filter.text.selected" ng-model-options="{ debounce: 300 }" placeholder="Name oder PLZ" class="select2-input ui-select-search input-prepended" autocomplete="off" autocorrect="off"
                                            autocapitalize="off" spellcheck="false"/>
                                 </li>
                             </ul>
@@ -99,7 +100,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                     <p class="italic">{{infoBox.school.address}}</p>
                     <ul class="list-unstyled">
                         <li ng-if="infoBox.school.provider"><strong>Träger:</strong> {{infoBox.school.provider}}</li>
-                        <li ng-if="infoBox.school.legal_status"><strong>Rechtstatus:</strong> {{infoBox.school.legal_status == 1? 'Öffentlich' : 'Privat'}}</li>
+                        <li><strong>Rechtstatus:</strong> {{getLegalStatus(infoBox.school.legal_status)}}</li>
                         <li ng-if="infoBox.school.school_type"><strong>Schultyp:</strong> {{infoBox.school.school_type}}</li>
                         <li ng-if="infoBox.school.fax"><strong>Fax:</strong> {{infoBox.school.fax}}</li>
                         <li ng-if="infoBox.school.phone"><strong>Telefon:</strong> {{infoBox.school.phone}}</li>
@@ -118,7 +119,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
                 </div>
             </div>
         </div>
-        <p class="source">
+        <p class="map-source">
             Quelle: Schulverzeichnisse der Statistischen Landesämter, zu den <a href="/daten">Daten</a>.
         </p>
     </div>
