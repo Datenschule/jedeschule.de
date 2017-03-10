@@ -29,10 +29,23 @@ app.controller('schoolkindsController', function ($scope,  $location, states) {
 
             $scope.teacher_options = {
                 seriesBarDistance: 10,
-                chartPadding: 30,
+                height: '200px',
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 16,
+                    left: 0
+                },
                 plugins: [
                     Chartist.plugins.legend({
                         clickable: false
+                    }),
+                    Chartist.plugins.tooltip({
+                        appendToBody: true,
+                        anchorToPoint: true
+                        // transformTooltipTextFnc: function(value) {
+                        //     return parseInt(value, 10).toFixed(0) + ' ';
+                        // }
                     })
                 ]
             };

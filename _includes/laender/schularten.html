@@ -1,14 +1,19 @@
 <div class="container app-wrapper">
-	<div class="container-left-6">
-		Das Bildungssystem in Deutschland ist in unterschiedliche Schulformen gegliedert. Da Schulbildung Ländersache ist, ist es in jedem Bundesland anders organisiert und hat sich in den vergangenen Jahren unterschiedlich entwickelt. Das
-		nebenstehende Diagramm zeigt die Entwicklung der Schularten an, deren Anzahl sich zwischen den Jahren 2007 und 2015 um mehr als 8% verändert haben und bei denen mindestens 10 Schulen neu eröffnet oder geschlossen wurden. Schularten
-		mit einer konstanten Entwicklung werden nicht angezeigt.<br>
-		<p class="map-source">
-			Quelle: <a href="/daten">Daten</a> des Statistischen Bundesamtes zu Allgemeinbildenden Schulen 2015/2016.
-		</p>
+	<div class="container">
+		<div class="container-left-6">
+			Das Bildungssystem in Deutschland ist in unterschiedliche Schulformen gegliedert. Da Schulbildung Ländersache ist, ist es in jedem Bundesland anders organisiert und hat sich in den vergangenen Jahren unterschiedlich entwickelt.
+			Das
+			nebenstehende Diagramm zeigt die Entwicklung der Schularten an, deren Anzahl sich zwischen den Jahren 2007 und 2015 um mehr als 8% verändert haben und bei denen mindestens 10 Schulen neu eröffnet oder geschlossen wurden.
+			Schularten
+			mit einer konstanten Entwicklung werden nicht angezeigt.<br>
+
+		</div>
+		<div class="container-left-6 slope-wrapper" ng-controller="schoolkindsController" ng-init="init('{{include.url_name}}')">
+			<h5 class="text-center">Entwicklung der Schularten zwischen 2007 und 2015</h5>
+			<chartist ng-if="teacher_data" class="ct-chart chartist-school-type-change" chartist-data="teacher_data" chartist-chart-options="teacher_options" chartist-chart-type="Bar"></chartist>
+		</div>
 	</div>
-	<div class="container-left-6 slope-wrapper" ng-controller="schoolkindsController" ng-init="init('{{include.url_name}}')">
-		<h5 class="text-center">Entwicklung der Schularten zwischen 2007 und 2015</h5>
-		<chartist ng-if="teacher_data" class="ct-chart chartist-school-type-change" chartist-data="teacher_data" chartist-chart-options="teacher_options" chartist-chart-type="Bar"></chartist>
-	</div>
+	<p class="map-source">
+		Quelle: <a href="/daten">Daten</a> des Statistischen Bundesamtes zu Allgemeinbildenden Schulen 2015/2016.
+	</p>
 </div>
