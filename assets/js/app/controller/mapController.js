@@ -20,8 +20,8 @@ app.controller('MapController', function($scope, $location, schools) {
                 return false;
             },
             defs: [
-                {name: 'Private', value: true},
-                {name: 'Öffentlich', value: false},
+                {name: 'Privat', value: false},
+                {name: 'Öffentlich', value: true},
                 {name: 'Unbekannt', value: null}
             ]
         },
@@ -546,6 +546,17 @@ app.controller('MapController', function($scope, $location, schools) {
     });
 
     $scope.$watchCollection('selected', display);
+
+    $scope.getLegalStatus = function(status){
+        switch (status){
+            case 0:
+                return "Privat";
+            case 1:
+                return "Öffentlich";
+            default:
+                return "Unbekannt";
+        }
+    };
 
     init();
 
