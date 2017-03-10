@@ -1,5 +1,6 @@
-app.controller('Schoolkinds2Controller', function ($scope,  $location, states) {
+app.controller('schoolkindsController', function ($scope,  $location, states) {
     var relevantYears = ['2007', '2015'];
+
     $scope.init = function(state){
         $scope.state = state;
         states.get($scope.state, function (err, statedata) {
