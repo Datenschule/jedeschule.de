@@ -5,6 +5,17 @@
   margin-right: 20px;
 }
 
+.profile-partners {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.profile-partners-box {
+  width: 30%;
+  margin: 0 auto;
+}
+
 .profile {
   padding-bottom: 10em;
   h2 {
@@ -31,15 +42,6 @@
 
   li {
     margin-bottom: 1.5em;
-  }
-}
-
-.working_groups {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  .box {
-    border-color: #3dd7ff;
   }
 }
 

@@ -1,29 +1,20 @@
-<div class="app-wrapper-languages">
-    <!--<p>{{test}}</p>-->
-    <!--<svg width="960" height="960" class="zoomablepack"></svg>-->
+<div class="app-wrapper-teachers">
         <div class="container-left-12">
             Um den Schulunterricht zu gewährleisten und Stundenausfälle zu vermeiden, muss sichergestellt sein, dass es genügend Lehr*innenpersonal an den Schulen gibt. Unsere Darstellung zeigt für jedes Bundesland auf welche Art die Lehrenden an den jeweiligen Schulen beschäftigt werden. Das heißt, ob sie in Vollzeit, Teilzeit oder auf Stundenbasis beschäftigt sind. Schularten, zu denen wir keine Informationen gefunden haben, werden ausgeblendet.<br><br>
         </div>
-    <div class="container" ng-controller="TeacherRatioController" ng-init="init('{{include.url_name}}')">
-        <!--<div class="container-left-12" >-->
-            <!--<nvd3 options="options" data="data"></nvd3>-->
-        <!--</div>-->
+    <div class="container" ng-controller="teacherRatioController" ng-init="init('{{include.url_name}}')">
         <div class="container-left-12">
             <div class="container-left-6">
                 <div class="container-left-12">
                     <h5 class="text-center">Anteil der Lehrer*innen nach Schularten und Anstellungsart</h5>
                 </div>
                 <div class="container-left-12">
-                    <!--<div class="responsive-svg-container" id="graph"></div>-->
-                    <chartist class="ct-chart chartist-teacher" chartist-data="data" chartist-chart-type="Bar"
-                              chartist-chart-options="options" chatist-events="events"></chartist>
-
+                    <chartist class="ct-chart chartist-teacher" chartist-data="chart_portion.data" chartist-chart-options="chart_portion.options" chatist-events="chart_portion.events" chartist-chart-type="Bar"></chartist>
                 </div>
             </div>
             <div class="container-left-6">
                 <h5 class="text-center">Anzahl der Lehrer*innen nach Schulart</h5>
-                <chartist class="ct-chart chartist-teacher" chartist-data="abs_data" chartist-chart-type="Bar"
-                          chartist-chart-options="abs_options"></chartist>
+                <chartist class="ct-chart chartist-teacher" chartist-data="chart_absolute.data" chartist-chart-options="chart_absolute.options" chartist-chart-type="Bar"></chartist>
             </div>
         </div>
         <p class="map-source">
