@@ -122,7 +122,7 @@ description:
                                 <p class="bold text-center">
                                     <i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
                                 </p>
-                                <ul class="list-unstyled">
+                                <ul>
                                     <li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
                                 </ul>
                             </div>
@@ -145,7 +145,7 @@ description:
                     <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
                         <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
                         <p class="bold text-center">{{wg_cat}}</p>
-                        <ul class="list-unstyled">
+                        <ul>
                             <li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
                         </ul>
                     </div>

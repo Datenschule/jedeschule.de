@@ -36,8 +36,15 @@ app.controller('schoolProfileController', function ($scope, $location, schools) 
                     },
                     flipTitle: false
                 }
-            })//,
-            //Chartist.plugins.tooltip()
+            }),
+            Chartist.plugins.tooltip(
+                {
+                    appendToBody: true,
+                    anchorToPoint: true,
+                    transformTooltipTextFnc: function(value ) {
+                        return value + ' Schüler*innen';
+                    }
+                })
         ]
     };
 
@@ -73,8 +80,15 @@ app.controller('schoolProfileController', function ($scope, $location, schools) 
                     },
                     flipTitle: false
                 }
-            })//,
-            //Chartist.plugins.tooltip()
+            }),
+            Chartist.plugins.tooltip(
+                {
+                    appendToBody: true,
+                    anchorToPoint: true,
+                    transformTooltipTextFnc: function(value ) {
+                        return value + ' Lehrer*innen';
+                    }
+                })
         ]
     };
 
