@@ -21,20 +21,35 @@ h3,
 .h3 {
   @include heading(h3);
   width: 100%;
+  position: relative;
+  overflow: hidden;
   text-align: center;
-  border-bottom: 1px solid $border-grey;
-  line-height: 0.1em;
-  margin: 10px 0 20px;
 
   span {
-    background:#fff;
-    padding:0 10px;
-    font-size: 20px;
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: auto;
+    position: relative;
+    padding: 0 20px;
     text-transform: uppercase;
-  }
 
-  span.grey {
-    background-color: $container-grey;
+    &:before, &:after {
+      content: '';
+      display: block;
+      width: 1000px;
+      position: absolute;
+      top: 0.73em;
+      border-top: 1px solid $border-grey;
+    }
+
+    &:before {
+      right: 100%;
+    }
+    &:after {
+      left: 100%;
+    }
   }
 }
 
