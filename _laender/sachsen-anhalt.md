@@ -4,6 +4,7 @@ layout: laender
 link: /laender/sachsen-anhalt/
 js_laender: yes
 url_name: sachsen-anhalt
+law: "http://www.landesrecht.sachsen-anhalt.de/jportal/portal/t/102i/page/bssahprod.psml/screen/JWPDFScreen/filename/SchulG_ST_2013.pdf"
 ---
 Introtext zum Schulsystem in Sachsen-Anhalt
 

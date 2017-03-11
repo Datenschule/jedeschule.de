@@ -62,13 +62,6 @@
       }
     }
   }
-
-}
-
-.chartist-foreign-languages-complete {
-  .ct-series {
-    cursor: pointer;
-  }
 }
 
 .chartist-programs, .chartist-teacher, .chartist-foreign-languages, .chartist-school-type-change {
@@ -121,6 +114,25 @@
     }
   }
 }
+
+.chartist-foreign-languages-complete {
+  .ct-series {
+    cursor: pointer;
+  }
+}
+
+.chartist-foreign-languages-select {
+
+  @for $i from 1 through length($chart-colors) {
+    &.chartist-foreign-languages-select-#{$i - 1} {
+      .ct-bar {
+        stroke: nth($chart-colors, $i) !important;
+      }
+    }
+  }
+
+}
+
 
 .chartists-footnote, .chartists-footnote-center {
   fill: rgba(0, 0, 0, .4);

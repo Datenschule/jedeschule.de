@@ -99,55 +99,55 @@
         {
           "name": "Umwelt",
           "examples": "Botanik, Naturlehrpfade, Ökologie",
-          "amount": 185
+          "amount": 325
         },
         {
           "name": "Sport",
           "examples": "Schwimmen, Tischtennis, Fußball",
-          "amount": 597
+          "amount": 1047
         },
         {
           "name": "Musik / Tanz",
           "examples": "Artistik, Gesang, Instrumentalunterricht",
-          "amount": 510
+          "amount": 919
         },
         {
           "name": "Gesellschaft / Partizipation",
           "examples": "Debattierclub, Ethik, Schülerparlament",
-          "amount": 286
+          "amount": 643
         },
         {
           "name": "Literatur / Medien",
           "examples": "Schülerzeitung, Filmveranstaltungen, Schülerradio",
-          "amount": 435
+          "amount": 736
         },
         {
           "name": "Handwerk",
           "examples": "Fahrradwerkstatt, Hausarbeiten, Holzgestaltung",
-          "amount": 194
+          "amount": 370
         },
         {
           "name": "Kultur / Kunst",
           "examples": "Theater, Kunsterziehung, Seidenmalerei",
-          "amount": 430
+          "amount": 798
         },
         {
           "name": "Naturwissenschaft / Technik",
           "examples": "Informatik, Elektronik, Maschinenschreiben",
-          "amount": 186
+          "amount": 422
         },
         {
           "name": "Berufsorientierung",
           "examples": "Hausaufgabenbetreuung, Begabtenförderung, Schülercafés",
-          "amount": 305
+          "amount": 636
         },
         {
           "name": "Sprachen",
           "examples": "Polnisch, Russisch, Italienisch",
-          "amount": 186
+          "amount": 421
         }
       ],
-      "amount": 707
+      "amount": 1206
     },
     "partner": {
       "entries": [

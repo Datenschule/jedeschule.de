@@ -6,100 +6,106 @@ title: Schulaktivitäten
 description: Schule ist weit mehr als nur Unterricht
 ---
 <main ng-app="App">
-    <section class="container-outer container-bgi-blue">
-        <div class="container">
-            <div class="container-left-8">
-                <h1>Schulaktivitäten</h1>
-                <p>Schule ist weit mehr als nur Unterricht. Potenziale, Persönlichkeit und das Engagement für die
-                    Gesellschaft entwickeln sich vorwiegend außerhalb des Regelbetriebs. Viele Schulen bieten ihren
-                    Schüler*innen deshalb ganz unterschiedliche zukunftsfähige Projekte zu Themen wie Digitalisierung,
-                    neue Arbeitswelten, Klimaschutz oder Demokratie an, die sie gemeinsam mit Partnerorganisationen
-                    aus Politik, Zivilgesellschaft und Wirtschaft umsetzen.
-                </p>
-                <p>
-                    Da die umfangreichsten Daten zu Schulen in Berlin und Sachsen vorliegen, beschränken sich unsere Informationen auf diese Länder. Informieren Sie sich hier über Schulaktivitäten und Partnerschaften der Schulen in Berlin und Sachsen sowie über ausgewählte bundesweite Bildungsprogramme. 
-                </p>
-                <p>
-                    Detaillierte Aktivitäten und Partnerorganisationen der jeweiligen Schulen finden Sie auf den
-                    <a href="{{ site.baseurl }}/schulen/#!?lat=51.699799849741936&lng=13.073730468750002&zoom=7&profile">Schulprofilen</a>
-                    der Länder Berlin und Sachsen.
-                </p>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h3><span>Schulaktivitäten in Berlin</span></h3>
-                </div>
-                <div class="container-left-12">
-                    {% include aktionen/activities.html name='berlin' caption='Berlin'%}
-                    <p class="map-source">
-                    Quelle: <a href="/daten">Daten</a> der Senatsverwaltung für Bildung, Jugend und Familie.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg-grey">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h3><span class="grey">Partnerschaften in Berlin</span></h3>
-                </div>
-                <div class="container-left-12">
-                    {% include aktionen/partner.html name='berlin' caption='Berlin' %}
-                    <p class="map-source">
-                    Quelle: <a href="/daten">Daten</a> der Senatsverwaltung für Bildung, Jugend und Familie.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h3><span>Schulaktivitäten in Sachsen</span></h3>
-                </div>
-                <div class="container-left-12">
-                    {% include aktionen/activities.html name='sachsen' caption='Sachsen' %}
-                    <p class="map-source">
-                    Quelle: <a href="/daten">Daten</a> des Statistischen Landesamts Sachsen.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg-grey">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h3 class="text-center"><span class="grey">Partnerschaften in Sachsen</span></h3>
-                </div>
-                <div class="container-left-12">
-                    {% include aktionen/partner.html name='sachsen' caption='Sachsen' %}
-                    <p class="map-source">
-                    Quelle: <a href="/daten">Daten</a> des Statistischen Landesamts Sachsen.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h3><span>Bundesweite Bildungsprogramme</span></h3>
-                </div>
-                <div class="container-left-12">
-                    <p>
-                  Schulen sind entscheidende Orte für die zukunftsfähige Entwicklung der Gesellschaft. Kooperationen sind eines der wichtigsten Merkmale der Entwicklung von Schulen. Viele Schulen nutzen dazu Bildungsprogramme außerschulischer Partner. Hier können die Schüler*innen ihre Potenziale erproben, erfahrungs- und handlungsorientiertes Lernen erfahren und selbst wirksam werden. Themen wie Demokratie, Nachhaltigkeit, Kultur oder Digitalisierung werden in den verschiedenen Kooperationen mit dem Schulleben verschränkt. Über die unmittelbare Beteiligung der Schüler*innen an der Ausgestaltung wichtiger gesellschaftlicher Herausforderungen wird die Schule zum Ort der gesellschaftlichen Entwicklung. Hier finden Sie eine Auswahl einiger bundesweiter Bildungsprogramme, die detaillierte Angaben zu den teilnehmenden Schulen anbieten.
-                  </p>
-                    {% include aktionen/programs.html %}
-                </div>
-            </div>
-        </div>
-    </section>
+	<section class="container-outer container-bgi-blue">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-8">
+					<h1>Schulaktivitäten</h1>
+					<p>Schule ist weit mehr als nur Unterricht. Potenziale, Persönlichkeit, Selbstständigkeit und das Engagement für die
+						Gesellschaft entwickeln sich vorwiegend außerhalb des Regelbetriebs. Viele Schulen bieten ihren
+						Schüler*innen deshalb ganz unterschiedliche zukunftsfähige Projekte zu Themen wie Digitalisierung,
+						neue Arbeitswelten, Klimaschutz oder Demokratie an, die sie gemeinsam mit Partnerorganisationen
+						aus Politik, Zivilgesellschaft und Wirtschaft umsetzen.
+					</p>
+					<p>
+						Zu den Aktivitäten, Projekten und Partnerschaften liegen derzeit nur Daten aus Berlin und Sachsen vor. Daher beschränken sich unsere Informationen auf diese Länder. Informieren Sie sich hier über Schulaktivitäten und
+						Partnerschaften der Schulen in Berlin und Sachsen sowie über ausgewählte bundesweite Bildungsprogramme.
+					</p>
+					<p>
+						Detaillierte Aktivitäten und Partnerorganisationen der jeweiligen Schulen finden Sie auf den
+						<a href="{{ site.baseurl }}/schulen/#!?lat=51.699799849741936&lng=13.073730468750002&zoom=7&profile">Schulprofilen</a>
+						der Länder Berlin und Sachsen.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-outer">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-12">
+					<h3><span>Schulaktivitäten in Berlin</span></h3>
+				</div>
+				<div class="container-left-12">
+					{% include aktionen/activities.html name='berlin' caption='Berlin'%}
+					<p class="map-source">
+						Quelle: <a href="/daten">Daten</a> der Senatsverwaltung für Bildung, Jugend und Familie.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-outer container-bg-grey">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-12">
+					<h3><span>Partnerschaften in Berlin</span></h3>
+				</div>
+				<div class="container-left-12">
+					{% include aktionen/partner.html name='berlin' caption='Berlin' %}
+					<p class="map-source">
+						Quelle: <a href="/daten">Daten</a> der Senatsverwaltung für Bildung, Jugend und Familie.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-outer">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-12">
+					<h3><span>Schulaktivitäten in Sachsen</span></h3>
+				</div>
+				<div class="container-left-12">
+					{% include aktionen/activities.html name='sachsen' caption='Sachsen' %}
+					<p class="map-source">
+						Quelle: <a href="/daten">Daten</a> des Statistischen Landesamts Sachsen.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-outer container-bg-grey">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-12">
+					<h3 class="text-center"><span>Partnerschaften in Sachsen</span></h3>
+				</div>
+				<div class="container-left-12">
+					{% include aktionen/partner.html name='sachsen' caption='Sachsen' %}
+					<p class="map-source">
+						Quelle: <a href="/daten">Daten</a> des Statistischen Landesamts Sachsen.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-outer">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-12">
+					<h3><span>Bundesweite Bildungsprogramme</span></h3>
+				</div>
+				<div class="container-left-12">
+					<p>
+						Schulen sind entscheidende Orte für die zukunftsfähige Entwicklung der Gesellschaft. Kooperationen sind eines der wichtigsten Merkmale der Entwicklung von Schulen. Viele Schulen nutzen dazu Bildungsprogramme
+						außerschulischer Partner. Hier können die Schüler*innen ihre Potenziale erproben, erfahrungs- und handlungsorientiertes Lernen erfahren und selbst wirksam werden. Themen wie Demokratie, Nachhaltigkeit, Kultur oder
+						Digitalisierung werden in den verschiedenen Kooperationen mit dem Schulleben verschränkt. Über die unmittelbare Beteiligung der Schüler*innen an der Ausgestaltung wichtiger gesellschaftlicher Herausforderungen wird
+						die Schule zum Ort der gesellschaftlichen Entwicklung. Hier finden Sie eine Auswahl einiger bundesweiter Bildungsprogramme, die detaillierte Angaben zu den aktuell teilnehmenden Schulen anbieten.
+					</p>
+					{% include aktionen/programs.html %}
+				</div>
+			</div>
+		</div>
+	</section>
 </main>

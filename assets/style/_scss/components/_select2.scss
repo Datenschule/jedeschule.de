@@ -6,7 +6,7 @@ $selected-active-color: lighten($selected-color, 20%);
 }
 
 .ui-select-container {
-  min-width: 240px;
+  width: 100%;
   font-size: 14px;
 }
 

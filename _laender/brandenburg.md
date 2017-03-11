@@ -4,6 +4,7 @@ layout: laender
 link: /laender/brandenburg/
 js_laender: yes
 url_name: brandenburg
+law: "http://bravors.brandenburg.de/gesetze/bbgschulg_2016#"
 ---
 Introtext zum Schulsystem in Brandenburg
 

@@ -4,6 +4,7 @@ layout: laender
 link: /laender/bayern/
 js_laender: yes
 url_name: bayern
+law: "http://www.gesetze-bayern.de/Content/Pdf/BayEUG?all=True"
 ---
 Introtext zum Schulsystem in Bayern
 

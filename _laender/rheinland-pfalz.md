@@ -4,6 +4,7 @@ layout: laender
 link: /laender/rheinland-pfalz
 js_laender: yes
 url_name: rheinland-pfalz
+law: "https://bm.rlp.de/fileadmin/mbwwk/Publikationen/Bildung/Schulgesetz_2016.pdf"
 ---
 Introtext zum Schulsystem in Rheinland-Pfalz
 

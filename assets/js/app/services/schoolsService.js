@@ -113,7 +113,7 @@ app.factory('schools', function($http) {
         overview: function(cb) {
             if (!loaded_overview) {
                 $http({
-                    url: 'https://lab.okfn.de/jedeschule/all_schools_compact.json',
+                    url: '/assets/data/all_schools_compact.json',
                     method: "GET"
                 })
                 .then(function(response) {

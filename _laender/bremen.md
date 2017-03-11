@@ -4,6 +4,7 @@ layout: laender
 link: /laender/bremen/
 js_laender: yes
 url_name: bremen
+law: "http://www.bildung.bremen.de/sixcms/media.php/13/schulgesetze.pdf"
 ---
 Introtext zum Schulsystem in Bremen
 

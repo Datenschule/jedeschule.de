@@ -4,6 +4,7 @@ layout: laender
 link: /laender/nrw/
 js_laender: yes
 url_name: nordrhein-westfalen
+law: "https://www.schulministerium.nrw.de/docs/Recht/Schulrecht/Schulgesetz/Schulgesetz.pdf"
 ---
 Introtext zum Schulsystem in Nordrhein-Westphalen
 

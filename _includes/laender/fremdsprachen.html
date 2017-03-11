@@ -11,7 +11,7 @@
 			<p class="map-source u-centered">Klicken Sie oben auf die jeweilige Fremdsprache, um zu sehen, wie sich das Spachenangebot auf die einzelnen Schularten verteilt.</p>
 
 			<h5 class="text-center">Anzahl der angeboten Kurse <span ng-if="chart_schools.current">"<span ng-bind="chart_schools.current"></span>"</span> nach Schulart</h5>
-			<chartist ng-show="chart_schools.current" class="ct-chart chartist-foreign-languages chartist-foreign-languages-select" chartist-data="chart_schools.data" chartist-chart-options="chart_schools.options"
+			<chartist ng-show="chart_schools.current" class="ct-chart chartist-foreign-languages chartist-foreign-languages-select" ng-class="chart_schools.class" chartist-data="chart_schools.data" chartist-chart-options="chart_schools.options"
 					  chartist-chart-type="Bar"></chartist>
 		</div>
 	</div>

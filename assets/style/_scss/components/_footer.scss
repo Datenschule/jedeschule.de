@@ -7,7 +7,7 @@ footer {
   color: white;
 
   a {
-    color: white;
+    color: white !important; //mobile safari important bug
   }
 
   h4 {
@@ -23,6 +23,7 @@ footer {
     margin-top: 14px;
     margin-bottom: 0;
     color: white;
+    padding: 5px;
   }
 
   .footer-container-left {
@@ -34,32 +35,8 @@ footer {
     margin-bottom: 0;
   }
 
-  .footer-logo-container {
-    display: inline-block;
-    width: 50%;
-    margin-bottom: 20px;
-    margin-left: 0;
-    margin-right: 0;
-    float: left;
-    text-align: center;
-  }
-
-  .footer-flex {
-    display: flex;
-    align-items: center;
-  }
-
-  .footer-logo {
-    padding-top: 6px;
-    margin-top: 6px;
-    img {
-      width: 220px;
-      height: auto;
-      transition: all 0.3s ease-in-out 0s;
-    }
-  }
   .footer-socials {
-    margin-top:8px;
+    margin-top: 8px;
   }
 
   .footer-social {
@@ -75,7 +52,7 @@ footer {
     color: black;
     transition: all 0.3s ease-in-out 0s;
     &:hover, &:focus, &:active, &.active {
-      background: lighten($base-border-color,25%) none repeat scroll 0 0;
+      background: lighten($base-border-color, 25%) none repeat scroll 0 0;
       border: 2px solid $base-border-color;
     }
   }
@@ -87,28 +64,54 @@ footer {
     padding-right: 0;
   }
 
+  .footer-logo-container {
+    display: inline-block;
+    float: left;
+  }
+  .footer-logo {
+    display: inline-block;
+    text-align: center;
+    padding: 15px;
+    background-color: darken($footer-background-color, 2%);
+    border-radius: 10px;
+    min-height: 91px;
+    margin: 6px 20px 20px 0;
+    img {
+      width: 220px;
+      height: auto;
+      transition: all 0.3s ease-in-out 0s;
+    }
+  }
+
+  .footer-logo-bc {
+    img {
+      margin-top: 19px
+    }
+  }
+
   @include respond-to(small-up) {
     .footer-logo-container {
-      margin-bottom: 4px;
-      text-align: left;
+      width: 50%;
     }
-    .footer-logo {
-      margin-top: 0;
-    }
-
-    .footer-container-left > div:last-of-type .footer-logo-container {
-      margin-top: 16px;
-    }
-
     .footer-credits {
       padding: 0;
     }
   }
 
   @include respond-to(medium-up) {
-    .footer-socials {
-      display:inline-block;
+    .footer-logo-container {
+      width: auto;
     }
+
+    .footer-socials {
+      display: inline-block;
+    }
+  }
+  @include respond-to(large-up) {
+    .footer-logo-container {
+      width: 50%;
+    }
+
   }
 
 }

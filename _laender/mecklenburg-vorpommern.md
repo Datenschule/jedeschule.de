@@ -4,6 +4,7 @@ layout: laender
 link: /laender/mecklenburg-vorpommern/
 js_laender: yes
 url_name: mecklenburg-vorpommern
+law: "http://www.landesrecht-mv.de/jportal/portal/page/bsmvprod.psml?showdoccase=1&st=lr&doc.id=jlr-SchulGMV2010rahmen&doc.part=X&doc.origin=bs"
 ---
 Introtext zum Schulsystem in Mecklenburg-Vorpommern
 

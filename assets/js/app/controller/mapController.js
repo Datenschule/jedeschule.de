@@ -1,4 +1,4 @@
-app.controller('MapController', function($scope, $location, schools, $http) {
+app.controller('MapController', function($scope, $location, schools, $timeout, $http) {
 
     var infoBox = {
         visible: false,
@@ -10,8 +10,11 @@ app.controller('MapController', function($scope, $location, schools, $http) {
     var filter = {
         legal: {
             selected: [],
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
-                if (selected.length == 0) return true;
+                if (!selected || selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     if (selected[i].value === school.legal_status) {
                         return true;
@@ -27,6 +30,9 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         fulltime: {
             selected: false,
+            hasSelected: function(selected) {
+                return selected;
+            },
             match: function(school, selected) {
                 if (!selected) return true;
                 return (selected && school.full_time_school)
@@ -34,6 +40,9 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         profile: {
             selected: false,
+            hasSelected: function(selected) {
+                return selected;
+            },
             match: function(school, selected) {
                 if (!selected) return true;
                 return (selected && school.profile);
@@ -41,8 +50,11 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         types: {
             selected: [],
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
-                if (selected.length == 0) return true;
+                if (!selected || selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     if (selected[i] === school.school_type) {
                         return true;
@@ -54,8 +66,11 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         partner: {
             selected: [],
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
-                if (selected.length == 0) return true;
+                if (!selected || selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     for (var j = 0; j < school.partner.length; j++) {
                         if (school.partner[j] === selected[i]) {
@@ -69,8 +84,11 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         category: {
             selected: [],
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
-                if (selected.length == 0) return true;
+                if (!selected || selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     for (var j = 0; j < school.working_groups.length; j++) {
                         if (school.working_groups[j].category === selected[i]) {
@@ -84,8 +102,11 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         entity: {
             selected: [],
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
-                if (selected.length == 0) return true;
+                if (!selected || selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     for (var j = 0; j < school.working_groups.length; j++) {
                         if (school.working_groups[j].entity === selected[i]) {
@@ -99,8 +120,11 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         state: {
             selected: [],
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
-                if (selected.length == 0) return true;
+                if (!selected || selected.length == 0) return true;
                 for (var i = 0; i < selected.length; i++) {
                     if (school.state === selected[i].value) {
                         return true;
@@ -112,6 +136,9 @@ app.controller('MapController', function($scope, $location, schools, $http) {
         },
         text: {
             selected: '',
+            hasSelected: function(selected) {
+                return selected && selected.length > 0;
+            },
             match: function(school, selected) {
                 if (!selected || selected.length == 0) return true;
                 var searchText = selected.toLowerCase();
@@ -120,7 +147,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
                     foundAddress = true;
                     return true;
                 }
-                return _.includes(school.name.toLowerCase(), searchText) || _.includes(school.id.toLowerCase(), searchText);
+                return _.includes(school.name.toLowerCase(), searchText);// no more id-search (finds some if plz is searched) // || _.includes(school.id.toLowerCase(), searchText);
             }
         }
     };
@@ -128,6 +155,8 @@ app.controller('MapController', function($scope, $location, schools, $http) {
     $scope.filter = filter;
     $scope.infoBox = infoBox;
     $scope.progress = {};
+
+    disablePersist = false;
 
     var allSchools;
 
@@ -145,99 +174,163 @@ app.controller('MapController', function($scope, $location, schools, $http) {
     var laender = {
         "BY": {
             "name": "Bayern",
-            "lat": 49.109837, "lng": 11.359863,
-            "bounds": [[48.011975126709956, 8.486938476562502], [50.190967765585604, 14.100952148437502]],
-            "zoom": 8
+            "lat": 49.109837,
+            "lng": 11.359863,
+            "zoom": 8,
+            "center": [
+                49.101471446147784,
+                11.293945312500002
+            ]
         },
         "BB": {
             "name": "Brandenburg",
-            "lat": 51.815406, "lng": 13.969116,
-            "bounds": [[51.39577839266317, 10.491943359375002], [53.42590083926602, 16.105957031250004]],
-            "zoom": 8
+            "lat": 51.815406,
+            "lng": 13.969116,
+            "zoom": 8,
+            "center": [
+                52.41083961596459,
+                13.298950195312504
+            ]
         },
         "HH": {
             "name": "Hamburg",
-            "lat": 53.556728, "lng": 10.054931,
-            "bounds": [[53.42303672152822, 9.6514892578125], [53.670273405189185, 10.353240966796877]],
-            "zoom": 11
+            "lat": 53.556728,
+            "lng": 10.054931,
+            "zoom": 11,
+            "center": [
+                53.5466550633587,
+                10.002365112304688
+            ]
         },
         "MV": {
             "name": "Mecklenburg-Vorpommern",
-            "lat": 53.761701, "lng": 12.485961,
-            "bounds": [[52.75624323962823, 9.689941406250002], [54.7246201949245, 15.303955078125002]],
-            "zoom": 8
+            "lat": 53.761701,
+            "lng": 12.485961,
+            "zoom": 8,
+            "center": [
+                53.740431717276365,
+                12.496948242187502
+            ]
         },
         "SH": {
             "name": "Schleswig-Holstein",
-            "lat": 54.098060, "lng": 9.9536132,
-            "bounds": [[53.19616119954287, 6.987304687500001], [55.14434917097695, 12.601318359375002]],
-            "zoom": 8
+            "lat": 54.09806,
+            "lng": 9.9536132,
+            "zoom": 8,
+            "center": [
+                54.17025518525991,
+                9.794311523437502
+            ]
         },
         "HB": {
             "name": "Bremen",
-            "lat": 53.090258, "lng": 8.807364,
-            "bounds": [[52.972213782326875, 8.44230651855469], [53.22206865008093, 9.144058227539064]],
-            "zoom": 11
+            "lat": 53.090258,
+            "lng": 8.807364,
+            "zoom": 11,
+            "center": [
+                53.0971412162039,
+                8.793182373046877
+            ]
         },
         "BE": {
             "name": "Berlin",
-            "lat": 52.515803, "lng": 13.39061737060547,
-            "bounds": [[52.387334799335896, 13.057250976562502], [52.64056351447151, 13.759002685546877]],
-            "zoom": 11
+            "lat": 52.515803,
+            "lng": 13.39061737060547,
+            "zoom": 11,
+            "center": [
+                52.513949156903706,
+                13.40812683105469
+            ]
         },
         "NI": {
             "name": "Niedersachsen",
-            "lat": 52.506191, "lng": 10.044250,
-            "bounds": [[51.73723454645786, 6.328125000000001], [53.751958931916384, 11.942138671875]],
-            "zoom": 8
+            "lat": 52.506191,
+            "lng": 10.04425,
+            "zoom": 8,
+            "center": [
+                52.74459673918712,
+                9.1351318359375
+            ]
         },
         "HE": {
             "name": "Hessen",
-            "lat": 50.597186, "lng": 8.948364,
-            "bounds": [[49.49667452747045, 6.009521484375], [51.61119461048402, 11.62353515625]],
-            "zoom": 8
+            "lat": 50.597186,
+            "lng": 8.948364,
+            "zoom": 8,
+            "center": [
+                50.5539345,
+                8.8165283203125
+            ]
         },
         "SL": {
             "name": "Saarland",
-            "lat": 49.371643, "lng": 6.92962646484375,
-            "bounds": [[49.119725490868085, 6.248474121093751], [49.661405669242086, 7.651977539062501]],
-            "zoom": 10
+            "lat": 49.371643,
+            "lng": 6.9296264,
+            "zoom": 10,
+            "center": [
+                49.3905655,
+                6.9502258
+            ]
         },
         "NRW": {
             "name": "Nordrhein-Westfalen",
-            "lat": 51.536085, "lng": 7.498168,
-            "bounds": [[50.38050, 4.64172], [52.45600, 10.25573]],
-            "zoom": 8
+            "lat": 51.536085,
+            "lng": 7.498168,
+            "zoom": 8,
+            "center": [
+                51.41825,
+                7.448725
+            ]
         },
         "TH": {
             "name": "Thüringen",
-            "lat": 50.903032, "lng": 11.005554,
-            "bounds": [[50.448760, 9.54162], [51.49677, 12.34863]],
-            "zoom": 9
+            "lat": 50.903032,
+            "lng": 11.005554,
+            "zoom": 9,
+            "center": [
+                50.972764,
+                10.945125
+            ]
         },
         "BW": {
             "name": "Baden-Württemberg",
-            "lat": 48.574789, "lng": 9.028015136718752,
-            "bounds": [[47.546871, 6.11938], [49.74578, 11.73339]],
-            "zoom": 8
+            "lat": 48.574789,
+            "lng": 9.0280151,
+            "zoom": 8,
+            "center": [
+                48.64632,
+                8.926385
+            ]
         },
         "RP": {
             "name": "Rheinland-Pfalz",
-            "lat": 50.095917, "lng": 7.286682,
-            "bounds": [[48.90444, 4.53186], [51.044847, 10.14587]],
-            "zoom": 8
+            "lat": 50.095917,
+            "lng": 7.286682,
+            "zoom": 8,
+            "center": [
+                49.97464,
+                7.338865
+            ]
         },
         "SN": {
             "name": "Sachsen",
-            "lat": 50.993014, "lng": 13.26599,
-            "bounds": [[50.028916, 10.41503], [52.11999, 16.029052]],
-            "zoom": 8
+            "lat": 50.993014,
+            "lng": 13.26599,
+            "zoom": 8,
+            "center": [
+                51.074453,
+                13.222041
+            ]
         },
         "ST": {
             "name": "Sachsen-Anhalt",
-            "lat": 51.984880, "lng": 11.672973,
-            "bounds": [[50.96880, 8.87695], [53.01808, 14.49096]],
-            "zoom": 8
+            "lat": 51.98488,
+            "lng": 11.672973,
+            "zoom": 8,
+            "center": [
+                51.99344,
+                11.683955
+            ]
         }
     };
 
@@ -320,6 +413,15 @@ app.controller('MapController', function($scope, $location, schools, $http) {
             maxClusterRadius: 40
         });
         markersGroupState.on('clusterclick', onMarkerStateClick);
+        markersGroupState.on('clustermouseover', function(event) {
+            event.layer.my_popup = event.layer.bindPopup("Klicken um auf das Bundesland zu zoomen", {closeButton: false, autoPan: false});
+            event.layer.my_popup.openPopup();
+        });
+        markersGroupState.on('clustermouseout', function(event) {
+            if (event.layer.my_popup) {
+                event.layer.my_popup.closePopup();
+            }
+        });
 
         markersGroup = L.markerClusterGroup({
             chunkedLoading: true,
@@ -335,11 +437,20 @@ app.controller('MapController', function($scope, $location, schools, $http) {
                 }
             }
         });
+        markersGroup.on('clustermouseover', function(event) {
+            event.layer.my_popup = event.layer.bindPopup("Klicken um auf die Schulen zu zoomen", {closeButton: false, autoPan: false});
+            event.layer.my_popup.openPopup();
+        });
+        markersGroup.on('clustermouseout', function(event) {
+            if (event.layer.my_popup) {
+                event.layer.my_popup.closePopup();
+            }
+        });
         markersGroup.on('click', onMarkerClick);
 
-        $http.get("/assets/data/bundeslaender.geojson").then(function (result) {
+        $http.get("/assets/data/bundeslaender.geojson").then(function(result) {
             function onEachFeature(feature, layer) {
-                layer.bindPopup("Für Hessen gibt es leider keine Daten, die wir benutzen dürfen.")
+                layer.bindPopup("Daten aus Hessen sind leider nicht dargestellt, da wir sie nicht verwenden durften.", {autoPan: false});
                 layer.on('mouseover', function(e) {
                     this.openPopup();
                 });
@@ -349,7 +460,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
             }
 
             var myStyle = {
-                "color": "#4a4a4a",
+                "color": "#CFCFCF",
                 "weight": 2,
                 "opacity": 0.3
             };
@@ -365,6 +476,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
     }
 
     function persistState() {
+        if (disablePersist) return;
         var center = map.getCenter();
         var zoom = map.getZoom();
         $location.search('lat', center.lat);
@@ -378,8 +490,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
     function onMarkerStateClick(clusterMarker) {
         var marker = clusterMarker.layer.getAllChildMarkers()[0];
         var land = laender[marker.school.state];
-        map.setZoom(land.zoom);
-        map.fitBounds(land.bounds);
+        map.setView(land.center, land.zoom);
     }
 
     function onMarkerClick(marker) {
@@ -440,7 +551,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
                 })
             }
         }
-        _.each(['types', 'partner', 'entity', 'category'], function(key) {
+        _.each(['types', 'partner', 'entity', 'category', 'state'], function(key) {
             var val = searchParams[key];
             if (val) {
                 if (_.isString(val)) {
@@ -450,14 +561,13 @@ app.controller('MapController', function($scope, $location, schools, $http) {
                 }
             }
         });
-
     }
 
     function persistFilters() {
         $location.search('search_text', (filter.text.selected.length > 0) ? filter.text.selected : null);
         $location.search('fulltime', (filter.fulltime.selected) ? true : null);
         $location.search('profile', (filter.profile.selected) ? true : null);
-        _.each(['types', 'partner', 'entity', 'category'], function(key) {
+        _.each(['types', 'partner', 'entity', 'category', 'state'], function(key) {
             var list_filter = filter[key];
             $location.search(key, (list_filter.selected.length > 0) ? list_filter.selected : null);
         });
@@ -470,9 +580,10 @@ app.controller('MapController', function($scope, $location, schools, $http) {
     }
 
     function doFilter() {
-        function ignoreCase(a,b){
+        function ignoreCase(a, b) {
             return a.localeCompare(b, 'de', {'sensitivity': 'base'})
         }
+
         foundAddress = false;
         var newFilters = {
             types: [],
@@ -509,17 +620,27 @@ app.controller('MapController', function($scope, $location, schools, $http) {
                 });
             }
         });
-        filter.state.defs = newFilters.state.map(function(state) {
-            return {name: laender[state].name, value: state};
-        }).sort(function(a, b) {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-        });
-        filter.entity.defs = newFilters.entity.sort(ignoreCase);
-        filter.category.defs = newFilters.category.sort(ignoreCase);
-        filter.partner.defs = newFilters.partner.sort(ignoreCase);
-        filter.types.defs = newFilters.types.sort(ignoreCase);
+        if (!filter.state.hasSelected(filter.state.selected)) {
+            filter.state.defs = newFilters.state.map(function(state) {
+                return {name: laender[state].name, value: state};
+            }).sort(function(a, b) {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            });
+        }
+        if (!filter.entity.hasSelected(filter.entity.selected)) {
+            filter.entity.defs = newFilters.entity.sort(ignoreCase);
+        }
+        if (!filter.category.hasSelected(filter.category.selected)) {
+            filter.category.defs = newFilters.category.sort(ignoreCase);
+        }
+        if (!filter.partner.hasSelected(filter.partner.selected)) {
+            filter.partner.defs = newFilters.partner.sort(ignoreCase);
+        }
+        if (!filter.types.hasSelected(filter.types.selected)) {
+            filter.types.defs = newFilters.types.sort(ignoreCase);
+        }
     }
 
     var display = function() {
@@ -573,8 +694,8 @@ app.controller('MapController', function($scope, $location, schools, $http) {
 
     $scope.$watchCollection('selected', display);
 
-    $scope.getLegalStatus = function(status){
-        switch (status){
+    $scope.getLegalStatus = function(status) {
+        switch (status) {
             case 0:
                 return "Privat";
             case 1:

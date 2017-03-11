@@ -46,6 +46,7 @@ app.controller('foreignLanguagesController', function($scope, states) {
 
     var chart_schools = {
         current: null,
+        color_index: 0,
         data: {},
         options: {
             height: '200px',
@@ -104,6 +105,8 @@ app.controller('foreignLanguagesController', function($scope, states) {
 
     function showLanguage(lang) {
         if (lang !== chart_schools.current) {
+            chart_schools.color_index = chart_langs.data.labels.indexOf(lang);
+            chart_schools.class = 'chartist-foreign-languages-select-' + chart_schools.color_index;
             if (!chart_schools.current) {
                 chart_schools.current = lang;
                 $scope.$apply();
