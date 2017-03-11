@@ -14,10 +14,10 @@ partnertext: >
     <p>Auf den <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a>
     sehen Sie, mit welchen Partnern die jeweilige Schule kooperiert.</p>
 agtext: >
-    <h5>Die meisten Schulen bieten durchschnittlich (x-sieben) Aktivitäten und Projekte zu mindestens (x-vier) verschiedenen Themen an.</h5>
-    <p>413 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Projekte und Aktivitäten an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt bieten sie knapp (x-2.900) Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
+    <h5>Die meisten Schulen bieten durchschnittlich acht Aktivitäten und Projekte zu mindestens vier verschiedenen Themen an.</h5>
+    <p>413 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Projekte und Aktivitäten an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt bieten sie über 3.300 Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
     <h5>Sportliche Aktivitäten am meisten gefördert.</h5>
-    <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 86%,  gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden. Etwas mehr als die Hälfte (52 %) der Schulen bieten Aktivitäten mit künstlerischem bzw. kulturellen Bezug an. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (8%) ihren Schüler*innen berufsorientierte Angebote an.</p>
+    <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 86%,  gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden. Etwas mehr als die Hälfte (52 %) der Schulen bieten Aktivitäten mit künstlerischem bzw. kulturellen Bezug an. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (5%) ihren Schüler*innen berufsorientierte Angebote an.</p>
     <p>Auf den einzelnen <a href="http://127.0.0.1:4000/schulen/#!?full_time_schools=false&lat=51.699799849741936&lng=13.073730468750002&zoom=7&school_profiles">Schulprofilen</a> sehen Sie, welche Aktivitäten und Projekte die Schulen für ihre Schüler*innen bereithalten.</p>
 ---
 Introtext zum Schulsystem in Bayern
