@@ -1,4 +1,18 @@
+.filter-wrapper {
+  margin-bottom: 20px;
+}
+
 .filter {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  @include respond-to(small-up) {
+    width: 49%;
+    padding-right: 20px;
+  }
+  @include respond-to(medium-up) {
+    width: 33%;
+  }
   p {
     margin: 0;
   }
