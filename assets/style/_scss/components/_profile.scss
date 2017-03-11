@@ -1,3 +1,18 @@
+
+.profile-map-info-box {
+  padding: 0;
+  border-color: #131167;
+  @include respond-to(medium-up) {
+    margin-top: 155px;
+  }
+  ul {
+    margin-left: 20px;
+  }
+  li {
+    margin-bottom: 1.5em;
+  }
+}
+
 #map-profile {
   width:100%;
   height: 100%;
@@ -27,21 +42,6 @@
   margin-top: -16em;
   .box {
     border-color: #131167
-  }
-}
-
-.profile-map-info {
-  margin-top: 6em;
-  .box {
-    padding: 0;
-    border-color: #131167
-  }
-  ul {
-    margin-left: 20px;
-  }
-
-  li {
-    margin-bottom: 1.5em;
   }
 }
 
