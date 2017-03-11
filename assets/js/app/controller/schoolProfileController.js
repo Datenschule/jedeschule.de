@@ -163,7 +163,7 @@ app.controller('schoolProfileController', function($scope, $window, $location, s
     var school_id = $location.absUrl().split('?')[1].split('=')[1];
     schools.getSchool(school_id, function(err, data) {
         $scope.school = data;
-        $window.document.title = $scope.school.name + ' - Schulprofil - jedeschule.de';
+        $window.document.title = $scope.school.name + ' - Schulprofil - JedeSchule.de';
         $scope.working_groups = _.groupBy(data.programs.working_groups, 'category');
         delete $scope.working_groups['no category'];
         $scope.partner = _.groupBy(data.partner, function(o) {

@@ -1,25 +1,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{% if page.menu_home %}{% else %}{{page.title}} - {% endif %}jedeschule.de</title>
+	<title>{% if page.menu_home %}{% else %}{{page.title}} - {% endif %}JedeSchule.de</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{page.description}}">
-	<meta name="author" content="Open Knowledge Foundation Deutschland">
+	<meta name="author" content="JedeSchule.de">
 
 	<meta property="og:url" content="{{site.domain}}{{page.url}}"/>
-	<meta property="og:title" content="jedeschule.de{% if page.menu_home %}{% else %} - {{page.title}}{% endif %}"/>
+	<meta property="og:title" content="JedeSchule.de{% if page.menu_home %}{% else %} - {{page.title}}{% endif %}"/>
 	<meta property="og:description" content="{{page.description}}"/>
 	{% if page.picture & page.picture.src %}
 	<meta property="og:image" content="{{site.domain}}{{page.picture.src}}"/>
 	{% else %}
 	<meta property="og:image" content="{{site.domain}}/assets/img/logo_datenschule_card_white.png"/>
 	{% endif %}
-	<meta property="og:site_name" content="jedeschule.de{% if page.menu_home %}{% else %}: {{page.title}}{% endif %}"/>
+	<meta property="og:site_name" content="JedeSchule.de{% if page.menu_home %}{% else %}: {{page.title}}{% endif %}"/>
 	<meta property="og:type" content="website"/>
 
 	<meta name="twitter:card" content="summary_large_image"/>
-	<meta name="twitter:site" content="@okfde"/>
-	<meta name="twitter:creator" content="@okfde"/>
+	<meta name="twitter:site" content="@datenschule"/>
+	<meta name="twitter:creator" content="@datenschule"/>
 	{% if page.excerpt %}<meta name="twitter:description" content="{{ page.excerpt | markdownify | strip_html | truncatewords: 50 | truncate: 199 }}">
 	{% else if page.description %}<meta name="twitter:description" content="{{ page.description }}">
 	{% else if site.description %}<meta name="twitter:description" content="{{ site.description }}">{% endif %}

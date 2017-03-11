@@ -3,7 +3,7 @@ layout: default
 menu_schulen: yes
 js_schoolprofile: yes
 title: Schulprofil
-description:
+description: Schulprofil auf JedeSchule.de
 ---
 {% raw %}
 <main ng-app="App" ng-app="App" ng-controller="schoolProfileController">
@@ -15,7 +15,6 @@ description:
                     <p>
                         Auf den Schulprofilen informieren wir über das Leitbild der Schule, Schüler*innen- und Lehrer*innenentwicklung sowie über Partnerorganisationen und Schulaktivitäten außerhalb des Unterrichts.
                     </p>
-
                 </div>
             </div>
         </div>
@@ -43,8 +42,8 @@ description:
                         </ul>
                     </div>
                 </div>
-                <div class="container-left-8 profile-map-info">
-                    <div class="box box-margin-top-medium">
+                <div class="container-left-8">
+                    <div class="box profile-map-info-box">
                         <div id="map-profile"></div>
                     </div>
                 </div>
@@ -57,7 +56,7 @@ description:
                 <div class="container-left-12">
                     <h2 class="text-center">Leitbild</h2>
                     <p ng-if="school.concept">{{school.concept}}</p>
-                    <p ng-if="!school.concept">Zum Leitbild dieser Schule sind leider keine Informationen verfügbar.</p>
+                    <p class="u-centered" ng-if="!school.concept">Zum Leitbild dieser Schule sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -74,9 +73,7 @@ description:
                         <chartist class="ct-chart" chartist-data="students_data" chartist-chart-type="Line"
                                   chartist-chart-options="options_students"></chartist>
                     </div>
-                    <p ng-if="(school.profile.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
-
-
+                    <p class="u-centered" ng-if="(school.profile.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -91,7 +88,7 @@ description:
                         <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
                                   chartist-chart-options="teacher_options"></chartist>
                     </div>
-                    <p ng-if="!school.profile.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
+                    <p class="u-centered" ng-if="!school.profile.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -124,7 +121,8 @@ description:
                             </div>
                         </div>
                     </div>
-                    <p ng-if="!partner_stat.length > 0">Zu Partnerschaften sind leider keine Informationen verfügbar.</p>
+                    </div>
+                    <p class="u-centered" ng-if="!partner_stat.length > 0">Zu Partnerschaften sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -134,20 +132,20 @@ description:
             <div class="container">
                 <div class="container-left-12 working_groups">
                     <h2 class="text-center">Schulaktivitäten außerhalb des Unterrichts</h2>
-                </div>
-            </div>
-            <div class="container working_groups profile-partners" ng-if="!(working_groups | isEmpty)">
-                <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="profile-partners-box">
-                    <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
-                        <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
-                        <p class="bold text-center">{{wg_cat}}</p>
-                        <ul>
-                            <li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
-                        </ul>
+                    <div class="container working_groups profile-partners" ng-if="!(working_groups | isEmpty)">
+                        <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="profile-partners-box">
+                            <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
+                                <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
+                                <p class="bold text-center">{{wg_cat}}</p>
+                                <ul>
+                                    <li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
+                    <p class="u-centered" ng-if="(working_groups | isEmpty)">Zu Arbeitsgemeinschaften sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
-            <p ng-if="(working_groups | isEmpty)">Zu Arbeitsgemeinschaften sind leider keine Informationen verfügbar.</p>
         </div>
     </section>
 </main>
