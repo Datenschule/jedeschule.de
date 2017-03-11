@@ -4,6 +4,7 @@ layout: laender
 link: /laender/hamburg/
 js_laender: yes
 url_name: hamburg
+law: "http://www.hamburg.de/contentblob/1995414/data/schulgesetzdownload.pdf"
 ---
 Introtext zum Schulsystem in Hamburg
 

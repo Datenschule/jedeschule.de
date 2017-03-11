@@ -4,6 +4,7 @@ layout: laender
 link: /laender/hessen/
 js_laender: yes
 url_name: hessen
+law: "http://www.lexsoft.de/share/pdf/a8a3c966-6948-4e1a-9483-d271dd56fe71.pdf"
 ---
 Introtext zum Schulsystem in Hessen
 

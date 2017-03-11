@@ -4,6 +4,7 @@ layout: laender
 link: /laender/thueringen/
 js_laender: yes
 url_name: thueringen
+law: "http://apps.thueringen.de/de/publikationen/pic/pubdownload1230.pdf"
 ---
 Introtext zum Schulsystem in Thüringen
 

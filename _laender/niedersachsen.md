@@ -4,6 +4,7 @@ layout: laender
 link: /laender/niedersachsen/
 js_laender: yes
 url_name: niedersachsen
+law: "www.mk.niedersachsen.de/download/92654+&cd=3&hl=de&ct=clnk&gl=de"
 ---
 Introtext zum Schulsystem in Niedersachsen
 
