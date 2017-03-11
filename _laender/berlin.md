@@ -11,7 +11,7 @@ partnertext: >
     <p>Dabei sind es insbesondere die Grundschulen und Integrierten Sekundarschulen, die mit gemeinnützigen Akteur*innen kooperieren. So kommen auf Grundschulen durchschnittlich (x-drei) Partnerschaften, auf Integrierte Sekundarschulen (x-3,6). Im Vergleich dazu gehen Gymnasien durchschnittlich (x-1,6) Partnerschaften mit gemeinnützigen Akteur*innen ein.</p>
     <h5>Partnerschaften zwischen Schulen finden besonders an Gymnasien statt.</h5>
     <p>Obwohl es in Berlin fast doppelt so viele Grundschulen wie Gymnasien gibt, werden (x-68%) der (x-246) Partnerschaften zwischen Schulen an Gymnasien angeboten. Diese finden international oder mit Schulen aus dem Bundesgebiet statt. (x-11%) dieser Partnerschaften finden an Grundschulen statt, (x-15%) an integrierten Sekundarschulen. Der Rest verteilt sich auf Fachschulen (x-3%), Förderschulen (x-1%) sowie Berufsschulen und Freie Waldorfschulen (jeweils knapp 1%)</p>
-    <p>Auf den <a href="{{ site.baseurl }}/schulen/#!?lat=51.699799849741936&lng=13.073730468750002&zoom=7&profiles">Schulprofilen</a>
+    <p>Auf den <a href="{{ site.baseurl }}/schulen/#!?lat=51.699799849741936&lng=13.073730468750002&zoom=7&profile">Schulprofilen</a>
     sehen Sie, mit welchen Partnern die jeweilige Schule kooperiert.</p>
 agtext: >
     <h5>Die meisten Schulen bieten durchschnittlich acht Aktivitäten und Projekte zu mindestens vier verschiedenen Themen an.</h5>
