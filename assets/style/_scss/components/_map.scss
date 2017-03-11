@@ -3,23 +3,23 @@ $height: 38rem;
 #map-container {
   border: 1px solid #666;
   margin-bottom: 20px;
-}
-
-#map, #map-container, .overlay {
   height: $height;
   z-index: 10;
   position: relative;
+  margin-right: 20px; // leave mobile users some space to scroll despite of map
+
+  @include respond-to(medium-up) {
+    margin-right: 0;
+  }
 }
 
-#map, .overlay {
+#map {
+  z-index: 10;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-}
-
-#map {
   background-color: white;
 }
 
@@ -29,18 +29,42 @@ $height: 38rem;
   text-align: center;
   padding-top: 20%;
   font-size: 4em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #slider {
-  //position: absolute;
-  //width: 15em;
-  //height: 38rem;
-  //background: blue;
-  //#transform: translateX(-100%);
-  //#-webkit-transform: translateX(-100%);
+  border: 2px solid $popup-border-color;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-left: 10px;
   z-index: 20;
   max-height: $height;
+  max-width: 75%;
   overflow-y: auto;
+  padding-bottom: 5px;
+}
+
+.map-info {
+  margin: 10px 20px 0;
+
+  h4 {
+    margin-top: 0;
+  }
+
+  .close-button {
+    float: right;
+    margin-right: -10px;
+    //margin-top: -10px;
+    cursor: pointer;
+    color: $popup-border-color;
+    &:hover {
+      color: lighten($popup-border-color, 20%);
+    }
+  }
 }
 
 .animate-hide {
@@ -60,10 +84,6 @@ $height: 38rem;
   left: -100%;
   opacity: 0;
   padding: 0 10px;
-}
-
-.map-info {
-  margin: 30px 30px 0 30px;
 }
 
 .map-source {
