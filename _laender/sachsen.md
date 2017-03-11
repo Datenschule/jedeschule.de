@@ -17,6 +17,7 @@ agtext: >
     <p>In Sachsen liegen die meisten Angebote im sportlichen Bereich mit (x-88%), dicht gefolgt von den musikalischen, die an rund (x-76%) der Schulen angeboten werden.  (x-897) der (x-1330) Schulen (x-67%) fördert Partizipation und gesellschaftliches Engagement, durch z.B. Schüler*innenparlament, Schüler*innenaustausch und Ersthelfer*innen-Schulungen. Naturwissenschaftliche Aktivitäten werden von  (x-782) Schulen (x-58%) der Schulen angeboten. Nur ein geringer Anteil der Schulen (x-15% bzw. x-200 Schulen) bietet ihren Schüler*innen Aktivitäten zu den Themen Literatur und Medien an.</p>
     <p>Auf den <a href="{{ site.baseurl }}/schulen/#!?lat=51.699799849741936&lng=13.073730468750002&zoom=7&profiles">Schulprofilen</a>
     sehen Sie, mit welchen Partnern die jeweilige Schule kooperiert.</p>
+law: "https://www.recht.sachsen.de/vorschrift_gesamt/4192/26826.pdf"
 ---
 Introtext zum Schulsystem in Sachsen
 

@@ -19,6 +19,7 @@ agtext: >
     <h5>Sportliche Aktivitäten am meisten gefördert.</h5>
     <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 86%,  gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden. Etwas mehr als die Hälfte (52 %) der Schulen bieten Aktivitäten mit künstlerischem bzw. kulturellen Bezug an. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (5%) ihren Schüler*innen berufsorientierte Angebote an.</p>
     <p>Auf den einzelnen <a href="{{ site.baseurl }}/schulen/#!?lat=51.699799849741936&lng=13.073730468750002&zoom=7&profiles">Schulprofilen</a> sehen Sie, welche Aktivitäten und Projekte die Schulen für ihre Schüler*innen bereithalten.</p>
+law: "http://gesetze.berlin.de/jportal/?quelle=jlink&query=SchulG+BE&psml=bsbeprod.psml&max=true&aiz=true"
 ---
 Introtext zum Schulsystem in Bayern
 

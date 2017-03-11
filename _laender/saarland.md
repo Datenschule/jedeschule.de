@@ -4,6 +4,7 @@ layout: laender
 link: /laender/saarland
 js_laender: yes
 url_name: saarland
+law: "http://www.saarland.de/dokumente/thema_justiz/223-2.pdf"
 ---
 Introtext zum Schulsystem im Saarland
 

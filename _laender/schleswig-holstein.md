@@ -4,6 +4,7 @@ layout: laender
 link: /laender/schleswig-holstein/
 js_laender: yes
 url_name: schleswig-holstein
+law: "http://www.gesetze-rechtsprechung.sh.juris.de/jportal/portal/t/10w4/page/bsshoprod.psml/screen/JWPDFScreen/filename/SchulG_SH_2007.pdf"
 ---
 Introtext zum Schulsystem in Schleswig-Holstein
 
