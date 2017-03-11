@@ -7,7 +7,7 @@ footer {
   color: white;
 
   a {
-    color: white;
+    color: white !important; //mobile safari important bug
   }
 
   h4 {
