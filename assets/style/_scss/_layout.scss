@@ -250,8 +250,8 @@
 .container-padded {
   padding-left: $base-padding;
   padding-right: $base-padding;
-  padding-bottom: $base-padding;
-  padding-top: $base-padding / 2;
+  padding-bottom: $base-padding-large;
+  padding-top: $base-padding-large;
 
   @include respond-to(medium-up) {
     padding-bottom: $base-padding-extra;
@@ -271,6 +271,13 @@
 .container-margin {
   margin-bottom: $base-padding-extra;
   margin-top: $base-padding-extra;
+}
+
+.container-no-margin {
+  margin: 0;
+}
+.container-no-padding {
+  margin: 0;
 }
 
 .container-wrap-row {
