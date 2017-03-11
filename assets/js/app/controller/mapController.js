@@ -339,7 +339,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
 
         $http.get("/assets/data/bundeslaender.geojson").then(function (result) {
             function onEachFeature(feature, layer) {
-                layer.bindPopup("Für Hessen gibt es leider keine Daten, die wir benutzen dürfen.")
+                layer.bindPopup("Daten aus Hessen sind leider nicht dargestellt, da wir sie nicht verwenden durften.")
                 layer.on('mouseover', function(e) {
                     this.openPopup();
                 });
