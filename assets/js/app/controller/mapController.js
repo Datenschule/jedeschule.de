@@ -349,7 +349,7 @@ app.controller('MapController', function($scope, $location, schools, $http) {
             }
 
             var myStyle = {
-                "color": "#4a4a4a",
+                "color": "#CFCFCF",
                 "weight": 2,
                 "opacity": 0.3
             };
