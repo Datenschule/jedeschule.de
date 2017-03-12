@@ -30,8 +30,6 @@ description: Schulprofil auf JedeSchule.de
                             <li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
                             <li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status}}</li>
                             <li ng-if="school.website"><strong>Webseite:</strong><a href="{{school.website}}" target="_blank"> Link</a></li>
-                            <li ng-if="school.email"><strong>Email:</strong> {{school.email}}</li>
-
                         </ul>
                         <h5>Kontakt</h5>
                         <ul>
@@ -70,7 +68,7 @@ description: Schulprofil auf JedeSchule.de
             <div class="container">
                 <div class="container-left-12">
                     <h2 class="text-center">Schüler*innen</h2>
-                    <div ng-if="!(school.profile.students | isEmpty)">
+                    <div ng-if="!(school.students | isEmpty)">
                         <p>
                             Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule.
                         </p>
@@ -87,7 +85,7 @@ description: Schulprofil auf JedeSchule.de
             <div class="container">
                 <div class="container-left-12">
                     <h2 class="text-center">Lehrer*innen</h2>
-                    <div ng-if="school.profile.teacher.length > 0">
+                    <div ng-if="school.teacher.length > 0">
                         <p>Informieren Sie sich über den zeitlichen Anteil der Lehrenden dieser Schule.</p>
                         <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
                                   chartist-chart-options="teacher_options"></chartist>

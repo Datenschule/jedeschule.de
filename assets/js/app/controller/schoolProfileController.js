@@ -176,8 +176,8 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
         for (var partner in $scope.partner) {
             $scope.partner_stat.push({name: partner, value: $scope.partner[partner].length * 100 / number_of_partners})
         }
-        $scope.students_data = Object.keys(data.profile.students).map(function(o) {
-            var current = data.profile.students[o];
+        $scope.students_data = Object.keys(data.students).map(function(o) {
+            var current = data.students[o];
             return {
                 amount: _.sumBy(current, function(n) {
                     return n.male + n.female
@@ -192,7 +192,7 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
             series: [_.map($scope.students_data, 'amount')]
         };
 
-        $scope.teacher_data = _.map(data.profile.teacher, function(o) {
+        $scope.teacher_data = _.map(data.teacher, function(o) {
             return {amount: o.female + o.male, year: o.year}
         });
         $scope.teacher_data = {
