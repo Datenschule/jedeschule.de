@@ -1,4 +1,4 @@
-app.controller('schoolProfileController', function($scope, $window, $location, schools) {
+app.controller('schoolProfileController', function($scope, $window, $location, $timeout, schools) {
     $scope.chartType = 'Line';
 
     $scope.students_data = {};
@@ -158,7 +158,9 @@ app.controller('schoolProfileController', function($scope, $window, $location, s
         'Verband / Kammer / Innung / Gewerkschaft': {
             color: '#30C5E2'
         }
-    }
+    };
+
+    var conceptElement = null;
 
     var school_id = $location.absUrl().split('?')[1].split('=')[1];
     schools.getSchool(school_id, function(err, data) {
@@ -202,6 +204,9 @@ app.controller('schoolProfileController', function($scope, $window, $location, s
 
         L.marker([$scope.school.lat, $scope.school.lon], {icon: mapIcon}).addTo($scope.map);
         $scope.map.setView([$scope.school.lat, $scope.school.lon], 15);
+        $timeout(function() {
+            checkConceptHeight();
+        }, 0)
     });
 
     $scope.map = L.map('map-profile', {zoomControl: false}).setView([51.505, -0.09], 13);
@@ -220,4 +225,35 @@ app.controller('schoolProfileController', function($scope, $window, $location, s
     $scope.map.boxZoom.disable();
     $scope.map.keyboard.disable();
     if ($scope.map.tap) $scope.map.tap.disable();
+
+    $scope.concecpt_needs_collapsing = false;
+    $scope.concecpt_expanded = false;
+
+    function checkConceptHeight() {
+        if (!conceptElement) return;
+        var h = conceptElement[0].clientHeight;
+        $scope.concecpt_needs_collapsing = (h > 290);
+    }
+
+    var ele = document.querySelector('#profile-concept');
+    if (ele) {
+        conceptElement = angular.element(ele);
+        if (conceptElement[0]) {
+            var w = angular.element($window);
+            $scope.$watch(
+                function() {
+                    return $window.innerWidth;
+                },
+                function() {
+                    checkConceptHeight();
+                },
+                true
+            );
+            w.bind('resize', function() {
+                $scope.$apply();
+            });
+        }
+    }
+
 });
+
