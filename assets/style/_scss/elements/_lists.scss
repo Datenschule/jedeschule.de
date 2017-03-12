@@ -12,6 +12,21 @@ ol {
   }
 }
 
+.wrap-list {
+  text-align: center;
+  li {
+    display: inline-block;
+    margin-right: 12px;
+  }
+
+  @include respond-to(medium-up) {
+    text-align: left;
+    li {
+      display: block;
+    }
+  }
+}
+
 .list-unstyled {
   list-style-type: none;
   padding-left: 0;

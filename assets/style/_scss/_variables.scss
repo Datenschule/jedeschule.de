@@ -56,7 +56,7 @@ $small-border-radius: 3px;
 
 $border-grey: #c9c9da;
 
-$form-border-color: $border-grey;//$base-border-color;
+$form-border-color: $border-grey; //$base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
 $form-border-radius: $base-border-radius;
 $form-box-shadow-focus: 0 0 0 2px $form-border-color-hover;
@@ -82,6 +82,7 @@ $chart-color13: #a16a76;
 
 $chart-color0: #ececec; //use for "disabled"
 $chart-color-pie: #a7ccd8;
+$chart-color-selected: $chart-color7;
 
 $chart-colors: $chart-color1, $chart-color2, $chart-color3, $chart-color4, $chart-color5, $chart-color6,
-$chart-color7, $chart-color8, $chart-color9, $chart-color10, $chart-color11, $chart-color12,$chart-color13;
+$chart-color7, $chart-color8, $chart-color9, $chart-color10, $chart-color11, $chart-color12, $chart-color13;
