@@ -10,6 +10,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
     var filter = {
         legal: {
             selected: [],
+            no_selection: [],
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -30,6 +31,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         fulltime: {
             selected: false,
+            no_selection: false,
             hasSelected: function(selected) {
                 return selected;
             },
@@ -40,6 +42,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         profile: {
             selected: false,
+            no_selection: false,
             hasSelected: function(selected) {
                 return selected;
             },
@@ -50,6 +53,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         types: {
             selected: [],
+            no_selection: [],
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -66,6 +70,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         partner: {
             selected: [],
+            no_selection: [],
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -84,6 +89,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         category: {
             selected: [],
+            no_selection: [],
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -102,6 +108,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         entity: {
             selected: [],
+            no_selection: [],
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -120,6 +127,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         state: {
             selected: [],
+            no_selection: [],
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -136,6 +144,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         },
         text: {
             selected: '',
+            no_selection: '',
             hasSelected: function(selected) {
                 return selected && selected.length > 0;
             },
@@ -153,10 +162,10 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
     };
 
     $scope.filter = filter;
+    $scope.hasFilter = false;
     $scope.infoBox = infoBox;
+    $scope.totalCount = 0;
     $scope.progress = {};
-
-    disablePersist = false;
 
     var allSchools;
 
@@ -348,10 +357,33 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
                 return school.lat && school.lon;
             });
 
+            var newFilters = {
+                types: [],
+                partner: [],
+                category: [],
+                state: [],
+                entity: []
+            };
             _.forEach(allSchools, function(school) {
                 school.coord = L.latLng(school.lat, school.lon);
                 school.coord_state = L.latLng(laender[school.state]);
+
+                if (newFilters.types.indexOf(school.school_type) < 0)
+                    newFilters.types.push(school.school_type);
+                if (newFilters.state.indexOf(school.state) < 0)
+                    newFilters.state.push(school.state);
+                _.each(school.partner, function(p) {
+                    if (p.length > 0 && newFilters.partner.indexOf(p) < 0)
+                        newFilters.partner.push(p);
+                });
+                _.each(school.working_groups, function(g) {
+                    if (newFilters.category.indexOf(g.category) < 0)
+                        newFilters.category.push(g.category);
+                    if (newFilters.entity.indexOf(g.entity) < 0)
+                        newFilters.entity.push(g.entity);
+                });
             });
+            applyNewFilterDefs(newFilters, true);
 
             var mapIcon = L.icon({
                 iconUrl: '/assets/img/map_pin.png',
@@ -381,6 +413,34 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
 
             display();
         });
+    }
+
+    function applyNewFilterDefs(newFilters, force) {
+        function ignoreCase(a, b) {
+            return a.localeCompare(b, 'de', {'sensitivity': 'base'})
+        }
+
+        if (force || !filter.state.hasSelected(filter.state.selected)) {
+            filter.state.defs = newFilters.state.map(function(state) {
+                return {name: laender[state].name, value: state};
+            }).sort(function(a, b) {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            });
+        }
+        if (force || !filter.entity.hasSelected(filter.entity.selected)) {
+            filter.entity.defs = newFilters.entity.sort(ignoreCase);
+        }
+        if (force || !filter.category.hasSelected(filter.category.selected)) {
+            filter.category.defs = newFilters.category.sort(ignoreCase);
+        }
+        if (force || !filter.partner.hasSelected(filter.partner.selected)) {
+            filter.partner.defs = newFilters.partner.sort(ignoreCase);
+        }
+        if (force || !filter.types.hasSelected(filter.types.selected)) {
+            filter.types.defs = newFilters.types.sort(ignoreCase);
+        }
     }
 
     function initMap(lat, lng, zoom) {
@@ -476,7 +536,6 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
     }
 
     function persistState() {
-        if (disablePersist) return;
         var center = map.getCenter();
         var zoom = map.getZoom();
         $location.search('lat', center.lat);
@@ -528,6 +587,24 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         }
     }
 
+
+    function removeHash() {
+        var scrollV, scrollH, loc = window.location;
+        if ("pushState" in history)
+            history.pushState("", document.title, loc.pathname + loc.search);
+        else {
+            // Prevent scrolling by storing the page's current scroll offset
+            scrollV = document.body.scrollTop;
+            scrollH = document.body.scrollLeft;
+
+            loc.hash = "";
+
+            // Restore the scroll offset, should be flicker free
+            document.body.scrollTop = scrollV;
+            document.body.scrollLeft = scrollH;
+        }
+    }
+
     function restoreFilters() {
         var searchParams = $location.search();
         if (searchParams.fulltime && searchParams.fulltime !== "false") {
@@ -551,7 +628,22 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
                 })
             }
         }
-        _.each(['types', 'partner', 'entity', 'category', 'state'], function(key) {
+        if (searchParams.state) {
+            var val = searchParams.state;
+            if (val) {
+                val = _.isString(val) ? [val] : val;
+                filter.state.selected = [];
+                _.each(val, function(v) {
+                    var key = Object.keys(laender).filter(function(key) {
+                        return laender[key].name == v;
+                    })[0];
+                    if (key) {
+                        filter.state.selected.push({name: v, value: key});
+                    }
+                })
+            }
+        }
+        _.each(['types', 'partner', 'entity', 'category'], function(key) {
             var val = searchParams[key];
             if (val) {
                 if (_.isString(val)) {
@@ -567,23 +659,23 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         $location.search('search_text', (filter.text.selected.length > 0) ? filter.text.selected : null);
         $location.search('fulltime', (filter.fulltime.selected) ? true : null);
         $location.search('profile', (filter.profile.selected) ? true : null);
-        _.each(['types', 'partner', 'entity', 'category', 'state'], function(key) {
+        _.each(['types', 'partner', 'entity', 'category'], function(key) {
             var list_filter = filter[key];
             $location.search(key, (list_filter.selected.length > 0) ? list_filter.selected : null);
         });
         $location.search('legal', (filter.legal.selected.length > 0) ? _.map(filter.legal.selected, function(item) {
                 return item.name;
             }) : null);
-        if (!$scope.$$phase) {
-            $scope.$apply();
+        $location.search('state', (filter.state.selected.length > 0) ? _.map(filter.state.selected, function(item) {
+                return item.name;
+            }) : null);
+        if (Object.keys($location.search()).length === 0) {
+            //removing all search parameters leads to "/schulen/#", this is causing an unwanted page scroll, so remove the hash
+            removeHash();
         }
     }
 
     function doFilter() {
-        function ignoreCase(a, b) {
-            return a.localeCompare(b, 'de', {'sensitivity': 'base'})
-        }
-
         foundAddress = false;
         var newFilters = {
             types: [],
@@ -592,6 +684,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
             state: [],
             entity: []
         };
+        var count = 0;
         _.each(allSchools, function(school) {
             school.visible =
                 filter.legal.match(school, filter.legal.selected) &&
@@ -604,6 +697,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
                 filter.text.match(school, filter.text.selected) &&
                 filter.entity.match(school, filter.entity.selected);
             if (school.visible) {
+                count++;
                 if (newFilters.types.indexOf(school.school_type) < 0)
                     newFilters.types.push(school.school_type);
                 if (newFilters.state.indexOf(school.state) < 0)
@@ -620,27 +714,12 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
                 });
             }
         });
-        if (!filter.state.hasSelected(filter.state.selected)) {
-            filter.state.defs = newFilters.state.map(function(state) {
-                return {name: laender[state].name, value: state};
-            }).sort(function(a, b) {
-                if (a.name < b.name) return -1;
-                if (a.name > b.name) return 1;
-                return 0;
-            });
-        }
-        if (!filter.entity.hasSelected(filter.entity.selected)) {
-            filter.entity.defs = newFilters.entity.sort(ignoreCase);
-        }
-        if (!filter.category.hasSelected(filter.category.selected)) {
-            filter.category.defs = newFilters.category.sort(ignoreCase);
-        }
-        if (!filter.partner.hasSelected(filter.partner.selected)) {
-            filter.partner.defs = newFilters.partner.sort(ignoreCase);
-        }
-        if (!filter.types.hasSelected(filter.types.selected)) {
-            filter.types.defs = newFilters.types.sort(ignoreCase);
-        }
+        $scope.hasFilter = Object.values(filter).filter(function(f) {
+                return f.hasSelected(f.selected);
+            }).length > 0;
+        $scope.totalCount = count;
+        applyNewFilterDefs(newFilters, false);
+
     }
 
     var display = function() {
@@ -666,6 +745,10 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
             map.fitBounds(layer.getBounds());
         }
         searchedForText = false;
+
+        if (!$scope.$$phase) {
+            $scope.$apply();
+        }
     };
 
     $scope.closeSlider = function() {
@@ -689,11 +772,16 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         'filter.state.selected',
         'filter.text.selected'
     ], function() {
-        setTimeout(display, 200);
+        $timeout(display, 200);
     });
 
-    $scope.$watchCollection('selected', display);
+    // $scope.$watchCollection('selected', display);
 
+    $scope.clearFilters = function() {
+        Object.values(filter).forEach(function(f) {
+            f.selected = f.no_selection;
+        })
+    };
     $scope.getLegalStatus = function(status) {
         switch (status) {
             case 0:

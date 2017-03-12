@@ -10,7 +10,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 		<div class="container-padded">
 			<div class="container-left-8">
 				<h1>Schulen</h1>
-				<p>Über die Karte können Sie sich einen Überblick zu rund 32.000 allgemeinbildenden Schulen in Deutschland verschaffen. Schulaktivitäten und -projekte werden für jede Schule als „Schulprofile” detailliert dargestellt.<br>
+				<p>Über die Karte können Sie sich einen Überblick zu rund 30.000 allgemeinbildenden Schulen in Deutschland verschaffen. Schulaktivitäten und -projekte werden für jede Schule als „Schulprofile” detailliert dargestellt.<br>
 					Aktuell (Stand: 15.03.2017) liegen uns Daten für Berlin und Sachsen vor.<br>
 					Die Daten stammen überwiegend aus den zugänglichen Schulverzeichnissen der Statistischen Landesämter, zu den <a href="/daten">Einzelnachweisen</a>. Da sich die Qualität der vorliegenden Informationen in den Ländern
 					unterscheidet, sind nicht alle Schulinformationen vollständig erfasst.
@@ -87,6 +87,10 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 						<label class="checkbox-label"><input ng-model="filter.fulltime.selected" type="checkbox"/> <strong>Ganztagsschulen</strong></label>
 					</div>
 				</div>
+				<div>
+					<span ng-bind="totalCount"></span> Schule<span ng-if="totalCount!==1">n</span> in Auswahl
+					<small ng-if="hasFilter" class="pull-right clickable" ng-click="clearFilters()"><i class="fa fa-close"></i>Alle Filter entfernen</small>
+				</div>
 				<div id="slider" class="animate-hide" ng-hide="!infoBox.visible">
 					<div class="map-info" ng-hide="!infoBox.loading">
 						<span class="close-button" ng-click="closeSlider()"><i class="fa fa-close"></i></span>
@@ -116,6 +120,23 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 					<div ng-show="progress.total !== progress.current" class="overlay">
 						<progress max="{{progress.total}}" value="{{progress.current}}"></progress>
 					</div>
+				</div>
+				<div class="map-legend">
+					Gruppierung:
+					<div>
+						<div class="map-legend-color marker-cluster-small"></div>
+						< 10 Schulen
+					</div>
+					<div>
+						<div class="map-legend-color marker-cluster-medium"></div>
+						< 100 Schulen
+					</div>
+					<div>
+						<div class="map-legend-color marker-cluster-large"></div>
+						< 1000 Schulen
+					</div>
+
+
 				</div>
 				{% endraw %}
 			</div>

@@ -89,3 +89,16 @@ $height: 38rem;
 .map-source {
   font-size: 0.9em;
 }
+
+.map-legend {
+  font-size: 0.9em;
+  > div {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  .map-legend-color {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+  }
+}
