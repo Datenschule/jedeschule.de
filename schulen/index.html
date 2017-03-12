@@ -87,6 +87,10 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 						<label class="checkbox-label"><input ng-model="filter.fulltime.selected" type="checkbox"/> <strong>Ganztagsschulen</strong></label>
 					</div>
 				</div>
+				<div>
+					<span ng-bind="totalCount"></span> Schule<span ng-if="totalCount!==1">n</span> in Auswahl
+					<small ng-if="hasFilter" class="pull-right clickable" ng-click="clearFilters()"><i class="fa fa-close"></i>Alle Filter entfernen</small>
+				</div>
 				<div id="slider" class="animate-hide" ng-hide="!infoBox.visible">
 					<div class="map-info" ng-hide="!infoBox.loading">
 						<span class="close-button" ng-click="closeSlider()"><i class="fa fa-close"></i></span>
