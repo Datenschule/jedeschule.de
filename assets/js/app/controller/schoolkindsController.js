@@ -46,13 +46,6 @@ app.controller('schoolkindsController', function ($scope,  $location, states) {
                                 return data.y2 - 5
                             }
                         }
-                    }),
-                    Chartist.plugins.tooltip({
-                        appendToBody: true,
-                        anchorToPoint: true
-                        // transformTooltipTextFnc: function(value) {
-                        //     return parseInt(value, 10).toFixed(0) + ' ';
-                        // }
                     })
                 ]
             };
