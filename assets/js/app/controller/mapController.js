@@ -714,7 +714,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
                 });
             }
         });
-        $scope.hasFilter = Object.values(filter).filter(function(f) {
+        $scope.hasFilter = _.values(filter).filter(function(f) {
                 return f.hasSelected(f.selected);
             }).length > 0;
         $scope.totalCount = count;
@@ -778,7 +778,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
     // $scope.$watchCollection('selected', display);
 
     $scope.clearFilters = function() {
-        Object.values(filter).forEach(function(f) {
+        _.values(filter).forEach(function(f) {
             f.selected = f.no_selection;
         })
     };

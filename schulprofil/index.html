@@ -69,13 +69,11 @@ description: Schulprofil auf JedeSchule.de
                 <div class="container-left-12">
                     <h2 class="text-center">Schüler*innen</h2>
                     <div ng-if="!(school.students | isEmpty)">
-                        <p>
-                            Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule.
-                        </p>
+                        <p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule.</p>
                         <chartist class="ct-chart" chartist-data="students_data" chartist-chart-type="Line"
                                   chartist-chart-options="options_students"></chartist>
                     </div>
-                    <p class="u-centered" ng-if="(school.profile.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
+                    <p class="u-centered" ng-if="(school.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>
@@ -86,11 +84,11 @@ description: Schulprofil auf JedeSchule.de
                 <div class="container-left-12">
                     <h2 class="text-center">Lehrer*innen</h2>
                     <div ng-if="school.teacher.length > 0">
-                        <p>Informieren Sie sich über den zeitlichen Anteil der Lehrenden dieser Schule.</p>
+                        <p class="u-centered">Informieren Sie sich über den zeitlichen Anteil der Lehrenden dieser Schule.</p>
                         <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
                                   chartist-chart-options="teacher_options"></chartist>
                     </div>
-                    <p class="u-centered" ng-if="!school.profile.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
+                    <p class="u-centered" ng-if="!school.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>
         </div>

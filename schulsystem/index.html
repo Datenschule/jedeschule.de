@@ -34,9 +34,9 @@ description: Schularten in den Bundesländer
 				{% include svg/germany-topo.svg %}
 			</div>
 			<div class="container-left-6">
-				<ul>
+				<ul class="wrap-list list-unstyled">
 					{% for state in site.laender %}
-					<li class="list-inline"><a href="{{state.link}}">{{state.name}}</a></li>
+					<li><a href="{{state.link}}">{{state.name}}</a></li>
 					{% endfor %}
 				</ul>
 			</div>

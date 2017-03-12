@@ -1,7 +1,7 @@
 ---
 name: Nordrhein-Westphalen
 layout: laender
-link: /laender/nrw/
+link: /laender/nordrhein-westfalen/
 js_laender: yes
 url_name: nordrhein-westfalen
 law: "https://www.schulministerium.nrw.de/docs/Recht/Schulrecht/Schulgesetz/Schulgesetz.pdf"
