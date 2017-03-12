@@ -25,17 +25,25 @@ description: Schulprofile auf JedeSchule.de
 	<section class="container-outer">
 		<div class="container-padded">
 			<div class="container">
-				<table st-table="displayedCollection" st-safe-src="schools" class="table table-condensed table-bordered">
+				<table st-table="displayedCollection" st-filtered-collection st-safe-src="schools" class="table table-condensed table-bordered">
 					<thead>
 					<tr>
+						<td colspan="6">
+							<h4>Suchen und Filtern</h4>
+						</td>
+					</tr>
+					<tr>
 						<th colspan="2">
-							<input st-search="id" placeholder="Schul-ID suchen…" class="table-control" type="search"/>
+							<input st-search="id" placeholder="Schul-ID…" class="table-control" type="search"/>
 						</th>
 						<th>
-							<input st-search="name" placeholder="Name suchen…" class="table-control" type="search"/>
+							<input st-search="name" placeholder="Name…" class="table-control" type="search"/>
 						</th>
 						<th>
-							<input st-search="address" placeholder="PLZ suchen…" class="table-control" type="search"/>
+							<input st-search="school_type" placeholder="Schulart…" class="table-control" type="search"/>
+						</th>
+						<th>
+							<input st-search="address" placeholder="PLZ…" class="table-control" type="search"/>
 						</th>
 						<th>
 							<select st-search="state" class="table-control">
@@ -43,22 +51,19 @@ description: Schulprofile auf JedeSchule.de
 								<option ng-repeat="school in schools | unique:'state'" value="{{school.state}}">{{school.state}}</option>
 							</select>
 						</th>
-						<th>
-							<input st-search="school_type" placeholder="Schulart suchen…" class="table-control" type="search"/>
-						</th>
 					</tr>
 					<tr>
 						<td colspan="6">
-							Anzahl Schulprofile in Auswahl: <span ng-bind="displayedCollection.length"></span>
+							Anzahl Schulprofile in Auswahl: <span ng-bind="filteredCollection.length"></span>
 						</td>
 					</tr>
 					<tr>
 						<th>Profil</th>
 						<th class="clickable" st-sort="id">Schul-ID</th>
 						<th class="clickable" st-sort="name">Name</th>
+						<th class="clickable" st-sort="school_type">Schulart</th>
 						<th class="clickable" st-sort="address">Postleitzahl</th>
 						<th class="clickable" st-sort="state">Bundesland</th>
-						<th class="clickable" st-sort="school_type">Schulart</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -68,9 +73,9 @@ description: Schulprofile auf JedeSchule.de
 						</td>
 						<td ng-bind="school.id"></td>
 						<td ng-bind="school.name"></td>
+						<td ng-bind="school.school_type"></td>
 						<td ng-bind="school.address"></td>
 						<td ng-bind="school.state"></td>
-						<td ng-bind="school.school_type"></td>
 					</tr>
 					</tbody>
 					<tfoot>

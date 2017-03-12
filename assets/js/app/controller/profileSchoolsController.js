@@ -1,6 +1,6 @@
 app.controller('profileSchoolsController', function($scope, $window, $location, schools) {
 
-    $scope.itemsByPage = '50'; //needs to be string, because of <select>
+    $scope.itemsByPage = 50;
 
     var states = {
         'BE': {name: 'Berlin'},
@@ -19,4 +19,15 @@ app.controller('profileSchoolsController', function($scope, $window, $location, 
         $scope.schools = schools;
     });
 
+});
+
+app.directive('stFilteredCollection', function () {
+    return {
+        require: '^stTable',
+        link: function (scope, element, attr, ctrl) {
+            scope.$watch(ctrl.getFilteredCollection, function(val) {
+                scope.filteredCollection = val;
+            })
+        }
+    }
 });
