@@ -1,4 +1,11 @@
 svg {
   display: block;
-  margin:auto;
+  margin: auto;
+}
+
+svg#germany_svg {
+  path:hover {
+    fill: $chart-color-selected;
+  }
+
 }
