@@ -219,4 +219,5 @@ app.controller('schoolProfileController', function($scope, $window, $location, s
     $scope.map.scrollWheelZoom.disable();
     $scope.map.boxZoom.disable();
     $scope.map.keyboard.disable();
+    if ($scope.map.tap) $scope.map.tap.disable();
 });

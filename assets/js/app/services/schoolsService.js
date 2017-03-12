@@ -1,8 +1,9 @@
 app.factory('schools', function($http) {
     var loaded_overview = null;
+    var loaded_profile_overview = null;
     var schools = {};
 
-    function expand(c) {
+    function expandOverview(c) {
         var data = c.data;
         var items = c.items;
 
@@ -109,6 +110,71 @@ app.factory('schools', function($http) {
         return result;
     }
 
+    function expandProfileOverview(c) {
+        var data = c.data;
+        var items = c.items;
+
+        items = items.split('|').map(function (row) {
+            row = row.split(',');
+            return row.map(function (cell) {
+                if (cell === '') return 0;
+                if (cell === '-') return [];
+                var parts = cell.split(';');
+                if (parts.length > 1) {
+                    return parts.map(function (p) {
+                        if (p === '') return 0;
+                        return p;
+                    });
+                }
+                return cell;
+            });
+        });
+
+        data.school_type = data.school_type.split(',');
+        data.text = data.text.split(',');
+        data.plz = data.plz.split(',');
+
+        var unpackId = function (v, state) {
+            return state + '-' + v.toString();
+        };
+
+        var indexGet = function (array, v) {
+            return array[parseInt(v, 10)];
+        };
+
+        var unpackTristateBoolean = function (v) {
+            if (v == 2) return null;
+            return v == 1;
+        };
+
+        var unpackText = function (v) {
+            if (typeof v !== 'object') {
+                v = [v];
+            }
+            return v.map(function (i) {
+                return data.text[i];
+            }).join(' ');
+        };
+
+        var unpackPLZ = function (v) {
+            return indexGet(data.plz, v);
+        };
+
+        var result = items.map(function (row, i) {
+            var school = {programs: {}};
+            school.state = indexGet(data.state, row[0]);
+            school.id = unpackId(row[1], school.state);
+            school.full_time_school = unpackTristateBoolean(row[2]);
+            school.legal_status = unpackTristateBoolean(row[3]);
+            school.school_type = indexGet(data.school_type, row[4]);
+            school.name = unpackText(row[5]);
+            school.address = unpackPLZ(row[6]);
+            return school;
+        });
+
+        return result;
+    }
+
     return {
         overview: function(cb) {
             if (!loaded_overview) {
@@ -117,11 +183,25 @@ app.factory('schools', function($http) {
                     method: "GET"
                 })
                 .then(function(response) {
-                    loaded_overview = expand(response.data);
+                    loaded_overview = expandOverview(response.data);
                     cb(null, loaded_overview)
                 })
             } else {
                 return loaded_overview;
+            }
+        },
+        profileSchools: function(cb) {
+            if (!loaded_profile_overview) {
+                $http({
+                    url: '/assets/data/profile_schools_compact.json',
+                    method: "GET"
+                })
+                .then(function(response) {
+                    loaded_profile_overview = expandProfileOverview(response.data);
+                    cb(null, loaded_profile_overview)
+                })
+            } else {
+                return loaded_profile_overview;
             }
         },
         getSchool: function(school_id, cb) {

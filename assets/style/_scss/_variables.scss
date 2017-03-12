@@ -8,6 +8,7 @@ $base-padding-jumbo: 3.8em;
 // Font Colors
 $base-font-color: #131167;
 $base-accent-color: #96bc7f;
+$base-placeholder-color: #818181;
 
 // Typography
 $base-font-family: 'Cabin', 'Helvetica Neue', Helvetica, arial, sans-serif;
@@ -55,7 +56,7 @@ $small-border-radius: 3px;
 
 $border-grey: #c9c9da;
 
-$form-border-color: $base-border-color;
+$form-border-color: $border-grey;//$base-border-color;
 $form-border-color-hover: darken($base-border-color, 10);
 $form-border-radius: $base-border-radius;
 $form-box-shadow-focus: 0 0 0 2px $form-border-color-hover;

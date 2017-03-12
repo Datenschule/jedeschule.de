@@ -24,7 +24,7 @@
 <script src="/assets/vendor/d3/d3.min.js"></script>
 <script src="/assets/js/lib/d3-sankey.js"></script>
 
-<script src="/assets/js/app/app.js"></script>
+<script src="/assets/js/app/app-chartist.js"></script>
 <script src="/assets/js/app/directives/sankey-chart.js"></script>
 <script src="/assets/js/app/services/activitiesService.js"></script>
 <script src="/assets/js/app/services/partnershipsService.js"></script>
@@ -48,7 +48,7 @@
 <script src="/assets/vendor/chartist-plugin-legend/chartist-plugin-legend.js"></script>
 
 
-<script src="/assets/js/app/app.js"></script>
+<script src="/assets/js/app/app-chartist.js"></script>
 <script src="/assets/js/app/services/statesService.js"></script>
 <script src="/assets/js/app/controller/schoolkindsController.js"></script>
 <script src="/assets/js/app/controller/foreignLanguagesController.js"></script>
@@ -67,8 +67,21 @@
 <script src="/assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="/assets/vendor/angular-chartist.js/dist/angular-chartist.min.js"></script>
 
-<script src="/assets/js/app/app.js"></script>
+<script src="/assets/js/app/app-chartist.js"></script>
 <script src="/assets/js/app/filter/isEmptyFilter.js"></script>
 <script src="/assets/js/app/services/schoolsService.js"></script>
 <script src="/assets/js/app/controller/schoolProfileController.js"></script>
+{% endif %}
+
+{% if page.js_schoolprofiles %}
+<script src="/assets/vendor/lodash/dist/lodash.min.js"></script>
+<script src="/assets/vendor/angular/angular.min.js"></script>
+<script src="/assets/vendor/angular-animate/angular-animate.min.js"></script>
+<script src="/assets/vendor/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="/assets/vendor/angular-smart-table/dist/smart-table.min.js"></script>
+
+<script src="/assets/js/app/app-table.js"></script>
+<script src="/assets/js/app/services/schoolsService.js"></script>
+<script src="/assets/js/app/filter/uniqueFilter.js"></script>
+<script src="/assets/js/app/controller/profileSchoolsController.js"></script>
 {% endif %}
