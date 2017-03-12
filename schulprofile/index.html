@@ -1,0 +1,104 @@
+---
+layout: default
+menu_schulprofile: yes
+js_schoolprofiles: yes
+title: Schulprofile
+description: Schulprofile auf JedeSchule.de
+---
+{% raw %}
+<main ng-app="App" ng-app="App" ng-controller="profileSchoolsController">
+	<section class="container-outer container-bgi-yellow">
+		<div class="container-padded">
+			<div class="container">
+				<div class="container-left-12">
+					<h2>Schulprofile</h2>
+					<p>
+						Auf den Schulprofilen informieren wir über das Leitbild der Schule, Schüler*innen- und Lehrer*innenentwicklung sowie über Partnerorganisationen und Schulaktivitäten außerhalb des Unterrichts.
+					</p>
+					<p>
+						Sie können die Schulprofile auch über die <a href="/schulen/">Karte</a> aufrufen.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container-outer">
+		<div class="container-padded">
+			<div class="container">
+				<table st-table="displayedCollection" st-filtered-collection st-safe-src="schools" class="table table-condensed table-bordered">
+					<thead>
+					<tr>
+						<td colspan="6">
+							<h4>Suchen und Filtern</h4>
+						</td>
+					</tr>
+					<tr>
+						<th colspan="2">
+							<input st-search="id" placeholder="Schul-ID…" class="table-control" type="search"/>
+						</th>
+						<th>
+							<input st-search="name" placeholder="Name…" class="table-control" type="search"/>
+						</th>
+						<th>
+							<input st-search="school_type" placeholder="Schulart…" class="table-control" type="search"/>
+						</th>
+						<th>
+							<input st-search="address" placeholder="PLZ…" class="table-control" type="search"/>
+						</th>
+						<th>
+							<select st-search="state" class="table-control">
+								<option value="">Alle</option>
+								<option ng-repeat="school in schools | unique:'state'" value="{{school.state}}">{{school.state}}</option>
+							</select>
+						</th>
+					</tr>
+					<tr>
+						<td colspan="6">
+							Anzahl Schulprofile in Auswahl: <span ng-bind="filteredCollection.length"></span>
+						</td>
+					</tr>
+					<tr>
+						<th>Profil</th>
+						<th class="clickable" st-sort="id">Schul-ID</th>
+						<th class="clickable" st-sort="name">Name</th>
+						<th class="clickable" st-sort="school_type">Schulart</th>
+						<th class="clickable" st-sort="address">Postleitzahl</th>
+						<th class="clickable" st-sort="state">Bundesland</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="school in displayedCollection">
+						<td>
+							<a class="button" target="_blank" href="/schulprofil/index.html?id={{school.id}}">Zum Schulprofil</a>
+						</td>
+						<td ng-bind="school.id"></td>
+						<td ng-bind="school.name"></td>
+						<td ng-bind="school.school_type"></td>
+						<td ng-bind="school.address"></td>
+						<td ng-bind="school.state"></td>
+					</tr>
+					</tbody>
+					<tfoot>
+					<tr>
+						<td colspan="6" class="u-centered">
+							<div class="pull-left" st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+							<div class="pull-right">
+								<small>Einträge pro Seite:</small>
+								<select style="display: inline-block"
+										ng-model="itemsByPage">
+									<option value="10">10</option>
+									<option value="25">25</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+									<option value="1000">1000</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</section>
+</main>
+{% endraw %}

@@ -4,7 +4,7 @@ app.factory('partnershipsService', function($http) {
         get: function(name, cb) {
             if (!partnerships[name]) {
                 $http({
-                    url: '/assets/js/app/data/partnerships-' + name + '.json',
+                    url: '/assets/data/partnerships-' + name + '.json',
                     method: "GET"
                 })
                 .then(function(response) {

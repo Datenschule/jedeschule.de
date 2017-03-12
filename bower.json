@@ -29,7 +29,8 @@
     "chartist-plugin-legend": "npm:chartist-plugin-legend#^0.6.1",
     "chartist-plugin-tooltip": "^0.0.17",
     "chartist-plugin-axistitle": "^0.1.0",
-    "chartist-plugin-barlabels": "*"
+    "chartist-plugin-barlabels": "*",
+    "angular-smart-table": "^2.1.8"
   },
   "resolutions": {
     "chartist": "^0.9.8",

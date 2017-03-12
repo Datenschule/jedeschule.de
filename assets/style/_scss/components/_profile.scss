@@ -28,7 +28,48 @@
 }
 
 .profile-concept {
-  font-size: 0.9em;
+
+  .read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 180px;
+    padding-top: 110px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    display: none;
+
+    /* "transparent" only works here because == rgba(0,0,0,0) */
+    background-image: linear-gradient(to bottom, transparent, #f1f3f6);
+  }
+
+  .read-less {
+    display: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  &.needed {
+    max-height: 300px;
+    position: relative;
+    overflow: hidden;
+    .read-more {
+      display: inherit;
+    }
+    .read-less {
+      display: inherit;
+    }
+  }
+
+  &.expanded {
+    max-height: none;
+
+    .read-more {
+      display: none;
+    }
+
+  }
 }
 
 .profile-partners {

@@ -55,7 +55,11 @@ description: Schulprofil auf JedeSchule.de
             <div class="container">
                 <div class="container-left-12">
                     <h2 class="text-center">Leitbild</h2>
-                    <p class="profile-concept" ng-if="school.concept">{{school.concept}}</p>
+                    <div ng-show="school.concept" class="profile-concept" id="profile-concept" ng-class="{expanded:concecpt_expanded,needed:concecpt_needs_collapsing}">
+                        <p>{{school.concept}}</p>
+                        <p class="read-more"><a href ng-click="concecpt_expanded=true" class="button">Mehr</a></p>
+						<p class="read-less"><a href ng-click="concecpt_expanded=false" class="button">Weniger</a></p>
+					</div>
                     <p class="u-centered" ng-if="!school.concept">Zum Leitbild dieser Schule sind leider keine Informationen verfügbar.</p>
                 </div>
             </div>

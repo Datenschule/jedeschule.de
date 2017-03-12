@@ -40,7 +40,7 @@ select[multiple=multiple] {
   font-size: $base-font-size;
 
   @include placeholder {
-    color: $base-font-color;
+    color: $base-placeholder-color;
     font-weight: $weight-book;
     opacity: 1;
   }

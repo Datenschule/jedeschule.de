@@ -28,7 +28,7 @@ app.controller('schoolkindsController', function ($scope,  $location, states) {
                                                           {name: "2015", "data":  secondYear}]};
 
             $scope.teacher_options = {
-                seriesBarDistance: 10,
+                seriesBarDistance: 30,
                 height: '200px',
                 chartPadding: {
                     top: 0,
@@ -40,12 +40,12 @@ app.controller('schoolkindsController', function ($scope,  $location, states) {
                     Chartist.plugins.legend({
                         clickable: false
                     }),
-                    Chartist.plugins.tooltip({
-                        appendToBody: true,
-                        anchorToPoint: true
-                        // transformTooltipTextFnc: function(value) {
-                        //     return parseInt(value, 10).toFixed(0) + ' ';
-                        // }
+                    Chartist.plugins.ctBarLabels({
+                        position: {
+                            y: function(data) {
+                                return data.y2 - 5
+                            }
+                        }
                     })
                 ]
             };

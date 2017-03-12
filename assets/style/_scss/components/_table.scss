@@ -1,3 +1,27 @@
+/* -- Smart Table style -------------- */
+
+.st-sort-ascent:before{
+  content: '\25B2';
+}
+
+.st-sort-descent:before{
+  content: '\25BC';
+}
+
+.table-control {
+  font-size: 1rem;
+  margin: 0 !important;
+  -webkit-transition: border-color;
+  transition: border-color;
+  //background-color: #fff;
+  //border: 1px solid #c9c9da;
+  border-radius: 5px;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 0.6em 0.8em;
+  width: 100%;
+}
+
 /* -- Material Design Table style -------------- */
 
 // Variables
