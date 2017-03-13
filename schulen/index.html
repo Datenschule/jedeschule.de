@@ -66,7 +66,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 					<div class="filter">
 						<p class="bold">Partnerschaften:</p>
 						<ui-select multiple ng-model="filter.partner.selected" theme="select2">
-							<ui-select-match placeholder="z.B. Schule gegen Rassismus…">{{$item}}</ui-select-match>
+							<ui-select-match placeholder="z.B. Gemeinnütziger Akteur">{{$item}}</ui-select-match>
 							<ui-select-choices repeat="o in filter.partner.defs | filter: $select.search">{{o}}</ui-select-choices>
 						</ui-select>
 					</div>
