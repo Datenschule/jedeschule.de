@@ -558,14 +558,14 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
 
     function onMarkerClick(marker) {
         infoBox.markerSchool = marker.layer.school;
-        infoBox.school = schools.getSchool(infoBox.markerSchool.id, function(err, school) {
+        infoBox.loading = true;
+        infoBox.visible = true;
+        schools.getSchool(infoBox.markerSchool.id, function(err, school) {
             if (infoBox.markerSchool == marker.layer.school) {
                 infoBox.school = school;
                 infoBox.loading = false;
             }
         });
-        infoBox.loading = (!infoBox.school);
-        infoBox.visible = true;
         $scope.$apply();
     }
 
@@ -590,7 +590,6 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
             }
         }
     }
-
 
     function removeHash() {
         var scrollV, scrollH, loc = window.location;

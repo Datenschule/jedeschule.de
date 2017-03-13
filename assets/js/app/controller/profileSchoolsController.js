@@ -7,7 +7,7 @@ app.controller('profileSchoolsController', function($scope, $window, $location, 
         'SN': {name: 'Sachsen'}
     };
 
-    $scope.schools = schools.profileSchools(function(err, schools) {
+    schools.profileSchools(function(err, schools) {
         schools.forEach(function(school) {
             school.state = states[school.state].name;
         });
