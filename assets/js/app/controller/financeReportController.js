@@ -1,7 +1,7 @@
-app.controller('financeReportController', function($scope, states) {
+app.controller('financeReportController', function($scope, statesService) {
 
     $scope.init = function(state) {
-        states.get(state, function(err, statedata) {
+        statesService.get(state, function(err, statedata) {
             var year_dict = ['2000', '2005', '2010', '2015\n vorl. Ist'];
             var entries = _.filter(statedata.finanzbericht, function(o) {
                 return year_dict.indexOf(o.jahr) >= 0

@@ -1,4 +1,4 @@
-app.controller('teacherRatioController', function($scope, states, chartistUtilsService) {
+app.controller('teacherRatioController', function($scope, statesService, chartistUtilsService) {
 
     $scope.chart_portion = {
         data: {},
@@ -65,7 +65,7 @@ app.controller('teacherRatioController', function($scope, states, chartistUtilsS
 
     $scope.init = function(state) {
         $scope.state = state;
-        states.get($scope.state, function(err, statedata) {
+        statesService.get($scope.state, function(err, statedata) {
             $scope.chart_portion.data = getTeacherSeriesBySchooltypeAndEmployment(statedata.teacher);
             $scope.chart_absolute.data = getOverallTeacherSeries(statedata.teacher);
         });

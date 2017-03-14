@@ -1,9 +1,9 @@
-app.controller('schoolkindsController', function($scope, $location, states, chartistUtilsService) {
+app.controller('schoolkindsController', function($scope, $location, statesService, chartistUtilsService) {
     var relevantYears = ['2007', '2015'];
 
     $scope.init = function(state) {
         $scope.state = state;
-        states.get($scope.state, function(err, statedata) {
+        statesService.get($scope.state, function(err, statedata) {
             var data = relevantYears.map(function(year) {
                 return statedata.schularten[year]
             });

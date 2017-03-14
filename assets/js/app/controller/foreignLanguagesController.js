@@ -1,4 +1,4 @@
-app.controller('foreignLanguagesController', function($scope, states, chartistUtilsService) {
+app.controller('foreignLanguagesController', function($scope, statesService, chartistUtilsService) {
 
     var chart_langs = {
         data: {},
@@ -110,7 +110,7 @@ app.controller('foreignLanguagesController', function($scope, states, chartistUt
 
     $scope.init = function(state) {
         $scope.state = state;
-        states.get($scope.state, function(err, statedata) {
+        statesService.get($scope.state, function(err, statedata) {
             var lang_sum = _.groupBy(statedata.fremdsprachen, 'language');
             var items = Object.keys(lang_sum).map(function(key) {
                 var lang = lang_sum[key];

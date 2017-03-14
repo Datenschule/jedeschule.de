@@ -1,18 +1,27 @@
-app.factory('states', function($http) {
+app.factory('statesService', function($http) {
     var states = {};
+    var requests = {};
     return {
         get: function(state, cb) {
             if (!states[state]) {
-                $http({
-                    url: '/assets/data/states/' + state + '.json',
-                    method: "GET"
-                })
-                .then(function(response) {
-                    states[state] = response.data;
-                    cb(null, response.data);
-                })
+                if (!requests[state]) {
+                    requests[state] = [cb];
+                    $http({
+                        url: '/assets/data/states/' + state + '.json',
+                        method: "GET"
+                    })
+                    .then(function(response) {
+                        states[state] = response.data;
+                        requests[state].forEach(function(callback) {
+                            callback(null, response.data);
+                        });
+                        requests[state] = null;
+                    })
+                } else {
+                    requests[state].push(cb);
+                }
             } else {
-                return states[state]
+                cb(null, states[state]);
             }
         }
     }
