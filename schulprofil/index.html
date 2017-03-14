@@ -6,7 +6,11 @@ title: Schulprofil
 description: Schulprofil auf JedeSchule.de
 ---
 {% raw %}
-<main ng-app="App" ng-app="App" ng-controller="schoolProfileController">
+<main ng-app="App" ng-controller="schoolProfileController">
+    <div class="container-padded" ng-show="false">
+        App wird geladen…
+    </div>
+    <div ng-cloak>
     <section class="container-outer container-bgi-yellow profile">
         <div class="container-padded">
             <div class="container">
@@ -148,5 +152,6 @@ description: Schulprofil auf JedeSchule.de
             </div>
         </div>
     </section>
+    </div>
 </main>
 {% endraw %}
