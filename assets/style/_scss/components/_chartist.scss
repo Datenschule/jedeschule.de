@@ -149,6 +149,11 @@
   display: none;
 }
 
+.ct-axis-title {
+  fill: rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, .4);
+}
+
 .chartist-tooltip.tooltip-show {
   display: inline-block;
 }
@@ -249,7 +254,7 @@
   @include respond-to(medium-down) {
 
     foreignObject {
-      text-align: right;
+      text-align: right; //this property is important, if set to right, chartist.events.draw js will center the rotated labels
       overflow: visible;
     }
 

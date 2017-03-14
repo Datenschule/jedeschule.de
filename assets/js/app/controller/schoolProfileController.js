@@ -1,96 +1,4 @@
 app.controller('schoolProfileController', function($scope, $window, $location, $timeout, schools) {
-    $scope.chartType = 'Line';
-
-    $scope.students_data = {};
-    $scope.teacher_data = {};
-
-    $scope.options_students = {
-        height: '300px',
-        chartPadding: {
-            top: 20,
-            right: 0,
-            bottom: 55,
-            left: 40
-        },
-        axisY: {
-            onlyInteger: true
-        },
-        low: 0,
-        plugins: [
-            Chartist.plugins.ctAxisTitle({
-                axisX: {
-                    axisTitle: 'Jahr',
-                    axisClass: 'ct-axis-title',
-                    offset: {
-                        x: 0,
-                        y: 50
-                    },
-                    textAnchor: 'middle'
-                },
-                axisY: {
-                    axisTitle: 'Anzahl Schüler',
-                    axisClass: 'ct-axis-title',
-                    offset: {
-                        x: -50,
-                        y: -5
-                    },
-                    flipTitle: false
-                }
-            }),
-            Chartist.plugins.tooltip(
-                {
-                    appendToBody: true,
-                    anchorToPoint: true,
-                    transformTooltipTextFnc: function(value) {
-                        return value + ' Schüler*innen';
-                    }
-                })
-        ]
-    };
-
-    $scope.teacher_options = {
-        height: '300px',
-        chartPadding: {
-            top: 20,
-            right: 0,
-            bottom: 55,
-            left: 40
-        },
-        axisY: {
-            onlyInteger: true
-        },
-        low: 0,
-        plugins: [
-            Chartist.plugins.ctAxisTitle({
-                axisX: {
-                    axisTitle: 'Jahr',
-                    axisClass: 'ct-axis-title',
-                    offset: {
-                        x: 0,
-                        y: 50
-                    },
-                    textAnchor: 'middle'
-                },
-                axisY: {
-                    axisTitle: 'Anzahl Lehrer',
-                    axisClass: 'ct-axis-title',
-                    offset: {
-                        x: -50,
-                        y: -5
-                    },
-                    flipTitle: false
-                }
-            }),
-            Chartist.plugins.tooltip(
-                {
-                    appendToBody: true,
-                    anchorToPoint: true,
-                    transformTooltipTextFnc: function(value) {
-                        return value + ' Lehrer*innen';
-                    }
-                })
-        ]
-    };
 
     $scope.categoryRessources = {
         Umwelt: {
@@ -160,24 +68,155 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
         }
     };
 
-    var conceptElement = null;
+    var chart_students = {
+        data: {},
+        options: {
+            height: '300px',
+            chartPadding: {
+                top: 20,
+                right: 0,
+                bottom: 55,
+                left: 40
+            },
+            axisY: {
+                onlyInteger: true
+            },
+            low: 0,
+            plugins: [
+                Chartist.plugins.ctAxisTitle({
+                    axisX: {
+                        axisTitle: 'Schuljahr',
+                        axisClass: 'ct-axis-title',
+                        offset: {
+                            x: 0,
+                            y: 80
+                        },
+                        textAnchor: 'middle'
+                    },
+                    axisY: {
+                        axisTitle: 'Anzahl Schüler',
+                        axisClass: 'ct-axis-title',
+                        offset: {
+                            x: -50,
+                            y: -5
+                        },
+                        flipTitle: false
+                    }
+                }),
+                Chartist.plugins.tooltip(
+                    {
+                        appendToBody: true,
+                        anchorToPoint: true,
+                        transformTooltipTextFnc: function(value) {
+                            return value + ' Schüler*innen';
+                        }
+                    })
+            ]
+        },
+        events: {
+            draw: function(ctx) {
+                if (//chart.supportsForeignObject === false &&
+                ctx.type === 'label' &&
+                ctx.axis.units.pos === Chartist.Axis.units.x.pos) {
+                    if (ctx.width < 31) {
+                        var lineheight = 16;
+                        var dX = (ctx.width / 2 ) - (lineheight / 2);
+                        var x = parseFloat(ctx.element.attr('x'));
+                        ctx.element.attr({
+                            x: x + dX,
+                            transform: 'rotate(90, '+ctx.x + ', ' +ctx.y+ ')'
+                        });
+                    } else if (ctx.width < 60) {
+                        ctx.element.attr({transform: 'rotate(45, ' + ctx.x + ', ' + ctx.y + ')'});
+                    }
+                }
+            }
+        }
+    };
+
+    var chart_teacher = {
+        data: {},
+        options: {
+            height: '300px',
+            chartPadding: {
+                top: 20,
+                right: 0,
+                bottom: 55,
+                left: 40
+            },
+            axisY: {
+                onlyInteger: true
+            },
+            axisX: {
+                offset: 30
+            },
+            low: 0,
+            plugins: [
+                Chartist.plugins.ctAxisTitle({
+                    axisX: {
+                        axisTitle: 'Schuljahr',
+                        axisClass: 'ct-axis-title',
+                        offset: {x: 0, y: 80},
+                        textAnchor: 'middle'
+                    },
+                    axisY: {
+                        axisTitle: 'Anzahl Lehrer',
+                        axisClass: 'ct-axis-title',
+                        offset: {x: -50, y: -5},
+                        flipTitle: false
+                    }
+                }),
+                Chartist.plugins.tooltip(
+                    {
+                        appendToBody: true,
+                        anchorToPoint: true,
+                        transformTooltipTextFnc: function(value) {
+                            return value + ' Lehrer*innen';
+                        }
+                    })
+            ]
+        },
+        events: {
+            draw: function(ctx) {
+                if (//chart.supportsForeignObject === false &&
+                ctx.type === 'label' &&
+                ctx.axis.units.pos === Chartist.Axis.units.x.pos) {
+                    if (ctx.width < 31) {
+                        var lineheight = 16;
+                        var dX = (ctx.width / 2 ) - (lineheight / 2);
+                        var x = parseFloat(ctx.element.attr('x'));
+                        ctx.element.attr({
+                            x: x + dX,
+                            transform: 'rotate(90, '+ctx.x + ', ' +ctx.y+ ')'
+                        });
+                    } else if (ctx.width < 60) {
+                        ctx.element.attr({transform: 'rotate(45, ' + ctx.x + ', ' + ctx.y + ')'});
+                    }
+                }
+            }
+        }
+    };
+
+    $scope.chart_students = chart_students;
+    $scope.chart_teacher = chart_teacher;
 
     var school_id = $location.absUrl().split('?')[1].split('=')[1];
-    schools.getSchool(school_id, function(err, data) {
-        $scope.school = data;
+    schools.getSchool(school_id, function(err, school) {
+        $scope.school = school;
         $window.document.title = $scope.school.name + ' - Schulprofil - JedeSchule.de';
-        $scope.working_groups = _.groupBy(data.programs.working_groups, 'category');
-        delete $scope.working_groups['no category'];
-        $scope.partner = _.groupBy(data.partner, function(o) {
-            return o.type.grob
+        var working_groups = _.groupBy(school.programs.working_groups, 'category');
+        delete working_groups['no category'];
+        $scope.working_groups = working_groups;
+
+        var p = _.groupBy(school.partner, function(o) {
+            return o.type.grob;
         });
-        var number_of_partners = data.partner.length;
-        $scope.partner_stat = [];
-        for (var partner in $scope.partner) {
-            $scope.partner_stat.push({name: partner, value: $scope.partner[partner].length * 100 / number_of_partners})
-        }
-        $scope.students_data = Object.keys(data.students).map(function(o) {
-            var current = data.students[o];
+        var number_of_partners = school.partner.length;
+        $scope.partner_stat = Object.keys(p).map(function(partner) {
+            return {name: partner, value: p[partner].length * 100 / number_of_partners};
+        });
+        var d = Object.keys(school.students).map(function(o) {
+            var current = school.students[o];
             return {
                 amount: _.sumBy(current, function(n) {
                     return n.male + n.female
@@ -186,24 +225,24 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
             }
         });
 
-        $scope.students_data = _.sortBy($scope.students_data, ['name'])
-        $scope.students_data = {
-            labels: _.map($scope.students_data, 'year'),
-            series: [_.map($scope.students_data, 'amount')]
+        d = _.sortBy(d, ['name']);
+        chart_students.data = {
+            labels: _.map(d, 'year'),
+            series: [_.map(d, 'amount')]
         };
 
-        $scope.teacher_data = _.map(data.teacher, function(o) {
+        var t = _.map(school.teacher, function(o) {
             return {amount: o.female + o.male, year: o.year}
         });
-        $scope.teacher_data = {
-            labels: _.map($scope.teacher_data, 'year'),
-            series: [_.map($scope.teacher_data, 'amount')]
+        $scope.chart_teacher.data = {
+            labels: _.map(t, 'year'),
+            series: [_.map(t, 'amount')]
         };
 
-        $scope.coordinates = [$scope.school.lat, $scope.school.lon];
+        $scope.coordinates = [school.lat, school.lon];
 
-        L.marker([$scope.school.lat, $scope.school.lon], {icon: mapIcon}).addTo($scope.map);
-        $scope.map.setView([$scope.school.lat, $scope.school.lon], 15);
+        L.marker([school.lat, school.lon], {icon: mapIcon}).addTo($scope.map);
+        $scope.map.setView([school.lat, school.lon], 15);
         $timeout(function() {
             checkConceptHeight();
         }, 0)
@@ -228,6 +267,8 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
 
     $scope.concecpt_needs_collapsing = false;
     $scope.concecpt_expanded = false;
+
+    var conceptElement = null;
 
     function checkConceptHeight() {
         if (!conceptElement) return;

@@ -7,151 +7,151 @@ description: Schulprofil auf JedeSchule.de
 ---
 {% raw %}
 <main ng-app="App" ng-controller="schoolProfileController">
-    <div class="container-padded" ng-show="false">
-        App wird geladen…
-    </div>
-    <div ng-cloak>
-    <section class="container-outer container-bgi-yellow profile">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h2>{{school.name}}</h2>
-                    <p>
-                        Auf den Schulprofilen informieren wir über das Leitbild der Schule, Schüler*innen- und Lehrer*innenentwicklung sowie über Partnerorganisationen und Schulaktivitäten außerhalb des Unterrichts.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer profile-head">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-4">
-                    <div class="box box-margin-top-medium box-margin-left-medium">
-                        <h5>Allgemeine Angaben</h5>
-                        <ul class="list-unstyled">
-                            <li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
-                            <li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
-                            <li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status}}</li>
-                            <li ng-if="school.website"><strong>Webseite:</strong><a href="{{school.website}}" target="_blank"> Link</a></li>
-                        </ul>
-                        <h5>Kontakt</h5>
-                        <ul>
-                            <li ng-if="school.director"><strong>Direktor*in:</strong> {{school.director}}</li>
-                            <li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
-                            <li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
-                            <li ng-if="school.address"><strong>Adresse:</strong> {{school.address}}</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="container-left-8">
-                    <div class="box profile-map-info-box">
-                        <div id="map-profile"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg-grey">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h2 class="text-center">Leitbild</h2>
-                    <div ng-show="school.concept" class="profile-concept" id="profile-concept" ng-class="{expanded:concecpt_expanded,needed:concecpt_needs_collapsing}">
-                        <p>{{school.concept}}</p>
-                        <p class="read-more"><a href ng-click="concecpt_expanded=true" class="button">Mehr</a></p>
-						<p class="read-less"><a href ng-click="concecpt_expanded=false" class="button">Weniger</a></p>
+	<div class="container-padded" ng-show="false">
+		App wird geladen…
+	</div>
+	<div ng-cloak>
+		<section class="container-outer container-bgi-yellow profile">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-12">
+						<h2>{{school.name}}</h2>
+						<p>
+							Auf den Schulprofilen informieren wir über das Leitbild der Schule, Schüler*innen- und Lehrer*innenentwicklung sowie über Partnerorganisationen und Schulaktivitäten außerhalb des Unterrichts.
+						</p>
 					</div>
-                    <p class="u-centered" ng-if="!school.concept">Zum Leitbild dieser Schule sind leider keine Informationen verfügbar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h2 class="text-center">Schüler*innen</h2>
-                    <div ng-if="!(school.students | isEmpty)">
-                        <p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule</p>
-                        <chartist class="ct-chart" chartist-data="students_data" chartist-chart-type="Line"
-                                  chartist-chart-options="options_students"></chartist>
-                    </div>
-                    <p class="u-centered" ng-if="(school.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg-grey">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h2 class="text-center">Lehrer*innen</h2>
-                    <div ng-if="school.teacher.length > 0">
-                        <p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Anzahl der Lehrenden dieser Schule</p>
-                        <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
-                                  chartist-chart-options="teacher_options"></chartist>
-                    </div>
-                    <p class="u-centered" ng-if="!school.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12">
-                    <h2 class="text-center">Partner&shy;schaften</h2>
-                    <div class="container partner" ng-if="partner_stat.length > 0">
-                        <div class="container-left-12">
-                            <div class="progress">
-                                <div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
-                                    <div class="progress-bar"
-                                         style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
-                                        <p>{{ partner.value | number : 0 }}%</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-left-12 profile-partners">
-                            <div ng-repeat="(partner_cat, partners) in partner track by $index" class="profile-partners-box">
-                                <div class="box" ng-attr-style="border-color:{{partnerRessources[partner_cat].color}}">
-                                <p class="bold text-center">
-                                    <i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
-                                </p>
-                                <ul>
-                                    <li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    <p class="u-centered" ng-if="!partner_stat.length > 0">Zu Partnerschaften sind leider keine Informationen verfügbar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="container-outer container-bg-grey">
-        <div class="container-padded">
-            <div class="container">
-                <div class="container-left-12 working_groups">
-                    <h2 class="text-center">Schulaktivitäten außerhalb des Unterrichts</h2>
-                    <div class="container working_groups profile-partners" ng-if="!(working_groups | isEmpty)">
-                        <div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="profile-partners-box">
-                            <div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
-                                <img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
-                                <p class="bold text-center">{{wg_cat}}</p>
-                                <ul>
-                                    <li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="u-centered" ng-if="(working_groups | isEmpty)">Zu Arbeitsgemeinschaften sind leider keine Informationen verfügbar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    </div>
+				</div>
+			</div>
+		</section>
+		<section class="container-outer profile-head">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-4">
+						<div class="box box-margin-top-medium box-margin-left-medium">
+							<h5>Allgemeine Angaben</h5>
+							<ul class="list-unstyled">
+								<li ng-if="school.school_type"><strong>Schultyp:</strong> {{school.school_type}}</li>
+								<li ng-if="school.provider"><strong>Träger:</strong> {{school.provider}}</li>
+								<li ng-if="school.legal_status"><strong>Rechtstatus:</strong> {{school.legal_status}}</li>
+								<li ng-if="school.website"><strong>Webseite:</strong><a href="{{school.website}}" target="_blank"> Link</a></li>
+							</ul>
+							<h5>Kontakt</h5>
+							<ul>
+								<li ng-if="school.director"><strong>Direktor*in:</strong> {{school.director}}</li>
+								<li ng-if="school.phone"><strong>Telefon:</strong> {{school.phone}}</li>
+								<li ng-if="school.fax"><strong>Fax:</strong> {{school.fax}}</li>
+								<li ng-if="school.address"><strong>Adresse:</strong> {{school.address}}</li>
+							</ul>
+						</div>
+					</div>
+					<div class="container-left-8">
+						<div class="box profile-map-info-box">
+							<div id="map-profile"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container-outer container-bg-grey">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-12">
+						<h2 class="text-center">Leitbild</h2>
+						<div ng-show="school.concept" class="profile-concept" id="profile-concept" ng-class="{expanded:concecpt_expanded,needed:concecpt_needs_collapsing}">
+							<p>{{school.concept}}</p>
+							<p class="read-more"><a href ng-click="concecpt_expanded=true" class="button">Mehr</a></p>
+							<p class="read-less"><a href ng-click="concecpt_expanded=false" class="button">Weniger</a></p>
+						</div>
+						<p class="u-centered" ng-if="!school.concept">Zum Leitbild dieser Schule sind leider keine Informationen verfügbar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container-outer container-bg">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-12">
+						<h2 class="text-center">Schüler*innen</h2>
+						<div ng-if="!(school.students | isEmpty)">
+							<p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule</p>
+							<chartist class="ct-chart" chartist-data="chart_students.data" chartist-chart-type="Line"
+									  chartist-chart-options="chart_students.options" chartist-events="chart_students.events"></chartist>
+						</div>
+						<p class="u-centered" ng-if="(school.students | isEmpty)">Zu Schüler*innen sind leider keine Informationen verfügbar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container-outer container-bg-grey">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-12">
+						<h2 class="text-center">Lehrer*innen</h2>
+						<div ng-if="school.teacher.length > 0">
+							<p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Anzahl der Lehrenden dieser Schule</p>
+							<chartist class="ct-chart" chartist-data="chart_teacher.data" chartist-chart-type="Line"
+									  chartist-chart-options="chart_teacher.options" chartist-events="chart_teacher.events"></chartist>
+						</div>
+						<p class="u-centered" ng-if="!school.teacher.length > 0">Zu Lehrer*innen sind leider keine Informationen verfügbar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container-outer">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-12">
+						<h2 class="text-center">Partner&shy;schaften</h2>
+						<div class="container partner" ng-if="partner_stat.length > 0">
+							<div class="container-left-12">
+								<div class="progress">
+									<div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
+										<div class="progress-bar"
+											 style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
+											<p>{{ partner.value | number : 0 }}%</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="container-left-12 profile-partners">
+								<div ng-repeat="(partner_cat, partners) in partner track by $index" class="profile-partners-box">
+									<div class="box" ng-attr-style="border-color:{{partnerRessources[partner_cat].color}}">
+										<p class="bold text-center">
+											<i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
+										</p>
+										<ul>
+											<li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<p class="u-centered" ng-if="!partner_stat.length > 0">Zu Partnerschaften sind leider keine Informationen verfügbar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container-outer container-bg-grey">
+			<div class="container-padded">
+				<div class="container">
+					<div class="container-left-12 working_groups">
+						<h2 class="text-center">Schulaktivitäten außerhalb des Unterrichts</h2>
+						<div class="container working_groups profile-partners" ng-if="!(working_groups | isEmpty)">
+							<div ng-repeat="(wg_cat, wgs) in working_groups track by $index" class="profile-partners-box">
+								<div class="box box-with-head box-margin-top-medium" ng-attr-style="border-color:{{categoryRessources[wg_cat].color}}">
+									<img class="box-head wg-icon" ng-attr-src="{{categoryRessources[wg_cat].image}}" alt="">
+									<p class="bold text-center">{{wg_cat}}</p>
+									<ul>
+										<li ng-repeat="wg in wgs track by $index">{{wg.name}}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<p class="u-centered" ng-if="(working_groups | isEmpty)">Zu Arbeitsgemeinschaften sind leider keine Informationen verfügbar.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 </main>
 {% endraw %}
