@@ -242,11 +242,29 @@
 }
 
 .chartist-foreign-languages, .chartist-school-type-change {
+  svg {
+    overflow: visible;
+  }
 
-  @include respond-to(medium-up) {
-    svg {
+  @include respond-to(medium-down) {
+
+    foreignObject {
+      text-align: right;
       overflow: visible;
     }
+
+
+    .ct-label.ct-horizontal.ct-end {
+      position: relative;
+      justify-content: flex-end;
+      text-align: right;
+      transform-origin: 100% 0;
+      transform: translate(-100%) rotate(-90deg);
+      overflow: visible;
+      white-space: nowrap;
+    }
+  }
+  @include respond-to(medium-up) {
 
     .ct-horizontal.ct-label {
       word-break: break-word;

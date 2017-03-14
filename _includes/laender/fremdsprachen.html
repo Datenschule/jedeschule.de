@@ -6,13 +6,13 @@
 		<div class="container-left-12">
 			<h5 class="text-center">Anzahl der angeboten Kurse pro Fremdsprache</h5>
 			<chartist class="ct-chart chartist-foreign-languages chartist-foreign-languages-complete" chartist-data="chart_langs.data" chartist-chart-options="chart_langs.options" chartist-events="chart_langs.events"
-					  chartist-chart-type="Bar"></chartist>
+					  chartist-responsive-options="chart_langs.responsive"  chartist-chart-type="Bar"></chartist>
 
 			<p class="map-source u-centered">Klicken Sie oben auf die jeweilige Fremdsprache, um zu sehen, wie sich das Spachenangebot auf die einzelnen Schularten verteilt.</p>
 
 			<h5 class="text-center">Anzahl der angeboten Kurse <span ng-if="chart_schools.current">"<span ng-bind="chart_schools.current"></span>"</span> nach Schulart</h5>
 			<chartist ng-show="chart_schools.current" class="ct-chart chartist-foreign-languages chartist-foreign-languages-select" ng-class="chart_schools.class" chartist-data="chart_schools.data" chartist-chart-options="chart_schools.options"
-					  chartist-chart-type="Bar"></chartist>
+					  chartist-responsive-options="chart_schools.responsive"  chartist-events="chart_schools.events" chartist-chart-type="Bar"></chartist>
 		</div>
 	</div>
 	<p class="map-source">

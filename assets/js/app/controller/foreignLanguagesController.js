@@ -1,4 +1,4 @@
-app.controller('foreignLanguagesController', function($scope, states,breakwordService) {
+app.controller('foreignLanguagesController', function($scope, states, chartistUtilsService) {
 
     var chart_langs = {
         data: {},
@@ -7,7 +7,7 @@ app.controller('foreignLanguagesController', function($scope, states,breakwordSe
             distributeSeries: true,
             chartPadding: {
                 top: 20,
-                right: 0,
+                right: 10,
                 bottom: 20,
                 left: 40
             },
@@ -29,6 +29,17 @@ app.controller('foreignLanguagesController', function($scope, states,breakwordSe
                 })
             ]
         },
+        responsive: [
+            ['screen and (max-width: 768px)', {
+                chartPadding: {
+                    top: 20,
+                    right: 10,
+                    bottom: 100,
+                    left: 40
+                }
+            }
+            ]
+        ],
         events: {
             created: function(event) {
                 var gs = angular.element(event.svg._node).find('g');
@@ -40,7 +51,8 @@ app.controller('foreignLanguagesController', function($scope, states,breakwordSe
                         });
                     }
                 });
-            }
+            },
+            draw: chartistUtilsService.rotateLabelAwareDraw
         }
     };
 
@@ -50,7 +62,12 @@ app.controller('foreignLanguagesController', function($scope, states,breakwordSe
         data: {},
         options: {
             height: '200px',
-            chartPadding: {top: 20, right: 0, bottom: 20, left: 40},
+            chartPadding: {
+                top: 20,
+                right: 10,
+                bottom: 20,
+                left: 40
+            },
             distributeSeries: true,
             axisX: {
                 showLabel: true,
@@ -69,6 +86,20 @@ app.controller('foreignLanguagesController', function($scope, states,breakwordSe
                     }
                 })
             ]
+        },
+        responsive: [
+            ['screen and (max-width: 768px)', {
+                chartPadding: {
+                    top: 20,
+                    right: 10,
+                    bottom: 180,
+                    left: 40
+                }
+            }
+            ]
+        ],
+        events: {
+            draw: chartistUtilsService.rotateLabelAwareDraw
         }
     };
 
@@ -125,7 +156,7 @@ app.controller('foreignLanguagesController', function($scope, states,breakwordSe
             });
             chart_schools.data = {
                 labels: items.map(function(item) {
-                    return breakwordService.breakSchooltype(item.meta);
+                    return chartistUtilsService.breakSchooltype(item.meta);
                 }),
                 series: items
             };

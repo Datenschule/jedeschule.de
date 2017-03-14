@@ -10,7 +10,8 @@
 		</div>
 		<div class="container-left-6 slope-wrapper" ng-controller="schoolkindsController" ng-init="init('{{include.url_name}}')">
 			<h5 class="text-center">Entwicklung der Schularten zwischen 2007 und 2015</h5>
-			<chartist ng-if="teacher_data" class="ct-chart chartist-school-type-change" chartist-data="teacher_data" chartist-chart-options="teacher_options" chartist-chart-type="Bar"></chartist>
+			<chartist ng-if="teacher_data" class="ct-chart chartist-school-type-change" chartist-data="teacher_data"
+					  chartist-chart-options="teacher_options" chartist-events="chart_events" chartist-responsive-options="chart_responsive" chartist-chart-type="Bar"></chartist>
 		</div>
 	</div>
 	<p class="map-source">

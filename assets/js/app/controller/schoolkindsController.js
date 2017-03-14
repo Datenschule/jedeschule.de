@@ -1,4 +1,4 @@
-app.controller('schoolkindsController', function($scope, $location, states, breakwordService) {
+app.controller('schoolkindsController', function($scope, $location, states, chartistUtilsService) {
     var relevantYears = ['2007', '2015'];
 
     $scope.init = function(state) {
@@ -26,7 +26,7 @@ app.controller('schoolkindsController', function($scope, $location, states, brea
             var secondYear = _.map($scope.nvd3data, "2015");
             $scope.teacher_data = {
                 labels: keys.map(function(key) {
-                    return breakwordService.breakSchooltype(key);
+                    return chartistUtilsService.breakSchooltype(key);
                 }),
                 series: [
                     {name: "2007", "data": firstYear},
@@ -36,11 +36,11 @@ app.controller('schoolkindsController', function($scope, $location, states, brea
 
             $scope.teacher_options = {
                 seriesBarDistance: 20,
-                height: '200px',
+                height: '300px',
                 chartPadding: {
                     top: 0,
                     right: 8,
-                    bottom: 16,
+                    bottom: 20,
                     left: 0
                 },
                 plugins: [
@@ -56,6 +56,22 @@ app.controller('schoolkindsController', function($scope, $location, states, brea
                     })
                 ]
             };
+
+
+            $scope.chart_events = {
+                draw: chartistUtilsService.rotateLabelAwareDraw
+            };
+            $scope.chart_responsive = [
+                ['screen and (max-width: 768px)', {
+                    chartPadding: {
+                        top: 0,
+                        right: 8,
+                        bottom: 180,
+                        left: 0
+                    }
+                }
+                ]
+            ]
         });
     }
 });
