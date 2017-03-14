@@ -7,4 +7,6 @@ app.run(['$templateCache', function ($templateCache) {
         '<li ng-if="numPages!==pages[pages.length - 1]"><a ng-click="selectPage(numPages)">… {{numPages}}</a></li>' +
         '</ul></div>');
 }]);
-
+app.config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.debugInfoEnabled(false);
+}]);
