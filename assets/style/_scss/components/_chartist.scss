@@ -167,7 +167,7 @@
     h5 {
       margin-bottom: 0;
       min-height: 40px;
-      display:-webkit-flex;
+      display: -webkit-flex;
       display: flex;
       font-size: 0.9em;
       line-height: 1.1em;
@@ -237,6 +237,19 @@
     .ct-series-#{$i}:before {
       background-color: nth($chart-colors, $i + 1);
       border-color: nth($chart-colors, $i + 1);
+    }
+  }
+}
+
+.chartist-foreign-languages, .chartist-school-type-change {
+
+  @include respond-to(medium-up) {
+    svg {
+      overflow: visible;
+    }
+
+    .ct-horizontal.ct-label {
+      word-break: break-word;
     }
   }
 }

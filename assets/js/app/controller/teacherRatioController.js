@@ -11,7 +11,10 @@ app.controller('teacherRatioController', function($scope, states) {
                 top: 20,
                 right: 0,
                 bottom: 55,
-                left: 80
+                left: 0
+            },
+            axisY: {
+                offset: 140
             },
             plugins: [
                 Chartist.plugins.tooltip(
@@ -35,8 +38,14 @@ app.controller('teacherRatioController', function($scope, states) {
             chartPadding: {
                 top: 20,
                 right: 0,
-                bottom: 55,
-                left: 80
+                bottom: 120,
+                left: 10
+            },
+            axisX: {
+                axisOffset: 140
+            },
+            axisY: {
+                offset: 140
             },
             plugins: [
                 Chartist.plugins.tooltip(

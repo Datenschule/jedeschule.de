@@ -1,4 +1,4 @@
-app.controller('foreignLanguagesController', function($scope, states) {
+app.controller('foreignLanguagesController', function($scope, states,breakwordService) {
 
     var chart_langs = {
         data: {},
@@ -125,7 +125,7 @@ app.controller('foreignLanguagesController', function($scope, states) {
             });
             chart_schools.data = {
                 labels: items.map(function(item) {
-                    return item.meta;
+                    return breakwordService.breakSchooltype(item.meta);
                 }),
                 series: items
             };
