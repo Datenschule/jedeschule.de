@@ -33,6 +33,31 @@ app.factory('chartistUtilsService', function($window) {
                     ctx.element.attr({x: x + dX});
                 }
             }
+        },
+        rotateOnMinDraw: function(bounds) {
+            var lastWidth = 0;
+            return function(ctx) {
+                if (//chart.supportsForeignObject === false &&
+                ctx.type === 'label' &&
+                ctx.axis.units.pos === Chartist.Axis.units.x.pos) {
+                    if (ctx.index == 0) {
+                        lastWidth = ctx.width;
+                    }
+                    var w = lastWidth;
+                    if (w == 0) w = ctx.width;
+                    if (w < bounds[0]) {
+                        var lineheight = 16;
+                        var dX = (w / 2 ) - (lineheight / 2);
+                        var x = parseFloat(ctx.element.attr('x'));
+                        ctx.element.attr({
+                            x: x + dX,
+                            transform: 'rotate(90, ' + ctx.x + ', ' + ctx.y + ')'
+                        });
+                    } else if (w < bounds[1]) {
+                        ctx.element.attr({transform: 'rotate(45, ' + ctx.x + ', ' + ctx.y + ')'});
+                    }
+                }
+            }
         }
     }
 });

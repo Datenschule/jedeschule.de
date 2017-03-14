@@ -1,4 +1,4 @@
-app.controller('schoolProfileController', function($scope, $window, $location, $timeout, schools) {
+app.controller('schoolProfileController', function($scope, $window, $location, $timeout, schools, chartistUtilsService) {
 
     $scope.categoryRessources = {
         Umwelt: {
@@ -114,23 +114,7 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
             ]
         },
         events: {
-            draw: function(ctx) {
-                if (//chart.supportsForeignObject === false &&
-                ctx.type === 'label' &&
-                ctx.axis.units.pos === Chartist.Axis.units.x.pos) {
-                    if (ctx.width < 31) {
-                        var lineheight = 16;
-                        var dX = (ctx.width / 2 ) - (lineheight / 2);
-                        var x = parseFloat(ctx.element.attr('x'));
-                        ctx.element.attr({
-                            x: x + dX,
-                            transform: 'rotate(90, '+ctx.x + ', ' +ctx.y+ ')'
-                        });
-                    } else if (ctx.width < 60) {
-                        ctx.element.attr({transform: 'rotate(45, ' + ctx.x + ', ' + ctx.y + ')'});
-                    }
-                }
-            }
+            draw: chartistUtilsService.rotateOnMinDraw([31, 60])
         }
     };
 
@@ -177,23 +161,7 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
             ]
         },
         events: {
-            draw: function(ctx) {
-                if (//chart.supportsForeignObject === false &&
-                ctx.type === 'label' &&
-                ctx.axis.units.pos === Chartist.Axis.units.x.pos) {
-                    if (ctx.width < 31) {
-                        var lineheight = 16;
-                        var dX = (ctx.width / 2 ) - (lineheight / 2);
-                        var x = parseFloat(ctx.element.attr('x'));
-                        ctx.element.attr({
-                            x: x + dX,
-                            transform: 'rotate(90, '+ctx.x + ', ' +ctx.y+ ')'
-                        });
-                    } else if (ctx.width < 60) {
-                        ctx.element.attr({transform: 'rotate(45, ' + ctx.x + ', ' + ctx.y + ')'});
-                    }
-                }
-            }
+            draw: chartistUtilsService.rotateOnMinDraw([31, 60])
         }
     };
 

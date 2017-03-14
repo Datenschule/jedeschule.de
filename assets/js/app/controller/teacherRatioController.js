@@ -1,4 +1,4 @@
-app.controller('teacherRatioController', function($scope, states) {
+app.controller('teacherRatioController', function($scope, states, chartistUtilsService) {
 
     $scope.chart_portion = {
         data: {},
@@ -37,7 +37,7 @@ app.controller('teacherRatioController', function($scope, states) {
             height: '500px',
             chartPadding: {
                 top: 20,
-                right: 0,
+                right: 30,
                 bottom: 120,
                 left: 10
             },
@@ -57,6 +57,9 @@ app.controller('teacherRatioController', function($scope, states) {
                         }
                     })
             ]
+        },
+        events: {
+            draw: chartistUtilsService.rotateOnMinDraw([40, 50])
         }
     };
 
