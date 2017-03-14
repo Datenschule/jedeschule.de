@@ -31,10 +31,11 @@ app.controller('foreignLanguagesController', function($scope, states, chartistUt
         },
         responsive: [
             ['screen and (max-width: 768px)', {
+                height: '320px',
                 chartPadding: {
                     top: 20,
                     right: 10,
-                    bottom: 100,
+                    bottom: 80,
                     left: 40
                 }
             }
@@ -89,6 +90,7 @@ app.controller('foreignLanguagesController', function($scope, states, chartistUt
         },
         responsive: [
             ['screen and (max-width: 768px)', {
+                height: '400px',
                 chartPadding: {
                     top: 20,
                     right: 10,
