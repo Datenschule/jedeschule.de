@@ -1,10 +1,9 @@
-# Website for OKF Datenschule
+# Website for JedeSchule
 
-Repository of [https://datenschule.de](datenschule.de) – pull requests are welcome.
+Repository of [https://jedeschule.de](jedeschule.de) – pull requests are welcome.
 
 
 # Local development
 
-- Install bower dependencies with ```bower install```
 - Install ruby dependencies ``` ./setup.sh ```
 - Serve files with jekyll ``` ./serve.sh ```
