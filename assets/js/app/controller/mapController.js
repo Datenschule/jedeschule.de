@@ -508,6 +508,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
                 event.layer.my_popup.closePopup();
             }
         });
+        markersGroupState.on('click', onMarkerClick);
 
         markersGroup = L.markerClusterGroup({
             chunkedLoading: true,
