@@ -1,18 +1,17 @@
-<header id="top">
-	<div class="container-outer">
-		<div class="header-logo">
-			<a class="header-logo-name" href="{{ site.baseurl }}/">
-				<img class="header-logo-img" title="JedeSchule.de" alt="JedeSchule.de" src="/assets/img/logo_jedeschule.png">
-				<span class="header-title">JedeSchule.de</span>
-			</a>
-		</div>
-		<div class="header-nav">
-			<ul class="nav navbar-nav navbar-right">
-				<li{% if page.menu_schulen %} class="active"{% endif %}><a href="{{ site.baseurl }}/schulen">Schulen</a></li>
-				<li{% if page.menu_aktionen %} class="active"{% endif %}><a href="{{ site.baseurl }}/schulaktivitaeten">Schulaktivitäten</a></li>
-				<li{% if page.menu_laender %} class="active"{% endif %}><a href="{{ site.baseurl }}/schulsystem">Schulsystem</a></li>
-				<li{% if page.menu_daten %} class="active"{% endif %}><a href="{{ site.baseurl }}/daten">Daten</a></li>
+<header id="top" class="navigation" role="banner">
+	<div class="navigation-wrapper">
+		<a href="{{ site.baseurl }}/" class="logo">
+			<img class="header-logo-img" title="JedeSchule.de" alt="JedeSchule.de Logo" src="/assets/img/logos/logo_jedeschule.png">
+			<div class="header-title">JedeSchule.de</div>
+		</a>
+		<a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu"><i class="fa fa-bars"></i> MENU</a>
+		<nav role="navigation">
+			<ul id="js-navigation-menu" class="navigation-menu show">
+				<li class="nav-link{% if page.menu_schulen %} active{% endif %}"><a href="{{ site.baseurl }}/schulen">Schulen</a></li>
+				<li class="nav-link{% if page.menu_aktionen %} active{% endif %}"><a href="{{ site.baseurl }}/schulaktivitaeten">Schulaktivitäten</a></li>
+				<li class="nav-link{% if page.menu_laender %} active{% endif %}"><a href="{{ site.baseurl }}/schulsystem">Schulsystem</a></li>
+				<li class="nav-link{% if page.menu_daten %} active{% endif %}"><a href="{{ site.baseurl }}/daten">Daten</a></li>
 			</ul>
-		</div>
+		</nav>
 	</div>
 </header>

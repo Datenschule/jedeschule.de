@@ -350,8 +350,34 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         load();
     }
 
+    function loadHessen() {
+        $http.get("/assets/data/hessen.geojson").then(function(result) {
+            function onEachFeature(feature, layer) {
+                layer.bindPopup("Daten aus Hessen sind leider nicht dargestellt, da wir sie nicht verwenden durften.", {autoPan: false});
+                layer.on('mouseover', function(e) {
+                    this.openPopup();
+                });
+                layer.on('mouseout', function(e) {
+                    this.closePopup();
+                });
+            }
+
+            var myStyle = {
+                "color": "#CFCFCF",
+                "weight": 2,
+                "opacity": 0.3
+            };
+            L.geoJSON(result.data.features, {
+                style: myStyle,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+        });
+    }
+
     function load() {
         schools.overview(function(err, _schools) {
+
+            loadHessen();
 
             allSchools = _schools.filter(function(school) {
                 return school.lat && school.lon;
@@ -508,28 +534,6 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         });
         markersGroup.on('click', onMarkerClick);
 
-        $http.get("/assets/data/bundeslaender.geojson").then(function(result) {
-            function onEachFeature(feature, layer) {
-                layer.bindPopup("Daten aus Hessen sind leider nicht dargestellt, da wir sie nicht verwenden durften.", {autoPan: false});
-                layer.on('mouseover', function(e) {
-                    this.openPopup();
-                });
-                layer.on('mouseout', function(e) {
-                    this.closePopup();
-                });
-            }
-
-            var myStyle = {
-                "color": "#CFCFCF",
-                "weight": 2,
-                "opacity": 0.3
-            };
-            L.geoJSON(result.data.features, {
-                style: myStyle,
-                onEachFeature: onEachFeature
-            }).addTo(map);
-        });
-
         isLimitedToState = zoom <= 7;
         var layer = isLimitedToState ? markersGroupState : markersGroup;
         map.addLayer(layer);
@@ -554,14 +558,14 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
 
     function onMarkerClick(marker) {
         infoBox.markerSchool = marker.layer.school;
-        infoBox.school = schools.getSchool(infoBox.markerSchool.id, function(err, school) {
+        infoBox.loading = true;
+        infoBox.visible = true;
+        schools.getSchool(infoBox.markerSchool.id, function(err, school) {
             if (infoBox.markerSchool == marker.layer.school) {
                 infoBox.school = school;
                 infoBox.loading = false;
             }
         });
-        infoBox.loading = (!infoBox.school);
-        infoBox.visible = true;
         $scope.$apply();
     }
 
@@ -586,7 +590,6 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
             }
         }
     }
-
 
     function removeHash() {
         var scrollV, scrollH, loc = window.location;

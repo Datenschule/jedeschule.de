@@ -4,7 +4,7 @@ app.factory('activitiesService', function($http) {
         get: function(cb) {
             if (!ags) {
                 $http({
-                    url: '/assets/js/app/data/activities.json',
+                    url: '/assets/data/activities.json',
                     method: "GET"
                 })
                 .then(function(response) {

@@ -3,10 +3,7 @@
 
 // include reset
 @import 'reset';
-// include Bourbon & Neat
-@import 'lib/bourbon/bourbon';
-@import 'lib/neat/neat';
-@import 'lib/neat-grid/neat';
-@import 'lib/font-awesome/font-awesome';
+// include thirdparty
+@import 'lib/all';
 // include site specific base styles
 @import 'base';

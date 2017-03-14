@@ -6,7 +6,11 @@ title: Schulprofil
 description: Schulprofil auf JedeSchule.de
 ---
 {% raw %}
-<main ng-app="App" ng-app="App" ng-controller="schoolProfileController">
+<main ng-app="App" ng-controller="schoolProfileController">
+    <div class="container-padded" ng-show="false">
+        App wird geladen…
+    </div>
+    <div ng-cloak>
     <section class="container-outer container-bgi-yellow profile">
         <div class="container-padded">
             <div class="container">
@@ -69,7 +73,7 @@ description: Schulprofil auf JedeSchule.de
                 <div class="container-left-12">
                     <h2 class="text-center">Schüler*innen</h2>
                     <div ng-if="!(school.students | isEmpty)">
-                        <p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule.</p>
+                        <p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Schüler*innenzahlen dieser Schule</p>
                         <chartist class="ct-chart" chartist-data="students_data" chartist-chart-type="Line"
                                   chartist-chart-options="options_students"></chartist>
                     </div>
@@ -84,7 +88,7 @@ description: Schulprofil auf JedeSchule.de
                 <div class="container-left-12">
                     <h2 class="text-center">Lehrer*innen</h2>
                     <div ng-if="school.teacher.length > 0">
-                        <p class="u-centered">Informieren Sie sich über den zeitlichen Anteil der Lehrenden dieser Schule.</p>
+                        <p class="u-centered">Informieren Sie sich über den zeitlichen Verlauf der Anzahl der Lehrenden dieser Schule</p>
                         <chartist class="ct-chart" chartist-data="teacher_data" chartist-chart-type="Line"
                                   chartist-chart-options="teacher_options"></chartist>
                     </div>
@@ -148,5 +152,6 @@ description: Schulprofil auf JedeSchule.de
             </div>
         </div>
     </section>
+    </div>
 </main>
 {% endraw %}

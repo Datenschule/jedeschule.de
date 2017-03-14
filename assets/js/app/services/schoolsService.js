@@ -114,14 +114,14 @@ app.factory('schools', function($http) {
         var data = c.data;
         var items = c.items;
 
-        items = items.split('|').map(function (row) {
+        items = items.split('|').map(function(row) {
             row = row.split(',');
-            return row.map(function (cell) {
+            return row.map(function(cell) {
                 if (cell === '') return 0;
                 if (cell === '-') return [];
                 var parts = cell.split(';');
                 if (parts.length > 1) {
-                    return parts.map(function (p) {
+                    return parts.map(function(p) {
                         if (p === '') return 0;
                         return p;
                     });
@@ -134,33 +134,33 @@ app.factory('schools', function($http) {
         data.text = data.text.split(',');
         data.plz = data.plz.split(',');
 
-        var unpackId = function (v, state) {
+        var unpackId = function(v, state) {
             return state + '-' + v.toString();
         };
 
-        var indexGet = function (array, v) {
+        var indexGet = function(array, v) {
             return array[parseInt(v, 10)];
         };
 
-        var unpackTristateBoolean = function (v) {
+        var unpackTristateBoolean = function(v) {
             if (v == 2) return null;
             return v == 1;
         };
 
-        var unpackText = function (v) {
+        var unpackText = function(v) {
             if (typeof v !== 'object') {
                 v = [v];
             }
-            return v.map(function (i) {
+            return v.map(function(i) {
                 return data.text[i];
             }).join(' ');
         };
 
-        var unpackPLZ = function (v) {
+        var unpackPLZ = function(v) {
             return indexGet(data.plz, v);
         };
 
-        var result = items.map(function (row, i) {
+        var result = items.map(function(row, i) {
             var school = {programs: {}};
             school.state = indexGet(data.state, row[0]);
             school.id = unpackId(row[1], school.state);
@@ -175,6 +175,24 @@ app.factory('schools', function($http) {
         return result;
     }
 
+    var getAbsSchool = function(school_id, cb) {
+        if (!schools[school_id]) {
+            $http({
+                url: 'http://dev.jedeschule.de/assets/data/schools/' + school_id + '.json',
+                method: 'GET'
+            })
+            .then(function(response) {
+                schools[school_id] = response.data;
+                cb(null, response.data);
+            }, function(err) {
+                cb(err);
+            });
+        }
+        else {
+            cb(null, schools[school_id]);
+        }
+    };
+
     return {
         overview: function(cb) {
             if (!loaded_overview) {
@@ -185,9 +203,11 @@ app.factory('schools', function($http) {
                 .then(function(response) {
                     loaded_overview = expandOverview(response.data);
                     cb(null, loaded_overview)
-                })
+                }, function(err) {
+                    cb(err);
+                });
             } else {
-                return loaded_overview;
+                cb(null, loaded_overview);
             }
         },
         profileSchools: function(cb) {
@@ -199,25 +219,33 @@ app.factory('schools', function($http) {
                 .then(function(response) {
                     loaded_profile_overview = expandProfileOverview(response.data);
                     cb(null, loaded_profile_overview)
+                }, function(err) {
+                    cb(err);
                 })
             } else {
-                return loaded_profile_overview;
+                cb(null, loaded_profile_overview);
             }
         },
         getSchool: function(school_id, cb) {
             if (!schools[school_id]) {
                 $http({
-                    url: 'https://lab.okfn.de/jedeschule/schools/' + school_id + '.json',
+                    url: '/assets/data/schools/' + school_id + '.json',
                     method: 'GET'
                 })
                 .then(function(response) {
+                    if (!response.data) {
+                        return getAbsSchool(school_id, cb)
+                    }
                     schools[school_id] = response.data;
                     cb(null, response.data);
+                }, function(err) {
+                    return getAbsSchool(school_id, cb)
                 });
             }
             else {
-                return schools[school_id];
+                cb(null, schools[school_id]);
             }
-        }
+        },
+        getAbsSchool: getAbsSchool
     }
 });

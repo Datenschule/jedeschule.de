@@ -4,7 +4,7 @@ app.factory('programs', function($http) {
         get: function(cb) {
             if (!programs) {
                 $http({
-                    url: '/assets/js/app/data/programs.json',
+                    url: '/assets/data/programs.json',
                     method: "GET"
                 })
                 .then(function(response) {

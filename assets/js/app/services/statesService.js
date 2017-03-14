@@ -4,7 +4,7 @@ app.factory('states', function($http) {
         get: function(state, cb) {
             if (!states[state]) {
                 $http({
-                    url: '/assets/js/app/data/' + state + '.json',
+                    url: '/assets/data/states/' + state + '.json',
                     method: "GET"
                 })
                 .then(function(response) {

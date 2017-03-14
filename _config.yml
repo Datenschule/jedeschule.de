@@ -1,6 +1,6 @@
 markdown: rdiscount
 highlighter: pygments
-domain: 'https://lab.okfn.de/jedeschule'
+domain: 'https://jedeschule.de'
 staticurl: /assets/
 exclude:
   - "CNAME"
@@ -9,13 +9,12 @@ exclude:
   - "Gemfile*"
   - "Readme.md"
   - "*.sh"
+  - ".sass-cache/"
   - ".idea/"
   - ".git/"
   - "local/"
   - "scripts/"
   - "_site/"
-  - "vendor/"
-  - "assets/vendor/leaflet/docs/"
 gems:
   - jekyll-redirect-from
   - jekyll-sitemap

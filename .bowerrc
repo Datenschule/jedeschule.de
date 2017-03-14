@@ -1,6 +1,0 @@
-{
-  "directory": "assets/vendor",
-  "resolvers": [
-    "bower-npm-resolver"
-  ]
-}
