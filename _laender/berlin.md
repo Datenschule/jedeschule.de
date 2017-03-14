@@ -9,7 +9,7 @@ partnertext: >
         411 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Partnerschaften an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt gehen diese Schulen knapp 3.000 Partnerschaften mit externen Organisationen ein, darunter mit gemeinnützigen sowie privatwirtschaftlichen Akteur*innen und Akteur*innen aus dem öffentlichen Sektor, Partnerschulen, Verbänden und religiösen Einrichtungen. Durchschnittlich kommen sieben Partnerschaften in knapp drei Themengebieten auf eine Schule.</p>
     <h5>Die meisten Partnerschaften liegen im gemeinnützigen Bereich.</h5>
     <p>
-        1.097 und damit die meisten Projektpartner aller allgemeinbildenden Schulen kommen aus dem gemeinnützigen Bereich (37%), gefolgt von 887 Partnerorganisationen aus dem öffentlichen (30%) und 551 aus dem wirtschaftlichen Bereich (19%). Weitere 246 (8%) Partnerschaften finden mit anderen Schulen statt, 42 (1%) mit religiösen Einrichtungen und 34 (1%) mit Verbänden, Kammern und Genossenschaften. 119 Partnerschaften (4%) konnten nicht eindeutig zugeordnet werden und fallen unter die Kategorie Unbestimmt.
+        1.119 und damit die meisten Projektpartner aller allgemeinbildenden Schulen kommen aus dem gemeinnützigen Bereich (38%), gefolgt von 888 Partnerorganisationen aus dem öffentlichen (30%) und 534 aus dem wirtschaftlichen Bereich (18%). Weitere 246 (8%) Partnerschaften finden mit anderen Schulen statt, 42 (1%) mit religiösen Einrichtungen und 34 (1%) mit Verbänden, Kammern und Genossenschaften. 119 Partnerschaften (4%) konnten nicht eindeutig zugeordnet werden und fallen unter die Kategorie Unbestimmt.
     </p>
     <h5>Kooperationen mit gemeinnützigen Akteur*innen finden besonders an Grundschulen und Sekundarschulen statt.</h5>
     <p>
