@@ -9,6 +9,11 @@ description: Schulprofil auf JedeSchule.de
 <main ng-app="App" ng-controller="schoolProfileController">
 	<div class="container-padded" ng-show="false">
 		App wird geladen…
+		<noscript>
+			<div class="flashes-error">
+				<span>Bitte aktivieren Sie Javascript um das Schulprofil anzuzeigen.</span>
+			</div>
+		</noscript>
 	</div>
 	<div ng-cloak>
 		<section class="container-outer container-bgi-yellow profile">

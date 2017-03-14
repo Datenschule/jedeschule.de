@@ -23,8 +23,19 @@ description: Schulprofile auf JedeSchule.de
 		</div>
 	</section>
 	<section class="container-outer">
-		<div class="container-padded">
+		<div class="container-padded" ng-show="false">
 			<div class="container">
+				App wird geladen…
+				<noscript>
+					<div class="flashes-error">
+						<span>Bitte aktivieren Sie Javascript um die Schulprofile anzuzeigen.</span>
+					</div>
+				</noscript>
+			</div>
+		</div>
+		<div class="container-padded" ng-cloak>
+			<div class="container">
+
 				<table st-table="displayedCollection" st-filtered-collection st-safe-src="schools" class="table table-condensed table-bordered">
 					<thead>
 					<tr>
