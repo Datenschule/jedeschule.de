@@ -1,6 +1,6 @@
 <head>
-	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
 	<title>{% if page.menu_home %}{% else %}{{page.title}} - {% endif %}JedeSchule.de</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="{{page.description}}">
@@ -37,9 +37,12 @@
 	<meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<link rel="stylesheet" href="/assets/style/main.css">
-	<!--[if lt IE 9]>
-	<script src="/assets/js/lib/html5shiv.min.js"></script>
-	<script src="/assets/js/lib/respond.min.js"></script>
+	<!--[if lte IE 9]>
+	<script src="/assets/js/lib/ie/html5shiv.min.js"></script>
+	<script src="/assets/js/lib/ie/respond.min.js"></script>
+	<script src="/assets/js/lib/ie/matchMedia.addListener.js"></script>
+	<script src="/assets/js/lib/ie/angular-shims-placeholder.min.js"></script>
 	<![endif]-->
+
+	<link rel="stylesheet" href="/assets/style/main.css">
 </head>
