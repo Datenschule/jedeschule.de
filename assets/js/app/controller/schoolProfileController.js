@@ -179,6 +179,8 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
         var p = _.groupBy(school.partner, function(o) {
             return o.type.grob;
         });
+        $scope.partnerships = p;
+
         var number_of_partners = school.partner.length;
         $scope.partner_stat = Object.keys(p).map(function(partner) {
             return {name: partner, value: p[partner].length * 100 / number_of_partners};
