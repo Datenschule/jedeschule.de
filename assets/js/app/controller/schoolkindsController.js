@@ -28,11 +28,11 @@ app.controller('schoolkindsController', function ($scope,  $location, states) {
                                                           {name: "2015", "data":  secondYear}]};
 
             $scope.teacher_options = {
-                seriesBarDistance: 30,
+                seriesBarDistance: 20,
                 height: '200px',
                 chartPadding: {
                     top: 0,
-                    right: 0,
+                    right: 8,
                     bottom: 16,
                     left: 0
                 },
