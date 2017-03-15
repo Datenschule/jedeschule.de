@@ -353,7 +353,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
     function loadHessen() {
         $http.get("/assets/data/hessen.geojson").then(function(result) {
             function onEachFeature(feature, layer) {
-                layer.bindPopup("Daten aus Hessen sind leider nicht dargestellt, da wir sie nicht verwenden durften.", {autoPan: false});
+                layer.bindPopup("Daten aus Hessen sind leider nicht dargestellt, da wir keine Nutzungserlaubnis vom Statistischen Landesamt Hessen erhalten haben.", {autoPan: false});
                 layer.on('mouseover', function(e) {
                     this.openPopup();
                 });
