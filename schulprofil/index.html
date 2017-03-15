@@ -110,7 +110,7 @@ description: Schulprofil auf JedeSchule.de
 						<div class="container partner" ng-if="partner_stat.length > 0">
 							<div class="container-left-12">
 								<div class="progress">
-									<div class="progress-bar-wrapper" ng-repeat="partner in partner_stat">
+									<div class="progress-bar-wrapper" ng-repeat="partner in partner_stat | orderBy: '-value'">
 										<div class="progress-bar"
 											 style="width: {{partner.value}}%; background-color: {{partnerRessources[partner.name].color}}">
 											<p>{{ partner.value | number : 0 }}%</p>
@@ -119,13 +119,13 @@ description: Schulprofil auf JedeSchule.de
 								</div>
 							</div>
 							<div class="container-left-12 profile-partners">
-								<div ng-repeat="(partner_cat, partners) in partnerships track by $index" class="profile-partners-box">
-									<div class="box" ng-attr-style="border-color:{{partnerRessources[partner_cat].color}}">
+								<div ng-repeat="partner_cat in partner_stat | orderBy:'-value'" class="profile-partners-box">
+									<div class="box" ng-attr-style="border-color:{{partnerRessources[partner_cat.name].color}}">
 										<p class="bold text-center">
-											<i class="fa fa-square" style="color: {{partnerRessources[partner_cat].color}}"></i>{{partner_cat}}
+											<i class="fa fa-square" style="color: {{partnerRessources[partner_cat.name].color}}"></i>{{partner_cat.name}}
 										</p>
 										<ul>
-											<li ng-repeat="partner in partners track by $index">{{partner.name}}</li>
+											<li ng-repeat="partner in partnerships[partner_cat.name] track by $index">{{partner.name}}</li>
 										</ul>
 									</div>
 								</div>
