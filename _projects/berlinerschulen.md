@@ -1,6 +1,6 @@
 ---
 name: Berliner Schulen
-author: Studierende der TU Berlin, Projektverbund Initiative 2.0
+author: Studierenden der TU Berlin
 link: http://berlinerschulen.ini20.de/#/
 image: /assets/img/projekte/berliner-schulen.jpg
 ---
