@@ -19,7 +19,7 @@ partnertext: >
     sehen Sie, mit welchen Partnern die jeweilige Schule kooperiert.</p>
 agtext: >
     <h5>Die meisten Schulen bieten durchschnittlich zehn Aktivitäten und Projekte zu mindestens fünf verschiedenen Themen an. </h5>
-    <p>1.206 der knapp 1.500 allgemeinbildenden Schulen in Sachsen kommunizieren ihre Projekte und Aktivitäten an das Statistische Landesamt Sachsen.Insgesamt bieten sie rund 11.600 Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
+    <p>1.207 der knapp 1.500 allgemeinbildenden Schulen in Sachsen kommunizieren ihre Projekte und Aktivitäten an das Statistische Landesamt Sachsen.Insgesamt bieten sie rund 11.600 Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
     <h5>Sportliche Aktivitäten am meisten neben dem Unterricht gefördert.</h5>
     <p>In Sachsen liegen die meisten Angebote im sportlichen Bereich mit 87%, dicht gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden. Knapp 800 der 1206 Schulen (66%) bieten Aktivitäten mit künstlerischem bzw. kulturellen Bezug an. Nach unserer Datengrundlage machen Aktivitäten im Umweltbereich den geringsten Anteil (27%) aus.</p>
     <p>Auf den <a href="{{ site.baseurl }}/schulprofile">Schulprofilen</a>

@@ -21,17 +21,9 @@ partnertext: >
     </p>
 agtext: >
     <h5>Die meisten Schulen bieten durchschnittlich acht Aktivitäten und Projekte zu mindestens vier verschiedenen Themen an.</h5>
-    <p>413 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Projekte und Aktivitäten an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt bieten sie über 3.300 Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
+    <p>492 der knapp 800 allgemeinbildenden Schulen in Berlin kommunizieren ihre Projekte und Aktivitäten an die Senatsverwaltung für Bildung, Jugend und Familie. Insgesamt bieten sie über 3.300 Aktivitäten zu den Themen Umwelt, Sport, Musik und Tanz, Gesellschaft und Partizipation, Literatur und Medien, Handwerk, Kunst und Kultur, Naturwissenschaft und Technik, Berufsorientierung und Sprachen an.</p>
     <h5>Sportliche Aktivitäten am meisten neben dem Unterricht gefördert.</h5>
-    <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 86%,  gefolgt von den musikalischen, die an rund 76% der Schulen angeboten werden. Etwas mehr als die Hälfte (52 %) der Schulen bieten Aktivitäten mit künstlerischem bzw. kulturellen Bezug an. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (5%) ihren Schüler*innen berufsorientierte Angebote an.</p>
+    <p>In Berlin liegen die meisten Angebote im sportlichen Bereich mit 86%,  gefolgt von den musikalischen, die an rund 75% der Schulen angeboten werden. Etwas mehr als die Hälfte (51 %) der Schulen bieten Aktivitäten mit künstlerischem bzw. kulturellen Bezug an. Nach unserer Datengrundlage bietet nur ein geringer Anteil der Schulen (4%) ihren Schüler*innen berufsorientierte Angebote an.</p>
     <p>Auf den einzelnen <a href="{{ site.baseurl }}/schulprofile">Schulprofilen</a> sehen Sie, welche Aktivitäten und Projekte die Schulen für ihre Schüler*innen bereithalten.</p>
 law: "http://gesetze.berlin.de/jportal/?quelle=jlink&query=SchulG+BE&psml=bsbeprod.psml&max=true&aiz=true"
 ---
-Introtext zum Schulsystem in Bayern
-
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
-gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
-elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
-sit amet.
