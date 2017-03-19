@@ -413,6 +413,8 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
 
             var mapIcon = L.icon({
                 iconUrl: '/assets/img/map_pin.png',
+                popupAnchor: [0, -55],
+                iconAnchor: [20, 53],
                 iconSize: [40, 53] // size of the icon
             });
             // var popup = L.popup();
