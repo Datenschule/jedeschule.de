@@ -486,7 +486,7 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
         map.on('zoomend', persistState);
 
         tilesLayer = L.tileLayer('https://api.mapbox.com/styles/v1/okfde/ciwxo7szj00052pnx7xgwdl1d/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib2tmZGUiLCJhIjoiY2lpOHhvMnNhMDAyNnZla280ZWhmMm96NyJ9.IvGz74dvvukg19B4Npsm1g', {
-            attribution: '&copy; <a href="https://www.mapbox.com">Map Box</a> contributors',
+            attribution: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
             minZoom: 6
         }).addTo(map);
 
