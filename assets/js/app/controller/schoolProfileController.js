@@ -224,6 +224,8 @@ app.controller('schoolProfileController', function($scope, $window, $location, $
     }).addTo($scope.map);
     var mapIcon = L.icon({
         iconUrl: '/assets/img/map_pin.png',
+        iconAnchor: [20, 53],
+        popupAnchor: [0, -55],
         iconSize: [40, 53] // size of the icon
     });
 
