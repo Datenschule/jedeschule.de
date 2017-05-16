@@ -1,1 +1,268 @@
-{"nodes":[{"name":"Grundschule","count":2153},{"name":"Sekundarschule","count":2222},{"name":"Öffentliche Infrastruktur","count":2693},{"name":"Förderschulen","count":872},{"name":"Gymnasium","count":1042},{"name":"Berufliche Schule","count":868},{"name":"Gemeinnütziger Akteur","count":2328},{"name":"Religiöse Einrichtung","count":132},{"name":"Unbestimmt","count":357},{"name":"Verband / Kammer / Innung / Gewerkschaft","count":343},{"name":"Wirtschaftsakteur","count":880},{"name":"Partnerschule","count":439},{"name":"Sonstige","count":15}],"links":[{"value":753,"source":2,"target":1},{"value":968,"source":2,"target":0},{"value":258,"source":2,"target":3},{"value":455,"source":2,"target":4},{"value":255,"source":2,"target":5},{"value":813,"source":6,"target":0},{"value":41,"source":7,"target":3},{"value":793,"source":6,"target":1},{"value":130,"source":8,"target":1},{"value":191,"source":9,"target":5},{"value":60,"source":9,"target":4},{"value":16,"source":7,"target":4},{"value":41,"source":7,"target":1},{"value":127,"source":10,"target":3},{"value":160,"source":11,"target":0},{"value":47,"source":11,"target":4},{"value":124,"source":11,"target":5},{"value":55,"source":11,"target":1},{"value":296,"source":6,"target":3},{"value":262,"source":6,"target":4},{"value":74,"source":8,"target":3},{"value":69,"source":8,"target":0},{"value":19,"source":9,"target":0},{"value":158,"source":6,"target":5},{"value":404,"source":10,"target":1},{"value":156,"source":10,"target":4},{"value":96,"source":10,"target":0},{"value":96,"source":10,"target":5},{"value":4,"source":2,"target":12},{"value":26,"source":9,"target":3},{"value":28,"source":7,"target":0},{"value":46,"source":9,"target":1},{"value":50,"source":11,"target":3},{"value":3,"source":11,"target":12},{"value":6,"source":6,"target":12},{"value":46,"source":8,"target":4},{"value":38,"source":8,"target":5},{"value":6,"source":7,"target":5},{"value":1,"source":9,"target":12},{"value":1,"source":10,"target":12}]}
+{
+  "nodes": [
+    {
+      "name": "Förderschulen",
+      "count": 1258
+    },
+    {
+      "name": "Sekundarschule",
+      "count": 2132
+    },
+    {
+      "name": "Berufliche Schule",
+      "count": 3690
+    },
+    {
+      "name": "Gymnasium",
+      "count": 1795
+    },
+    {
+      "name": "Sonstige",
+      "count": 42
+    },
+    {
+      "name": "Grundschule",
+      "count": 1783
+    },
+    {
+      "name": "Gemeinnütziger Akteur",
+      "count": 2953
+    },
+    {
+      "name": "Unbestimmt",
+      "count": 535
+    },
+    {
+      "name": "Wirtschaftsakteur",
+      "count": 1191
+    },
+    {
+      "name": "Öffentliche Infrastruktur",
+      "count": 3691
+    },
+    {
+      "name": "Verband / Kammer / Innung / Gewerkschaft",
+      "count": 1195
+    },
+    {
+      "name": "Partnerschule",
+      "count": 993
+    },
+    {
+      "name": "Religiöse Einrichtung",
+      "count": 142
+    }
+  ],
+  "links": [
+    {
+      "source": 6,
+      "target": 0,
+      "value": 422
+    },
+    {
+      "source": 6,
+      "target": 1,
+      "value": 755
+    },
+    {
+      "source": 6,
+      "target": 2,
+      "value": 704
+    },
+    {
+      "source": 6,
+      "target": 3,
+      "value": 403
+    },
+    {
+      "source": 6,
+      "target": 4,
+      "value": 17
+    },
+    {
+      "source": 6,
+      "target": 5,
+      "value": 652
+    },
+    {
+      "source": 7,
+      "target": 0,
+      "value": 105
+    },
+    {
+      "source": 7,
+      "target": 1,
+      "value": 125
+    },
+    {
+      "source": 7,
+      "target": 2,
+      "value": 163
+    },
+    {
+      "source": 7,
+      "target": 3,
+      "value": 84
+    },
+    {
+      "source": 7,
+      "target": 4,
+      "value": 0
+    },
+    {
+      "source": 7,
+      "target": 5,
+      "value": 58
+    },
+    {
+      "source": 8,
+      "target": 0,
+      "value": 174
+    },
+    {
+      "source": 8,
+      "target": 1,
+      "value": 367
+    },
+    {
+      "source": 8,
+      "target": 2,
+      "value": 346
+    },
+    {
+      "source": 8,
+      "target": 3,
+      "value": 216
+    },
+    {
+      "source": 8,
+      "target": 4,
+      "value": 3
+    },
+    {
+      "source": 8,
+      "target": 5,
+      "value": 85
+    },
+    {
+      "source": 9,
+      "target": 0,
+      "value": 371
+    },
+    {
+      "source": 9,
+      "target": 1,
+      "value": 769
+    },
+    {
+      "source": 9,
+      "target": 2,
+      "value": 1050
+    },
+    {
+      "source": 9,
+      "target": 3,
+      "value": 680
+    },
+    {
+      "source": 9,
+      "target": 4,
+      "value": 10
+    },
+    {
+      "source": 9,
+      "target": 5,
+      "value": 811
+    },
+    {
+      "source": 10,
+      "target": 0,
+      "value": 69
+    },
+    {
+      "source": 10,
+      "target": 1,
+      "value": 38
+    },
+    {
+      "source": 10,
+      "target": 2,
+      "value": 842
+    },
+    {
+      "source": 10,
+      "target": 3,
+      "value": 228
+    },
+    {
+      "source": 10,
+      "target": 4,
+      "value": 3
+    },
+    {
+      "source": 10,
+      "target": 5,
+      "value": 15
+    },
+    {
+      "source": 11,
+      "target": 0,
+      "value": 70
+    },
+    {
+      "source": 11,
+      "target": 1,
+      "value": 53
+    },
+    {
+      "source": 11,
+      "target": 2,
+      "value": 561
+    },
+    {
+      "source": 11,
+      "target": 3,
+      "value": 162
+    },
+    {
+      "source": 11,
+      "target": 4,
+      "value": 9
+    },
+    {
+      "source": 11,
+      "target": 5,
+      "value": 138
+    },
+    {
+      "source": 12,
+      "target": 0,
+      "value": 47
+    },
+    {
+      "source": 12,
+      "target": 1,
+      "value": 25
+    },
+    {
+      "source": 12,
+      "target": 2,
+      "value": 24
+    },
+    {
+      "source": 12,
+      "target": 3,
+      "value": 22
+    },
+    {
+      "source": 12,
+      "target": 4,
+      "value": 0
+    },
+    {
+      "source": 12,
+      "target": 5,
+      "value": 24
+    }
+  ]
+}
