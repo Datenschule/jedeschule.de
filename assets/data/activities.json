@@ -54,7 +54,7 @@
         }
       ],
       "amount": 492
-    },
+    }
   },
   "sachsen": {
     "ag": {
@@ -111,31 +111,6 @@
         }
       ],
       "amount": 1207
-    },
-    "partner": {
-      "entries": [
-        {
-          "name": "leer",
-          "amount": 6631
-        },
-        {
-          "name": "öffentlicher Sektor",
-          "amount": 511
-        },
-        {
-          "name": "Wirtschaftsakteur",
-          "amount": 33
-        },
-        {
-          "name": "Partnerschule",
-          "amount": 2
-        },
-        {
-          "name": "Zivilgesellschaftlicher Akteur",
-          "amount": 109
-        }
-      ],
-      "amount": 962
     }
   }
 }
