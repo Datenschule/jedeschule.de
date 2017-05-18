@@ -11,9 +11,9 @@ partnertext: >
     <p>
         1.118 und damit die meisten Projektpartner aller allgemeinbildenden Schulen kommen aus dem gemeinnützigen Bereich (38%), gefolgt von 885 Partnerorganisationen aus dem öffentlichen (30%) und 533 aus dem wirtschaftlichen Bereich (18%). Weitere 246 (8%) Partnerschaften finden mit anderen Schulen statt, 42 (1%) mit religiösen Einrichtungen und 34 (1%) mit Verbänden, Kammern und Genossenschaften. 119 Partnerschaften (4%) konnten nicht eindeutig zugeordnet werden und fallen unter die Kategorie Unbestimmt.
     </p>
-    <h5>Kooperationen mit gemeinnützigen Akteur*innen finden besonders an Grundschulen und Sekundarschulen statt.</h5>
+    <h5>Kooperationen mit gemeinnützigen Akteur*innen finden besonders an Sekundarschulen und Grundschulen statt.</h5>
     <p>
-        In Berlin dominieren Kooperationen mit gemeinnützige Akteur*innen besonders an Grundschulen. So kommen auf eine Grundschule durchschnittlich drei Partnerschaften mit einer gemeinnützigen Organisation. Auf Sekundarschulen rund 3,8 Partnerschaften. Öffentlichen Akteur*innen sind besonders für Grundschulen mit durchschnittlich 2,5 Partnerschaften und Gymnasien mit durchschnittlich 2,3 Partnerschaften bedeutsam. Mit durchschnittlich zwei Partnerschaften pro Schule sind Akteur*innen aus dem Wirtschaftsbereich besonders an Sekundarschulen vertreten, gefolgt von durchschnittlich 1,5 Partnerschaften an Beruflichen Schulen.
+        In Berlin dominieren Kooperationen mit gemeinnützige Akteur*innen besonders an Sekundarschulen. So kommen auf eine Sekundarschulen durchschnittlich 3,8  Partnerschaften mit einer gemeinnützigen Organisation. Auf Grundschulen rund drei Partnerschaften. Öffentlichen Akteur*innen sind besonders für Grundschulen mit durchschnittlich 2,5 Partnerschaften und Gymnasien mit durchschnittlich 2,3 Partnerschaften bedeutsam. Mit durchschnittlich zwei Partnerschaften pro Schule sind Akteur*innen aus dem Wirtschaftsbereich besonders an Sekundarschulen vertreten, gefolgt von durchschnittlich 1,5 Partnerschaften an Beruflichen Schulen.
     </p>
     <p>
         Auf den <a href="{{ site.baseurl }}/schulprofile">Schulprofilen</a>
