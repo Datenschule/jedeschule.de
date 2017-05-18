@@ -5,93 +5,56 @@
         {
           "name": "Umwelt",
           "examples": "Walderkundung, Klimaretter, Tierpflege",
-          "amount": 77
+          "amount": 91
         },
         {
           "name": "Sport",
           "examples": "Turnen, Ballsport, Schwimmen",
-          "amount": 355
+          "amount": 423
         },
         {
           "name": "Musik / Tanz",
           "examples": "Chor, Instrumentalunterricht, Improvisationen",
-          "amount": 312
+          "amount": 368
         },
         {
           "name": "Gesellschaft / Partizipation",
           "examples": "Debattierclub, Schülerparlament, Konfliktlotsen",
-          "amount": 105
+          "amount": 113
         },
         {
           "name": "Literatur / Medien",
           "examples": "Schreibwerkstatt, Mediengestaltung, Lyrik-Kreise",
-          "amount": 158
+          "amount": 179
         },
         {
           "name": "Handwerk",
           "examples": "Kochkurse, Töpfern, Holzarbeiten",
-          "amount": 161
+          "amount": 192
         },
         {
           "name": "Kultur / Kunst",
           "examples": "Theater, Comics, künstlerisches Gestalten",
-          "amount": 216
+          "amount": 250
         },
         {
           "name": "Naturwissenschaft / Technik",
           "examples": "wissenschaftliches Arbeiten, Robotik, Programmierung",
-          "amount": 184
+          "amount": 215
         },
         {
           "name": "Berufsorientierung",
           "examples": "Nachhilfe, Bewerbungstraining, Praktikumsvorbereitung",
-          "amount": 19
+          "amount": 20
         },
         {
           "name": "Sprachen",
           "examples": "Chinesisch, Norwegisch, Griechisch",
-          "amount": 105
+          "amount": 126
         }
       ],
-      "amount": 413
+      "amount": 492
     },
-    "partner": {
-      "entries": [
-        {
-          "name": "Gemeinnütziger Akteur",
-          "amount": 1070
-        },
-        {
-          "name": "Öffentliche Infrastruktur",
-          "amount": 819
-        },
-        {
-          "name": "Wirtschaftsakteur",
-          "amount": 538
-        },
-        {
-          "name": "Partnerschule",
-          "amount": 258
-        },
-        {
-          "name": "Unklar",
-          "amount": 143
-        },
-        {
-          "name": "Modell/Förderprogramm/Projekt",
-          "amount": 117
-        },
-        {
-          "name": "kirchliche Einrichtung",
-          "amount": 43
-        },
-        {
-          "name": "Verband / Kammer / Innung / Gewerkschaft",
-          "amount": 24
-        }
-      ],
-      "amount": 411
-    }
   },
   "sachsen": {
     "ag": {
@@ -104,7 +67,7 @@
         {
           "name": "Sport",
           "examples": "Schwimmen, Tischtennis, Fußball",
-          "amount": 1047
+          "amount": 1048
         },
         {
           "name": "Musik / Tanz",
@@ -147,7 +110,7 @@
           "amount": 421
         }
       ],
-      "amount": 1206
+      "amount": 1207
     },
     "partner": {
       "entries": [
