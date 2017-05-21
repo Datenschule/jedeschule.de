@@ -112,6 +112,7 @@ description: Suchen und Filtern Sie nach Schulen und Schulprojekten
 						<h4 ng-bind="infoBox.school.name"></h4>
 						<p class="italic" ng-bind="infoBox.school.address"></p>
 						<ul class="list-unstyled">
+							<li ng-if="infoBox.school.official_id"><strong>offizielle Schulnummer:</strong> {{infoBox.school.official_id}}</li>
 							<li ng-if="infoBox.school.provider"><strong>Träger:</strong> {{infoBox.school.provider}}</li>
 							<li><strong>Rechtstatus:</strong> {{getLegalStatus(infoBox.school.legal_status)}}</li>
 							<li ng-if="infoBox.school.school_type"><strong>Schultyp:</strong> {{infoBox.school.school_type}}</li>
