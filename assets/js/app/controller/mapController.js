@@ -377,7 +377,8 @@ app.controller('MapController', function($scope, $location, schools, $timeout, $
     function load() {
         schools.overview(function(err, _schools) {
 
-            loadHessen();
+            // deprecated: schools in hesen are displayed now
+            // loadHessen();
 
             allSchools = _schools.filter(function(school) {
                 return school.lat && school.lon;
