@@ -1,6 +1,6 @@
 # Website for JedeSchule
 
-Repository of [https://jedeschule.de](jedeschule.de) – pull requests are welcome.
+Repository of [https://jedeschule.de](https://jedeschule.de) – pull requests are welcome.
 
 
 # Local development
